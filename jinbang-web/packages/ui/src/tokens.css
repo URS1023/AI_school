@@ -1,0 +1,49 @@
+/* 设计令牌：品牌色 + Element Plus 主题变量。没有设计稿前先用这套，后续只改这里。 */
+:root {
+  --jb-brand: #1f5fbf;
+  --jb-brand-light: #e8f0fb;
+  --jb-accent: #f5a524;
+  --jb-text: #1f2329;
+  --jb-text-secondary: #646a73;
+  --jb-border: #e5e6eb;
+  --jb-bg: #f5f6f8;
+  --jb-surface: #ffffff;
+  --jb-header-h: 56px;
+  --jb-font-scale: 1;
+
+  --el-color-primary: var(--jb-brand);
+  --el-color-primary-light-9: var(--jb-brand-light);
+  --el-font-size-base: calc(14px * var(--jb-font-scale));
+}
+
+/* 教室投屏「大字号模式」（PRD 13 无障碍）：html 加 class="jb-large" */
+html.jb-large {
+  --jb-font-scale: 1.25;
+  font-size: 125%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --jb-text: #e6e8eb;
+    --jb-text-secondary: #a3a8b0;
+    --jb-border: #33363b;
+    --jb-bg: #17181a;
+    --jb-surface: #202124;
+    --jb-brand-light: #1c2a40;
+  }
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--jb-bg);
+  color: var(--jb-text);
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  font-size: var(--el-font-size-base);
+  min-width: 1280px;
+}

@@ -46,6 +46,8 @@ public class DemoDataInitializer implements ApplicationRunner {
     private final TeacherService teacherService;
     private final StudentService studentService;
     private final UserService userService;
+    private final com.jinbang.system.service.IdentityService identityService;
+    private final com.jinbang.api.account.AccountApi accountApi;
 
     @Override
     public void run(ApplicationArguments args) {
@@ -82,6 +84,10 @@ public class DemoDataInitializer implements ApplicationRunner {
             }
             return null;
         }));
+        // 游客教师（自注册效果：访客学校、送 500 币），用于体验游客视角和 403 提示
+        SysUser visitor = userService.create("13900000009", null, "游客老师", PASSWORD, false);
+        identityService.ensureVisitorIdentity(visitor.getId(), visitor.getNickname());
+        accountApi.grantCoins(visitor.getId(), 500, "REGISTER", String.valueOf(visitor.getId()), "注册赠送");
         for (String account : List.of("13900000001", "13900000002", "13900000003", "13900000004", "s" + school.getId() + "260101")) {
             SysUser u = userService.findByAccount(account).orElseThrow();
             userService.setPassword(u, PASSWORD);
@@ -89,6 +95,6 @@ public class DemoDataInitializer implements ApplicationRunner {
         log.info("""
                 演示数据已就绪（{}，邀请码 {}），密码均为 {}：
                   学校管理员 13900000001 | 班主任(高一1班, 语文) 13900000002 | 数学任课(1班、2班) 13900000003
-                  年级主任(高一) 13900000004 | 学生 张三 s{}260101""", SCHOOL, school.getInviteCode(), PASSWORD, school.getId());
+                  年级主任(高一) 13900000004 | 游客教师 13900000009 | 学生 张三 s{}260101""", SCHOOL, school.getInviteCode(), PASSWORD, school.getId());
     }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "jinbang-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "世纪金榜 AI 教学平台前端（pnpm monorepo）",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev:teacher": "pnpm --filter @jb/teacher-web dev",
+    "dev:admin": "pnpm --filter @jb/admin-web dev",
+    "build": "pnpm -r --filter ./apps/** build",
+    "typecheck": "pnpm -r typecheck",
+    "gen:api": "pnpm --filter @jb/api gen",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.52.0",
+    "typescript": "5.8.3",
+    "vue-tsc": "2.2.12"
+  }
+}

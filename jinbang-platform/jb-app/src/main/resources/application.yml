@@ -58,6 +58,8 @@ management:
         include: health,info,prometheus
 
 springdoc:
+  default-produces-media-type: application/json   # 前端按此生成带类型的请求函数
+  default-flat-param-object: true                 # 分页等查询对象展开成 pageNum / pageSize，与实际绑定一致
   api-docs:
     path: /v3/api-docs
   swagger-ui:

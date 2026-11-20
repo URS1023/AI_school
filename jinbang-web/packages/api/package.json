@@ -1,0 +1,19 @@
+{
+  "name": "@jb/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "fetch-spec": "node scripts/fetch-spec.mjs",
+    "gen": "node scripts/fetch-spec.mjs && openapi-typescript openapi.json -o src/schema.d.ts",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "openapi-fetch": "0.13.8"
+  },
+  "devDependencies": {
+    "openapi-typescript": "7.13.0"
+  }
+}
