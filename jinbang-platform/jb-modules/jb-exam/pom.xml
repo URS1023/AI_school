@@ -12,5 +12,15 @@
     <description>考试阅卷：答题卡版本、作业与考试状态机、扫描识别入库、异常卷、重复扫描、阅卷、成绩审核发布与更正</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
     </dependencies>
 </project>

@@ -21,7 +21,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     public static final String[] OPEN_PATHS = {
             "/api/auth/captcha", "/api/auth/login", "/api/auth/sms/**", "/api/auth/register",
             "/api/auth/sso/login", "/api/auth/password/forgot", "/api/open/**",
-            "/api/exam/recognition/callback"
+            "/api/exam/recognition/callback", "/api/files/download/**"
     };
 
     /** 使用初始密码登录后仍然允许访问的接口（首次登录强制改密，PRD 2.1 ➕P0）。 */

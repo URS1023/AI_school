@@ -51,13 +51,17 @@ public class ExportLinkService implements ExportLinkApi {
         return "/api/files/download/" + t.getToken();
     }
 
-    /** 下载时再校验一次：未过期、未撤销、身份仍有效、且必须是本人。 */
+    /**
+     * 短时签名链接：链接里的随机令牌本身就是凭证（这样 &lt;img&gt;、&lt;a download&gt; 不带请求头也能用）。
+     * 下载时再校验：未过期、未撤销、生成者的身份仍有效。身份被撤销（离职、解绑）时令牌同时作废（AC-14）。
+     * 如果请求带了登录态，还要求是本人，防止把别人的链接贴进自己的会话里用。
+     */
     public Download download(String token) {
         SysDownloadToken t = tokenMapper.selectOne(Wrappers.<SysDownloadToken>lambdaQuery()
                 .eq(SysDownloadToken::getToken, token));
-        CurrentIdentity ci = LoginHelper.require();
+        CurrentIdentity ci = LoginHelper.current().orElse(null);
         if (t == null || Boolean.TRUE.equals(t.getRevoked()) || t.getExpireAt().isBefore(LocalDateTime.now())
-                || !t.getUserId().equals(ci.userId())) {
+                || (ci != null && !t.getUserId().equals(ci.userId()))) {
             throw new BizException(ErrorCode.FORBIDDEN, "下载链接已失效");
         }
         SysUserIdentity identity = identityMapper.selectById(t.getIdentityId());

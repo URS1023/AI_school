@@ -45,6 +45,7 @@ public class SchoolController {
     private final StudentService studentService;
     private final ParentService parentService;
     private final JoinSchoolService joinService;
+    private final com.jinbang.system.service.DirectoryService directoryService;
 
     public record YearReq(int startYear, boolean current) {
     }
@@ -283,6 +284,23 @@ public class SchoolController {
     public R<Void> decide(@PathVariable Long id, @RequestBody DecideReq req) {
         joinService.decide(id, req.approve(), req.reason());
         return R.ok();
+    }
+
+    // ---------------- 通讯录（前端用） ----------------
+
+    public record NamesReq(List<Long> studentIds, List<Long> userIds) {
+    }
+
+    /** 按 ID 批量取姓名（带数据权限，看不到的不返回）。 */
+    @PostMapping("/names")
+    public R<com.jinbang.system.service.DirectoryService.Names> names(@RequestBody NamesReq req) {
+        return R.ok(directoryService.names(com.jinbang.common.security.LoginHelper.require(), req.studentIds(), req.userIds()));
+    }
+
+    @GetMapping("/teachers/simple")
+    public R<List<com.jinbang.system.service.DirectoryService.TeacherBrief>> simpleTeachers(
+            @RequestParam(required = false) String keyword) {
+        return R.ok(directoryService.teachers(com.jinbang.common.security.LoginHelper.require(), keyword));
     }
 
     // ---------------- 工具 ----------------

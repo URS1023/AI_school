@@ -43,6 +43,10 @@ public class ScanService {
     private final SourceService sourceService;
     private final SheetService sheetService;
     private final WorkbookService workbookService;
+    private final com.jinbang.common.storage.FileStorage storage;
+    private final RecognitionClient recognitionClient;
+    private final com.jinbang.api.system.ExportLinkApi exportLinkApi;
+    private final com.jinbang.common.datascope.DataScopeProvider dataScope;
     private final ScoringService scoring;
     private final FlowService flowService;
     private final SchoolApi schoolApi;
@@ -399,5 +403,57 @@ public class ScanService {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    // ---------------- 原卷图片 ----------------
+
+    public record ImageFile(String name, byte[] content) {
+    }
+
+    /** 扫描端上传图片（按扫描顺序，正反面相邻）：存入私有存储，返回存储键；配置了识别服务则异步提交识别。 */
+    public List<String> uploadImages(CurrentIdentity ci, Long batchId, List<ImageFile> files) {
+        ExScanBatch b = BizException.notNull(batchMapper.selectById(batchId), "扫描批次");
+        sourceService.checkAccess(ci, sourceService.load(b.getSourceType(), b.getSourceId()));
+        BizException.throwIf(files == null || files.isEmpty(), ErrorCode.BAD_REQUEST, "请上传图片");
+        List<String> keys = new ArrayList<>();
+        for (ImageFile f : files) {
+            String name = f.name() == null ? "" : f.name().toLowerCase();
+            String ext = name.endsWith(".png") ? "png" : name.endsWith(".webp") ? "webp" : "jpg";
+            BizException.throwIf(!(name.endsWith(".jpg") || name.endsWith(".jpeg") || name.endsWith(".png")
+                    || name.endsWith(".webp")), ErrorCode.BAD_REQUEST, "只支持 jpg / png / webp 图片");
+            keys.add(storage.put("scan/" + b.getTenantId() + "/" + batchId, ext, f.content()));
+        }
+        recognitionClient.submitAsync(batchId, keys);
+        return keys;
+    }
+
+    /**
+     * 原卷图片的短时链接（30 分钟）：教师按作业 / 考试权限；学生和家长只能看自己（孩子）已发布的答卷。
+     */
+    public List<String> answerImages(CurrentIdentity ci, Long answerId) {
+        ExAnswer a = BizException.notNull(answerMapper.selectById(answerId), "答卷");
+        SourceService.Source s = sourceService.load(a.getSourceType(), a.getSourceId());
+        if (ci.type() == com.jinbang.common.security.IdentityType.STUDENT || ci.type() == com.jinbang.common.security.IdentityType.PARENT) {
+            boolean ok = a.getStudentId() != null && dataScope.current().canSeeStudent(a.getStudentId())
+                    && sourceService.publishedFor(s, a.getClassId());
+            BizException.throwIf(!ok, ErrorCode.FORBIDDEN);
+        } else {
+            sourceService.checkAccess(ci, s);
+        }
+        List<String> links = new ArrayList<>();
+        if (a.getImages() == null) {
+            return links;
+        }
+        try {
+            for (com.fasterxml.jackson.databind.JsonNode n : om.readTree(a.getImages())) {
+                String key = n.asText();
+                if (storage.exists(key)) {
+                    links.add(exportLinkApi.createLink(key, key.substring(key.lastIndexOf('/') + 1), java.time.Duration.ofMinutes(30)));
+                }
+            }
+        } catch (Exception e) {
+            throw new BizException(ErrorCode.NOT_FOUND, "原卷图片不存在");
+        }
+        return links;
     }
 }

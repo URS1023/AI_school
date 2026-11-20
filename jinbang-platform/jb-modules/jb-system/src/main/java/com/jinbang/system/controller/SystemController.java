@@ -42,6 +42,7 @@ public class SystemController {
     private final ExportLinkService exportLinkService;
     private final TenantAdminService tenantAdminService;
     private final SysOperLogMapper operLogMapper;
+    private final com.jinbang.system.service.DirectoryService directoryService;
 
     public record MeVO(Long userId, String nickname, String phone, String avatar, CurrentIdentity identity) {
     }
@@ -69,6 +70,12 @@ public class SystemController {
         return R.ok();
     }
 
+    /** 学生端 / 家长端「我是谁」。 */
+    @GetMapping("/api/portal/me")
+    public R<com.jinbang.system.service.DirectoryService.PortalMe> portalMe() {
+        return R.ok(directoryService.portalMe(LoginHelper.require()));
+    }
+
     @GetMapping("/api/system/menu/routers")
     public R<List<MenuDictService.MenuVO>> routers() {
         return R.ok(menuDictService.routers(LoginHelper.require()));
@@ -88,10 +95,19 @@ public class SystemController {
     @GetMapping("/api/files/download/{token}")
     public ResponseEntity<byte[]> download(@PathVariable String token) {
         ExportLinkService.Download d = exportLinkService.download(token);
+        String name = d.fileName() == null ? "file" : d.fileName().toLowerCase();
+        MediaType type = name.endsWith(".png") ? MediaType.IMAGE_PNG
+                : name.endsWith(".jpg") || name.endsWith(".jpeg") ? MediaType.IMAGE_JPEG
+                : name.endsWith(".webp") ? MediaType.parseMediaType("image/webp")
+                : name.endsWith(".pdf") ? MediaType.APPLICATION_PDF : MediaType.APPLICATION_OCTET_STREAM;
+        // 图片和 PDF 在页面里直接显示，其余作为附件下载
+        ContentDisposition cd = (type == MediaType.APPLICATION_OCTET_STREAM ? ContentDisposition.attachment()
+                : ContentDisposition.inline()).filename(d.fileName(), StandardCharsets.UTF_8).build();
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
-                        .filename(d.fileName(), StandardCharsets.UTF_8).build().toString())
-                .contentType(MediaType.APPLICATION_OCTET_STREAM).body(d.content());
+                .header(HttpHeaders.CONTENT_DISPOSITION, cd.toString())
+                .header(HttpHeaders.CACHE_CONTROL, "private, no-store")
+                .header("X-Content-Type-Options", "nosniff")
+                .contentType(type).body(d.content());
     }
 
     // ---------------- 平台运营：学校开通 ----------------

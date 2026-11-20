@@ -9,8 +9,9 @@
 没有接入模型时，这些函数返回空结果；Java 侧会把卷子放进「异常卷」，不会误判分。
 
 接口：
-  POST /ocr                     {"image": base64} -> {"text": "..."}
-  POST /batches/{batch_id}/scan multipart 图片（按扫描顺序，正反面相邻）-> 识别后回调 Java
+  POST /ocr                          {"image": base64} -> {"text": "..."}
+  POST /batches/{batch_id}/recognize {"images":[{"key": 存储键, "data": base64}]}（Java 存图后异步提交，正反面相邻）
+                                     -> 识别后回调 Java，images 回传存储键（教师端据此查看原卷）
 回调：
   POST {JAVA_BASE}/api/exam/recognition/callback  头 X-Recognition-Token
   {"batchId":..,"reRecognize":false,"pages":[{"pageRef","images","qr","studentNo","answers":{题号:作答},"scores":{题号:分数}}]}
@@ -20,11 +21,11 @@ import os
 from typing import Optional
 
 import httpx
-from fastapi import FastAPI, File, Header, HTTPException, UploadFile
+from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 
 JAVA_BASE = os.environ.get("JB_JAVA_BASE", "http://localhost:8080")
-TOKEN = os.environ.get("JB_RECOGNITION_TOKEN", "change-me")
+TOKEN = os.environ.get("JB_RECOGNITION_TOKEN", "")
 
 app = FastAPI(title="jb-recognize", version="0.1.0")
 
@@ -77,26 +78,34 @@ def ocr_api(req: OcrReq):
     return {"text": ocr(data)}
 
 
-@app.post("/batches/{batch_id}/scan")
-async def scan(batch_id: int, files: list[UploadFile] = File(...), x_scan_token: str = Header(default="")):
-    if x_scan_token != TOKEN:
+class ImageRef(BaseModel):
+    key: str
+    data: str
+
+
+class RecognizeReq(BaseModel):
+    images: list[ImageRef]
+
+
+@app.post("/batches/{batch_id}/recognize")
+async def recognize(batch_id: int, req: RecognizeReq, x_recognition_token: str = Header(default="")):
+    if not TOKEN or x_recognition_token != TOKEN:
         raise HTTPException(status_code=403, detail="forbidden")
     pages = []
     # 正反面相邻两张为一份答卷
-    for i in range(0, len(files), 2):
-        group = files[i:i + 2]
-        images = [await f.read() for f in group]
-        front = images[0]
-        loc = locate(front)
+    for i in range(0, len(req.images), 2):
+        group = req.images[i:i + 2]
+        images = [base64.b64decode(g.data) for g in group]
+        loc = locate(images[0])
         answers, scores = {}, {}
         for img in images:
             answers.update(read_choices(img))
             scores.update(read_scores(img))
         pages.append({
             "pageRef": f"{batch_id}-{i // 2 + 1}",
-            "images": [f.filename for f in group],
+            "images": [g.key for g in group],
             "qr": loc.qr,
-            "studentNo": read_student_no(front),
+            "studentNo": read_student_no(images[0]),
             "answers": answers,
             "scores": scores,
         })

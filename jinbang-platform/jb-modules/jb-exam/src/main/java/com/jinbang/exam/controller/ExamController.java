@@ -50,6 +50,9 @@ public class ExamController {
     private final PortalService portalService;
     private final com.jinbang.exam.service.WorkbookService workbookService;
     private final com.jinbang.exam.service.DataCenterService dataCenterService;
+    private final com.jinbang.exam.service.SheetPdfService sheetPdfService;
+    private final com.jinbang.common.storage.FileStorage storage;
+    private final com.jinbang.api.system.ExportLinkApi exportLinkApi;
 
     @Value("${jb.recognition.callback-token:}")
     private String callbackToken;
@@ -378,5 +381,40 @@ public class ExamController {
             @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate from,
             @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate to) {
         return R.ok(dataCenterService.report(from, to));
+    }
+
+    // ---------------- 原卷图片 ----------------
+
+    @SaCheckPermission(value = {"homework:scan", "exam:scan"}, mode = SaMode.OR)
+    @PostMapping("/api/exam/scan/batches/{id}/images")
+    public R<List<String>> uploadImages(@PathVariable Long id,
+                                        @RequestParam("files") List<org.springframework.web.multipart.MultipartFile> files)
+            throws java.io.IOException {
+        List<ScanService.ImageFile> list = new java.util.ArrayList<>();
+        for (var f : files) {
+            list.add(new ScanService.ImageFile(f.getOriginalFilename(), f.getBytes()));
+        }
+        return R.ok(scanService.uploadImages(LoginHelper.require(), id, list));
+    }
+
+    @GetMapping("/api/exam/answers/{id}/images")
+    public R<List<String>> answerImages(@PathVariable Long id) {
+        return R.ok(scanService.answerImages(LoginHelper.require(), id));
+    }
+
+    public record SheetPdf(String url, int pages, int versionNo, List<com.jinbang.exam.service.SheetPdfService.Region> regions) {
+    }
+
+    /** 下载答题卡 PDF 标准件：冻结当前版本（AC-04），生成 PDF 并写入区域坐标。 */
+    @PostMapping("/api/exam/sheets/{id}/pdf")
+    public R<SheetPdf> sheetPdf(@PathVariable Long id) {
+        var ci = LoginHelper.require();
+        SheetService.Download d = sheetService.download(ci, id);
+        SheetService.SheetView v = sheetService.view(ci, id);
+        var rendered = sheetPdfService.render(v.sheet(), v.version(), d.blocks());
+        String key = storage.put("sheet-pdf", "pdf", rendered.pdf());
+        String url = exportLinkApi.createLink(key, v.sheet().getSheetName() + "-v" + d.versionNo() + ".pdf",
+                java.time.Duration.ofHours(1));
+        return R.ok(new SheetPdf(url, rendered.pages(), d.versionNo(), rendered.regions()));
     }
 }

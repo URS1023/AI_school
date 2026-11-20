@@ -42,6 +42,7 @@ public class TeachingController {
     private final CollectiveService collectiveService;
     private final CommunityService communityService;
     private final ExportLinkApi exportLinkApi;
+    private final com.jinbang.teaching.service.PreviewService previewService;
 
     public record CatalogReq(Long parentId, String name, String period, String subject, String edition) {
     }
@@ -180,6 +181,12 @@ public class TeachingController {
     public R<String> download(@PathVariable Long id) {
         TcMaterial m = prepService.own(LoginHelper.userId(), id);
         return R.ok(exportLinkApi.createLink(m.getStorageKey(), m.getFileName(), Duration.ofMinutes(30)));
+    }
+
+    @SaCheckPermission("prep:use")
+    @GetMapping("/api/prep/materials/{id}/preview")
+    public R<com.jinbang.teaching.service.PreviewService.Preview> preview(@PathVariable Long id) {
+        return R.ok(previewService.preview(LoginHelper.userId(), id));
     }
 
     // ---------------- 智能备课 ----------------

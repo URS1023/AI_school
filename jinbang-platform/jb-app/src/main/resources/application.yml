@@ -3,7 +3,7 @@ server:
   servlet:
     encoding:
       charset: UTF-8
-      force: true
+      force-request: true   # 只强制请求编码；响应不强制，避免图片、PDF 被加上 charset
 
 spring:
   application:

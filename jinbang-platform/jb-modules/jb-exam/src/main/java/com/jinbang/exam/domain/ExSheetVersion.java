@@ -17,4 +17,6 @@ public class ExSheetVersion extends TenantEntity {
     private BigDecimal totalScore;
     private Boolean frozen;
     private Boolean locked;
+    /** 版面区域坐标（PDF 生成时写入） */
+    private String regionsJson;
 }

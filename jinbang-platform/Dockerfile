@@ -6,6 +6,8 @@ RUN mvn -B -q -DskipTests package
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app
+# 中文字体：答题卡 PDF、课件预览渲染需要
+RUN apt-get update && apt-get install -y --no-install-recommends fonts-noto-cjk && rm -rf /var/lib/apt/lists/*
 RUN useradd -r -u 10001 jb && mkdir -p /app/data && chown jb /app/data
 COPY --from=build /src/jb-app/target/jinbang-platform.jar /app/app.jar
 USER jb
