@@ -1,0 +1,82 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: jinbang-platform
+  profiles:
+    active: ${JB_PROFILE:dev}
+  threads:
+    virtual:
+      enabled: true
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 200MB
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=10000,expireAfterWrite=10m
+
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      id-type: assign_id
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: com.jinbang
+
+sa-token:
+  token-name: Authorization
+  token-prefix: Bearer
+  timeout: 604800          # 7 天（PRD 2.1：agent token 有效期 7 天）
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  token-style: uuid
+  is-log: false
+  is-print: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+jb:
+  sso:
+    ticket-ttl-seconds: 60            # PRD 13：ticket 一次性、≤60s
+    agent-url: https://agent.example.com/index
+  auth:
+    max-login-fail: 5
+    lock-minutes: 15
+  ai:
+    provider: mock                    # mock | openai（OpenAI 兼容协议，DeepSeek/通义等均可）
+    base-url: ${JB_AI_BASE_URL:}
+    api-key: ${JB_AI_API_KEY:}
+    model: ${JB_AI_MODEL:deepseek-chat}
+    timeout-seconds: 60
+  storage:
+    local-dir: ${JB_STORAGE_DIR:./data/files}
+  recognition:
+    callback-token: ${JB_RECOGNITION_TOKEN:change-me}

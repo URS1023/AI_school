@@ -1,0 +1,17 @@
+package com.jinbang.api.ai;
+
+/**
+ * AI 平台对内契约。主站的智能备课等功能也走这里，从而共用同一套计费、日志和内容审核（PRD 15 打通）。
+ */
+public interface AiApi {
+
+    /**
+     * 同步执行一次智能体调用（含冻结 → 执行 → 结算）。
+     *
+     * @return 结果文本；失败时抛 BizException(AI_FAILED)，且不扣费
+     */
+    AiResult run(Long userId, String agentCode, String prompt);
+
+    record AiResult(String taskId, String content, long charged) {
+    }
+}

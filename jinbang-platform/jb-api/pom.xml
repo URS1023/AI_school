@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.jinbang</groupId>
+        <artifactId>jinbang-platform</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>jb-api</artifactId>
+    <description>模块间契约：接口、DTO、领域事件。拆微服务时这里换成 Dubbo/Feign 接口</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-common</artifactId>
+        </dependency>
+    </dependencies>
+</project>
