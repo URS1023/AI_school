@@ -84,3 +84,12 @@ test('身份切换：多身份用户切换后菜单随身份变化', async ({ pa
   await expect(page.getByText('已切换身份')).toBeVisible()
   await expect(page.getByTestId('user-menu')).toContainText('演示中学')
 })
+
+test('开发环境登录页：点演示账号即可登录（密码前后带空格也能登录）', async ({ page }) => {
+  await page.goto('/login')
+  await page.getByTestId('demo-accounts').getByText('数学老师').click()
+  await expect(page.getByTestId('account')).toHaveValue('13900000003')
+  await page.getByTestId('password').fill(' Demo1234 ')
+  await page.getByTestId('submit').click()
+  await expect(page.getByTestId('hello')).toBeVisible()
+})

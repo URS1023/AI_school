@@ -8,6 +8,7 @@ import com.jinbang.common.core.ErrorCode;
 import com.jinbang.common.security.CurrentIdentity;
 import com.jinbang.common.security.LoginHelper;
 import com.jinbang.common.security.SecurityConfig;
+import com.jinbang.common.util.Masks;
 import com.jinbang.system.domain.SysUser;
 import com.jinbang.system.domain.SysUserIdentity;
 import com.jinbang.system.service.IdentityService;
@@ -60,15 +61,24 @@ public class AuthService {
         if (captchaEnabled) {
             captchaService.verify(captchaId, captchaCode);
         }
-        SysUser user = userService.findByAccount(account)
+        // 去掉首尾空白：密码规则不允许空白字符，复制粘贴带进来的空格不应导致登录失败
+        String acc = account == null ? "" : account.trim();
+        String pwd = password == null ? "" : password.trim();
+        SysUser user = userService.findByAccount(acc)
                 .filter(u -> UserService.ACTIVE.equals(u.getUserStatus()))
-                .orElseThrow(() -> new BizException(ErrorCode.LOGIN_FAILED));
+                .orElse(null);
+        if (user == null) {
+            log.warn("登录失败：账号不存在或已停用 account={}", Masks.phone(acc));
+            throw new BizException(ErrorCode.LOGIN_FAILED);
+        }
         LocalDateTime now = LocalDateTime.now();
         if (user.getLockedUntil() != null && user.getLockedUntil().isAfter(now)) {
+            log.warn("登录失败：账号已锁定 userId={} 解锁时间={}", user.getId(), user.getLockedUntil());
             throw new BizException(ErrorCode.ACCOUNT_LOCKED);
         }
-        if (!userService.matches(user, password)) {
+        if (!userService.matches(user, pwd)) {
             int fails = (user.getLoginFailCount() == null ? 0 : user.getLoginFailCount()) + 1;
+            log.warn("登录失败：密码错误 userId={} 连续失败 {} 次", user.getId(), fails);
             if (fails >= maxLoginFail) {
                 user.setLockedUntil(now.plusMinutes(lockMinutes));
                 user.setLoginFailCount(0);

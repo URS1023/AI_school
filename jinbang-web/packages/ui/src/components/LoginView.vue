@@ -4,8 +4,15 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElMessage, type FormInstance } from 'element-plus'
 import { ApiError, http, unwrap } from '@jb/api'
 import { useAuth } from '@jb/auth'
+import type { DemoAccount } from '../demo'
 
-const props = defineProps<{ title: string; subtitle?: string; allowRegister?: boolean }>()
+const props = defineProps<{
+  title: string
+  subtitle?: string
+  allowRegister?: boolean
+  /** 仅本地开发传入：点击即填好演示账号（生产构建不传，不会出现）。 */
+  demoAccounts?: DemoAccount[]
+}>()
 
 const auth = useAuth()
 const router = useRouter()
@@ -29,6 +36,12 @@ async function refreshCaptcha() {
 }
 
 const sceneOf = { sms: 'LOGIN', register: 'REGISTER', forgot: 'RESET', password: 'LOGIN' } as const
+
+function useDemo(d: DemoAccount) {
+  tab.value = 'password'
+  form.account = d.account
+  form.password = d.password
+}
 
 async function sendSms() {
   if (!/^1\d{10}$/.test(form.phone)) {
@@ -123,6 +136,12 @@ onMounted(refreshCaptcha)
           {{ { password: '登录', sms: '登录', register: '注册并登录', forgot: '重置密码' }[tab] }}
         </el-button>
       </el-form>
+      <div v-if="props.demoAccounts?.length" class="jb-login__demo" data-test="demo-accounts">
+        <span>演示账号（仅开发环境）：</span>
+        <el-button v-for="d in props.demoAccounts" :key="d.account" size="small" link type="primary" @click="useDemo(d)">
+          {{ d.label }}
+        </el-button>
+      </div>
       <p class="jb-login__tip">登录即表示同意《用户协议》和《隐私政策》</p>
     </div>
   </div>
@@ -136,5 +155,7 @@ onMounted(refreshCaptcha)
 .jb-login__captcha { display: flex; gap: 8px; width: 100%; }
 .jb-login__captcha img { height: 40px; cursor: pointer; border-radius: 4px; }
 .jb-login__submit { width: 100%; }
+.jb-login__demo { margin-top: 14px; font-size: 12px; color: var(--jb-text-secondary); line-height: 2; }
+.jb-login__demo .el-button { margin-left: 4px; }
 .jb-login__tip { margin: 16px 0 0; font-size: 12px; color: var(--jb-text-secondary); text-align: center; }
 </style>

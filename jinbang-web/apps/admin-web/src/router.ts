@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { ChangePasswordView, ForbiddenView, LoginView, PlaceholderView } from '@jb/ui'
+import { ChangePasswordView, ForbiddenView, PlaceholderView } from '@jb/ui'
 import Layout from './views/AdminLayout.vue'
 
 /**
@@ -9,12 +9,7 @@ import Layout from './views/AdminLayout.vue'
 export const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {
-      path: '/login',
-      component: LoginView,
-      props: { title: '世纪金榜AI 管理后台', subtitle: '学校管理员 · 平台运营' },
-      meta: { public: true, title: '登录' },
-    },
+    { path: '/login', component: () => import('./views/LoginPage.vue'), meta: { public: true, title: '登录' } },
     { path: '/change-password', component: ChangePasswordView, meta: { title: '修改密码' } },
     {
       path: '/',
