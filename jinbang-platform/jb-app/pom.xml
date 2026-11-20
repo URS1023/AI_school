@@ -16,6 +16,21 @@
             <groupId>com.jinbang</groupId>
             <artifactId>jb-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-system</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-account</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-operation</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- MODULES -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:jbtest;MODE=MySQL;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+jb:
+  demo-data: false
+  admin:
+    password: Admin@12345
+  auth:
+    captcha-enabled: false
+  storage:
+    local-dir: ./target/test-files
+  recognition:
+    callback-token: test-token
+
+logging:
+  level:
+    root: WARN
+    com.jinbang: INFO

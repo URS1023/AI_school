@@ -1,0 +1,75 @@
+package com.jinbang.system.service;
+
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.jinbang.api.system.ExportLinkApi;
+import com.jinbang.api.system.IdentityRevokedEvent;
+import com.jinbang.common.core.BizException;
+import com.jinbang.common.core.ErrorCode;
+import com.jinbang.common.security.CurrentIdentity;
+import com.jinbang.common.security.LoginHelper;
+import com.jinbang.common.storage.FileStorage;
+import com.jinbang.system.domain.SysDownloadToken;
+import com.jinbang.system.domain.SysUserIdentity;
+import com.jinbang.system.mapper.SysDownloadTokenMapper;
+import com.jinbang.system.mapper.SysUserIdentityMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Service;
+
+import java.security.SecureRandom;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.HexFormat;
+
+/** 导出文件下载凭证：绑定生成者身份，身份撤销即失效（PRD 8.3、AC-14）。 */
+@Service
+@RequiredArgsConstructor
+public class ExportLinkService implements ExportLinkApi {
+    private final SysDownloadTokenMapper tokenMapper;
+    private final SysUserIdentityMapper identityMapper;
+    private final FileStorage storage;
+    private final SecureRandom random = new SecureRandom();
+
+    public record Download(String fileName, byte[] content) {
+    }
+
+    @Override
+    public String createLink(String storageKey, String fileName, Duration ttl) {
+        CurrentIdentity ci = LoginHelper.require();
+        byte[] b = new byte[24];
+        random.nextBytes(b);
+        SysDownloadToken t = new SysDownloadToken();
+        t.setToken(HexFormat.of().formatHex(b));
+        t.setUserId(ci.userId());
+        t.setIdentityId(ci.identityId());
+        t.setTenantId(ci.tenantId());
+        t.setStorageKey(storageKey);
+        t.setFileName(fileName);
+        t.setExpireAt(LocalDateTime.now().plus(ttl));
+        t.setRevoked(false);
+        tokenMapper.insert(t);
+        return "/api/files/download/" + t.getToken();
+    }
+
+    /** 下载时再校验一次：未过期、未撤销、身份仍有效、且必须是本人。 */
+    public Download download(String token) {
+        SysDownloadToken t = tokenMapper.selectOne(Wrappers.<SysDownloadToken>lambdaQuery()
+                .eq(SysDownloadToken::getToken, token));
+        CurrentIdentity ci = LoginHelper.require();
+        if (t == null || Boolean.TRUE.equals(t.getRevoked()) || t.getExpireAt().isBefore(LocalDateTime.now())
+                || !t.getUserId().equals(ci.userId())) {
+            throw new BizException(ErrorCode.FORBIDDEN, "下载链接已失效");
+        }
+        SysUserIdentity identity = identityMapper.selectById(t.getIdentityId());
+        if (identity == null || !IdentityService.ACTIVE.equals(identity.getIdentityStatus())) {
+            throw new BizException(ErrorCode.FORBIDDEN, "下载链接已失效");
+        }
+        return new Download(t.getFileName(), storage.get(t.getStorageKey()));
+    }
+
+    @EventListener
+    public void onRevoked(IdentityRevokedEvent e) {
+        tokenMapper.update(Wrappers.<SysDownloadToken>lambdaUpdate().set(SysDownloadToken::getRevoked, true)
+                .eq(SysDownloadToken::getIdentityId, e.identityId()).eq(SysDownloadToken::getRevoked, false));
+    }
+}

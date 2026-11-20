@@ -21,7 +21,7 @@ public record CurrentIdentity(
     }
 
     public boolean hasPerm(String perm) {
-        return perms != null && (perms.contains("*:*:*") || perms.contains(perm));
+        return perms != null && (perms.contains("*") || perms.contains(perm));
     }
 
     public boolean isPlatform() {
