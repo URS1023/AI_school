@@ -1,18 +1,44 @@
-/* 设计令牌：品牌色 + Element Plus 主题变量。没有设计稿前先用这套，后续只改这里。 */
+/*
+ * 设计令牌：墨绿主色 + 琥珀点缀（与原站红标蓝条的视觉刻意区分）。没有设计稿前以此为准，后续只改这里。
+ */
 :root {
-  --jb-brand: #1f5fbf;
-  --jb-brand-light: #e8f0fb;
-  --jb-accent: #f5a524;
-  --jb-text: #1f2329;
-  --jb-text-secondary: #646a73;
-  --jb-border: #e5e6eb;
-  --jb-bg: #f5f6f8;
+  --jb-brand: #0f7a68;
+  --jb-brand-dark: #0a5a4d;
+  --jb-brand-light: #e6f4f1;
+  --jb-brand-soft: #f2faf8;
+  --jb-accent: #e8a33d;
+  --jb-accent-light: #fdf3e2;
+  --jb-text: #1d2724;
+  --jb-text-secondary: #5f6b67;
+  --jb-border: #e3e9e7;
+  --jb-bg: #f4f7f6;
   --jb-surface: #ffffff;
-  --jb-header-h: 56px;
+  --jb-header-h: 60px;
+  --jb-sider-w: 208px;
+  --jb-radius: 10px;
   --jb-font-scale: 1;
+  --jb-shadow: 0 2px 10px rgba(15, 60, 52, 0.06);
 
+  /* 模块色：入口卡片、页头图标 */
+  --jb-c-resource: #0f7a68;
+  --jb-c-teaching: #3b6fd8;
+  --jb-c-ai: #7a5bd6;
+  --jb-c-exam: #e0703a;
+  --jb-c-learning: #c2486f;
+  --jb-c-admin: #4a5a73;
+
+}
+
+/* Element Plus 主题变量：用 html:root 提高优先级，避免被随后加载的 element-plus 样式覆盖 */
+html:root {
   --el-color-primary: var(--jb-brand);
+  --el-color-primary-light-3: #4f9e90;
+  --el-color-primary-light-5: #87bdb3;
+  --el-color-primary-light-7: #b7d8d2;
+  --el-color-primary-light-8: #cfe5e1;
   --el-color-primary-light-9: var(--jb-brand-light);
+  --el-color-primary-dark-2: var(--jb-brand-dark);
+  --el-border-radius-base: 6px;
   --el-font-size-base: calc(14px * var(--jb-font-scale));
 }
 
@@ -24,12 +50,14 @@ html.jb-large {
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --jb-text: #e6e8eb;
-    --jb-text-secondary: #a3a8b0;
-    --jb-border: #33363b;
-    --jb-bg: #17181a;
-    --jb-surface: #202124;
-    --jb-brand-light: #1c2a40;
+    --jb-text: #e3ebe8;
+    --jb-text-secondary: #9fb0ab;
+    --jb-border: #2f3a37;
+    --jb-bg: #151b1a;
+    --jb-surface: #1d2523;
+    --jb-brand-light: #17342e;
+    --jb-brand-soft: #18221f;
+    --jb-accent-light: #3a2e1a;
   }
 }
 
@@ -47,3 +75,12 @@ body {
   font-size: var(--el-font-size-base);
   min-width: 1280px;
 }
+
+/* 通用小工具类 */
+.jb-muted { color: var(--jb-text-secondary); }
+.jb-row { display: flex; align-items: center; gap: 12px; }
+.jb-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.jb-grid { display: grid; gap: 16px; }
+.jb-card { background: var(--jb-surface); border-radius: var(--jb-radius); box-shadow: var(--jb-shadow); padding: 16px 20px; }
+.jb-stack { display: flex; flex-direction: column; gap: 16px; }
+.jb-ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -37,8 +37,13 @@ public class MenuDictService {
     private List<MenuVO> build(Long parent, Map<Long, List<SysMenu>> byParent) {
         List<MenuVO> out = new ArrayList<>();
         for (SysMenu m : byParent.getOrDefault(parent, List.of())) {
+            List<MenuVO> children = build(m.getId(), byParent);
+            // 目录型菜单没有任何可见子菜单时不下发（例如游客看不到「教务管理」）
+            if ("M".equals(m.getMenuType()) && children.isEmpty()) {
+                continue;
+            }
             out.add(new MenuVO(m.getId(), m.getMenuName(), m.getPath(), m.getMenuStatus(),
-                    "COMING_SOON".equals(m.getMenuStatus()), build(m.getId(), byParent)));
+                    "COMING_SOON".equals(m.getMenuStatus()), children));
         }
         return out;
     }

@@ -94,7 +94,7 @@ public class SystemController {
 
     @GetMapping("/api/files/download/{token}")
     public ResponseEntity<byte[]> download(@PathVariable String token) {
-        ExportLinkService.Download d = exportLinkService.download(token);
+        ExportLinkService.FileDownload d = exportLinkService.download(token);
         String name = d.fileName() == null ? "file" : d.fileName().toLowerCase();
         MediaType type = name.endsWith(".png") ? MediaType.IMAGE_PNG
                 : name.endsWith(".jpg") || name.endsWith(".jpeg") ? MediaType.IMAGE_JPEG

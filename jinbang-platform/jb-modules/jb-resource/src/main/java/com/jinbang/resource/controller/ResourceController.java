@@ -44,7 +44,7 @@ public class ResourceController {
     private final ExportLinkApi exportLinkApi;
     private final FileStorage storage;
 
-    public record IdsReq(List<Long> ids) {
+    public record ResourceIdsReq(List<Long> ids) {
     }
 
     public record FavReq(String targetType, Long targetId, String folder, boolean on) {
@@ -53,7 +53,7 @@ public class ResourceController {
     public record CommentReq(String type, String content) {
     }
 
-    public record BatchReq(List<Long> ids, String op, String value) {
+    public record QuestionBatchReq(List<Long> ids, String op, String value) {
     }
 
     public record ImportReq(String text, String period, String subject, Long catalogId) {
@@ -62,7 +62,7 @@ public class ResourceController {
     public record DirReq(Long parentId, String name, String period, String subject) {
     }
 
-    public record PaperReq(String title, String subject) {
+    public record PaperCreateReq(String title, String subject) {
     }
 
     // ---------------- 资源 ----------------
@@ -78,7 +78,7 @@ public class ResourceController {
                                              @RequestParam(required = false) Integer year,
                                              @RequestParam(required = false) String region,
                                              @RequestParam(required = false) String sort, PageQuery page) {
-        return R.ok(resourceService.search(LoginHelper.require(), new ResourceService.Query(keyword, scope, period,
+        return R.ok(resourceService.search(LoginHelper.require(), new ResourceService.ResourceQuery(keyword, scope, period,
                 subject, resType, level, catalogId, year, region, sort, page)));
     }
 
@@ -130,13 +130,13 @@ public class ResourceController {
 
     /** 资源篮 / 试题篮：itemType = RESOURCE / QUESTION。 */
     @PostMapping("/api/basket/{itemType}/add")
-    public R<Void> basketAdd(@PathVariable String itemType, @RequestBody IdsReq req) {
+    public R<Void> basketAdd(@PathVariable String itemType, @RequestBody ResourceIdsReq req) {
         resourceService.basketAdd(LoginHelper.require(), itemType.toUpperCase(), req.ids());
         return R.ok();
     }
 
     @PostMapping("/api/basket/{itemType}/remove")
-    public R<Void> basketRemove(@PathVariable String itemType, @RequestBody IdsReq req) {
+    public R<Void> basketRemove(@PathVariable String itemType, @RequestBody ResourceIdsReq req) {
         resourceService.basketRemove(LoginHelper.require(), itemType.toUpperCase(), req.ids());
         return R.ok();
     }
@@ -187,7 +187,7 @@ public class ResourceController {
                                               @RequestParam(required = false) Long catalogId,
                                               @RequestParam(required = false) Integer year,
                                               @RequestParam(required = false) String keyword, PageQuery page) {
-        return R.ok(questionService.list(LoginHelper.require(), new QuestionService.Query(scope, period, subject, type,
+        return R.ok(questionService.list(LoginHelper.require(), new QuestionService.QuestionQuery(scope, period, subject, type,
                 difficulty, source, knowledge, catalogId, year, keyword, page)));
     }
 
@@ -207,7 +207,7 @@ public class ResourceController {
     }
 
     @PostMapping("/api/questions/batch")
-    public R<Integer> batch(@RequestBody BatchReq req) {
+    public R<Integer> batch(@RequestBody QuestionBatchReq req) {
         return R.ok(questionService.batch(LoginHelper.require(), req.ids(), req.op(), req.value()));
     }
 
@@ -257,7 +257,7 @@ public class ResourceController {
     // ---------------- 组卷 ----------------
 
     @PostMapping("/api/papers/from-basket")
-    public R<PaperService.PaperView> fromBasket(@RequestBody PaperReq req) {
+    public R<PaperService.PaperView> fromBasket(@RequestBody PaperCreateReq req) {
         return R.ok(paperService.createFromBasket(LoginHelper.require(), req.title(), req.subject()));
     }
 
@@ -282,7 +282,7 @@ public class ResourceController {
     }
 
     @PostMapping("/api/papers/{id}/reorder")
-    public R<PaperService.PaperView> reorder(@PathVariable Long id, @RequestBody IdsReq req) {
+    public R<PaperService.PaperView> reorder(@PathVariable Long id, @RequestBody ResourceIdsReq req) {
         return R.ok(paperService.reorder(LoginHelper.require(), id, req.ids()));
     }
 

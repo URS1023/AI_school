@@ -56,16 +56,16 @@ public class SchoolController {
     public record ClassReq(Long gradeId, String name, String classType) {
     }
 
-    public record IdsReq(List<Long> ids) {
+    public record TeacherIdsReq(List<Long> ids) {
     }
 
-    public record MoveReq(Long classId) {
+    public record TransferReq(Long classId) {
     }
 
     public record StatusReq(String status) {
     }
 
-    public record DecideReq(boolean approve, String reason) {
+    public record JoinDecideReq(boolean approve, String reason) {
     }
 
     // ---------------- 学年 / 年级 / 班级 ----------------
@@ -170,7 +170,7 @@ public class SchoolController {
 
     @SaCheckPermission("school:teacher:manage")
     @PostMapping("/teachers/resign")
-    public R<Integer> resign(@RequestBody IdsReq req) {
+    public R<Integer> resign(@RequestBody TeacherIdsReq req) {
         return R.ok(teacherService.resign(req.ids()));
     }
 
@@ -218,7 +218,7 @@ public class SchoolController {
 
     @SaCheckPermission("school:student:manage")
     @PostMapping("/students/{id}/transfer")
-    public R<Void> transfer(@PathVariable Long id, @RequestBody MoveReq req) {
+    public R<Void> transfer(@PathVariable Long id, @RequestBody TransferReq req) {
         studentService.transfer(id, req.classId());
         return R.ok();
     }
@@ -281,7 +281,7 @@ public class SchoolController {
 
     @SaCheckPermission("school:join:audit")
     @PostMapping("/join/requests/{id}/decide")
-    public R<Void> decide(@PathVariable Long id, @RequestBody DecideReq req) {
+    public R<Void> decide(@PathVariable Long id, @RequestBody JoinDecideReq req) {
         joinService.decide(id, req.approve(), req.reason());
         return R.ok();
     }

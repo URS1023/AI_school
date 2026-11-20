@@ -71,10 +71,10 @@ public class PaperService implements QuestionApi {
     public record PaperView(QPaper paper, List<Section> sections, Analysis analysis) {
     }
 
-    public record Section(String title, String type, List<Item> items) {
+    public record Section(String title, String type, List<PaperItemView> items) {
     }
 
-    public record Item(Long itemId, int no, BigDecimal score, QQuestion question) {
+    public record PaperItemView(Long itemId, int no, BigDecimal score, QQuestion question) {
     }
 
     public record Analysis(Map<String, Long> byType, Map<String, Long> byDifficulty, Map<String, Long> byKnowledge,
@@ -167,11 +167,11 @@ public class PaperService implements QuestionApi {
                 .orderByAsc(QPaperItem::getItemNo));
         Map<Long, QQuestion> qs = items.isEmpty() ? Map.of() : questionMapper.selectByIds(items.stream()
                 .map(QPaperItem::getQuestionId).toList()).stream().collect(Collectors.toMap(QQuestion::getId, q -> q));
-        Map<String, List<Item>> sec = new LinkedHashMap<>();
+        Map<String, List<PaperItemView>> sec = new LinkedHashMap<>();
         Map<String, String> secType = new LinkedHashMap<>();
         for (QPaperItem it : items) {
             QQuestion q = qs.get(it.getQuestionId());
-            sec.computeIfAbsent(it.getSectionTitle(), k -> new ArrayList<>()).add(new Item(it.getId(), it.getItemNo(), it.getScore(), q));
+            sec.computeIfAbsent(it.getSectionTitle(), k -> new ArrayList<>()).add(new PaperItemView(it.getId(), it.getItemNo(), it.getScore(), q));
             if (q != null) {
                 secType.putIfAbsent(it.getSectionTitle(), q.getQType());
             }
@@ -256,9 +256,9 @@ public class PaperService implements QuestionApi {
             String[] cn = {"一", "二", "三", "四", "五", "六", "七", "八", "九", "十"};
             int s = 0;
             for (Section sec : v.sections()) {
-                BigDecimal sum = sec.items().stream().map(Item::score).reduce(BigDecimal.ZERO, BigDecimal::add);
+                BigDecimal sum = sec.items().stream().map(PaperItemView::score).reduce(BigDecimal.ZERO, BigDecimal::add);
                 para(doc, cn[Math.min(s++, 9)] + "、" + sec.title() + "（共 " + sum.stripTrailingZeros().toPlainString() + " 分）", 13, true);
-                for (Item it : sec.items()) {
+                for (PaperItemView it : sec.items()) {
                     if (it.question() == null) {
                         continue;
                     }
@@ -272,7 +272,7 @@ public class PaperService implements QuestionApi {
             if (withAnswer) {
                 para(doc, "参考答案与解析", 14, true);
                 for (Section sec : v.sections()) {
-                    for (Item it : sec.items()) {
+                    for (PaperItemView it : sec.items()) {
                         if (it.question() != null) {
                             para(doc, it.no() + ". " + nz(it.question().getAnswer()) + "  " + nz(it.question().getAnalysis()), 10, false);
                         }

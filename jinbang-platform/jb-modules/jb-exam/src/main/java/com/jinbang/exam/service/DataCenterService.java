@@ -28,10 +28,10 @@ public class DataCenterService {
     public record TeacherVolume(Long userId, Set<String> subjects, int works, int scans, long images) {
     }
 
-    public record Report(List<DailyVolume> daily, List<TeacherVolume> teachers) {
+    public record ScanReport(List<DailyVolume> daily, List<TeacherVolume> teachers) {
     }
 
-    public Report report(LocalDate from, LocalDate to) {
+    public ScanReport report(LocalDate from, LocalDate to) {
         List<ExScanBatch> batches = batchMapper.selectList(Wrappers.<ExScanBatch>lambdaQuery()
                 .ge(from != null, ExScanBatch::getCreatedAt, from == null ? null : from.atStartOfDay())
                 .le(to != null, ExScanBatch::getCreatedAt, to == null ? null : to.atTime(23, 59, 59)));
@@ -61,6 +61,6 @@ public class DataCenterService {
         List<TeacherVolume> teachers = new ArrayList<>();
         teacherWorks.forEach((u, works) -> teachers.add(new TeacherVolume(u, teacherSubjects.get(u), works.size(),
                 teacherScans.get(u)[0], teacherImages.get(u)[0])));
-        return new Report(new ArrayList<>(daily.values()), teachers);
+        return new ScanReport(new ArrayList<>(daily.values()), teachers);
     }
 }

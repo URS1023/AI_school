@@ -78,7 +78,7 @@ public class LearningService {
         return d;
     }
 
-    public record SourceReport(String title, String subject, LocalDateTime time, Long classId, Metrics.Report report,
+    public record SourceReport(String title, String subject, LocalDateTime time, Long classId, Metrics.MetricsReport report,
                                List<String> weakItems) {
     }
 
@@ -89,7 +89,7 @@ public class LearningService {
         if (classId != null && !visible.contains(classId)) {
             throw new BizException(ErrorCode.FORBIDDEN);
         }
-        Metrics.Report r = Metrics.compute(d, bands(d.subject()),
+        Metrics.MetricsReport r = Metrics.compute(d, bands(d.subject()),
                 s -> classId == null ? visible.contains(s.classId()) : classId.equals(s.classId()));
         List<String> weak = r.items().stream().filter(i -> i.scoreRate().compareTo(BigDecimal.valueOf(0.6)) < 0)
                 .map(Metrics.ItemStat::no).toList();
@@ -117,13 +117,13 @@ public class LearningService {
         if (!visibleClasses(d).contains(me.classId())) {
             throw new BizException(ErrorCode.FORBIDDEN);
         }
-        Metrics.Report classReport = Metrics.compute(d, bands(d.subject()), s -> s.classId().equals(me.classId()));
+        Metrics.MetricsReport classReport = Metrics.compute(d, bands(d.subject()), s -> s.classId().equals(me.classId()));
         SchoolApi.StudentDTO st = schoolApi.getStudent(studentId);
         if (!"VALID".equals(me.status())) {
             return new StudentDetail(studentId, st.name(), me.status(), null, null, null, null, classReport.avgHundred(),
                     me.itemScores(), List.of(), List.of(), List.of());
         }
-        Metrics.StudentRow row = classReport.students().stream().filter(r -> r.studentId().equals(studentId)).findFirst().orElseThrow();
+        Metrics.RankRow row = classReport.students().stream().filter(r -> r.studentId().equals(studentId)).findFirst().orElseThrow();
         Map<String, Metrics.ItemStat> itemStats = classReport.items().stream()
                 .collect(Collectors.toMap(Metrics.ItemStat::no, i -> i, (a, b) -> a, LinkedHashMap::new));
         Map<String, List<ExamDataApi.ItemDef>> byType = d.items().stream()
@@ -151,9 +151,9 @@ public class LearningService {
                 advantage.add(it.no());
             }
         }
-        Metrics.Report gradeReport = Metrics.compute(d, bands(d.subject()), s -> true);
+        Metrics.MetricsReport gradeReport = Metrics.compute(d, bands(d.subject()), s -> true);
         Integer gradeRank = gradeReport.students().stream().filter(r -> r.studentId().equals(studentId))
-                .map(Metrics.StudentRow::gradeRank).findFirst().orElse(null);
+                .map(Metrics.RankRow::gradeRank).findFirst().orElse(null);
         return new StudentDetail(studentId, st.name(), me.status(), row.score(), row.rate(), row.classRank(), gradeRank,
                 classReport.avgHundred(), me.itemScores(), losses, easyLost, advantage);
     }
@@ -178,11 +178,11 @@ public class LearningService {
         List<Long> critical = new ArrayList<>();
         for (ExamDataApi.SourceBrief b : examData.listSources(Set.of(classId), subject, from, to)) {
             ExamDataApi.SourceData d = examData.load(b.sourceType(), b.sourceId());
-            Metrics.Report r = Metrics.compute(d, bands(d.subject()), s -> classId.equals(s.classId()));
+            Metrics.MetricsReport r = Metrics.compute(d, bands(d.subject()), s -> classId.equals(s.classId()));
             points.add(new TrendPoint(b.sourceType(), b.sourceId(), b.title(), b.time(), r.avgRate(), r.counts().valid()));
             int n = r.students().size();
             critical.clear();
-            for (Metrics.StudentRow row : r.students()) {
+            for (Metrics.RankRow row : r.students()) {
                 BigDecimal pct = n <= 1 ? BigDecimal.ONE : BigDecimal.valueOf(n - row.classRank())
                         .divide(BigDecimal.valueOf(n - 1), 4, RoundingMode.HALF_UP);
                 percentiles.computeIfAbsent(row.studentId(), k -> new ArrayList<>()).add(pct);
@@ -216,9 +216,9 @@ public class LearningService {
                                    BigDecimal maxRate, boolean keyOnly) {
         ExamDataApi.SourceData d = loadVisible(type, id);
         Set<Long> visible = visibleClasses(d);
-        Metrics.Report cls = Metrics.compute(d, bands(d.subject()),
+        Metrics.MetricsReport cls = Metrics.compute(d, bands(d.subject()),
                 s -> classId == null ? visible.contains(s.classId()) : classId.equals(s.classId()));
-        Metrics.Report grade = Metrics.compute(d, bands(d.subject()), s -> true);
+        Metrics.MetricsReport grade = Metrics.compute(d, bands(d.subject()), s -> true);
         Set<String> keys = keyMapper.selectList(Wrappers.<LnKeyQuestion>lambdaQuery().eq(LnKeyQuestion::getSourceType, type)
                 .eq(LnKeyQuestion::getSourceId, id)).stream().map(LnKeyQuestion::getItemNo).collect(Collectors.toSet());
         Map<String, Metrics.ItemStat> g = grade.items().stream().collect(Collectors.toMap(Metrics.ItemStat::no, i -> i));
@@ -280,7 +280,7 @@ public class LearningService {
             BigDecimal got = BigDecimal.ZERO;
             BigDecimal should = BigDecimal.ZERO;
             for (ExamDataApi.SourceData d : list) {
-                Metrics.Report r = Metrics.compute(d, Metrics.Bands.DEFAULT, s -> true);
+                Metrics.MetricsReport r = Metrics.compute(d, Metrics.Bands.DEFAULT, s -> true);
                 expected += r.counts().total() - r.counts().exempt();
                 submitted += r.counts().valid() + r.counts().unfinished();
                 finished += r.counts().valid();

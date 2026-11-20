@@ -47,7 +47,7 @@ public class SheetService {
     public record SheetView(ExSheet sheet, ExSheetVersion version, List<Block> blocks) {
     }
 
-    public record Download(Long sheetId, int versionNo, String qrPayload, List<Block> blocks, BigDecimal totalScore,
+    public record SheetDownload(Long sheetId, int versionNo, String qrPayload, List<Block> blocks, BigDecimal totalScore,
                            String printRule) {
     }
 
@@ -100,14 +100,14 @@ public class SheetService {
 
     /** 下载 / 打印：冻结当前版本快照。一张 A4 只印一份答题卡（避免正反两个二维码）。 */
     @Transactional
-    public Download download(CurrentIdentity ci, Long sheetId) {
+    public SheetDownload download(CurrentIdentity ci, Long sheetId) {
         ExSheet s = own(ci, sheetId);
         ExSheetVersion v = current(s);
         if (!Boolean.TRUE.equals(v.getFrozen())) {
             v.setFrozen(true);
             versionMapper.updateById(v);
         }
-        return new Download(s.getId(), v.getVersionNo(), "JBSHEET:" + s.getId() + ":" + v.getVersionNo(), blocks(v),
+        return new SheetDownload(s.getId(), v.getVersionNo(), "JBSHEET:" + s.getId() + ":" + v.getVersionNo(), blocks(v),
                 v.getTotalScore(), "一张 A4 纸只打印一份答题卡，请勿双面打印两份");
     }
 

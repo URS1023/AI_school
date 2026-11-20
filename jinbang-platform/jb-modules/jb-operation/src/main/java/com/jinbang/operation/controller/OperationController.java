@@ -33,10 +33,10 @@ public class OperationController {
     private final ServiceDeskService deskService;
     private final ContentSafetyService safetyService;
 
-    public record IdsReq(List<Long> ids) {
+    public record MessageIdsReq(List<Long> ids) {
     }
 
-    public record DecideReq(boolean approve, String reason) {
+    public record AuditDecideReq(boolean approve, String reason) {
     }
 
     public record ReplyReq(String reply, boolean close) {
@@ -59,7 +59,7 @@ public class OperationController {
     }
 
     @PostMapping("/api/messages/read")
-    public R<Void> read(@RequestBody IdsReq req) {
+    public R<Void> read(@RequestBody MessageIdsReq req) {
         messageService.markRead(LoginHelper.userId(), req.ids());
         return R.ok();
     }
@@ -74,7 +74,7 @@ public class OperationController {
 
     @SaCheckPermission(value = {"op:audit", "school:resource:audit"}, mode = SaMode.OR)
     @PostMapping("/api/audit/{id}/decide")
-    public R<Void> decide(@PathVariable Long id, @RequestBody DecideReq req) {
+    public R<Void> decide(@PathVariable Long id, @RequestBody AuditDecideReq req) {
         auditService.decide(id, req.approve(), req.reason());
         return R.ok();
     }
@@ -131,7 +131,7 @@ public class OperationController {
 
     @SaCheckPermission("op:audit")
     @PostMapping("/api/admin/reports/{id}/handle")
-    public R<Void> handle(@PathVariable Long id, @RequestBody DecideReq req) {
+    public R<Void> handle(@PathVariable Long id, @RequestBody AuditDecideReq req) {
         deskService.handleReport(id, req.approve(), req.reason());
         return R.ok();
     }

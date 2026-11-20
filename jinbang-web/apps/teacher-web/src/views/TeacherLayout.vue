@@ -8,5 +8,5 @@ const rootFilter = (m: MenuItem) => !OTHER_APPS.includes(m.path ?? '')
 </script>
 
 <template>
-  <AppLayout app-name="世纪金榜AI" :root-filter="rootFilter" home-path="/" />
+  <AppLayout app-name="金榜智教" :root-filter="rootFilter" home-path="/" personal-path="/personal" ai-path="/ai/chat" />
 </template>

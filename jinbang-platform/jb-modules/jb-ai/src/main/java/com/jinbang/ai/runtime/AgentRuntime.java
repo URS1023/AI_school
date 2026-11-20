@@ -61,23 +61,23 @@ public class AgentRuntime {
     private final Map<String, AtomicBoolean> cancelFlags = new ConcurrentHashMap<>();
     private Map<String, AgentSkill> skills;
 
-    public record Item(String label, String input) {
+    public record TaskItem(String label, String input) {
     }
 
     /**
      * @param estimateUnits 预估数量（题数 / 页数 / 千字数 / 篇数）
      * @param free          本次免费（例如 PPT 的大纲步骤，最终生成时才计费）
      */
-    public record RunRequest(String agentCode, Long sessionId, String displayText, JsonNode params, List<Item> items,
+    public record RunRequest(String agentCode, Long sessionId, String displayText, JsonNode params, List<TaskItem> items,
                              int estimateUnits, List<ModelProvider.ChatMessage> history, boolean free,
                              Consumer<String> onStart, Consumer<String> onDelta) {
     }
 
-    public record ItemView(int itemNo, String label, String status, String output, long charged, String message) {
+    public record TaskItemView(int itemNo, String label, String status, String output, long charged, String message) {
     }
 
     public record TaskResult(String taskId, String status, long estimate, long charged, int totalItems,
-                             int successItems, String userMessage, List<ItemView> items, String disclaimer) {
+                             int successItems, String userMessage, List<TaskItemView> items, String disclaimer) {
     }
 
     private AgentSkill skill(String code) {
@@ -108,8 +108,8 @@ public class AgentRuntime {
         AiAgent agent = agentService.require(req.agentCode(), ci);
         AgentSkill skill = skill(agent.getAgentCode());
         JsonNode params = req.params() == null ? om.createObjectNode() : req.params();
-        List<Item> items = req.items() == null || req.items().isEmpty()
-                ? List.of(new Item(null, req.displayText())) : req.items();
+        List<TaskItem> items = req.items() == null || req.items().isEmpty()
+                ? List.of(new TaskItem(null, req.displayText())) : req.items();
         if (items.size() > agent.getMaxUnits()) {
             throw new BizException(ErrorCode.BAD_REQUEST, agent.getAgentName() + "一次最多处理 " + agent.getMaxUnits() + " 项");
         }
@@ -148,7 +148,7 @@ public class AgentRuntime {
         long charged = 0;
         try {
             for (int i = 0; i < items.size(); i++) {
-                Item item = items.get(i);
+                TaskItem item = items.get(i);
                 SkillContext ctx = new SkillContext(ci, agent, prompt.getContent(), taskId, i + 1, req.history(),
                         req.onDelta(), cancel::get, router);
                 AiSubtask sub = new AiSubtask();
@@ -340,7 +340,7 @@ public class AgentRuntime {
     private TaskResult view(AiTask t, List<AiSubtask> subs) {
         Function<AiSubtask, String> safeMsg = s -> "FAILED".equals(s.getItemStatus()) ? ErrorCode.AI_FAILED.msg()
                 : s.getFailMessage();
-        List<ItemView> items = subs.stream().map(s -> new ItemView(s.getItemNo(), s.getItemLabel(), s.getItemStatus(),
+        List<TaskItemView> items = subs.stream().map(s -> new TaskItemView(s.getItemNo(), s.getItemLabel(), s.getItemStatus(),
                 s.getOutputText(), s.getCharged(), safeMsg.apply(s))).toList();
         return new TaskResult(t.getTaskId(), t.getTaskStatus(), t.getEstimate(), t.getCharged(), t.getTotalItems(),
                 t.getSuccessItems(), t.getUserMessage(), items, Constants.AI_DISCLAIMER);

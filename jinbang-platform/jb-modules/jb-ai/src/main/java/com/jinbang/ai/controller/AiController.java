@@ -81,7 +81,7 @@ public class AiController {
     public record SessionPatch(String title, Boolean pinned, Boolean deleted) {
     }
 
-    public record FeedbackReq(boolean liked, String comment) {
+    public record AnswerFeedbackReq(boolean liked, String comment) {
     }
 
     public record EssayReq(String subject, String period, String grade, String genre, Integer fullScore, String title,
@@ -91,7 +91,7 @@ public class AiController {
     public record EssayItem(Long studentId, String studentName, String text, String storageKey) {
     }
 
-    public record PaperReq(String subject, String period, String grade, String markMode, Boolean withComment,
+    public record PaperCorrectReq(String subject, String period, String grade, String markMode, Boolean withComment,
                            String standardAnswer, List<String> pages) {
     }
 
@@ -234,7 +234,7 @@ public class AiController {
     }
 
     @PostMapping("/api/ai/messages/{id}/feedback")
-    public R<Void> feedback(@PathVariable Long id, @RequestBody FeedbackReq req) {
+    public R<Void> feedback(@PathVariable Long id, @RequestBody AnswerFeedbackReq req) {
         chatService.feedback(LoginHelper.require(), id, req.liked(), req.comment());
         return R.ok();
     }
@@ -246,7 +246,7 @@ public class AiController {
     public R<AgentRuntime.TaskResult> genQuestions(@RequestBody ObjectNode params) {
         int count = Math.max(1, params.path("count").asInt(5));
         return R.ok(runtime.run(LoginHelper.require(), new AgentRuntime.RunRequest("question", null,
-                params.path("requirement").asText(""), params, List.of(new AgentRuntime.Item("题目",
+                params.path("requirement").asText(""), params, List.of(new AgentRuntime.TaskItem("题目",
                 params.path("requirement").asText(""))), count, null, false, null, null)));
     }
 
@@ -314,7 +314,7 @@ public class AiController {
         p.put("fullScore", req.fullScore() == null ? 60 : req.fullScore());
         p.put("title", req.title());
         ObjectNode students = p.putObject("students");
-        List<AgentRuntime.Item> items = new ArrayList<>();
+        List<AgentRuntime.TaskItem> items = new ArrayList<>();
         for (int i = 0; i < req.essays().size(); i++) {
             EssayItem e = req.essays().get(i);
             ObjectNode s = students.putObject(String.valueOf(i + 1));
@@ -322,7 +322,7 @@ public class AiController {
                 s.put("studentId", e.studentId());
             }
             s.put("name", e.studentName());
-            items.add(new AgentRuntime.Item(e.studentName() == null ? "第" + (i + 1) + "篇" : e.studentName(),
+            items.add(new AgentRuntime.TaskItem(e.studentName() == null ? "第" + (i + 1) + "篇" : e.studentName(),
                     e.storageKey() != null ? OcrService.STORAGE_PREFIX + e.storageKey() : e.text()));
         }
         return R.ok(runtime.run(LoginHelper.require(), new AgentRuntime.RunRequest("essay", null, req.title(), p, items,
@@ -339,14 +339,14 @@ public class AiController {
     }
 
     @PostMapping("/api/ai/paper/correct")
-    public R<AgentRuntime.TaskResult> paper(@RequestBody PaperReq req) {
+    public R<AgentRuntime.TaskResult> paper(@RequestBody PaperCorrectReq req) {
         BizException.throwIf(req.pages() == null || req.pages().isEmpty(), ErrorCode.BAD_REQUEST, "请按顺序上传试卷图片");
         ObjectNode p = om.valueToTree(req);
         p.remove("pages");
-        List<AgentRuntime.Item> items = new ArrayList<>();
+        List<AgentRuntime.TaskItem> items = new ArrayList<>();
         for (int i = 0; i < req.pages().size(); i++) {
             String page = req.pages().get(i);
-            items.add(new AgentRuntime.Item("第" + (i + 1) + "页", page.startsWith("text:") ? page.substring(5)
+            items.add(new AgentRuntime.TaskItem("第" + (i + 1) + "页", page.startsWith("text:") ? page.substring(5)
                     : OcrService.STORAGE_PREFIX + page));
         }
         return R.ok(runtime.run(LoginHelper.require(), new AgentRuntime.RunRequest("paper_correct", null, "试卷批改", p,

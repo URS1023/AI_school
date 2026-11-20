@@ -44,7 +44,7 @@ public class AiApiImpl implements AiApi {
         // 预估数量：出题按题量，其余按 1 次（结算时按实际用量，不超过预估）
         int units = p == null ? 1 : Math.max(1, p.path("count").asInt(1));
         AgentRuntime.TaskResult r = runtime.run(ci, new AgentRuntime.RunRequest(agentCode, null, prompt, p,
-                java.util.List.of(new AgentRuntime.Item(null, prompt)), units, null, free, null, null));
+                java.util.List.of(new AgentRuntime.TaskItem(null, prompt)), units, null, free, null, null));
         if (!"SUCCESS".equals(r.status())) {
             throw new BizException(ErrorCode.AI_FAILED, r.userMessage(), r.taskId());
         }

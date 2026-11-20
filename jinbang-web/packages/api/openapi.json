@@ -409,7 +409,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MoveReq"
+                "$ref": "#/components/schemas/PrepMoveReq"
               }
             }
           },
@@ -489,7 +489,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MoveReq"
+                "$ref": "#/components/schemas/PrepMoveReq"
               }
             }
           },
@@ -1434,7 +1434,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/IdsReq"
+                "$ref": "#/components/schemas/TeacherIdsReq"
               }
             }
           },
@@ -1785,7 +1785,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MoveReq"
+                "$ref": "#/components/schemas/TransferReq"
               }
             }
           },
@@ -2428,7 +2428,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DecideReq"
+                "$ref": "#/components/schemas/JoinDecideReq"
               }
             }
           },
@@ -4051,7 +4051,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BatchReq"
+                "$ref": "#/components/schemas/QuestionBatchReq"
               }
             }
           },
@@ -5403,7 +5403,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BookReq"
+                "$ref": "#/components/schemas/PrepBookReq"
               }
             }
           },
@@ -5646,7 +5646,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/IdsReq"
+                "$ref": "#/components/schemas/ResourceIdsReq"
               }
             }
           },
@@ -6022,7 +6022,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PaperReq"
+                "$ref": "#/components/schemas/PaperCreateReq"
               }
             }
           },
@@ -6162,7 +6162,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/IdsReq"
+                "$ref": "#/components/schemas/MessageIdsReq"
               }
             }
           },
@@ -6547,7 +6547,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BookReq"
+                "$ref": "#/components/schemas/WrongBookReq"
               }
             }
           },
@@ -6627,7 +6627,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SheetReq"
+                "$ref": "#/components/schemas/BookSheetReq"
               }
             }
           },
@@ -7429,7 +7429,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RDownload"
+                  "$ref": "#/components/schemas/RSheetDownload"
                 }
               }
             }
@@ -7487,7 +7487,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BatchReq"
+                "$ref": "#/components/schemas/ScanBatchReq"
               }
             }
           },
@@ -10159,7 +10159,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/IdsReq"
+                "$ref": "#/components/schemas/ResourceIdsReq"
               }
             }
           },
@@ -10239,7 +10239,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/IdsReq"
+                "$ref": "#/components/schemas/ResourceIdsReq"
               }
             }
           },
@@ -11209,7 +11209,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DecideReq"
+                "$ref": "#/components/schemas/AuditDecideReq"
               }
             }
           },
@@ -11759,7 +11759,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PaperReq"
+                "$ref": "#/components/schemas/PaperCorrectReq"
               }
             }
           },
@@ -11839,7 +11839,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FeedbackReq"
+                "$ref": "#/components/schemas/AnswerFeedbackReq"
               }
             }
           },
@@ -12837,7 +12837,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DecideReq"
+                "$ref": "#/components/schemas/AuditDecideReq"
               }
             }
           },
@@ -17939,7 +17939,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RReport"
+                  "$ref": "#/components/schemas/RScanReport"
                 }
               }
             }
@@ -20267,18 +20267,18 @@
           "deleted": {
             "type": "boolean"
           },
-          "qyear": {
-            "type": "integer",
-            "format": "int32"
+          "qscope": {
+            "type": "string"
           },
           "qtype": {
             "type": "string"
           },
-          "qscope": {
-            "type": "string"
-          },
           "qsource": {
             "type": "string"
+          },
+          "qyear": {
+            "type": "integer",
+            "format": "int32"
           },
           "qScope": {
             "type": "string"
@@ -20529,7 +20529,7 @@
           }
         }
       },
-      "MoveReq": {
+      "PrepMoveReq": {
         "type": "object",
         "properties": {
           "name": {
@@ -21092,7 +21092,7 @@
           }
         }
       },
-      "IdsReq": {
+      "TeacherIdsReq": {
         "type": "object",
         "properties": {
           "ids": {
@@ -21277,6 +21277,14 @@
           },
           "data": {
             "$ref": "#/components/schemas/EduStudent"
+          }
+        }
+      },
+      "TransferReq": {
+        "type": "object",
+        "properties": {
+          "classId": {
+            "type": "string"
           }
         }
       },
@@ -21560,7 +21568,7 @@
           }
         }
       },
-      "DecideReq": {
+      "JoinDecideReq": {
         "type": "object",
         "properties": {
           "approve": {
@@ -22158,7 +22166,7 @@
           }
         }
       },
-      "BatchReq": {
+      "QuestionBatchReq": {
         "type": "object",
         "properties": {
           "ids": {
@@ -22325,7 +22333,7 @@
           }
         }
       },
-      "BookReq": {
+      "PrepBookReq": {
         "type": "object",
         "properties": {
           "bookName": {
@@ -22491,7 +22499,7 @@
           }
         }
       },
-      "Item": {
+      "PaperItemView": {
         "type": "object",
         "properties": {
           "itemId": {
@@ -22603,7 +22611,18 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Item"
+              "$ref": "#/components/schemas/PaperItemView"
+            }
+          }
+        }
+      },
+      "ResourceIdsReq": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           }
         }
@@ -22638,7 +22657,7 @@
           }
         }
       },
-      "PaperReq": {
+      "PaperCreateReq": {
         "type": "object",
         "properties": {
           "title": {
@@ -22660,6 +22679,17 @@
           },
           "sign": {
             "type": "string"
+          }
+        }
+      },
+      "MessageIdsReq": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -22701,6 +22731,26 @@
           },
           "data": {
             "$ref": "#/components/schemas/AiResult"
+          }
+        }
+      },
+      "WrongBookReq": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "studentId": {
+            "type": "string"
+          },
+          "wrongIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -22763,7 +22813,7 @@
           }
         }
       },
-      "SheetReq": {
+      "BookSheetReq": {
         "type": "object",
         "properties": {
           "sheetId": {
@@ -22986,6 +23036,42 @@
           }
         }
       },
+      "SheetReq": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "paperId": {
+            "type": "string"
+          },
+          "paperSize": {
+            "type": "string"
+          },
+          "sheetStyle": {
+            "type": "string"
+          },
+          "markMode": {
+            "type": "string"
+          },
+          "studentNoDigits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "noStyle": {
+            "type": "string"
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            }
+          }
+        }
+      },
       "RSheetPdf": {
         "type": "object",
         "properties": {
@@ -23054,7 +23140,22 @@
           }
         }
       },
-      "Download": {
+      "RSheetDownload": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SheetDownload"
+          }
+        }
+      },
+      "SheetDownload": {
         "type": "object",
         "properties": {
           "sheetId": {
@@ -23081,18 +23182,17 @@
           }
         }
       },
-      "RDownload": {
+      "ScanBatchReq": {
         "type": "object",
         "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "msg": {
+          "sourceType": {
             "type": "string"
           },
-          "data": {
-            "$ref": "#/components/schemas/Download"
+          "sourceId": {
+            "type": "string"
+          },
+          "scanType": {
+            "type": "string"
           }
         }
       },
@@ -24241,7 +24341,33 @@
           "code"
         ]
       },
-      "ItemView": {
+      "AuditDecideReq": {
+        "type": "object",
+        "properties": {
+          "approve": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      },
+      "RTaskResult": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/TaskResult"
+          }
+        }
+      },
+      "TaskItemView": {
         "type": "object",
         "properties": {
           "itemNo": {
@@ -24263,21 +24389,6 @@
           },
           "message": {
             "type": "string"
-          }
-        }
-      },
-      "RTaskResult": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "msg": {
-            "type": "string"
-          },
-          "data": {
-            "$ref": "#/components/schemas/TaskResult"
           }
         }
       },
@@ -24312,7 +24423,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ItemView"
+              "$ref": "#/components/schemas/TaskItemView"
             }
           },
           "disclaimer": {
@@ -24334,6 +24445,46 @@
             "items": {
               "$ref": "#/components/schemas/JsonNode"
             }
+          }
+        }
+      },
+      "PaperCorrectReq": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string"
+          },
+          "grade": {
+            "type": "string"
+          },
+          "markMode": {
+            "type": "string"
+          },
+          "withComment": {
+            "type": "boolean"
+          },
+          "standardAnswer": {
+            "type": "string"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "AnswerFeedbackReq": {
+        "type": "object",
+        "properties": {
+          "liked": {
+            "type": "boolean"
+          },
+          "comment": {
+            "type": "string"
           }
         }
       },
@@ -25952,6 +26103,26 @@
           }
         }
       },
+      "ResultItemView": {
+        "type": "object",
+        "properties": {
+          "no": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "fullScore": {
+            "type": "number"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "stdAnswer": {
+            "type": "string"
+          }
+        }
+      },
       "ResultView": {
         "type": "object",
         "properties": {
@@ -25986,7 +26157,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ItemView"
+              "$ref": "#/components/schemas/ResultItemView"
             }
           }
         }
@@ -26549,22 +26720,7 @@
           }
         }
       },
-      "RSourceReport": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "msg": {
-            "type": "string"
-          },
-          "data": {
-            "$ref": "#/components/schemas/SourceReport"
-          }
-        }
-      },
-      "Report": {
+      "MetricsReport": {
         "type": "object",
         "properties": {
           "counts": {
@@ -26610,8 +26766,54 @@
           "students": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/StudentRow"
+              "$ref": "#/components/schemas/RankRow"
             }
+          }
+        }
+      },
+      "RSourceReport": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SourceReport"
+          }
+        }
+      },
+      "RankRow": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "string"
+          },
+          "classId": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "rate": {
+            "type": "number"
+          },
+          "band": {
+            "type": "string"
+          },
+          "classRank": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gradeRank": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "critical": {
+            "type": "boolean"
           }
         }
       },
@@ -26632,7 +26834,7 @@
             "type": "string"
           },
           "report": {
-            "$ref": "#/components/schemas/Report"
+            "$ref": "#/components/schemas/MetricsReport"
           },
           "weakItems": {
             "type": "array",
@@ -27308,7 +27510,27 @@
           }
         }
       },
-      "RReport": {
+      "DailyVolume": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "images": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "batches": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "RScanReport": {
         "type": "object",
         "properties": {
           "code": {
@@ -27319,7 +27541,51 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Report"
+            "$ref": "#/components/schemas/ScanReport"
+          }
+        }
+      },
+      "ScanReport": {
+        "type": "object",
+        "properties": {
+          "daily": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DailyVolume"
+            }
+          },
+          "teachers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TeacherVolume"
+            }
+          }
+        }
+      },
+      "TeacherVolume": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "works": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scans": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "images": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },

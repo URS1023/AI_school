@@ -60,7 +60,7 @@ public class ExamController {
     public record BlocksReq(List<SheetService.Block> blocks) {
     }
 
-    public record BatchReq(String sourceType, Long sourceId, String scanType) {
+    public record ScanBatchReq(String sourceType, Long sourceId, String scanType) {
     }
 
     public record AssignStudentReq(Long studentId) {
@@ -114,7 +114,7 @@ public class ExamController {
     }
 
     @PostMapping("/api/exam/sheets/{id}/download")
-    public R<SheetService.Download> download(@PathVariable Long id) {
+    public R<SheetService.SheetDownload> download(@PathVariable Long id) {
         return R.ok(sheetService.download(LoginHelper.require(), id));
     }
 
@@ -236,7 +236,7 @@ public class ExamController {
 
     @SaCheckPermission(value = {"homework:scan", "exam:scan"}, mode = SaMode.OR)
     @PostMapping("/api/exam/scan/batches")
-    public R<ExScanBatch> createBatch(@RequestBody BatchReq req) {
+    public R<ExScanBatch> createBatch(@RequestBody ScanBatchReq req) {
         return R.ok(scanService.createBatch(LoginHelper.require(), req.sourceType(), req.sourceId(), req.scanType()));
     }
 
@@ -377,7 +377,7 @@ public class ExamController {
 
     @SaCheckPermission("school:datacenter")
     @GetMapping("/api/exam/datacenter/scan")
-    public R<com.jinbang.exam.service.DataCenterService.Report> dataCenter(
+    public R<com.jinbang.exam.service.DataCenterService.ScanReport> dataCenter(
             @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate from,
             @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate to) {
         return R.ok(dataCenterService.report(from, to));
@@ -409,7 +409,7 @@ public class ExamController {
     @PostMapping("/api/exam/sheets/{id}/pdf")
     public R<SheetPdf> sheetPdf(@PathVariable Long id) {
         var ci = LoginHelper.require();
-        SheetService.Download d = sheetService.download(ci, id);
+        SheetService.SheetDownload d = sheetService.download(ci, id);
         SheetService.SheetView v = sheetService.view(ci, id);
         var rendered = sheetPdfService.render(v.sheet(), v.version(), d.blocks());
         String key = storage.put("sheet-pdf", "pdf", rendered.pdf());

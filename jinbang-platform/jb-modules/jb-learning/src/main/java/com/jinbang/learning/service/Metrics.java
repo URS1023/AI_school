@@ -41,13 +41,13 @@ public final class Metrics {
                            BigDecimal scoreRate, BigDecimal correctRate) {
     }
 
-    public record StudentRow(Long studentId, Long classId, BigDecimal score, BigDecimal rate, String band, int classRank,
+    public record RankRow(Long studentId, Long classId, BigDecimal score, BigDecimal rate, String band, int classRank,
                              int gradeRank, boolean critical) {
     }
 
-    public record Report(Counts counts, BigDecimal avgScore, BigDecimal avgRate, BigDecimal avgHundred,
+    public record MetricsReport(Counts counts, BigDecimal avgScore, BigDecimal avgRate, BigDecimal avgHundred,
                          BigDecimal maxScore, BigDecimal minScore, BigDecimal fullScore, Map<String, Integer> bands,
-                         List<ItemStat> items, Map<String, BigDecimal> typeRates, List<StudentRow> students) {
+                         List<ItemStat> items, Map<String, BigDecimal> typeRates, List<RankRow> students) {
     }
 
     public static BigDecimal rate(BigDecimal got, BigDecimal full) {
@@ -85,7 +85,7 @@ public final class Metrics {
         return score.max(BigDecimal.ZERO).min(full);
     }
 
-    public static Report compute(ExamDataApi.SourceData d, Bands b, Predicate<ExamDataApi.StudentResult> filter) {
+    public static MetricsReport compute(ExamDataApi.SourceData d, Bands b, Predicate<ExamDataApi.StudentResult> filter) {
         List<ExamDataApi.StudentResult> all = d.students();
         List<ExamDataApi.StudentResult> scoped = all.stream().filter(filter).toList();
         Counts counts = new Counts(scoped.size(), cnt(scoped, "VALID"), cnt(scoped, "ABSENT"), cnt(scoped, "EXEMPT"),
@@ -108,7 +108,7 @@ public final class Metrics {
         for (String k : List.of("优秀", "良好", "合格", "不合格")) {
             bands.put(k, 0);
         }
-        List<StudentRow> rows = new ArrayList<>();
+        List<RankRow> rows = new ArrayList<>();
         for (ExamDataApi.StudentResult s : valid) {
             BigDecimal t = totals.get(s.studentId());
             BigDecimal r = rate(t, full);
@@ -116,9 +116,9 @@ public final class Metrics {
             int gradeRank = 1 + (int) totals.values().stream().filter(x -> x.compareTo(t) > 0).count();
             int classRank = 1 + (int) gradeValid.stream().filter(x -> x.classId().equals(s.classId()))
                     .filter(x -> totals.get(x.studentId()).compareTo(t) > 0).count();
-            rows.add(new StudentRow(s.studentId(), s.classId(), t, r, band(r, b), classRank, gradeRank, critical(r, b)));
+            rows.add(new RankRow(s.studentId(), s.classId(), t, r, band(r, b), classRank, gradeRank, critical(r, b)));
         }
-        rows.sort(Comparator.comparing(StudentRow::score).reversed());
+        rows.sort(Comparator.comparing(RankRow::score).reversed());
 
         List<ItemStat> items = new ArrayList<>();
         Map<String, BigDecimal[]> typeAgg = new LinkedHashMap<>();
@@ -143,7 +143,7 @@ public final class Metrics {
         }
         Map<String, BigDecimal> typeRates = new LinkedHashMap<>();
         typeAgg.forEach((k, v) -> typeRates.put(k, rate(v[0], v[1])));
-        return new Report(counts, avgScore, avgRate, avgRate.multiply(BigDecimal.valueOf(100)).setScale(2, RoundingMode.HALF_UP),
+        return new MetricsReport(counts, avgScore, avgRate, avgRate.multiply(BigDecimal.valueOf(100)).setScale(2, RoundingMode.HALF_UP),
                 valid.stream().map(s -> totals.get(s.studentId())).max(Comparator.naturalOrder()).orElse(null),
                 valid.stream().map(s -> totals.get(s.studentId())).min(Comparator.naturalOrder()).orElse(null),
                 full, bands, items, typeRates, rows);

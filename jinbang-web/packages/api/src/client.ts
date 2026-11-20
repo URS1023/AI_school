@@ -104,3 +104,15 @@ export async function unwrap<T>(
   }
   return body.data as T
 }
+
+/** multipart 上传（openapi-fetch 对表单支持有限，这里直接用 fetch，同样走 token 和 R<T> 解包）。 */
+export async function postForm<T>(path: string, form: FormData): Promise<T> {
+  const token = tokenStore.get()
+  const call = fetch(path, { method: 'POST', body: form, headers: token ? { Authorization: `Bearer ${token}` } : {} }).then(
+    async (response) => {
+      const body = (await response.json().catch(() => ({}))) as Result<T>
+      return response.ok ? { data: body, response } : { error: body, response }
+    },
+  )
+  return unwrap<T>(call as Promise<{ data?: Result<T>; error?: Result<unknown>; response: Response }>)
+}

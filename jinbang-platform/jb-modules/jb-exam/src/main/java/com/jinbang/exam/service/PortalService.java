@@ -38,10 +38,10 @@ public class PortalService {
     private final DataScopeProvider dataScope;
 
     public record ResultView(String sourceType, Long sourceId, String title, String subject, LocalDateTime time,
-                             String state, BigDecimal score, BigDecimal fullScore, Boolean late, List<ItemView> items) {
+                             String state, BigDecimal score, BigDecimal fullScore, Boolean late, List<ResultItemView> items) {
     }
 
-    public record ItemView(String no, BigDecimal score, BigDecimal fullScore, String answer, String stdAnswer) {
+    public record ResultItemView(String no, BigDecimal score, BigDecimal fullScore, String answer, String stdAnswer) {
     }
 
     public record HomeworkTodo(Long homeworkId, String title, String subject, String mode, LocalDateTime deadline,
@@ -90,11 +90,11 @@ public class PortalService {
         }
         boolean showStd = !(s.raw() instanceof ExHomework h) || Boolean.TRUE.equals(h.getAnswerPublished())
                 || "MARKED".equals(h.getHwStatus());
-        List<ItemView> items = new ArrayList<>();
+        List<ResultItemView> items = new ArrayList<>();
         BigDecimal total = BigDecimal.ZERO;
         BigDecimal full = BigDecimal.ZERO;
         for (ExAnswer x : mine) {
-            scoring.items(x.getId()).forEach(it -> items.add(new ItemView(it.getItemNo(), it.getScore(), it.getFullScore(),
+            scoring.items(x.getId()).forEach(it -> items.add(new ResultItemView(it.getItemNo(), it.getScore(), it.getFullScore(),
                     it.getStudentAnswer(), showStd ? it.getStdAnswer() : null)));
             total = total.add(x.getTotalScore() == null ? BigDecimal.ZERO : x.getTotalScore());
             full = full.add(x.getFullScore() == null ? BigDecimal.ZERO : x.getFullScore());

@@ -47,10 +47,10 @@ public class TeachingController {
     public record CatalogReq(Long parentId, String name, String period, String subject, String edition) {
     }
 
-    public record BookReq(String bookName, List<String> courses, String period, String subject, String edition) {
+    public record PrepBookReq(String bookName, List<String> courses, String period, String subject, String edition) {
     }
 
-    public record MoveReq(String name, Long parentId, Long catalogId) {
+    public record PrepMoveReq(String name, Long parentId, Long catalogId) {
     }
 
     public record BlankReq(Long catalogId, String name, String type) {
@@ -88,13 +88,13 @@ public class TeachingController {
 
     @SaCheckPermission("prep:use")
     @PostMapping("/api/prep/catalogs/by-book")
-    public R<TcPrepCatalog> byBook(@RequestBody BookReq r) {
+    public R<TcPrepCatalog> byBook(@RequestBody PrepBookReq r) {
         return R.ok(prepService.createByBook(LoginHelper.userId(), r.bookName(), r.courses(), r.period(), r.subject(), r.edition()));
     }
 
     @SaCheckPermission("prep:use")
     @PutMapping("/api/prep/catalogs/{id}")
-    public R<Void> moveCatalog(@PathVariable Long id, @RequestBody MoveReq r) {
+    public R<Void> moveCatalog(@PathVariable Long id, @RequestBody PrepMoveReq r) {
         prepService.renameOrMoveCatalog(LoginHelper.userId(), id, r.name(), r.parentId());
         return R.ok();
     }
@@ -135,7 +135,7 @@ public class TeachingController {
 
     @SaCheckPermission("prep:use")
     @PutMapping("/api/prep/materials/{id}")
-    public R<TcMaterial> updateMaterial(@PathVariable Long id, @RequestBody MoveReq r) {
+    public R<TcMaterial> updateMaterial(@PathVariable Long id, @RequestBody PrepMoveReq r) {
         return R.ok(prepService.update(LoginHelper.userId(), id, r.name(), r.catalogId()));
     }
 

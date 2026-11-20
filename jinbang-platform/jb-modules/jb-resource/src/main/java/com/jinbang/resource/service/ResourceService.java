@@ -74,7 +74,7 @@ public class ResourceService implements com.jinbang.api.resource.ResourceApi {
     private final AccountApi accountApi;
     private final AuditApi auditApi;
 
-    public record Query(String keyword, String scope, String period, String subject, String resType, String level,
+    public record ResourceQuery(String keyword, String scope, String period, String subject, String resType, String level,
                         Long catalogId, Integer year, String region, String sort, PageQuery page) {
     }
 
@@ -84,7 +84,7 @@ public class ResourceService implements com.jinbang.api.resource.ResourceApi {
     }
 
     /** 资源列表 / 搜索中心：只返回当前身份可见的资源。 */
-    public PageResult<ResResource> search(CurrentIdentity ci, Query q) {
+    public PageResult<ResResource> search(CurrentIdentity ci, ResourceQuery q) {
         LambdaQueryWrapper<ResResource> w = Wrappers.lambdaQuery();
         String scope = q.scope() == null ? "PLATFORM" : q.scope();
         switch (scope) {

@@ -30,7 +30,7 @@ public class ExportLinkService implements ExportLinkApi {
     private final FileStorage storage;
     private final SecureRandom random = new SecureRandom();
 
-    public record Download(String fileName, byte[] content) {
+    public record FileDownload(String fileName, byte[] content) {
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ExportLinkService implements ExportLinkApi {
      * 下载时再校验：未过期、未撤销、生成者的身份仍有效。身份被撤销（离职、解绑）时令牌同时作废（AC-14）。
      * 如果请求带了登录态，还要求是本人，防止把别人的链接贴进自己的会话里用。
      */
-    public Download download(String token) {
+    public FileDownload download(String token) {
         SysDownloadToken t = tokenMapper.selectOne(Wrappers.<SysDownloadToken>lambdaQuery()
                 .eq(SysDownloadToken::getToken, token));
         CurrentIdentity ci = LoginHelper.current().orElse(null);
@@ -68,7 +68,7 @@ public class ExportLinkService implements ExportLinkApi {
         if (identity == null || !IdentityService.ACTIVE.equals(identity.getIdentityStatus())) {
             throw new BizException(ErrorCode.FORBIDDEN, "下载链接已失效");
         }
-        return new Download(t.getFileName(), storage.get(t.getStorageKey()));
+        return new FileDownload(t.getFileName(), storage.get(t.getStorageKey()));
     }
 
     @EventListener

@@ -1,0 +1,81 @@
+-- 菜单 v2（前端 F1 起）：路径改为本平台自己的命名；补齐 AI 工作台、答题卡、学情、教务、运营后台、学生 / 家长的子菜单。
+-- 一级菜单（M）不设权限，按子菜单是否可见决定显示（后端下发时去掉没有可见子菜单的一级菜单）。
+DELETE FROM sys_menu;
+
+INSERT INTO sys_menu (id, parent_id, menu_name, path, perm_required, menu_type, menu_status, sort_no) VALUES
+(100, 0, '首页', '/home', NULL, 'C', 'NORMAL', 1),
+
+(200, 0, '资源中心', '/resources', NULL, 'M', 'NORMAL', 2),
+(201, 200, '平台资源', '/resources/platform', 'resource:view', 'C', 'NORMAL', 1),
+(202, 200, '题库组卷', '/resources/questions', 'question:use', 'C', 'NORMAL', 2),
+(203, 200, '我的试卷', '/resources/papers', 'paper:assemble', 'C', 'NORMAL', 3),
+(204, 200, '校本资源', '/resources/school', 'school:resource', 'C', 'NORMAL', 4),
+(205, 200, '资源征集', '/resources/collection', 'resource:view', 'C', 'NORMAL', 5),
+
+(300, 0, '教学中心', '/teaching', NULL, 'M', 'NORMAL', 3),
+(301, 300, '独立备课', '/teaching/prep', 'prep:use', 'C', 'NORMAL', 1),
+(302, 300, '智能备课', '/teaching/smart', 'prep:use', 'C', 'NORMAL', 2),
+(303, 300, '集体备课', '/teaching/collective', 'school:resource', 'C', 'NORMAL', 3),
+(304, 300, '金榜杏坛', '/teaching/forum', 'community:use', 'C', 'NORMAL', 4),
+(305, 300, '作业组卷', '/teaching/homework-paper', 'paper:assemble', 'C', 'COMING_SOON', 5),
+(306, 300, '互动授课', '/teaching/lecture', 'prep:use', 'C', 'COMING_SOON', 6),
+
+(700, 0, 'AI 工作台', '/ai', NULL, 'M', 'NORMAL', 4),
+(701, 700, '智能问答', '/ai/chat', 'ai:use', 'C', 'NORMAL', 1),
+(702, 700, '题目生成', '/ai/question', 'ai:use', 'C', 'NORMAL', 2),
+(703, 700, 'PPT 生成', '/ai/ppt', 'ai:use', 'C', 'NORMAL', 3),
+(704, 700, '试卷批改', '/ai/paper', 'ai:use', 'C', 'NORMAL', 4),
+(705, 700, '作文批改', '/ai/essay', 'ai:use', 'C', 'NORMAL', 5),
+(706, 700, '知识库', '/ai/kb', 'ai:use', 'C', 'NORMAL', 6),
+(707, 700, '消费记录', '/ai/records', 'ai:use', 'C', 'NORMAL', 7),
+(708, 700, '更多智能体', '/ai/more', 'ai:use', 'C', 'COMING_SOON', 99),
+
+(400, 0, '考试阅卷', '/exam', NULL, 'M', 'NORMAL', 5),
+(401, 400, '答题卡', '/exam/sheets', 'homework:assign', 'C', 'NORMAL', 1),
+(402, 400, '作业', '/exam/homework', 'homework:assign', 'C', 'NORMAL', 2),
+(403, 400, '考试', '/exam/exams', 'exam:create', 'C', 'NORMAL', 3),
+(404, 400, '阅卷', '/exam/marking', 'homework:mark', 'C', 'NORMAL', 4),
+
+(500, 0, '学情分析', '/learning', NULL, 'M', 'NORMAL', 6),
+(501, 500, '作业考试诊断', '/learning/reports', 'learning:view', 'C', 'NORMAL', 1),
+(502, 500, '班级学情', '/learning/class', 'learning:view', 'C', 'NORMAL', 2),
+(503, 500, '错题本', '/learning/wrong', 'wrong:view', 'C', 'NORMAL', 3),
+(504, 500, '数据中心', '/learning/data-center', 'school:datacenter', 'C', 'NORMAL', 4),
+(505, 500, '学校大屏', '/learning/screen', 'school:datacenter', 'C', 'NORMAL', 5),
+
+(600, 0, '教务管理', '/edu-affairs', NULL, 'M', 'NORMAL', 7),
+(601, 600, '学年与班级', '/edu-affairs/org', 'school:org:manage', 'C', 'NORMAL', 1),
+(602, 600, '教师管理', '/edu-affairs/teachers', 'school:teacher:manage', 'C', 'NORMAL', 2),
+(603, 600, '学生管理', '/edu-affairs/students', 'school:student:manage', 'C', 'NORMAL', 3),
+(604, 600, '家长绑定', '/edu-affairs/parents', 'school:parent:manage', 'C', 'NORMAL', 4),
+(605, 600, '入校审核', '/edu-affairs/join', 'school:join:audit', 'C', 'NORMAL', 5),
+(606, 600, '校本资源审核', '/edu-affairs/audit', 'school:resource:audit', 'C', 'NORMAL', 6),
+(607, 600, '成绩分档', '/edu-affairs/bands', 'school:org:manage', 'C', 'NORMAL', 7),
+(608, 600, '学年升级', '/edu-affairs/upgrade', 'school:year:manage', 'C', 'NORMAL', 8),
+(609, 600, '操作日志', '/edu-affairs/logs', 'school:org:manage', 'C', 'NORMAL', 9),
+
+(1000, 0, '运营后台', '/admin', NULL, 'M', 'NORMAL', 8),
+(1001, 1000, '学校开通', '/admin/tenants', 'op:tenant', 'C', 'NORMAL', 1),
+(1002, 1000, '审核中心', '/admin/audit', 'op:audit', 'C', 'NORMAL', 2),
+(1003, 1000, '举报处理', '/admin/reports', 'op:audit', 'C', 'NORMAL', 3),
+(1004, 1000, '反馈工单', '/admin/feedback', 'op:feedback', 'C', 'NORMAL', 4),
+(1005, 1000, '内容管理', '/admin/cms', 'op:cms', 'C', 'NORMAL', 5),
+(1006, 1000, '征集活动', '/admin/collection', 'op:resource', 'C', 'NORMAL', 6),
+(1007, 1000, '教辅模板', '/admin/workbook', 'op:resource', 'C', 'NORMAL', 7),
+(1008, 1000, 'AI 中台', '/admin/ai', 'op:ai', 'C', 'NORMAL', 8),
+(1009, 1000, '财务对账', '/admin/finance', 'op:finance', 'C', 'NORMAL', 9),
+(1010, 1000, '字典与敏感词', '/admin/dict', 'op:dict', 'C', 'NORMAL', 10),
+(1011, 1000, '操作日志', '/admin/logs', 'op:user', 'C', 'NORMAL', 11),
+
+(800, 0, '学生中心', '/student', NULL, 'M', 'NORMAL', 9),
+(801, 800, '我的作业', '/student/homework', 'student:self', 'C', 'NORMAL', 1),
+(802, 800, '我的成绩', '/student/results', 'student:self', 'C', 'NORMAL', 2),
+(803, 800, '错题本', '/student/wrong', 'student:self', 'C', 'NORMAL', 3),
+(804, 800, 'AI 学伴', '/student/ai', 'student:self', 'C', 'NORMAL', 4),
+(805, 800, '学海共渡', '/student/forum', 'student:self', 'C', 'NORMAL', 5),
+
+(900, 0, '家长中心', '/parent', NULL, 'M', 'NORMAL', 10),
+(901, 900, '我的孩子', '/parent/children', 'parent:self', 'C', 'NORMAL', 1),
+(902, 900, '成绩', '/parent/results', 'parent:self', 'C', 'NORMAL', 2),
+(903, 900, '错题', '/parent/wrong', 'parent:self', 'C', 'NORMAL', 3),
+(904, 900, '家长助手', '/parent/ai', 'parent:self', 'C', 'NORMAL', 4);

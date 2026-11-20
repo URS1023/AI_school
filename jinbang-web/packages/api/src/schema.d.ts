@@ -3987,11 +3987,11 @@ export interface components {
             /** Format: int64 */
             usedCount?: number;
             deleted?: boolean;
+            qscope?: string;
+            qtype?: string;
+            qsource?: string;
             /** Format: int32 */
             qyear?: number;
-            qtype?: string;
-            qscope?: string;
-            qsource?: string;
             qScope?: string;
             qType?: string;
             qSource?: string;
@@ -4090,7 +4090,7 @@ export interface components {
             materialId?: string;
             rewarded?: boolean;
         };
-        MoveReq: {
+        PrepMoveReq: {
             name?: string;
             parentId?: string;
             catalogId?: string;
@@ -4307,7 +4307,7 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["EduTeachRel"];
         };
-        IdsReq: {
+        TeacherIdsReq: {
             ids?: string[];
         };
         RInteger: {
@@ -4377,6 +4377,9 @@ export interface components {
             code?: number;
             msg?: string;
             data?: components["schemas"]["EduStudent"];
+        };
+        TransferReq: {
+            classId?: string;
         };
         StatusReq: {
             status?: string;
@@ -4485,7 +4488,7 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["EduJoinRequest"];
         };
-        DecideReq: {
+        JoinDecideReq: {
             approve?: boolean;
             reason?: string;
         };
@@ -4715,7 +4718,7 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["ImportPreview"];
         };
-        BatchReq: {
+        QuestionBatchReq: {
             ids?: string[];
             op?: string;
             value?: string;
@@ -4776,7 +4779,7 @@ export interface components {
             /** Format: int32 */
             sortNo?: number;
         };
-        BookReq: {
+        PrepBookReq: {
             bookName?: string;
             courses?: string[];
             period?: string;
@@ -4840,7 +4843,7 @@ export interface components {
                 [key: string]: number;
             };
         };
-        Item: {
+        PaperItemView: {
             itemId?: string;
             /** Format: int32 */
             no?: number;
@@ -4880,7 +4883,10 @@ export interface components {
         Section: {
             title?: string;
             type?: string;
-            items?: components["schemas"]["Item"][];
+            items?: components["schemas"]["PaperItemView"][];
+        };
+        ResourceIdsReq: {
+            ids?: string[];
         };
         SmartReq: {
             title?: string;
@@ -4892,7 +4898,7 @@ export interface components {
                 [key: string]: number;
             };
         };
-        PaperReq: {
+        PaperCreateReq: {
             title?: string;
             subject?: string;
         };
@@ -4900,6 +4906,9 @@ export interface components {
             orderNo?: string;
             channelTxn?: string;
             sign?: string;
+        };
+        MessageIdsReq: {
+            ids?: string[];
         };
         KeyReq: {
             itemNo?: string;
@@ -4916,6 +4925,12 @@ export interface components {
             code?: number;
             msg?: string;
             data?: components["schemas"]["AiResult"];
+        };
+        WrongBookReq: {
+            name?: string;
+            subject?: string;
+            studentId?: string;
+            wrongIds?: string[];
         };
         LnWrongBook: {
             id?: string;
@@ -4940,7 +4955,7 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["LnWrongBook"];
         };
-        SheetReq: {
+        BookSheetReq: {
             sheetId?: string;
         };
         LnBandSetting: {
@@ -5025,6 +5040,18 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["AiMarkResult"];
         };
+        SheetReq: {
+            name?: string;
+            subject?: string;
+            paperId?: string;
+            paperSize?: string;
+            sheetStyle?: string;
+            markMode?: string;
+            /** Format: int32 */
+            studentNoDigits?: number;
+            noStyle?: string;
+            blocks?: components["schemas"]["Block"][];
+        };
         RSheetPdf: {
             /** Format: int32 */
             code?: number;
@@ -5053,7 +5080,13 @@ export interface components {
             versionNo?: number;
             regions?: components["schemas"]["Region"][];
         };
-        Download: {
+        RSheetDownload: {
+            /** Format: int32 */
+            code?: number;
+            msg?: string;
+            data?: components["schemas"]["SheetDownload"];
+        };
+        SheetDownload: {
             sheetId?: string;
             /** Format: int32 */
             versionNo?: number;
@@ -5062,11 +5095,10 @@ export interface components {
             totalScore?: number;
             printRule?: string;
         };
-        RDownload: {
-            /** Format: int32 */
-            code?: number;
-            msg?: string;
-            data?: components["schemas"]["Download"];
+        ScanBatchReq: {
+            sourceType?: string;
+            sourceId?: string;
+            scanType?: string;
         };
         ExScanBatch: {
             id?: string;
@@ -5480,7 +5512,17 @@ export interface components {
         CodeReq: {
             code: string;
         };
-        ItemView: {
+        AuditDecideReq: {
+            approve?: boolean;
+            reason?: string;
+        };
+        RTaskResult: {
+            /** Format: int32 */
+            code?: number;
+            msg?: string;
+            data?: components["schemas"]["TaskResult"];
+        };
+        TaskItemView: {
             /** Format: int32 */
             itemNo?: number;
             label?: string;
@@ -5489,12 +5531,6 @@ export interface components {
             /** Format: int64 */
             charged?: number;
             message?: string;
-        };
-        RTaskResult: {
-            /** Format: int32 */
-            code?: number;
-            msg?: string;
-            data?: components["schemas"]["TaskResult"];
         };
         TaskResult: {
             taskId?: string;
@@ -5508,13 +5544,26 @@ export interface components {
             /** Format: int32 */
             successItems?: number;
             userMessage?: string;
-            items?: components["schemas"]["ItemView"][];
+            items?: components["schemas"]["TaskItemView"][];
             disclaimer?: string;
         };
         SaveQuestionsReq: {
             subject?: string;
             difficulty?: string;
             questions?: components["schemas"]["JsonNode"][];
+        };
+        PaperCorrectReq: {
+            subject?: string;
+            period?: string;
+            grade?: string;
+            markMode?: string;
+            withComment?: boolean;
+            standardAnswer?: string;
+            pages?: string[];
+        };
+        AnswerFeedbackReq: {
+            liked?: boolean;
+            comment?: string;
         };
         KbReq: {
             name?: string;
@@ -6123,6 +6172,13 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["ResultView"][];
         };
+        ResultItemView: {
+            no?: string;
+            score?: number;
+            fullScore?: number;
+            answer?: string;
+            stdAnswer?: string;
+        };
         ResultView: {
             sourceType?: string;
             sourceId?: string;
@@ -6134,7 +6190,7 @@ export interface components {
             score?: number;
             fullScore?: number;
             late?: boolean;
-            items?: components["schemas"]["ItemView"][];
+            items?: components["schemas"]["ResultItemView"][];
         };
         PortalMe: {
             role?: string;
@@ -6340,13 +6396,7 @@ export interface components {
             scoreRate?: number;
             correctRate?: number;
         };
-        RSourceReport: {
-            /** Format: int32 */
-            code?: number;
-            msg?: string;
-            data?: components["schemas"]["SourceReport"];
-        };
-        Report: {
+        MetricsReport: {
             counts?: components["schemas"]["Counts"];
             avgScore?: number;
             avgRate?: number;
@@ -6361,7 +6411,25 @@ export interface components {
             typeRates?: {
                 [key: string]: number;
             };
-            students?: components["schemas"]["StudentRow"][];
+            students?: components["schemas"]["RankRow"][];
+        };
+        RSourceReport: {
+            /** Format: int32 */
+            code?: number;
+            msg?: string;
+            data?: components["schemas"]["SourceReport"];
+        };
+        RankRow: {
+            studentId?: string;
+            classId?: string;
+            score?: number;
+            rate?: number;
+            band?: string;
+            /** Format: int32 */
+            classRank?: number;
+            /** Format: int32 */
+            gradeRank?: number;
+            critical?: boolean;
         };
         SourceReport: {
             title?: string;
@@ -6369,7 +6437,7 @@ export interface components {
             /** Format: date-time */
             time?: string;
             classId?: string;
-            report?: components["schemas"]["Report"];
+            report?: components["schemas"]["MetricsReport"];
             weakItems?: string[];
         };
         LnWrongItem: {
@@ -6619,11 +6687,34 @@ export interface components {
             msg?: string;
             data?: components["schemas"]["ExExaminee"][];
         };
-        RReport: {
+        DailyVolume: {
+            /** Format: date */
+            date?: string;
+            subject?: string;
+            /** Format: int64 */
+            images?: number;
+            /** Format: int32 */
+            batches?: number;
+        };
+        RScanReport: {
             /** Format: int32 */
             code?: number;
             msg?: string;
-            data?: components["schemas"]["Report"];
+            data?: components["schemas"]["ScanReport"];
+        };
+        ScanReport: {
+            daily?: components["schemas"]["DailyVolume"][];
+            teachers?: components["schemas"]["TeacherVolume"][];
+        };
+        TeacherVolume: {
+            userId?: string;
+            subjects?: string[];
+            /** Format: int32 */
+            works?: number;
+            /** Format: int32 */
+            scans?: number;
+            /** Format: int64 */
+            images?: number;
         };
         PageResultTcPost: {
             /** Format: int64 */
@@ -7429,7 +7520,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["MoveReq"];
+                "application/json": components["schemas"]["PrepMoveReq"];
             };
         };
         responses: {
@@ -7491,7 +7582,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["MoveReq"];
+                "application/json": components["schemas"]["PrepMoveReq"];
             };
         };
         responses: {
@@ -8269,7 +8360,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["IdsReq"];
+                "application/json": components["schemas"]["TeacherIdsReq"];
             };
         };
         responses: {
@@ -8565,7 +8656,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["MoveReq"];
+                "application/json": components["schemas"]["TransferReq"];
             };
         };
         responses: {
@@ -9101,7 +9192,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["DecideReq"];
+                "application/json": components["schemas"]["JoinDecideReq"];
             };
         };
         responses: {
@@ -10317,7 +10408,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["BatchReq"];
+                "application/json": components["schemas"]["QuestionBatchReq"];
             };
         };
         responses: {
@@ -11439,7 +11530,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["BookReq"];
+                "application/json": components["schemas"]["PrepBookReq"];
             };
         };
         responses: {
@@ -11627,7 +11718,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["IdsReq"];
+                "application/json": components["schemas"]["ResourceIdsReq"];
             };
         };
         responses: {
@@ -11926,7 +12017,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["PaperReq"];
+                "application/json": components["schemas"]["PaperCreateReq"];
             };
         };
         responses: {
@@ -12046,7 +12137,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["IdsReq"];
+                "application/json": components["schemas"]["MessageIdsReq"];
             };
         };
         responses: {
@@ -12347,7 +12438,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["BookReq"];
+                "application/json": components["schemas"]["WrongBookReq"];
             };
         };
         responses: {
@@ -12409,7 +12500,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SheetReq"];
+                "application/json": components["schemas"]["BookSheetReq"];
             };
         };
         responses: {
@@ -13071,7 +13162,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["RDownload"];
+                    "application/json": components["schemas"]["RSheetDownload"];
                 };
             };
             /** @description Bad Request */
@@ -13121,7 +13212,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["BatchReq"];
+                "application/json": components["schemas"]["ScanBatchReq"];
             };
         };
         responses: {
@@ -15276,7 +15367,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["IdsReq"];
+                "application/json": components["schemas"]["ResourceIdsReq"];
             };
         };
         responses: {
@@ -15338,7 +15429,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["IdsReq"];
+                "application/json": components["schemas"]["ResourceIdsReq"];
             };
         };
         responses: {
@@ -16172,7 +16263,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["DecideReq"];
+                "application/json": components["schemas"]["AuditDecideReq"];
             };
         };
         responses: {
@@ -16644,7 +16735,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["PaperReq"];
+                "application/json": components["schemas"]["PaperCorrectReq"];
             };
         };
         responses: {
@@ -16706,7 +16797,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["FeedbackReq"];
+                "application/json": components["schemas"]["AnswerFeedbackReq"];
             };
         };
         responses: {
@@ -17541,7 +17632,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["DecideReq"];
+                "application/json": components["schemas"]["AuditDecideReq"];
             };
         };
         responses: {
@@ -21601,7 +21692,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["RReport"];
+                    "application/json": components["schemas"]["RScanReport"];
                 };
             };
             /** @description Bad Request */

@@ -56,7 +56,7 @@ public class LearningAiTool implements AiToolProvider {
             StringBuilder sb = new StringBuilder();
             sources.stream().skip(Math.max(0, sources.size() - 5)).forEach(b -> {
                 ExamDataApi.SourceData d = examData.load(b.sourceType(), b.sourceId());
-                Metrics.Report r = Metrics.compute(d, learningService.bands(d.subject()), s -> classes.contains(s.classId()));
+                Metrics.MetricsReport r = Metrics.compute(d, learningService.bands(d.subject()), s -> classes.contains(s.classId()));
                 if (r.counts().valid() == 0) {
                     return;
                 }

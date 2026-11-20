@@ -80,7 +80,7 @@ class SystemAccountIT extends ApiTestSupport {
         assertThat(post("/api/school/teachers/resign", token, Map.of("ids", List.of(1))).path("code").asInt()).isEqualTo(403);
         // 菜单不下发考试阅卷 / 教务管理
         JsonNode menus = ok(get("/api/system/menu/routers", token));
-        assertThat(menus.toString()).doesNotContain("/edu-affairs").doesNotContain("/exam-center");
+        assertThat(menus.toString()).doesNotContain("/edu-affairs").doesNotContain("\"/exam\"").doesNotContain("/learning/");
         // AC-17：占位入口带「即将上线」标记
         assertThat(menus.toString()).contains("\"comingSoon\":true");
     }

@@ -31,7 +31,7 @@ public class QuestionService {
     private final ResCatalogMapper catalogMapper;
     private final ObjectMapper om;
 
-    public record Query(String scope, String period, String subject, String type, String difficulty, String source,
+    public record QuestionQuery(String scope, String period, String subject, String type, String difficulty, String source,
                         String knowledge, Long catalogId, Integer year, String keyword, PageQuery page) {
     }
 
@@ -40,7 +40,7 @@ public class QuestionService {
                               String source) {
     }
 
-    public PageResult<QQuestion> list(CurrentIdentity ci, Query q) {
+    public PageResult<QQuestion> list(CurrentIdentity ci, QuestionQuery q) {
         LambdaQueryWrapper<QQuestion> w = Wrappers.<QQuestion>lambdaQuery().eq(QQuestion::getDeleted, false);
         scope(w, ci, q.scope());
         w.eq(notBlank(q.period()), QQuestion::getPeriod, q.period())

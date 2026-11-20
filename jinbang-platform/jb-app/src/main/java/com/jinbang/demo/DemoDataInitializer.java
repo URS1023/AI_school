@@ -39,6 +39,7 @@ import java.util.Set;
 public class DemoDataInitializer implements ApplicationRunner {
     public static final String PASSWORD = "Demo1234";
     private static final String SCHOOL = "演示中学";
+    private static final long DEMO_COINS = 1000;
 
     private final SysTenantMapper tenantMapper;
     private final TenantAdminService tenantAdminService;
@@ -52,6 +53,7 @@ public class DemoDataInitializer implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         if (tenantMapper.exists(Wrappers.<SysTenant>lambdaQuery().eq(SysTenant::getTenantName, SCHOOL))) {
+            topUpDemoCoins();
             return;
         }
         CurrentIdentity platform = new CurrentIdentity(0L, 0L, 1L, IdentityType.PLATFORM, Set.of("platform_admin"),
@@ -92,9 +94,22 @@ public class DemoDataInitializer implements ApplicationRunner {
             SysUser u = userService.findByAccount(account).orElseThrow();
             userService.setPassword(u, PASSWORD);
         }
+        topUpDemoCoins();
         log.info("""
                 演示数据已就绪（{}，邀请码 {}），密码均为 {}：
                   学校管理员 13900000001 | 班主任(高一1班, 语文) 13900000002 | 数学任课(1班、2班) 13900000003
                   年级主任(高一) 13900000004 | 游客教师 13900000009 | 学生 张三 s{}260101""", SCHOOL, school.getInviteCode(), PASSWORD, school.getId());
+    }
+
+    /** 仅演示环境：每次启动把演示教师的金榜币补到 1000，避免反复体验 / 自动化测试把余额耗尽。 */
+    private void topUpDemoCoins() {
+        for (String account : List.of("13900000001", "13900000002", "13900000003", "13900000004", "13900000009")) {
+            userService.findByAccount(account).ifPresent(u -> {
+                long lack = DEMO_COINS - accountApi.balance(u.getId());
+                if (lack > 0) {
+                    accountApi.grantCoins(u.getId(), lack, "TASK", "demo-topup-" + u.getId() + "-" + System.currentTimeMillis(), "演示账号补币");
+                }
+            });
+        }
     }
 }

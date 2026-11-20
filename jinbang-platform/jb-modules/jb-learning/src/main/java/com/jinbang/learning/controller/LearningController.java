@@ -35,10 +35,10 @@ public class LearningController {
     public record KeyReq(String itemNo, boolean on) {
     }
 
-    public record BookReq(String name, String subject, Long studentId, List<Long> wrongIds) {
+    public record WrongBookReq(String name, String subject, Long studentId, List<Long> wrongIds) {
     }
 
-    public record SheetReq(Long sheetId) {
+    public record BookSheetReq(Long sheetId) {
     }
 
     @SaCheckPermission("learning:view")
@@ -122,7 +122,7 @@ public class LearningController {
 
     @SaCheckPermission("wrong:view")
     @PostMapping("/api/learning/wrong-books")
-    public R<LnWrongBook> createBook(@RequestBody BookReq req) {
+    public R<LnWrongBook> createBook(@RequestBody WrongBookReq req) {
         return R.ok(wrongService.createBook(LoginHelper.require(), req.name(), req.subject(), req.studentId(), req.wrongIds()));
     }
 
@@ -134,7 +134,7 @@ public class LearningController {
 
     @SaCheckPermission("wrong:view")
     @PostMapping("/api/learning/wrong-books/{id}/sheet")
-    public R<LnWrongBook> sheet(@PathVariable Long id, @RequestBody SheetReq req) {
+    public R<LnWrongBook> sheet(@PathVariable Long id, @RequestBody BookSheetReq req) {
         return R.ok(wrongService.markSheet(LoginHelper.require(), id, req.sheetId()));
     }
 

@@ -19,7 +19,7 @@ test('AC-16：游客打开教务、考试页面看到 403 提示和申请指引'
   await uiLogin(page, ACCOUNTS.visitor)
   await expect(page.getByTestId('hello')).toBeVisible()
   await expect(page.getByTestId('nav')).not.toContainText('考试阅卷')
-  for (const path of ['/edu-affairs', '/exam-center/list', '/learning-center/homework']) {
+  for (const path of ['/edu-affairs/org', '/exam/exams', '/learning/reports']) {
     await page.goto(path)
     await expect(page.getByTestId('forbidden'), path).toBeVisible()
     await expect(page.getByTestId('forbidden')).toContainText('加入学校')
@@ -28,11 +28,11 @@ test('AC-16：游客打开教务、考试页面看到 403 提示和申请指引'
 
 test('AC-17：占位入口灰显并带「即将上线」角标', async ({ page }) => {
   await uiLogin(page, ACCOUNTS.visitor)
-  await page.getByTestId('nav').getByText('教学中心').hover()
+  await page.getByTestId('nav').getByText('教学中心').click()
   const soon = page.getByTestId('coming-soon').first()
   await expect(soon).toBeVisible()
   await expect(soon).toContainText('即将上线')
-  await expect(soon).toHaveClass(/is-disabled/)
+  await expect(soon).toHaveClass(/disabled/)
 })
 
 test('AC-13：游客直接调用学校接口返回 403，不返回任何学校数据', async () => {
