@@ -79,4 +79,4 @@ jb:
   storage:
     local-dir: ${JB_STORAGE_DIR:./data/files}
   recognition:
-    callback-token: ${JB_RECOGNITION_TOKEN:change-me}
+    callback-token: ${JB_RECOGNITION_TOKEN:}   # 为空时拒绝所有识别回调

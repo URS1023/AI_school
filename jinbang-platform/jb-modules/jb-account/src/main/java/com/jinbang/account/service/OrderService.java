@@ -49,7 +49,7 @@ public class OrderService {
 
     private final PayOrderMapper orderMapper;
     private final AccountService accountService;
-    private final PaymentGateway gateway;
+    private final org.springframework.beans.factory.ObjectProvider<PaymentGateway> gateways;
     private final NotifyApi notifyApi;
 
     public record CreateResult(String orderNo, String payParams, LocalDateTime expireAt) {
@@ -68,11 +68,19 @@ public class OrderService {
         o.setCoins(p.coins());
         o.setAmountFen(p.amountFen());
         o.setOrderStatus(Status.PENDING.name());
-        o.setPayChannel(gateway.channel());
+        o.setPayChannel(gateway().channel());
         o.setExpireAt(LocalDateTime.now().plusMinutes(30));
         orderMapper.insert(o);
-        return new CreateResult(o.getOrderNo(), gateway.prepay(o.getOrderNo(), o.getAmountFen(), o.getSubject()),
+        return new CreateResult(o.getOrderNo(), gateway().prepay(o.getOrderNo(), o.getAmountFen(), o.getSubject()),
                 o.getExpireAt());
+    }
+
+    private PaymentGateway gateway() {
+        PaymentGateway g = gateways.getIfAvailable();
+        if (g == null) {
+            throw new BizException(ErrorCode.SERVICE_UNAVAILABLE, "暂未开通在线支付，请联系客服");
+        }
+        return g;
     }
 
     /** 待支付订单「重新支付」（rePay）。 */
@@ -80,7 +88,7 @@ public class OrderService {
         PayOrder o = mine(userId, orderNo);
         BizException.throwIf(!Status.PENDING.name().equals(o.getOrderStatus()) || o.getExpireAt().isBefore(LocalDateTime.now()),
                 ErrorCode.STATE_TRANSITION_DENIED, "订单已失效，请重新下单");
-        return new CreateResult(o.getOrderNo(), gateway.prepay(o.getOrderNo(), o.getAmountFen(), o.getSubject()),
+        return new CreateResult(o.getOrderNo(), gateway().prepay(o.getOrderNo(), o.getAmountFen(), o.getSubject()),
                 o.getExpireAt());
     }
 
@@ -94,7 +102,7 @@ public class OrderService {
      */
     @Transactional
     public void onPaid(String orderNo, String channelTxn, String sign) {
-        if (!gateway.verifyNotify(orderNo, channelTxn, sign)) {
+        if (!gateway().verifyNotify(orderNo, channelTxn, sign)) {
             throw new BizException(ErrorCode.FORBIDDEN, "签名校验失败");
         }
         PayOrder o = BizException.notNull(orderMapper.selectOne(Wrappers.<PayOrder>lambdaQuery()

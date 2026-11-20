@@ -10,3 +10,11 @@ spring:
 
 jb:
   demo-data: false
+  admin:
+    password: ${JB_ADMIN_PASSWORD:}
+  ai:
+    provider: ${JB_AI_PROVIDER:openai}
+  pay:
+    channel: ${JB_PAY_CHANNEL:none}   # 生产禁止 mock；接入微信支付后提供 PaymentGateway 实现
+  recognition:
+    base-url: ${JB_RECOGNITION_URL:}

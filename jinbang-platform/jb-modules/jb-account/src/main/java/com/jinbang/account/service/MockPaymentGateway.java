@@ -16,6 +16,7 @@ public class MockPaymentGateway implements PaymentGateway {
     private final String secret;
 
     public MockPaymentGateway(@Value("${jb.pay.mock-secret:mock-secret}") String secret) {
+        // 模拟通道只用于开发和测试；生产配置 jb.pay.channel 默认 none，不会创建本 Bean
         this.secret = secret;
     }
 

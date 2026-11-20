@@ -1,0 +1,49 @@
+# 本地一键起：docker compose up -d   （口令请通过 .env 提供，不要写进仓库）
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: jinbang
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?请在 .env 中设置 MYSQL_ROOT_PASSWORD}
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_0900_ai_ci
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      JB_PROFILE: prod
+      JB_DB_URL: jdbc:mysql://mysql:3306/jinbang?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      JB_DB_USER: root
+      JB_DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      JB_ADMIN_PASSWORD: ${JB_ADMIN_PASSWORD:-}
+      JB_AI_PROVIDER: ${JB_AI_PROVIDER:-mock}
+      JB_AI_BASE_URL: ${JB_AI_BASE_URL:-}
+      JB_AI_API_KEY: ${JB_AI_API_KEY:-}
+      JB_RECOGNITION_URL: http://recognize:8000
+      JB_RECOGNITION_TOKEN: ${JB_RECOGNITION_TOKEN:?请在 .env 中设置 JB_RECOGNITION_TOKEN}
+    ports:
+      - "8080:8080"
+    volumes:
+      - files:/app/data
+
+  recognize:
+    image: python:3.12-slim
+    working_dir: /svc
+    command: sh -c "pip install -q -r requirements.txt && uvicorn app:app --host 0.0.0.0 --port 8000"
+    environment:
+      JB_JAVA_BASE: http://app:8080
+      JB_RECOGNITION_TOKEN: ${JB_RECOGNITION_TOKEN}
+    volumes:
+      - ./jb-recognize:/svc:ro
+
+volumes:
+  mysql-data:
+  files:
