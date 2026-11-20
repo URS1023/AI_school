@@ -46,6 +46,7 @@ public class SchoolController {
     private final ParentService parentService;
     private final JoinSchoolService joinService;
     private final com.jinbang.system.service.DirectoryService directoryService;
+    private final com.jinbang.system.service.DataScopeService dataScopeService;
 
     public record YearReq(int startYear, boolean current) {
     }
@@ -109,6 +110,35 @@ public class SchoolController {
     @PostMapping("/grades")
     public R<EduGrade> createGrade(@RequestBody GradeReq req) {
         return R.ok(orgService.createGrade(req.yearId(), req.level()));
+    }
+
+    /** 当前学年里当前身份能看到的班级（班级选择器用）；subjects 为空表示该班全学科可见。 */
+    public record MyClass(Long classId, String className, Long gradeId, String gradeName, java.util.Set<String> subjects) {
+    }
+
+    @GetMapping("/my-classes")
+    public R<List<MyClass>> myClasses() {
+        var scope = dataScopeService.current();
+        var year = orgService.currentYear();
+        if (year == null) {
+            return R.ok(List.of());
+        }
+        boolean wide = scope.isSchoolWide() || !scope.schoolSubjects().isEmpty();
+        List<MyClass> out = new java.util.ArrayList<>();
+        for (EduGrade g : orgService.listGrades(year.getId())) {
+            for (EduClass c : orgService.listClasses(g.getId())) {
+                boolean full = scope.isSchoolWide() || scope.fullClassIds().contains(c.getId());
+                java.util.Set<String> subs = full ? null : scope.classSubjects().get(c.getId());
+                if (!full && subs == null && !wide) {
+                    continue;
+                }
+                if (!full && subs == null) {
+                    subs = scope.schoolSubjects();
+                }
+                out.add(new MyClass(c.getId(), c.getClassName(), g.getId(), g.getGradeName(), subs));
+            }
+        }
+        return R.ok(out);
     }
 
     @GetMapping("/classes")

@@ -14585,6 +14585,66 @@
         }
       }
     },
+    "/api/school/my-classes": {
+      "get": {
+        "tags": [
+          "school-controller"
+        ],
+        "operationId": "myClasses",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RListMyClass"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RVoid"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RVoid"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RMapStringString"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RVoid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/school/join/requests": {
       "get": {
         "tags": [
@@ -20267,18 +20327,18 @@
           "deleted": {
             "type": "boolean"
           },
-          "qscope": {
-            "type": "string"
+          "qyear": {
+            "type": "integer",
+            "format": "int32"
           },
           "qtype": {
             "type": "string"
           },
-          "qsource": {
+          "qscope": {
             "type": "string"
           },
-          "qyear": {
-            "type": "integer",
-            "format": "int32"
+          "qsource": {
+            "type": "string"
           },
           "qScope": {
             "type": "string"
@@ -25781,6 +25841,48 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EduParentBinding"
+            }
+          }
+        }
+      },
+      "MyClass": {
+        "type": "object",
+        "properties": {
+          "classId": {
+            "type": "string"
+          },
+          "className": {
+            "type": "string"
+          },
+          "gradeId": {
+            "type": "string"
+          },
+          "gradeName": {
+            "type": "string"
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "RListMyClass": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyClass"
             }
           }
         }

@@ -53,6 +53,24 @@ export const router = createRouter({
         page('/ai/kb', '知识库', () => import('./views/ai/AiKb.vue')),
         page('/ai/records', '消费记录', () => import('./views/ai/AiRecords.vue')),
 
+        // 考试阅卷
+        page('/exam/sheets', '答题卡', () => import('./views/exam/SheetList.vue')),
+        page('/exam/sheets/:id', '答题卡编辑', () => import('./views/exam/SheetEditor.vue')),
+        page('/exam/homework', '作业', () => import('./views/exam/HomeworkList.vue')),
+        page('/exam/homework/:id', '作业详情', () => import('./views/exam/HomeworkDetail.vue')),
+        page('/exam/exams', '考试', () => import('./views/exam/ExamList.vue')),
+        page('/exam/exams/:id', '考试详情', () => import('./views/exam/ExamDetail.vue')),
+        page('/exam/marking', '阅卷', () => import('./views/exam/MarkingCenter.vue')),
+        page('/exam/marking/:type/:id', '阅卷台', () => import('./views/exam/MarkingDesk.vue')),
+
+        // 学情分析
+        page('/learning/reports', '作业考试诊断', () => import('./views/learning/ReportList.vue')),
+        page('/learning/reports/:type/:id', '学情报告', () => import('./views/learning/ReportView.vue')),
+        page('/learning/class', '班级学情', () => import('./views/learning/ClassTrend.vue')),
+        page('/learning/wrong', '错题本', () => import('./views/learning/WrongBook.vue')),
+        page('/learning/data-center', '数据中心', () => import('./views/learning/DataCenter.vue')),
+        page('/learning/screen', '学情大屏', () => import('./views/learning/BigScreen.vue')),
+
         // 个人中心（所有身份都有，不属于菜单）
         { path: 'personal/:tab?', component: () => import('./views/personal/PersonalView.vue'), meta: { title: '个人中心' } },
 

@@ -2740,6 +2740,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/school/my-classes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["myClasses"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/school/join/requests": {
         parameters: {
             query?: never;
@@ -3987,11 +4003,11 @@ export interface components {
             /** Format: int64 */
             usedCount?: number;
             deleted?: boolean;
-            qscope?: string;
-            qtype?: string;
-            qsource?: string;
             /** Format: int32 */
             qyear?: number;
+            qtype?: string;
+            qscope?: string;
+            qsource?: string;
             qScope?: string;
             qType?: string;
             qSource?: string;
@@ -6058,6 +6074,19 @@ export interface components {
             code?: number;
             msg?: string;
             data?: components["schemas"]["EduParentBinding"][];
+        };
+        MyClass: {
+            classId?: string;
+            className?: string;
+            gradeId?: string;
+            gradeName?: string;
+            subjects?: string[];
+        };
+        RListMyClass: {
+            /** Format: int32 */
+            code?: number;
+            msg?: string;
+            data?: components["schemas"]["MyClass"][];
         };
         RListEduJoinRequest: {
             /** Format: int32 */
@@ -19057,6 +19086,62 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["RListEduParentBinding"];
+                };
+            };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RVoid"];
+                };
+            };
+            /** @description Unauthorized */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RVoid"];
+                };
+            };
+            /** @description Forbidden */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RMapStringString"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RVoid"];
+                };
+            };
+        };
+    };
+    myClasses: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RListMyClass"];
                 };
             };
             /** @description Bad Request */
