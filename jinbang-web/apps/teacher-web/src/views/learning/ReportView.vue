@@ -3,8 +3,8 @@ import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { http, unwrap, type ApiError, type Schemas } from '@jb/api'
-import { EChart, PageHeader, fmtPct, fmtTime, useDict } from '@jb/ui'
-import { useMyClasses, useNames } from '../../composables/school'
+import { EChart, PageHeader, chartBad, chartColor, chartGood, fmtPct, fmtTime, useDict } from '@jb/ui'
+import { BLOCK_TYPES, useMyClasses, useNames } from '../../composables/school'
 
 /**
  * 单次学情（PRD 6.5）：概览（参考人数、均分、得分率、最高最低、分数段）、逐题得分率、题型得分率、学生排名；
@@ -26,7 +26,8 @@ const student = ref<Schemas['StudentDetail'] | null>(null)
 const r = computed(() => data.value?.report)
 const path = computed(() => ({ type: type.value, id: id.value }))
 const BAND: Record<string, string> = { 优秀: '优秀', 良好: '良好', 合格: '合格', 不合格: '待提高' }
-const BAND_COLOR: Record<string, string> = { 优秀: '#0f7a68', 良好: '#3b6fd8', 合格: '#e8a33d', 不合格: '#d0583a' }
+const BAND_COLOR: Record<string, string> = { 优秀: 'var(--chart-4)', 良好: 'var(--chart-2)', 合格: 'var(--chart-3)', 不合格: 'var(--chart-1)' }
+const BAND_CHART: Record<string, string> = { 优秀: '--chart-4', 良好: '--chart-2', 合格: '--chart-3', 不合格: '--chart-1' }
 
 async function load() {
   try {
@@ -57,7 +58,7 @@ const bandChart = computed(() => ({
   tooltip: { trigger: 'item' },
   legend: { bottom: 0 },
   series: [{ type: 'pie', radius: ['45%', '70%'], label: { show: false },
-    data: Object.entries(r.value?.bands ?? {}).map(([k, v]) => ({ name: BAND[k] ?? k, value: v, itemStyle: { color: BAND_COLOR[k] } })) }],
+    data: Object.entries(r.value?.bands ?? {}).map(([k, v]) => ({ name: BAND[k] ?? k, value: v, itemStyle: { color: chartColor(BAND_CHART[k] ?? '--chart-5') } })) }],
 }))
 const itemChart = computed(() => ({
   tooltip: { trigger: 'axis', valueFormatter: (v: number) => `${v}%` },
@@ -65,12 +66,12 @@ const itemChart = computed(() => ({
   xAxis: { type: 'category', data: r.value?.items?.map((i) => i.no) ?? [] },
   yAxis: { type: 'value', max: 100 },
   series: [{ type: 'bar', barMaxWidth: 26, data: (r.value?.items ?? []).map((i) => ({
-    value: Math.round(Number(i.scoreRate) * 100), itemStyle: { color: Number(i.scoreRate) < 0.6 ? '#d0583a' : '#0f7a68' },
+    value: Math.round(Number(i.scoreRate) * 100), itemStyle: { color: Number(i.scoreRate) < 0.6 ? chartBad() : chartGood() },
   })) }],
 }))
 const typeChart = computed(() => ({
   tooltip: { trigger: 'axis' },
-  radar: { indicator: Object.keys(r.value?.typeRates ?? {}).map((k) => ({ name: k, max: 100 })) },
+  radar: { radius: '62%', indicator: Object.keys(r.value?.typeRates ?? {}).map((k) => ({ name: BLOCK_TYPES[k] ?? k, max: 100 })) },
   series: [{ type: 'radar', data: [{ value: Object.values(r.value?.typeRates ?? {}).map((v) => Math.round(Number(v) * 100)), name: '题型得分率' }] }],
 }))
 
@@ -79,7 +80,7 @@ onMounted(load)
 
 <template>
   <div>
-    <PageHeader :title="data?.title ?? '学情报告'" icon="析" color="var(--jb-c-learning)" :desc="`${subjectLabel(data?.subject)} · ${fmtTime(data?.time)}`">
+    <PageHeader :title="data?.title ?? '学情报告'" icon="析" color="var(--jb-c-learning)" :desc="`${subjectLabel(data?.subject)}，${fmtTime(data?.time)}`">
       <el-select v-model="classId" clearable placeholder="全部可见班级" style="width: 170px" @change="load">
         <el-option v-for="c in classes" :key="c.classId" :label="c.className" :value="c.classId!" />
       </el-select>
@@ -87,7 +88,7 @@ onMounted(load)
     <el-tabs v-model="tab" @tab-change="(t: string | number) => t === 'review' && loadReview()">
       <el-tab-pane label="成绩概览" name="overview">
         <div class="kpis" data-test="report-kpis">
-          <div><small>参考 / 应考</small><b>{{ r?.counts?.valid }} / {{ r?.counts?.total }}</b><em>缺考 {{ r?.counts?.absent }} · 未交 {{ r?.counts?.missing }}</em></div>
+          <div><small>参考 / 应考</small><b>{{ r?.counts?.valid }} / {{ r?.counts?.total }}</b><em>缺考 {{ r?.counts?.absent }}，未交 {{ r?.counts?.missing }}</em></div>
           <div><small>平均分</small><b>{{ r?.avgScore }}</b><em>满分 {{ r?.fullScore }}</em></div>
           <div><small>得分率</small><b>{{ fmtPct(r?.avgRate) }}</b><em>百分制 {{ r?.avgHundred }}</em></div>
           <div><small>最高 / 最低</small><b>{{ r?.maxScore }} / {{ r?.minScore }}</b><em>&nbsp;</em></div>
@@ -96,7 +97,7 @@ onMounted(load)
           <el-card header="分数段分布"><EChart :option="bandChart" height="260px" /></el-card>
           <el-card header="逐题得分率（红色为低于 60% 的薄弱题）"><EChart :option="itemChart" height="260px" /></el-card>
           <el-card header="题型得分率"><EChart v-if="Object.keys(r?.typeRates ?? {}).length > 2" :option="typeChart" height="260px" />
-            <div v-else class="types"><div v-for="(v, k) in r?.typeRates" :key="k" class="jb-between"><span>{{ k }}</span><b>{{ fmtPct(v) }}</b></div></div></el-card>
+            <div v-else class="types"><div v-for="(v, k) in r?.typeRates" :key="k" class="jb-between"><span>{{ BLOCK_TYPES[k] ?? k }}</span><b>{{ fmtPct(v) }}</b></div></div></el-card>
         </div>
         <el-alert v-if="data?.weakItems?.length" type="warning" :closable="false" show-icon :title="`薄弱题：第 ${data.weakItems.join('、')} 题，建议在讲评中重点讲解`" class="weak" />
         <el-card header="学生成绩">
@@ -118,9 +119,9 @@ onMounted(load)
         </div>
         <el-table :data="review" size="small" empty-text="没有符合条件的题">
           <el-table-column prop="no" label="题号" width="70" />
-          <el-table-column prop="type" label="题型" width="90" />
+          <el-table-column label="题型" width="90"><template #default="{ row }">{{ BLOCK_TYPES[row.type] ?? row.type }}</template></el-table-column>
           <el-table-column prop="fullScore" label="满分" width="70" />
-          <el-table-column label="班级得分率"><template #default="{ row }"><el-progress :percentage="Math.round(row.classRate * 100)" :color="row.classRate < 0.6 ? '#d0583a' : '#0f7a68'" /></template></el-table-column>
+          <el-table-column label="班级得分率"><template #default="{ row }"><el-progress :percentage="Math.round(row.classRate * 100)" :color="row.classRate < 0.6 ? 'var(--color-bad)' : 'var(--color-ink-2)'" /></template></el-table-column>
           <el-table-column label="年级得分率" width="110"><template #default="{ row }">{{ fmtPct(row.gradeRate) }}</template></el-table-column>
           <el-table-column label="正确率" width="90"><template #default="{ row }">{{ row.correctRate == null ? '—' : fmtPct(row.correctRate) }}</template></el-table-column>
           <el-table-column width="130"><template #default="{ row }"><el-button size="small" :type="row.key ? 'warning' : 'default'" @click="toggleKey(row)">{{ row.key ? '★ 重点讲评' : '☆ 设为重点' }}</el-button></template></el-table-column>
@@ -150,8 +151,8 @@ onMounted(load)
 <style scoped>
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
 .kpis.small { grid-template-columns: repeat(3, 1fr); }
-.kpis > div { background: var(--jb-surface); border-radius: var(--jb-radius); padding: 14px 18px; border-top: 3px solid var(--jb-c-learning); box-shadow: var(--jb-shadow); display: flex; flex-direction: column; gap: 2px; }
-.kpis b { font-size: 24px; color: var(--jb-c-learning); }
+.kpis > div { padding: 12px 2px 14px; border-top: 1px solid var(--color-ink-2); display: flex; flex-direction: column; gap: 2px; }
+.kpis b { font-size: var(--text-2xl); font-weight: 500; font-family: var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-ink); }
 .kpis em { font-style: normal; font-size: 12px; color: var(--jb-text-secondary); }
 .charts { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 14px; margin-bottom: 14px; }
 .types { display: flex; flex-direction: column; gap: 10px; padding-top: 10px; }

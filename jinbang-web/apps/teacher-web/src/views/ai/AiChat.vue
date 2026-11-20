@@ -143,11 +143,11 @@ onBeforeUnmount(() => ctrl?.abort())
 <template>
   <div class="chat">
     <aside class="chat__side jb-card">
-      <el-button type="primary" round class="full" @click="newChat">＋ 开启新对话</el-button>
+      <el-button type="primary" class="full" @click="newChat">开启新对话</el-button>
       <el-input v-model="keyword" size="small" placeholder="搜索历史记录" clearable />
       <div class="sessions">
         <div v-for="s in sessions" :key="s.id" class="sess" :class="{ on: sessionId === s.id }" @click="openSession(s)">
-          <span class="jb-ellipsis">{{ s.pinned ? '📌 ' : '' }}{{ s.title }}</span>
+          <span class="jb-ellipsis">{{ s.title }}</span><small v-if="s.pinned" class="pin">置顶</small>
           <el-dropdown trigger="click" @command="patchSession(s, $event)" @click.stop>
             <span class="more" @click.stop>⋯</span>
             <template #dropdown>
@@ -182,10 +182,10 @@ onBeforeUnmount(() => ctrl?.abort())
             <span v-else class="typing">思考中…</span>
           </div>
           <div v-if="m.role === 'assistant' && m.content && !(streaming && i === messages.length - 1)" class="meta">
-            <span class="jb-muted">内容由 AI 生成，仅供参考{{ m.note ? ` · ${m.note}` : '' }}</span>
+            <span class="jb-muted">内容由 AI 生成，仅供参考{{ m.note ? `，${m.note}` : '' }}</span>
             <el-button text size="small" @click="copy(m)">复制</el-button>
-            <el-button text size="small" @click="feedback(m, true)">👍</el-button>
-            <el-button text size="small" @click="feedback(m, false)">👎</el-button>
+            <el-button text size="small" @click="feedback(m, true)">有用</el-button>
+            <el-button text size="small" @click="feedback(m, false)">没帮助</el-button>
           </div>
         </div>
       </div>
@@ -213,24 +213,28 @@ onBeforeUnmount(() => ctrl?.abort())
 .full { width: 100%; }
 .sessions { flex: 1; overflow: auto; }
 .sess { display: flex; justify-content: space-between; gap: 6px; padding: 8px 10px; border-radius: 8px; cursor: pointer; }
-.sess:hover, .sess.on { background: var(--jb-brand-light); }
+.sess:hover { background: var(--color-paper-2); }
+.sess.on { background: var(--color-cotton); box-shadow: var(--edge-stock), var(--cast-stock); font-weight: 500; }
+.pin { font-size: var(--text-xs); color: var(--color-muted); flex-shrink: 0; }
 .more { padding: 0 4px; color: var(--jb-text-secondary); }
 .chat__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
 .agents { display: flex; gap: 8px; flex-wrap: wrap; }
-.agents button { border: 1px solid var(--jb-border); background: var(--jb-surface); padding: 6px 14px; border-radius: 16px; cursor: pointer; }
-.agents button.on { background: var(--jb-c-ai); color: #fff; border-color: var(--jb-c-ai); }
+.agents { background: var(--color-paper-2); border-radius: var(--radius-stock); padding: 3px; box-shadow: var(--press-groove); align-self: flex-start; }
+.agents button { border: none; background: transparent; min-height: 32px; padding: 0 14px; border-radius: 6px; cursor: pointer; font: inherit; color: var(--color-ink-2); }
+.agents button.on { background: var(--color-cotton); color: var(--color-ink); font-weight: 600; box-shadow: var(--edge-stock), var(--cast-stock); }
 .agents small { margin-left: 4px; font-size: 11px; opacity: 0.8; }
 .msgs { flex: 1; overflow: auto; padding: 8px 4px; display: flex; flex-direction: column; gap: 14px; }
 .hero { margin: auto; text-align: center; max-width: 720px; }
-.hero h2 { margin: 0 0 6px; font-size: 24px; color: var(--jb-c-ai); }
+.hero h2 { margin: 0 0 6px; font-size: var(--text-2xl); color: var(--color-ink); }
 .recs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
-.recs button { border: none; background: color-mix(in srgb, var(--jb-c-ai) 10%, var(--jb-surface)); padding: 8px 14px; border-radius: 10px; cursor: pointer; }
+.recs button { border: none; font: inherit; background: var(--color-cotton); box-shadow: var(--edge-stock), var(--cast-stock); padding: 10px 14px; border-radius: var(--radius-stock); cursor: pointer; text-align: left; }
+.recs button:focus-visible, .agents button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .msg { display: flex; flex-direction: column; max-width: 80%; }
 .msg.user { align-self: flex-end; align-items: flex-end; }
 .msg.assistant { align-self: flex-start; }
 .bubble { padding: 10px 14px; border-radius: 12px; background: var(--jb-surface); border: 1px solid var(--jb-border); }
-.msg.user .bubble { background: var(--jb-brand); color: #fff; border-color: var(--jb-brand); }
-.bubble.failed { background: #fff4f0; border-color: #f2c4b3; }
+.msg.user .bubble { background: var(--color-ink); color: var(--color-cotton); border-color: var(--color-ink); }
+.bubble.failed { background: var(--color-bad-soft); border-color: var(--color-rule-2); }
 .typing { color: var(--jb-text-secondary); }
 .meta { display: flex; align-items: center; gap: 2px; font-size: 12px; margin-top: 2px; }
 .composer { display: flex; flex-direction: column; gap: 8px; }

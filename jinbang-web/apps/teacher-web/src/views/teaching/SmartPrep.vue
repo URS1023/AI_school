@@ -24,7 +24,8 @@ const prepId = ref('')
 const outline = ref<Outline | null>(null)
 const template = ref('urban_blue')
 const result = ref<Schemas['PrepView'] | null>(null)
-const COLORS: Record<string, string> = { urban_blue: '#2a5bb8', deep_calm: '#1c2230', fresh_light: '#5ab4c8', simple_green: '#3c8f57', red_china: '#aa1e1e' }
+/** 模板封面色是 PPT 模板自身的颜色（产品内容，不是界面配色），预览时照实显示。 */
+const COLORS: Record<string, string> = { urban_blue: 'oklch(45% 0.14 262)', deep_calm: 'oklch(25% 0.02 260)', fresh_light: 'oklch(71% 0.08 215)', simple_green: 'oklch(56% 0.11 150)', red_china: 'oklch(43% 0.17 27)' }
 
 const pages = computed(() => 1 + (outline.value?.chapters.reduce((n, c) => n + 1 + c.sections.length, 0) ?? 0))
 
@@ -187,12 +188,12 @@ onMounted(async () => {
 .outline__title :deep(input) { font-size: 18px; font-weight: 700; }
 .ch { padding: 12px 14px; border: 1px solid var(--jb-border); border-radius: var(--jb-radius); background: var(--jb-brand-soft); }
 .row { display: flex; gap: 8px; align-items: center; }
-.badge { width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: var(--jb-brand); color: #fff; display: grid; place-items: center; font-weight: 700; }
+.badge { width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: var(--color-ink); color: var(--color-cotton); display: grid; place-items: center; font-weight: 700; }
 .sec { margin: 10px 0 0 34px; }
 .pts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .foot { margin-top: 16px; display: flex; justify-content: flex-end; gap: 8px; }
 .tpl-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 .tpl { border: 2px solid transparent; background: none; border-radius: 10px; padding: 6px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
 .tpl.on { border-color: var(--jb-brand); }
-.tpl__cover { height: 90px; border-radius: 6px; color: #fff; display: grid; place-items: center; padding: 6px; font-size: 13px; }
+.tpl__cover { height: 90px; border-radius: 6px; color: oklch(98% 0.004 80); display: grid; place-items: center; padding: 6px; font-size: 13px; }
 </style>

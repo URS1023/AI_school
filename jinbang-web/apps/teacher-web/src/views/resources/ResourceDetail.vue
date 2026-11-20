@@ -63,7 +63,7 @@ onMounted(load)
     <el-card>
       <el-descriptions :column="3" border>
         <el-descriptions-item label="类型">{{ typeLabel(res.resType) }}</el-descriptions-item>
-        <el-descriptions-item label="等级">{{ levelLabel(res.resLevel) }}{{ res.resLevel !== 'FREE' ? ` · ${res.priceCoins} 币` : '' }}</el-descriptions-item>
+        <el-descriptions-item label="等级">{{ levelLabel(res.resLevel) }}{{ res.resLevel !== 'FREE' ? `，${res.priceCoins} 币` : '' }}</el-descriptions-item>
         <el-descriptions-item label="格式">{{ res.fileExt?.toUpperCase() }}</el-descriptions-item>
         <el-descriptions-item label="下载">{{ res.downloadCount }}</el-descriptions-item>
         <el-descriptions-item label="浏览">{{ res.viewCount }}</el-descriptions-item>

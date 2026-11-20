@@ -113,7 +113,7 @@ onMounted(load)
 
 <template>
   <div v-if="exam">
-    <PageHeader :title="exam.examName!" icon="考" color="var(--jb-c-exam)" :desc="`${subjectLabel(exam.subject)} · ${fmtTime(exam.examTime) || '未定时间'} · ${EXAM_STATUS[st]}`">
+    <PageHeader :title="exam.examName!" icon="考" color="var(--jb-c-exam)" :desc="`${subjectLabel(exam.subject)}，${fmtTime(exam.examTime) || '未定时间'}，${EXAM_STATUS[st]}`">
       <el-button v-if="st === 'DRAFT' && !exam.sheetVersionId" @click="bindSheet">绑定答题卡</el-button>
       <template v-if="auth.hasPerm('exam:create') || auth.hasPerm('exam:publish')">
         <el-button v-for="a in actions" :key="a.action" :type="a.type" :data-test="`flow-${a.action}`" @click="flow(a)">{{ a.label }}</el-button>

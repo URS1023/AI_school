@@ -301,22 +301,19 @@ onMounted(() => {
 .prep__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .entries { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .entries :deep(.el-dropdown) { display: block; }
-.entry { width: 100%; border: none; border-radius: var(--jb-radius); padding: 18px; text-align: left; cursor: pointer; color: #fff; display: flex; flex-direction: column; gap: 6px; }
-.entry b { font-size: 16px; }
-.entry span { font-size: 12px; opacity: 0.9; }
-.e1 { background: linear-gradient(135deg, #0f7a68, #2fa38e); }
-.e2 { background: linear-gradient(135deg, #3b6fd8, #6d93e6); }
-.e3 { background: linear-gradient(135deg, #e0703a, #eea06d); }
-.e4 { background: linear-gradient(135deg, #7a5bd6, #a189e4); }
+.entry { all: unset; box-sizing: border-box; width: 100%; min-height: 76px; padding: 14px 16px; border-radius: var(--radius-stock); cursor: pointer; display: flex; flex-direction: column; gap: 4px;
+  background: var(--color-cotton); color: var(--color-ink); box-shadow: var(--edge-stock), var(--cast-stock); transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); }
+.entry:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock-lift); }
+.entry:active { transform: none; box-shadow: var(--press-groove); }
+.entry:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.entry b { font-size: var(--text-md); font-weight: 600; }
+.entry span { font-size: var(--text-sm); color: var(--color-muted); }
 .ops { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
 .ops .el-button + .el-button { margin-left: 0; }
 .file { display: flex; align-items: center; gap: 10px; }
 .file a { cursor: pointer; }
 .file a:hover { color: var(--jb-brand); }
-.file__ico { font-size: 11px; font-weight: 700; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 6px; background: var(--jb-brand-light); color: var(--jb-brand-dark); }
-.file__ico.PPTX { background: #fdebe2; color: #c4561e; }
-.file__ico.DOCX { background: #e6edfb; color: #2f5bc0; }
-.file__ico.PDF { background: #fbe6ec; color: #b23558; }
+.file__ico { font-family: var(--font-outlier); font-size: var(--text-xs); font-weight: 500; width: 40px; height: 28px; display: grid; place-items: center; border-radius: 4px; background: var(--color-paper-2); color: var(--color-ink-2); box-shadow: inset 0 0 0 1px var(--color-rule); }
 .slides { display: flex; flex-direction: column; gap: 12px; max-height: 76vh; overflow: auto; }
 .slides img { width: 100%; border: 1px solid var(--jb-border); border-radius: 6px; }
 .doc { max-height: 72vh; overflow: auto; line-height: 1.9; }

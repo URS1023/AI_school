@@ -15,7 +15,7 @@ const label = computed(() =>
 <template>
   <el-popover trigger="click" :width="360" placement="bottom-start">
     <template #reference>
-      <el-button round>{{ label || '选择学段学科' }} ▾</el-button>
+      <el-button>{{ label || '选择学段学科' }}</el-button>
     </template>
     <div class="jb-ps">
       <div class="jb-ps__row">

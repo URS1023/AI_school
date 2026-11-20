@@ -133,7 +133,7 @@ onMounted(() => {
           <a class="res__title" @click="router.push(`${props.scope === 'PLATFORM' ? '/resources/platform' : '/resources/school'}/${r.id}`)">{{ r.title }}</a>
           <div class="jb-muted res__meta">
             <el-tag size="small" effect="plain">{{ typeLabel(r.resType) }}</el-tag>
-            <el-tag v-if="r.resLevel !== 'FREE'" size="small" type="warning" effect="plain">{{ levelLabel(r.resLevel) }} · {{ r.priceCoins }} 币</el-tag>
+            <el-tag v-if="r.resLevel !== 'FREE'" size="small" type="warning" effect="plain">{{ levelLabel(r.resLevel) }}，{{ r.priceCoins }} 币</el-tag>
             <span>下载 {{ r.downloadCount }}</span><span>浏览 {{ r.viewCount }}</span><span>{{ fmtTime(r.publishedAt) }}</span>
           </div>
         </div>

@@ -104,17 +104,17 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 <template>
   <div class="desk">
     <aside class="desk__qs jb-card">
-      <el-button text @click="router.back()">← 返回</el-button>
+      <el-button text @click="router.back()">返回</el-button>
       <a v-for="p in subjective" :key="p.itemNo" class="q" :class="{ on: p.itemNo === itemNo }" @click="pick(p.itemNo!)">
         <b>第 {{ p.itemNo }} 题</b><small>{{ p.fullScore }} 分</small>
         <el-progress :percentage="p.total ? Math.round(((p.marked ?? 0) / p.total) * 100) : 0" :stroke-width="5" :show-text="false" />
-        <small class="jb-muted">{{ p.marked }}/{{ p.total }}{{ p.needsReview ? ` · 待复核 ${p.needsReview}` : '' }}</small>
+        <small class="jb-muted">{{ p.marked }}/{{ p.total }}{{ p.needsReview ? `，待复核 ${p.needsReview}` : '' }}</small>
       </a>
       <el-empty v-if="!subjective.length" description="没有主观题" :image-size="40" />
     </aside>
     <section v-loading="loading" class="desk__paper jb-card" data-test="marking-paper">
       <template v-if="cur?.answerId">
-        <div class="jb-between head"><b>第 {{ itemNo }} 题 · 满分 {{ cur.fullScore }}</b><span class="jb-muted">本题剩余 {{ cur.remaining }} 份<template v-if="cur.reviewReason"> · 复核原因：{{ cur.reviewReason }}</template></span></div>
+        <div class="jb-between head"><b>第 {{ itemNo }} 题，满分 {{ cur.fullScore }}</b><span class="jb-muted">本题剩余 {{ cur.remaining }} 份<template v-if="cur.reviewReason">，复核原因：{{ cur.reviewReason }}</template></span></div>
         <div v-if="imgs.length" class="imgs"><img v-for="u in imgs" :key="u" :src="u" alt="学生作答" /></div>
         <div v-else class="text"><MathText :text="cur.studentAnswer || '（未作答）'" block /></div>
       </template>
@@ -143,14 +143,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 .desk__paper { flex: 1; min-width: 0; overflow: auto; }
 .head { margin-bottom: 12px; }
 .imgs img { width: 100%; border: 1px solid var(--jb-border); border-radius: 6px; }
-.text { padding: 16px; background: #fffdf8; border: 1px solid #e5dfcf; border-radius: 6px; min-height: 200px; line-height: 2; }
+.text { padding: 14px 2px; border-top: 1px solid var(--color-ink-2); border-radius: 6px; min-height: 200px; line-height: 2; }
 .desk__pad { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; }
 .desk__pad .el-button { margin-left: 0; }
 .quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .quick button { height: 40px; border-radius: 8px; border: 1px solid var(--jb-border); background: var(--jb-surface); font-size: 16px; font-weight: 600; cursor: pointer; }
 .quick button:hover:not(:disabled) { border-color: var(--jb-c-exam); color: var(--jb-c-exam); }
 .quick button.full { background: var(--jb-brand-light); color: var(--jb-brand-dark); }
-.quick button.zero { background: #fff1ec; color: #c4561e; }
+.quick button.zero { color: var(--color-bad); }
 .quick button:disabled { opacity: 0.4; cursor: not-allowed; }
 .tip { font-size: 12px; }
 </style>

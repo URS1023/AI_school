@@ -105,7 +105,7 @@ onMounted(load)
       </header>
       <p class="post__body">{{ p.content }}</p>
       <footer class="post__ops">
-        <el-button text size="small" @click="like(p)">👍 {{ p.likeCount }}</el-button>
+        <el-button text size="small" @click="like(p)">赞 {{ p.likeCount }}</el-button>
         <el-button text size="small" @click="toggle(p)">评论 {{ p.commentCount }}</el-button>
         <el-button text size="small" @click="report(p)">举报</el-button>
         <el-button v-if="p.authorUserId === auth.me?.userId" text size="small" type="danger" @click="remove(p)">删除</el-button>

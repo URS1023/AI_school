@@ -73,7 +73,7 @@ onMounted(load)
           <b class="jb-ellipsis">{{ c.homework?.title }}</b>
           <el-tag size="small" :type="STATUS_TYPE[c.homework?.hwStatus ?? ''] ?? 'primary'">{{ HW_STATUS[c.homework?.hwStatus ?? ''] }}</el-tag>
         </div>
-        <span class="jb-muted">{{ subjectLabel(c.homework?.subject) }} · {{ c.homework?.hwMode === 'ONLINE' ? '线上作答' : '纸质扫描' }} · 截止 {{ fmtTime(c.homework?.deadline) || '不限' }}</span>
+        <span class="jb-muted">{{ subjectLabel(c.homework?.subject) }}，{{ c.homework?.hwMode === 'ONLINE' ? '线上作答' : '纸质扫描' }}，截止 {{ fmtTime(c.homework?.deadline) || '不限' }}</span>
         <div class="bars">
           <span>已交 {{ c.stats?.submitted }}/{{ c.stats?.expected }}</span><el-progress :percentage="pct(c.stats?.submitted, c.stats?.expected)" :show-text="false" :stroke-width="6" />
           <span>已批 {{ c.stats?.marked }}/{{ c.stats?.submitted }}</span><el-progress :percentage="pct(c.stats?.marked, c.stats?.submitted)" :show-text="false" :stroke-width="6" status="success" />
@@ -104,9 +104,9 @@ onMounted(load)
 
 <style scoped>
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; min-height: 120px; }
-.card { background: var(--jb-surface); border-radius: var(--jb-radius); border-left: 4px solid var(--jb-c-exam); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; cursor: pointer; box-shadow: var(--jb-shadow); }
-.card:hover { transform: translateY(-2px); }
+.card { all: unset; box-sizing: border-box; background: var(--color-cotton); border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-stock); transition: transform var(--dur-short) var(--ease-out); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; cursor: pointer; }
+.card:hover { transform: translateY(-1px); }
 .card .jb-muted { font-size: 12px; }
 .bars { display: grid; grid-template-columns: 110px 1fr; gap: 4px 8px; align-items: center; font-size: 12px; }
-.warn { color: #c4561e; }
+.warn { color: var(--color-bad); }
 </style>

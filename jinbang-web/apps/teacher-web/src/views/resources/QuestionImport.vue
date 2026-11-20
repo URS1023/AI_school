@@ -71,7 +71,7 @@ async function doImport() {
         </div>
         <el-alert v-for="(e, i) in preview?.errors ?? []" :key="i" :title="e.message" type="error" :closable="false" show-icon class="err" />
         <div v-for="q in preview?.questions ?? []" :key="q.index" class="pq">
-          <div class="jb-muted small">第 {{ q.index }} 题 · {{ typeLabel(q.type) || q.typeLabel }}<span v-if="q.groupIndex"> · 题组 {{ q.groupIndex }}</span></div>
+          <div class="jb-muted small">第 {{ q.index }} 题，{{ typeLabel(q.type) || q.typeLabel }}<span v-if="q.groupIndex">，题组 {{ q.groupIndex }}</span></div>
           <MathText :text="q.stem" block />
           <div v-for="o in q.options" :key="o"><MathText :text="o" /></div>
           <div class="jb-muted small">答案：{{ q.answer || '—' }}</div>

@@ -88,7 +88,7 @@ onMounted(() => {
           <el-table-column type="selection" width="40" />
           <el-table-column label="学生" width="90"><template #default="{ row }">{{ names.student(row.studentId) }}</template></el-table-column>
           <el-table-column label="班级" width="90"><template #default="{ row }">{{ className(row.classId) }}</template></el-table-column>
-          <el-table-column label="来源"><template #default="{ row }">{{ row.sourceTitle }} · 第 {{ row.itemNo }} 题</template></el-table-column>
+          <el-table-column label="来源"><template #default="{ row }">{{ row.sourceTitle }}，第 {{ row.itemNo }} 题</template></el-table-column>
           <el-table-column label="得分" width="80"><template #default="{ row }">{{ row.score }}/{{ row.fullScore }}</template></el-table-column>
           <el-table-column label="作答" width="100" prop="studentAnswer" show-overflow-tooltip />
           <el-table-column label="时间" width="140"><template #default="{ row }">{{ fmtTime(row.occurredAt) }}</template></el-table-column>
@@ -104,7 +104,7 @@ onMounted(() => {
       <el-card header="我的错题本" class="wb__books">
         <div v-for="b in books" :key="b.id" class="book">
           <b>{{ b.bookName }}</b>
-          <small class="jb-muted">{{ subjectLabel(b.subject) }} · {{ (b.wrongIds ?? '').split(',').filter(Boolean).length }} 题 · {{ fmtTime(b.createdAt) }}</small>
+          <small class="jb-muted">{{ subjectLabel(b.subject) }}，{{ (b.wrongIds ?? '').split(',').filter(Boolean).length }} 题，{{ fmtTime(b.createdAt) }}</small>
           <el-button link type="danger" size="small" @click="removeBook(b)">删除</el-button>
         </div>
         <el-empty v-if="!books.length" description="勾选错题后组成错题本" :image-size="40" />

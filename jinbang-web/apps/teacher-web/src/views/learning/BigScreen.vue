@@ -2,7 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { http, unwrap, type Schemas } from '@jb/api'
 import { useAuth } from '@jb/auth'
-import { EChart, useDict } from '@jb/ui'
+import { EChart, chartColor, useDict } from '@jb/ui'
 
 /** 学情大屏（PRD 6.9）：适合投屏的深色看板，按学科展示扫描率、批阅率、得分率；每 5 分钟自动刷新。 */
 const auth = useAuth()
@@ -18,24 +18,24 @@ async function load() {
 }
 
 const pct = (v?: number) => Math.round(Number(v ?? 0) * 100)
-const gauge = (v?: number, color = '#3fd1b0') => ({
+const gauge = (v?: number, token = '--chart-3') => ({
   series: [{
-    type: 'gauge', startAngle: 220, endAngle: -40, radius: '95%', progress: { show: true, width: 10, itemStyle: { color } },
-    axisLine: { lineStyle: { width: 10, color: [[1, 'rgba(255,255,255,0.08)']] } }, axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false }, pointer: { show: false },
-    detail: { valueAnimation: true, formatter: '{value}%', color: '#fff', fontSize: 18, offsetCenter: [0, '10%'] }, data: [{ value: pct(v) }],
+    type: 'gauge', startAngle: 220, endAngle: -40, radius: '95%', progress: { show: true, width: 10, itemStyle: { color: chartColor(token) } },
+    axisLine: { lineStyle: { width: 10, color: [[1, chartColor('--chart-board-track')]] } }, axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false }, pointer: { show: false },
+    detail: { valueAnimation: false, formatter: '{value}%', color: chartColor('--chart-board-type'), fontSize: 18, fontFamily: 'Geist Mono, monospace', offsetCenter: [0, '10%'] }, data: [{ value: pct(v) }],
   }],
 })
 const bars = computed(() => ({
-  textStyle: { color: '#cfe' },
+  textStyle: { color: chartColor('--chart-board-type') },
   tooltip: { trigger: 'axis' },
-  legend: { textStyle: { color: '#cfe' }, top: 0 },
+  legend: { textStyle: { color: chartColor('--chart-board-type') }, top: 0 },
   grid: { left: 40, right: 10, top: 36, bottom: 24 },
-  xAxis: { type: 'category', data: boards.value.map((b) => subjectLabel(b.subject)), axisLine: { lineStyle: { color: '#456' } } },
-  yAxis: { type: 'value', max: 100, splitLine: { lineStyle: { color: 'rgba(255,255,255,0.06)' } } },
+  xAxis: { type: 'category', data: boards.value.map((b) => subjectLabel(b.subject)), axisLine: { lineStyle: { color: chartColor('--chart-board-track') } } },
+  yAxis: { type: 'value', max: 100, splitLine: { lineStyle: { color: chartColor('--chart-board-track') } } },
   series: [
-    { name: '扫描率', type: 'bar', data: boards.value.map((b) => pct(b.scanRate)), itemStyle: { color: '#3fd1b0' } },
-    { name: '批阅率', type: 'bar', data: boards.value.map((b) => pct(b.markedRate)), itemStyle: { color: '#f1b44c' } },
-    { name: '得分率', type: 'bar', data: boards.value.map((b) => pct(b.scoreRate)), itemStyle: { color: '#7aa7ff' } },
+    { name: '扫描率', type: 'bar', barMaxWidth: 22, data: boards.value.map((b) => pct(b.scanRate)), itemStyle: { color: chartColor('--chart-3') } },
+    { name: '批阅率', type: 'bar', barMaxWidth: 22, data: boards.value.map((b) => pct(b.markedRate)), itemStyle: { color: chartColor('--chart-4') } },
+    { name: '得分率', type: 'bar', barMaxWidth: 22, data: boards.value.map((b) => pct(b.scoreRate)), itemStyle: { color: chartColor('--chart-board-accent') } },
   ],
 }))
 
@@ -72,11 +72,11 @@ onBeforeUnmount(() => {
     </section>
     <section class="grid">
       <div v-for="b in boards" :key="b.subject" class="board">
-        <h3>{{ subjectLabel(b.subject) }} <small>{{ b.sources }} 次</small></h3>
+        <h3>{{ subjectLabel(b.subject) }}</h3><p class="src">本期 {{ b.sources }} 次作业与考试</p>
         <div class="gauges">
           <div><EChart :option="gauge(b.scanRate)" height="120px" /><span>扫描率</span></div>
-          <div><EChart :option="gauge(b.markedRate, '#f1b44c')" height="120px" /><span>批阅率</span></div>
-          <div><EChart :option="gauge(b.scoreRate, '#7aa7ff')" height="120px" /><span>得分率</span></div>
+          <div><EChart :option="gauge(b.markedRate, '--chart-4')" height="120px" /><span>批阅率</span></div>
+          <div><EChart :option="gauge(b.scoreRate, '--chart-board-accent')" height="120px" /><span>得分率</span></div>
         </div>
       </div>
       <div v-if="!boards.length" class="board empty">这段时间还没有数据</div>
@@ -86,16 +86,21 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.screen { margin: -24px; padding: 20px 28px 28px; min-height: calc(100vh - var(--jb-header-h)); color: #e6f4f1; background: radial-gradient(circle at 20% 0%, #12403a, transparent 50%), radial-gradient(circle at 90% 10%, #2a2f55, transparent 45%), #0b1418; }
-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-bottom: 18px; }
-header h1 { margin: 0; font-size: 28px; letter-spacing: 6px; background: linear-gradient(90deg, #3fd1b0, #f1b44c); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.right { display: flex; gap: 12px; align-items: center; justify-content: flex-end; }
-.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
-.summary > div, .board { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(63, 209, 176, 0.25); border-radius: 12px; padding: 14px 18px; }
-.summary b { display: block; font-size: 32px; color: #3fd1b0; }
+.screen { margin: -24px -28px -48px; padding: 24px 32px 32px; min-height: calc(100vh - var(--jb-header-h)); color: var(--color-board-type); background: var(--color-board); }
+header { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid oklch(100% 0 0 / 0.12); }
+header h1 { margin: 0; font-size: var(--text-2xl); color: var(--color-board-type); }
+header > span { color: var(--color-board-muted); }
+.right { display: flex; gap: 12px; align-items: center; justify-content: flex-end; color: var(--color-board-muted); font-family: var(--font-outlier); font-size: var(--text-sm); }
+.right :deep(.el-radio-group) { background: oklch(100% 0 0 / 0.06); box-shadow: none; }
+.right :deep(.el-radio-button__inner) { color: var(--color-board-muted); }
+.right :deep(.el-radio-button.is-active .el-radio-button__inner) { background: var(--color-board-type); color: var(--color-board); }
+.summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+.summary > div, .board { background: oklch(100% 0 0 / 0.04); border-radius: var(--radius-card); padding: 14px 18px; box-shadow: inset 1px 1px 0 oklch(100% 0 0 / 0.06); }
+.summary small { color: var(--color-board-muted); }
+.summary b { display: block; font-size: 32px; font-weight: 500; font-family: var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-board-type); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; margin-bottom: 16px; }
-.board h3 { margin: 0 0 8px; font-size: 16px; }
-.board h3 small { color: #8fb; font-weight: normal; margin-left: 6px; }
-.gauges { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; font-size: 12px; color: #9cb; }
-.empty { display: grid; place-items: center; height: 160px; color: #789; }
+.board h3 { margin: 0; font-size: var(--text-md); color: var(--color-board-type); }
+.src { margin: 2px 0 6px; color: var(--color-board-muted); font-size: var(--text-sm); }
+.gauges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; font-size: var(--text-xs); color: var(--color-board-muted); }
+.empty { display: grid; place-items: center; height: 160px; color: var(--color-board-muted); }
 </style>

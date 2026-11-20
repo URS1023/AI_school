@@ -65,7 +65,7 @@ onMounted(load)
 
 <style scoped>
 .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
-.kpis > div { background: var(--jb-surface); border-radius: var(--jb-radius); padding: 14px 18px; box-shadow: var(--jb-shadow); display: flex; flex-direction: column; border-left: 4px solid var(--jb-c-learning); }
-.kpis b { font-size: 26px; color: var(--jb-c-learning); }
+.kpis > div { padding: 8px 2px 10px; border-top: 1px solid var(--color-ink-2); display: flex; flex-direction: column; }
+.kpis b { font-size: var(--text-xl); font-weight: 500; font-family: var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-ink); }
 .mt { margin-top: 14px; }
 </style>

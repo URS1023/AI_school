@@ -4,6 +4,7 @@ import * as echarts from 'echarts/core'
 import { BarChart, LineChart, PieChart, RadarChart } from 'echarts/charts'
 import { GridComponent, LegendComponent, TooltipComponent, TitleComponent, RadarComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
+import { chartColor } from '../chart'
 
 echarts.use([BarChart, LineChart, PieChart, RadarChart, GridComponent, LegendComponent, TooltipComponent, TitleComponent, RadarComponent, CanvasRenderer])
 
@@ -13,10 +14,13 @@ const el = ref<HTMLDivElement>()
 const chart = shallowRef<echarts.ECharts>()
 let ro: ResizeObserver | undefined
 
-const PALETTE = ['#0f7a68', '#e8a33d', '#3b6fd8', '#c2486f', '#7a5bd6', '#4a5a73', '#3fa7a0']
-
 function render() {
-  chart.value?.setOption({ color: PALETTE, textStyle: { fontFamily: 'inherit' }, ...props.option }, true)
+  const palette = [1, 2, 3, 4, 5, 6].map((i) => chartColor(`--chart-${i}`))
+  chart.value?.setOption({
+    color: palette,
+    textStyle: { fontFamily: 'inherit', color: chartColor('--chart-2') },
+    ...props.option,
+  }, true)
 }
 
 onMounted(() => {

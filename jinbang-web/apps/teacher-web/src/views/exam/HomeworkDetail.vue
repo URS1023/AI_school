@@ -46,7 +46,7 @@ onMounted(load)
 <template>
   <div v-if="hw">
     <PageHeader :title="hw.title!" icon="作" color="var(--jb-c-exam)"
-                :desc="`${subjectLabel(hw.subject)} · ${hw.hwMode === 'ONLINE' ? '线上作答' : '纸质扫描'} · ${classIds.map(className).join('、')} · 截止 ${fmtTime(hw.deadline) || '不限'}`">
+                :desc="`${subjectLabel(hw.subject)}，${hw.hwMode === 'ONLINE' ? '线上作答' : '纸质扫描'}，${classIds.map(className).join('、')}，截止 ${fmtTime(hw.deadline) || '不限'}`">
       <el-button v-if="hw.hwStatus === 'COLLECTING'" @click="act('complete-scan', '确认已全部扫描？完成后进入批阅阶段。')">完成扫描</el-button>
       <el-button v-if="hw.hwStatus === 'PUBLISHED'" @click="act('close', '截止收集并开始批阅？')">截止收集</el-button>
       <el-button v-if="hw.hwStatus === 'MARKING' || hw.hwStatus === 'COLLECTING'" type="success" @click="act('finish', '确认批阅完成？完成后生成作业学情。')">批阅完成</el-button>

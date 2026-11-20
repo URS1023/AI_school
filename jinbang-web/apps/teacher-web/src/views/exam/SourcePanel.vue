@@ -158,7 +158,7 @@ onMounted(load)
           <el-table-column label="指认学生" width="260">
             <template #default="{ row }">
               <el-select size="small" filterable placeholder="选择学生" @change="(v: string) => assignStudent(row, v)">
-                <el-option v-for="s in students" :key="s.id" :label="`${s.studentName}（${s.studentNo} · ${className(s.classId)}）`" :value="s.id!" />
+                <el-option v-for="s in students" :key="s.id" :label="`${s.studentName}（${s.studentNo}，${className(s.classId)}）`" :value="s.id!" />
               </el-select>
             </template>
           </el-table-column>
@@ -218,13 +218,13 @@ onMounted(load)
 
 <style scoped>
 .tiles { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; margin-bottom: 8px; }
-.tile { background: color-mix(in srgb, var(--jb-c-exam) 7%, var(--jb-surface)); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; }
-.tile b { font-size: 20px; color: var(--jb-c-exam); }
+.tile { padding: 8px 2px 10px; border-top: 1px solid var(--color-ink-2); display: flex; flex-direction: column; }
+.tile b { font-size: var(--text-xl); font-weight: 500; font-family: var(--font-outlier); font-variant-numeric: tabular-nums; color: var(--color-ink); }
 .bar { margin-bottom: 12px; }
 .names { display: flex; flex-wrap: wrap; gap: 6px; }
 h4 { margin: 16px 0 8px; }
-.ok { color: #2a8a52; }
-.bad { color: #c4561e; font-weight: 700; }
+.ok { color: var(--color-muted); }
+.bad { color: var(--color-bad); font-weight: 600; }
 .imgs { display: flex; flex-direction: column; gap: 10px; max-height: 78vh; overflow: auto; }
 .imgs img { width: 100%; border: 1px solid var(--jb-border); }
 </style>

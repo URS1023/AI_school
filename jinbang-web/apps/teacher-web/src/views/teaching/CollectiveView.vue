@@ -94,7 +94,7 @@ onMounted(load)
         <el-empty v-if="!themes.length" description="暂无研讨主题" :image-size="60" />
         <a v-for="t in themes" :key="t.id" class="theme" :class="{ on: active?.id === t.id }" @click="open(t)">
           <b>{{ t.title }}</b>
-          <span class="jb-muted">{{ t.themeStatus === 'ONGOING' ? '研讨中' : '已结束' }} · {{ fmtTime(t.createdAt) }}</span>
+          <span class="jb-muted">{{ t.themeStatus === 'ONGOING' ? '研讨中' : '已结束' }}，{{ fmtTime(t.createdAt) }}</span>
         </a>
       </el-card>
       <el-card v-if="active" class="col__main">

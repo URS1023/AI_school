@@ -50,7 +50,7 @@ onMounted(load)
         <div class="task__head">
           <el-tag :type="t.type === 'exam' ? 'danger' : 'primary'" effect="dark" size="small">{{ t.type === 'exam' ? '考试' : '作业' }}</el-tag>
           <b>{{ t.title }}</b>
-          <span class="jb-muted">{{ subjectLabel(t.subject) }} · {{ t.status }} · {{ fmtTime(t.time) }}</span>
+          <span class="jb-muted">{{ subjectLabel(t.subject) }}，{{ t.status }}，{{ fmtTime(t.time) }}</span>
           <span class="spacer" />
           <span>主观题 {{ sum(t, 'marked') }} / {{ sum(t, 'total') }}</span>
           <el-button type="primary" @click="router.push(`/exam/marking/${t.type}/${t.id}`)">进入阅卷</el-button>

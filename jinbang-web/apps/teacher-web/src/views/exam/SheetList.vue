@@ -57,7 +57,7 @@ onMounted(load)
       <a v-for="s in sheets" :key="s.id" class="sheet" data-test="sheet-item" @click="router.push(`/exam/sheets/${s.id}`)">
         <div class="sheet__paper"><i v-for="k in 6" :key="k" /></div>
         <b class="jb-ellipsis">{{ s.sheetName }}</b>
-        <span class="jb-muted">{{ subjectLabel(s.subject) }} · {{ s.paperSize }} · v{{ s.currentVersion }}</span>
+        <span class="jb-muted">{{ subjectLabel(s.subject) }}，{{ s.paperSize }}，v{{ s.currentVersion }}</span>
         <small class="jb-muted">{{ fmtTime(s.updatedAt) }}</small>
       </a>
     </div>
@@ -78,9 +78,9 @@ onMounted(load)
 
 <style scoped>
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; min-height: 120px; }
-.sheet { background: var(--jb-surface); border: 1px solid var(--jb-border); border-radius: var(--jb-radius); padding: 14px; display: flex; flex-direction: column; gap: 4px; cursor: pointer; transition: 0.15s; }
-.sheet:hover { border-color: var(--jb-c-exam); transform: translateY(-2px); box-shadow: var(--jb-shadow); }
-.sheet__paper { height: 120px; border-radius: 6px; background: #fbfaf6; border: 1px dashed #d9d3c3; padding: 12px; display: flex; flex-direction: column; gap: 9px; margin-bottom: 8px; }
-.sheet__paper i { height: 6px; border-radius: 3px; background: #e7e1d1; }
+.sheet { background: var(--jb-surface); border: 1px solid var(--jb-border); border-radius: var(--jb-radius); padding: 14px; display: flex; flex-direction: column; gap: 4px; cursor: pointer; transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); }
+.sheet:hover { border-color: var(--jb-c-exam); transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock-lift); }
+.sheet__paper { height: 120px; border-radius: 6px; background: var(--color-paper); border: 1px dashed var(--color-rule-2); padding: 12px; display: flex; flex-direction: column; gap: 9px; margin-bottom: 8px; }
+.sheet__paper i { height: 6px; border-radius: 3px; background: var(--color-paper-3); }
 .sheet__paper i:nth-child(odd) { width: 70%; }
 </style>

@@ -58,7 +58,7 @@ async function correct() {
         <el-form-item label="评语"><el-switch v-model="form.withComment" active-text="给出评语" /></el-form-item>
         <el-form-item label="标准答案"><el-input v-model="form.standardAnswer" type="textarea" :rows="3" placeholder="每题答案与评分细则（建议填写）" /></el-form-item>
         <el-form-item label="试卷图片">
-          <div class="pages"><el-tag v-for="(p, i) in pages" :key="i" closable @close="pages.splice(i, 1)">第 {{ i + 1 }} 页 · {{ p.name }}</el-tag>
+          <div class="pages"><el-tag v-for="(p, i) in pages" :key="i" closable @close="pages.splice(i, 1)">第 {{ i + 1 }} 页，{{ p.name }}</el-tag>
             <label class="upload">＋ 按顺序添加图片<input type="file" accept="image/*" multiple hidden @change="add" /></label></div>
         </el-form-item>
         <el-form-item label="或粘贴作答"><el-input v-model="pasted" type="textarea" :rows="3" placeholder="没有图片时可直接粘贴学生作答文本" /></el-form-item>

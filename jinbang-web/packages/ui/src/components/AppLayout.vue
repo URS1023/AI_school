@@ -91,8 +91,8 @@ onBeforeUnmount(() => window.clearInterval(timer))
     <header class="jb-layout__header">
       <div class="jb-layout__brand" @click="router.push(props.homePath ?? '/')"><BrandMark :text="props.appName" /></div>
       <nav class="jb-layout__nav" data-test="nav">
-        <a v-for="m in roots" :key="m.id" :class="{ active: activeRoot?.id === m.id || (!m.children?.length && route.path === m.path) }"
-           @click="m.children?.length ? goRoot(m) : go(m)">{{ m.name }}</a>
+        <button v-for="m in roots" :key="m.id" type="button" :class="{ active: activeRoot?.id === m.id || (!m.children?.length && route.path === m.path) }"
+                :aria-current="activeRoot?.id === m.id ? 'page' : undefined" @click="m.children?.length ? goRoot(m) : go(m)">{{ m.name }}</button>
       </nav>
       <div class="jb-layout__right">
         <el-badge :value="unread" :hidden="!unread" :max="99">
@@ -125,18 +125,19 @@ onBeforeUnmount(() => window.clearInterval(timer))
     <div class="jb-layout__body">
       <aside v-if="sider.length" class="jb-layout__sider">
         <div class="jb-layout__sider-title">{{ activeRoot?.name }}</div>
-        <a v-for="c in sider" :key="c.id" class="jb-layout__item"
-           :class="{ active: activeChild === c.path, disabled: c.comingSoon }"
-           :data-test="c.comingSoon ? 'coming-soon' : undefined" @click="go(c)">
+        <button v-for="c in sider" :key="c.id" type="button" class="jb-layout__item"
+                :class="{ active: activeChild === c.path, disabled: c.comingSoon }" :aria-disabled="c.comingSoon || undefined"
+                :aria-current="activeChild === c.path ? 'page' : undefined"
+                :data-test="c.comingSoon ? 'coming-soon' : undefined" @click="go(c)">
           <span>{{ c.name }}</span>
-          <el-tag v-if="c.comingSoon" size="small" type="warning" effect="plain" round>即将上线</el-tag>
-        </a>
+          <small v-if="c.comingSoon" class="jb-layout__soon">即将上线</small>
+        </button>
       </aside>
       <main class="jb-layout__main">
         <router-view />
       </main>
     </div>
-    <el-button v-if="props.aiPath && auth.hasPerm('ai:use')" class="jb-layout__ai" type="primary" round :icon="ChatDotRound"
+    <el-button v-if="props.aiPath && auth.hasPerm('ai:use')" class="jb-layout__ai" type="primary" :icon="ChatDotRound"
                @click="router.push(props.aiPath)">AI 助手</el-button>
   </div>
 </template>
@@ -144,36 +145,44 @@ onBeforeUnmount(() => window.clearInterval(timer))
 <style scoped>
 .jb-layout { min-height: 100%; display: flex; flex-direction: column; }
 .jb-layout__header {
-  position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 28px; height: var(--jb-header-h);
-  padding: 0 24px; background: var(--jb-surface); border-bottom: 1px solid var(--jb-border);
+  position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 32px; height: var(--jb-header-h);
+  padding: 0 24px; background: var(--color-desk); border-bottom: 1px solid var(--color-rule-2);
 }
 .jb-layout__brand { cursor: pointer; white-space: nowrap; }
-.jb-layout__nav { flex: 1; display: flex; gap: 6px; }
-.jb-layout__nav a {
-  padding: 8px 14px; border-radius: 18px; cursor: pointer; color: var(--jb-text); font-weight: 500; white-space: nowrap;
+.jb-layout__nav { flex: 1; display: flex; gap: 4px; align-self: stretch; }
+.jb-layout__nav button {
+  all: unset; box-sizing: border-box; display: flex; align-items: center; padding: 0 14px; cursor: pointer;
+  color: var(--color-muted); font-weight: 500; white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: color var(--dur-micro), border-color var(--dur-micro);
 }
-.jb-layout__nav a:hover { background: var(--jb-brand-soft); }
-.jb-layout__nav a.active { background: var(--jb-brand); color: #fff; }
+.jb-layout__nav button:hover { color: var(--color-ink); }
+.jb-layout__nav button.active { color: var(--color-ink); font-weight: 600; border-bottom-color: var(--color-ink); }
+.jb-layout__nav button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -4px; }
 .jb-layout__right { display: flex; align-items: center; gap: 14px; }
+.jb-layout__right :deep(.el-button) { box-shadow: none; }
 .jb-layout__user { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .jb-layout__avatar {
-  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 600;
-  background: linear-gradient(135deg, var(--jb-brand), var(--jb-accent));
+  width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 600;
+  color: var(--color-cotton); background: var(--color-ink);
 }
-.jb-layout__who { display: flex; flex-direction: column; line-height: 1.25; }
-.jb-layout__who small { color: var(--jb-text-secondary); font-size: 12px; }
+.jb-layout__who { display: flex; flex-direction: column; line-height: 1.3; font-weight: 500; }
+.jb-layout__who small { color: var(--color-muted); font-size: var(--text-xs); font-weight: 400; }
 .jb-layout__body { flex: 1; display: flex; }
 .jb-layout__sider {
-  width: var(--jb-sider-w); flex-shrink: 0; padding: 18px 12px; background: var(--jb-surface); border-right: 1px solid var(--jb-border);
+  width: var(--jb-sider-w); flex-shrink: 0; padding: 20px 12px; background: var(--color-desk); border-right: 1px solid var(--color-rule-2);
+  display: flex; flex-direction: column; gap: 2px;
 }
-.jb-layout__sider-title { padding: 0 12px 12px; font-size: 12px; color: var(--jb-text-secondary); letter-spacing: 1px; }
+.jb-layout__sider-title { padding: 0 12px 10px; font-size: var(--text-sm); color: var(--color-muted); }
 .jb-layout__item {
-  display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; margin-bottom: 4px;
-  border-radius: 8px; cursor: pointer; color: var(--jb-text);
+  all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding: 0 12px;
+  border-radius: var(--radius-stock); cursor: pointer; color: var(--color-ink-2);
+  transition: background-color var(--dur-micro), box-shadow var(--dur-micro);
 }
-.jb-layout__item:hover { background: var(--jb-brand-soft); }
-.jb-layout__item.active { background: var(--jb-brand-light); color: var(--jb-brand-dark); font-weight: 600; border-left: 3px solid var(--jb-brand); }
-.jb-layout__item.disabled { color: var(--jb-text-secondary); cursor: not-allowed; }
-.jb-layout__main { flex: 1; min-width: 0; padding: 20px 24px 40px; }
-.jb-layout__ai { position: fixed; right: 24px; bottom: 28px; z-index: 30; box-shadow: var(--jb-shadow); }
+.jb-layout__item:hover { background: var(--color-paper-2); }
+.jb-layout__item.active { background: var(--color-cotton); color: var(--color-ink); font-weight: 600; box-shadow: var(--edge-stock), var(--cast-stock); }
+.jb-layout__item.disabled { color: var(--color-muted); cursor: not-allowed; }
+.jb-layout__item:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.jb-layout__soon { font-size: var(--text-xs); color: var(--color-muted); border: 1px solid var(--color-rule-2); border-radius: 999px; padding: 0 8px; line-height: 20px; }
+.jb-layout__main { flex: 1; min-width: 0; padding: 24px 28px 48px; }
+.jb-layout__ai { position: fixed; right: 24px; bottom: 28px; z-index: 30; }
 </style>

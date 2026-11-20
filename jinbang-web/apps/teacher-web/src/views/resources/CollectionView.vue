@@ -56,7 +56,7 @@ onMounted(load)
         <div class="jb-between"><strong>{{ a.title }}</strong><el-tag :type="a.activityStatus === 'ONGOING' ? 'success' : 'info'">{{ a.activityStatus === 'ONGOING' ? '进行中' : '已结束' }}</el-tag></div>
         <p class="jb-muted">{{ a.rules }}</p>
         <div class="jb-between">
-          <span class="jb-muted">奖励：{{ a.rewardCoins }} 币 + {{ a.rewardExp }} 经验 · 截止 {{ fmtTime(a.endAt) || '不限' }}</span>
+          <span class="jb-muted">奖励：{{ a.rewardCoins }} 币 + {{ a.rewardExp }} 经验，截止 {{ fmtTime(a.endAt) || '不限' }}</span>
           <el-button type="primary" size="small" :disabled="a.activityStatus !== 'ONGOING'" @click="submitTo(a)">我要投稿</el-button>
         </div>
       </el-card>

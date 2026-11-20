@@ -148,8 +148,8 @@ onMounted(refreshCaptcha)
 </template>
 
 <style scoped>
-.jb-login { min-height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--jb-brand-light), var(--jb-bg)); }
-.jb-login__card { width: 400px; padding: 36px 40px; background: var(--jb-surface); border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); }
+.jb-login { min-height: 100%; display: flex; align-items: center; justify-content: center; background: var(--color-desk); }
+.jb-login__card { width: 400px; padding: 36px 40px; background: var(--jb-surface); border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-stock-lift); }
 .jb-login__card h1 { margin: 0; font-size: 24px; color: var(--jb-brand); }
 .jb-login__sub { margin: 6px 0 12px; color: var(--jb-text-secondary); }
 .jb-login__captcha { display: flex; gap: 8px; width: 100%; }

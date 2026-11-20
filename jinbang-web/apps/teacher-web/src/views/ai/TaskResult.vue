@@ -25,7 +25,7 @@ async function retry() {
       <span class="jb-muted">（预计 {{ props.task.estimate }} 币，实际扣除 {{ props.task.charged }} 币）</span>
       <el-button v-if="props.task.status === 'PARTIAL' || props.task.status === 'FAILED' || props.task.status === 'EMPTY'" size="small" link type="primary" @click="retry">重试失败项</el-button>
     </template>
-    <template #default><span class="jb-muted small">{{ props.task.disclaimer }} · 任务号 {{ props.task.taskId }}</span></template>
+    <template #default><span class="jb-muted small">{{ props.task.disclaimer }}，任务号 {{ props.task.taskId }}</span></template>
   </el-alert>
 </template>
 

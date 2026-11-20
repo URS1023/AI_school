@@ -65,7 +65,7 @@ onMounted(load)
       <el-card class="kb__list">
         <a v-for="k in kbs" :key="k.kb?.id" class="item" :class="{ on: active?.kb?.id === k.kb?.id }" @click="pick(k)">
           <b>{{ k.kb?.kbName }}</b>
-          <small class="jb-muted">{{ k.kb?.kbType === 'SHARED' ? '共享' : '个人' }} · 已用 {{ ((k.usedBytes ?? 0) / 1048576).toFixed(1) }} / {{ ((k.kb?.quotaBytes ?? 0) / 1048576).toFixed(0) }} MB</small>
+          <small class="jb-muted">{{ k.kb?.kbType === 'SHARED' ? '共享' : '个人' }}，已用 {{ ((k.usedBytes ?? 0) / 1048576).toFixed(1) }} / {{ ((k.kb?.quotaBytes ?? 0) / 1048576).toFixed(0) }} MB</small>
         </a>
         <el-empty v-if="!kbs.length" description="还没有知识库" :image-size="50" />
       </el-card>

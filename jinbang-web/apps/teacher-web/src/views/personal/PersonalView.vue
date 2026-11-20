@@ -165,7 +165,7 @@ onMounted(async () => {
         <span class="avatar">{{ (auth.me?.nickname ?? '?').slice(0, 1) }}</span>
         <b>{{ auth.me?.nickname }}</b>
         <small class="jb-muted">{{ auth.identities.find((i) => i.current)?.displayName }}</small>
-        <el-tag effect="dark" round>{{ summary?.levelName ?? '—' }}</el-tag>
+        <el-tag>{{ summary?.levelName ?? '—' }}</el-tag>
       </div>
       <a v-for="[k, label] in TABS" :key="k" class="tab" :class="{ on: tab === k }" @click="tab = k">{{ label }}</a>
     </aside>
@@ -173,11 +173,11 @@ onMounted(async () => {
       <template v-if="tab === 'overview'">
         <div class="tiles">
           <div class="tile t1"><span>金榜币</span><b data-test="pc-balance">{{ summary?.balance }}</b><small>冻结中 {{ summary?.frozen }}</small>
-            <el-button size="small" round @click="tab = 'orders'">去充值</el-button></div>
+            <el-button size="small" @click="tab = 'orders'">去充值</el-button></div>
           <div class="tile t2"><span>成长等级</span><b>{{ summary?.levelName }}</b><el-progress :percentage="progress" :show-text="false" :stroke-width="6" />
             <small>经验 {{ summary?.exp }}，距下一级 {{ summary?.expToNext }}</small></div>
           <div class="tile t3"><span>每日签到</span><b>{{ summary?.signedToday ? '已签到' : '未签到' }}</b><small>连续 {{ summary?.continuousDays }} 天</small>
-            <el-button size="small" round :disabled="summary?.signedToday" @click="sign">签到</el-button></div>
+            <el-button size="small" :disabled="summary?.signedToday" @click="sign">签到</el-button></div>
         </div>
         <div class="quick">
           <button v-for="[k, label] in TABS.slice(1)" :key="k" type="button" @click="tab = k">{{ label }}</button>
@@ -315,28 +315,28 @@ onMounted(async () => {
 .pc { display: flex; gap: 16px; }
 .pc__side { width: 220px; flex-shrink: 0; align-self: flex-start; display: flex; flex-direction: column; gap: 2px; }
 .card { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 0 16px; border-bottom: 1px solid var(--jb-border); margin-bottom: 8px; }
-.avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; color: #fff; background: linear-gradient(135deg, var(--jb-brand), var(--jb-accent)); }
-.tab { padding: 9px 12px; border-radius: 8px; cursor: pointer; }
-.tab:hover { background: var(--jb-brand-soft); }
-.tab.on { background: var(--jb-brand-light); color: var(--jb-brand-dark); font-weight: 600; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: var(--text-xl); font-weight: 600; color: var(--color-cotton); background: var(--color-ink); }
+.tab { min-height: 38px; display: flex; align-items: center; padding: 0 12px; border-radius: var(--radius-stock); cursor: pointer; color: var(--color-ink-2); }
+.tab:hover { background: var(--color-paper-2); }
+.tab.on { background: var(--color-cotton); color: var(--color-ink); font-weight: 600; box-shadow: var(--edge-stock), var(--cast-stock); }
 .pc__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.tile { border-radius: var(--jb-radius); padding: 18px 20px; color: #fff; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
-.tile b { font-size: 26px; }
-.tile small { opacity: 0.9; }
+.tile { border-radius: var(--radius-card); padding: 16px 18px; background: var(--color-cotton); box-shadow: var(--edge-stock), var(--cast-stock); display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.tile > span { color: var(--color-muted); font-size: var(--text-sm); }
+.tile b { font-size: var(--text-2xl); font-weight: 600; font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
+.tile small { color: var(--color-muted); }
 .tile .el-progress { width: 100%; }
-.t1 { background: linear-gradient(135deg, #0f7a68, #36a78f); }
-.t2 { background: linear-gradient(135deg, #7a5bd6, #a48be6); }
-.t3 { background: linear-gradient(135deg, #e8a33d, #f0c27a); }
 .quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.quick button { border: 1px solid var(--jb-border); background: var(--jb-surface); padding: 14px; border-radius: var(--jb-radius); cursor: pointer; font-size: 14px; }
-.quick button:hover { border-color: var(--jb-brand); color: var(--jb-brand); }
+.quick button { all: unset; box-sizing: border-box; min-height: 44px; padding: 0 14px; display: flex; align-items: center; border-radius: var(--radius-stock); cursor: pointer; background: var(--color-cotton); box-shadow: var(--edge-stock), var(--cast-stock); transition: transform var(--dur-short) var(--ease-out); }
+.quick button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.quick button:hover { transform: translateY(-1px); }
 .center { text-align: center; }
-.IN, .UNFREEZE { color: #2a8a52; }
-.OUT, .FREEZE { color: #c4561e; }
+.IN, .UNFREEZE { color: var(--color-paid); }
+.OUT, .FREEZE { color: var(--color-ink-2); }
 .pkgs { display: flex; gap: 14px; }
-.pkg { border: 2px solid var(--jb-border); background: var(--jb-surface); border-radius: var(--jb-radius); padding: 16px 24px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; align-items: center; }
-.pkg:hover { border-color: var(--jb-accent); }
-.pkg b { font-size: 20px; color: var(--jb-brand-dark); }
-.pkg em { font-style: normal; color: var(--jb-accent); font-weight: 700; }
+.pkg { all: unset; box-sizing: border-box; min-width: 140px; padding: 16px 20px; border-radius: var(--radius-stock); cursor: pointer; display: flex; flex-direction: column; gap: 4px; align-items: center; background: var(--color-cotton); box-shadow: var(--edge-stock), var(--cast-stock); transition: transform var(--dur-short) var(--ease-out); }
+.pkg:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.pkg:hover { transform: translateY(-1px); }
+.pkg b { font-size: var(--text-xl); font-weight: 600; color: var(--color-ink); }
+.pkg em { font-style: normal; font-family: var(--font-outlier); color: var(--color-ink-2); }
 </style>

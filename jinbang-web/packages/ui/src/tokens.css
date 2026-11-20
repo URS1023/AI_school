@@ -1,45 +1,191 @@
+/* Hallmark · redesign full · theme: coral (paper) · genre: modern-minimal · scope: app · shape: app screen · copy: verbatim */
+/* critique: philosophy 4 · hierarchy 4 · execution 3 · specificity 4 · restraint 5 · variety 3 — 一套「暖灰纸 + 棉纸卡 + 墨色按钮」的教学工作台，珊瑚只给已完成状态、链接下划线与焦点 */
+/* waive 22 · 中文正文回落系统黑体（PingFang / 微软雅黑）· General Sans 不含中文字形，后台界面允许系统字体（flow.md 应用页规则） */
+
 /*
- * 设计令牌：墨绿主色 + 琥珀点缀（与原站红标蓝条的视觉刻意区分）。没有设计稿前以此为准，后续只改这里。
+ * 设计令牌（Hallmark Coral 主题，应用页规则）。
+ * 所有颜色、字体只在这里定义；组件里一律用变量。旧的 --jb-* 名称保留为别名，组件无需改连线。
  */
 :root {
-  --jb-brand: #0f7a68;
-  --jb-brand-dark: #0a5a4d;
-  --jb-brand-light: #e6f4f1;
-  --jb-brand-soft: #f2faf8;
-  --jb-accent: #e8a33d;
-  --jb-accent-light: #fdf3e2;
-  --jb-text: #1d2724;
-  --jb-text-secondary: #5f6b67;
-  --jb-border: #e3e9e7;
-  --jb-bg: #f4f7f6;
-  --jb-surface: #ffffff;
-  --jb-header-h: 60px;
-  --jb-sider-w: 208px;
-  --jb-radius: 10px;
+  /* 纸与墨 */
+  --color-paper: oklch(97% 0.006 55);
+  --color-paper-2: oklch(94.5% 0.007 55);
+  --color-paper-3: oklch(91.5% 0.009 55);
+  --color-ink: oklch(21% 0.012 38);
+  --color-ink-2: oklch(29% 0.013 40);
+  --color-muted: oklch(47% 0.013 45);
+  --color-rule: oklch(87% 0.009 55);
+  --color-rule-2: oklch(81% 0.011 55);
+
+  /* 珊瑚：只用于「已完成 / 已支付」状态、链接下划线、焦点 */
+  --color-accent: oklch(74% 0.125 30);
+  --color-accent-2: oklch(54% 0.165 29);
+  --color-accent-soft: oklch(94% 0.03 35);
+  --color-accent-ink: oklch(21% 0.012 38);
+  --color-focus: oklch(54% 0.17 30);
+  --color-paid: oklch(55.5% 0.15 33);
+
+  /* 表面：棉纸（卡片、输入）与桌面（侧栏、工具条） */
+  --color-cotton: oklch(98.8% 0.0045 80);
+  --color-desk: oklch(94.3% 0.008 64);
+  --color-board: oklch(22% 0.011 40);
+  --color-board-type: oklch(96.5% 0.006 70);
+  --color-board-muted: oklch(72% 0.01 60);
+
+  /* 状态（不用蓝色信号） */
+  --color-warn: oklch(66% 0.11 75);
+  --color-warn-soft: oklch(95% 0.035 80);
+  --color-bad: oklch(50% 0.16 27);
+  --color-bad-soft: oklch(95% 0.025 27);
+  --color-ok: oklch(52% 0.07 145);
+  --color-ok-soft: oklch(95% 0.02 145);
+
+  /* 图表（ECharts 不认 oklch，用等值 hex） */
+  --chart-1: #ba4a34;
+  --chart-2: #312926;
+  --chart-3: #c19d74;
+  --chart-4: #648464;
+  --chart-5: #5a6c79;
+  --chart-6: #b9883c;
+  --chart-good: #648464;
+  --chart-bad: #ba4a34;
+  --chart-grid: #d9d3cf;
+  --chart-board-type: #f3eee9;
+  --chart-board-track: #3a3330;
+  --chart-board-accent: #ef8b7b;
+
+  /* 字体：General Sans（拉丁）→ 系统中文黑体；数字列用 Geist Mono */
+  --font-body: 'General Sans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --font-display: var(--font-body);
+  --font-outlier: 'Geist Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+
+  /* 形状与光：单一光源来自左上，亮边在上、左，阴影落向右下 */
+  --radius-card: 8px;
+  --radius-input: 6px;
+  --radius-stock: 8px;
+  --rule-hair: 1px;
+  --shadow-card: 0 1px 2px oklch(20% 0.01 35 / 0.05);
+  --edge-stock: inset 1px 1px 0 oklch(100% 0 0 / 0.75), inset -1px -1px 0 oklch(20% 0.01 35 / 0.04);
+  --cast-stock: 1px 1px 0 oklch(20% 0.01 35 / 0.06), 2px 3px 6px -3px oklch(20% 0.01 35 / 0.12);
+  --cast-stock-lift: 1px 2px 0 oklch(20% 0.01 35 / 0.06), 3px 6px 12px -4px oklch(20% 0.01 35 / 0.16);
+  --press-groove: inset 1px 1px 2px oklch(20% 0.01 35 / 0.12), inset -1px -1px 0 oklch(100% 0 0 / 0.6);
+  --shadow-float: 0 12px 32px -12px oklch(20% 0.01 35 / 0.28), 0 0 0 1px oklch(20% 0.01 35 / 0.06);
+
+  /* 字号：固定比例 1.125（应用页规则） */
   --jb-font-scale: 1;
-  --jb-shadow: 0 2px 10px rgba(15, 60, 52, 0.06);
+  --text-xs: calc(12px * var(--jb-font-scale));
+  --text-sm: calc(13px * var(--jb-font-scale));
+  --text-base: calc(14px * var(--jb-font-scale));
+  --text-md: calc(16px * var(--jb-font-scale));
+  --text-lg: calc(18px * var(--jb-font-scale));
+  --text-xl: calc(20px * var(--jb-font-scale));
+  --text-2xl: calc(24px * var(--jb-font-scale));
+  --tracking-display: -0.03em;
+  --display-weight: 600;
 
-  /* 模块色：入口卡片、页头图标 */
-  --jb-c-resource: #0f7a68;
-  --jb-c-teaching: #3b6fd8;
-  --jb-c-ai: #7a5bd6;
-  --jb-c-exam: #e0703a;
-  --jb-c-learning: #c2486f;
-  --jb-c-admin: #4a5a73;
+  /* 动效：只表达状态 */
+  --dur-micro: 120ms;
+  --dur-short: 180ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 
+  /* 布局 */
+  --jb-header-h: 56px;
+  --jb-sider-w: 208px;
+
+  /* ---- 旧名称别名（组件沿用） ---- */
+  --jb-brand: var(--color-ink);
+  --jb-brand-dark: var(--color-ink);
+  --jb-brand-light: var(--color-paper-3);
+  --jb-brand-soft: var(--color-paper-2);
+  --jb-accent: var(--color-accent-2);
+  --jb-accent-light: var(--color-accent-soft);
+  --jb-text: var(--color-ink);
+  --jb-text-secondary: var(--color-muted);
+  --jb-border: var(--color-rule);
+  --jb-bg: var(--color-paper);
+  --jb-surface: var(--color-cotton);
+  --jb-radius: var(--radius-card);
+  --jb-shadow: var(--cast-stock);
+
+  /* 模块色：全部收敛为墨色，模块靠文字区分而不是颜色 */
+  --jb-c-resource: var(--color-ink-2);
+  --jb-c-teaching: var(--color-ink-2);
+  --jb-c-ai: var(--color-ink-2);
+  --jb-c-exam: var(--color-ink-2);
+  --jb-c-learning: var(--color-ink-2);
+  --jb-c-admin: var(--color-ink-2);
+
+  color-scheme: light;
 }
 
-/* Element Plus 主题变量：用 html:root 提高优先级，避免被随后加载的 element-plus 样式覆盖 */
+/* Element Plus 主题变量：html:root 提高优先级，避免被随后加载的 element-plus 样式覆盖。主操作 = 墨色，成功 = 已完成珊瑚 */
 html:root {
-  --el-color-primary: var(--jb-brand);
-  --el-color-primary-light-3: #4f9e90;
-  --el-color-primary-light-5: #87bdb3;
-  --el-color-primary-light-7: #b7d8d2;
-  --el-color-primary-light-8: #cfe5e1;
-  --el-color-primary-light-9: var(--jb-brand-light);
-  --el-color-primary-dark-2: var(--jb-brand-dark);
-  --el-border-radius-base: 6px;
-  --el-font-size-base: calc(14px * var(--jb-font-scale));
+  --el-color-primary: var(--color-ink);
+  --el-color-primary-light-3: oklch(45% 0.012 40);
+  --el-color-primary-light-5: oklch(62% 0.011 45);
+  --el-color-primary-light-7: oklch(80% 0.009 50);
+  --el-color-primary-light-8: oklch(87% 0.008 55);
+  --el-color-primary-light-9: var(--color-paper-2);
+  --el-color-primary-dark-2: oklch(12% 0.01 38);
+  --el-color-success: var(--color-paid);
+  --el-color-success-light-3: oklch(68% 0.11 33);
+  --el-color-success-light-5: oklch(78% 0.08 33);
+  --el-color-success-light-7: oklch(88% 0.05 33);
+  --el-color-success-light-8: oklch(92% 0.035 33);
+  --el-color-success-light-9: var(--color-accent-soft);
+  --el-color-success-dark-2: oklch(46% 0.14 33);
+  --el-color-warning: var(--color-warn);
+  --el-color-warning-light-3: oklch(75% 0.09 75);
+  --el-color-warning-light-5: oklch(82% 0.07 75);
+  --el-color-warning-light-7: oklch(89% 0.05 78);
+  --el-color-warning-light-8: oklch(92% 0.04 78);
+  --el-color-warning-light-9: var(--color-warn-soft);
+  --el-color-warning-dark-2: oklch(56% 0.1 75);
+  --el-color-danger: var(--color-bad);
+  --el-color-danger-light-3: oklch(64% 0.12 27);
+  --el-color-danger-light-5: oklch(75% 0.09 27);
+  --el-color-danger-light-7: oklch(86% 0.05 27);
+  --el-color-danger-light-8: oklch(90% 0.04 27);
+  --el-color-danger-light-9: var(--color-bad-soft);
+  --el-color-danger-dark-2: oklch(42% 0.14 27);
+  --el-color-error: var(--color-bad);
+  --el-color-info: var(--color-muted);
+  --el-color-info-light-3: oklch(62% 0.011 45);
+  --el-color-info-light-5: oklch(74% 0.01 50);
+  --el-color-info-light-7: oklch(85% 0.009 55);
+  --el-color-info-light-8: oklch(90% 0.008 55);
+  --el-color-info-light-9: var(--color-paper-2);
+  --el-color-info-dark-2: var(--color-ink-2);
+
+  --el-bg-color: var(--color-cotton);
+  --el-bg-color-page: var(--color-paper);
+  --el-bg-color-overlay: var(--color-cotton);
+  --el-fill-color: var(--color-paper-2);
+  --el-fill-color-light: var(--color-paper-2);
+  --el-fill-color-lighter: var(--color-paper);
+  --el-fill-color-blank: var(--color-cotton);
+  --el-text-color-primary: var(--color-ink);
+  --el-text-color-regular: var(--color-ink-2);
+  --el-text-color-secondary: var(--color-muted);
+  --el-text-color-placeholder: oklch(62% 0.011 45);
+  --el-border-color: var(--color-rule-2);
+  --el-border-color-light: var(--color-rule);
+  --el-border-color-lighter: var(--color-rule);
+  --el-border-color-extra-light: var(--color-paper-3);
+  --el-border-radius-base: var(--radius-input);
+  --el-border-radius-small: 4px;
+  --el-box-shadow: var(--shadow-float);
+  --el-box-shadow-light: var(--shadow-float);
+  --el-box-shadow-lighter: var(--shadow-card);
+  --el-font-family: var(--font-body);
+  --el-font-size-base: var(--text-base);
+  --el-component-size: 36px;
+  --el-component-size-large: 44px;
+  --el-component-size-small: 30px;
+  --el-transition-duration: var(--dur-short);
+  --el-transition-duration-fast: var(--dur-micro);
+  --el-mask-color: oklch(97% 0.006 55 / 0.85);
+  --el-overlay-color-lighter: oklch(21% 0.012 38 / 0.35);
 }
 
 /* 教室投屏「大字号模式」（PRD 13 无障碍）：html 加 class="jb-large" */
@@ -48,17 +194,31 @@ html.jb-large {
   font-size: 125%;
 }
 
+/* 夜间：同一张桌子关灯后的版本，墨与纸对调，珊瑚不变 */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --jb-text: #e3ebe8;
-    --jb-text-secondary: #9fb0ab;
-    --jb-border: #2f3a37;
-    --jb-bg: #151b1a;
-    --jb-surface: #1d2523;
-    --jb-brand-light: #17342e;
-    --jb-brand-soft: #18221f;
-    --jb-accent-light: #3a2e1a;
+    --color-paper: oklch(19% 0.01 40);
+    --color-paper-2: oklch(23% 0.011 40);
+    --color-paper-3: oklch(27% 0.012 40);
+    --color-ink: oklch(95% 0.006 70);
+    --color-ink-2: oklch(86% 0.008 65);
+    --color-muted: oklch(70% 0.01 60);
+    --color-rule: oklch(30% 0.012 40);
+    --color-rule-2: oklch(36% 0.012 40);
+    --color-cotton: oklch(22% 0.011 40);
+    --color-desk: oklch(17% 0.01 40);
+    --color-accent-soft: oklch(30% 0.05 30);
+    --color-warn-soft: oklch(30% 0.04 75);
+    --color-bad-soft: oklch(30% 0.05 27);
+    --color-ok-soft: oklch(28% 0.03 145);
+    --edge-stock: inset 1px 1px 0 oklch(100% 0 0 / 0.04);
+    color-scheme: dark;
   }
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 html,
@@ -69,18 +229,221 @@ body,
 }
 
 body {
-  background: var(--jb-bg);
-  color: var(--jb-text);
-  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-  font-size: var(--el-font-size-base);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.55;
   min-width: 1280px;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--color-accent-2);
+  scrollbar-color: var(--color-rule-2) transparent;
 }
 
-/* 通用小工具类 */
-.jb-muted { color: var(--jb-text-secondary); }
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.08;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.18em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Element Plus 材质：棉纸卡、凸版按钮、凹槽单选、方正输入 ---------- */
+.el-card {
+  --el-card-border-radius: var(--radius-card);
+  --el-card-padding: 18px 20px;
+  border: none !important;
+  background: var(--color-cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock) !important;
+}
+.el-card__header {
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+  font-weight: 600;
+}
+
+/* 按钮：凸版卡片，不用胶囊 */
+.el-button {
+  --el-button-border-color: var(--color-rule-2);
+  --el-button-bg-color: var(--color-cotton);
+  --el-button-hover-bg-color: var(--color-cotton);
+  --el-button-hover-text-color: var(--color-ink);
+  --el-button-hover-border-color: var(--color-muted);
+  border-radius: var(--radius-stock);
+  font-weight: 500;
+  box-shadow: var(--edge-stock), var(--cast-stock);
+  transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-micro);
+}
+.el-button:not(.is-link):not(.is-text):not(.is-disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: var(--edge-stock), var(--cast-stock-lift);
+}
+.el-button:not(.is-link):not(.is-text):not(.is-disabled):active {
+  transform: translateY(0);
+  box-shadow: var(--press-groove);
+}
+.el-button.is-round {
+  border-radius: var(--radius-stock);
+}
+.el-button--primary {
+  --el-button-bg-color: var(--color-ink);
+  --el-button-border-color: var(--color-ink);
+  --el-button-hover-bg-color: var(--color-ink-2);
+  --el-button-hover-border-color: var(--color-ink-2);
+  --el-button-hover-text-color: var(--color-cotton);
+  --el-button-active-bg-color: var(--color-ink);
+  --el-button-text-color: var(--color-cotton);
+}
+.el-button.is-link,
+.el-button.is-text {
+  box-shadow: none;
+}
+.el-button.is-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color var(--dur-micro);
+}
+.el-button.is-link:hover {
+  text-decoration-color: var(--color-accent);
+}
+.el-button.is-disabled {
+  box-shadow: none;
+}
+
+/* 单选按钮组：凹槽 */
+.el-radio-group:has(.el-radio-button) {
+  background: var(--color-paper-2);
+  border-radius: var(--radius-stock);
+  padding: 3px;
+  box-shadow: var(--press-groove);
+  gap: 2px;
+}
+.el-radio-button__inner {
+  border: none !important;
+  background: transparent;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  font-weight: 500;
+}
+.el-radio-button__original-radio:checked + .el-radio-button__inner,
+.el-radio-button.is-active .el-radio-button__inner {
+  background: var(--color-cotton);
+  color: var(--color-ink);
+  box-shadow: var(--edge-stock), var(--cast-stock) !important;
+}
+
+/* 输入：方正、1px 墨灰边 */
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number .el-input__wrapper {
+  border-radius: var(--radius-input);
+  box-shadow: 0 0 0 1px var(--color-rule-2) inset;
+  background: var(--color-cotton);
+}
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused,
+.el-textarea__inner:focus {
+  box-shadow: 0 0 0 1px var(--color-ink) inset;
+}
+
+/* 表格：墨线起头、发丝线分行、数字等宽 */
+.el-table {
+  --el-table-border-color: var(--color-rule);
+  --el-table-header-bg-color: transparent;
+  --el-table-header-text-color: var(--color-muted);
+  --el-table-row-hover-bg-color: var(--color-paper-2);
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.el-table thead th.el-table__cell {
+  font-weight: 500;
+  font-size: var(--text-sm);
+  border-bottom: 1px solid var(--color-ink-2) !important;
+}
+
+/* 标签：只承载状态 */
+.el-tag {
+  border-radius: 999px;
+  font-weight: 500;
+}
+.el-tag--success {
+  --el-tag-text-color: var(--color-paid);
+}
+
+/* 弹层：只有浮起来的东西有阴影 */
+.el-dialog,
+.el-drawer,
+.el-message-box {
+  background: var(--color-cotton);
+  border-radius: var(--radius-card);
+}
+.el-dialog__title,
+.el-drawer__title {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.el-progress-bar__outer {
+  background: var(--color-paper-3);
+}
+.el-progress-bar__inner {
+  background: var(--color-ink-2);
+}
+.el-progress.is-success .el-progress-bar__inner {
+  background: var(--color-paid);
+}
+.el-steps--simple {
+  background: var(--color-paper-2);
+  border-radius: var(--radius-stock);
+}
+.el-tabs__item.is-active {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.el-tabs__active-bar {
+  background: var(--color-accent-2);
+}
+.el-empty__description p {
+  color: var(--color-muted);
+}
+
+/* ---------- 通用工具类 ---------- */
+.jb-muted { color: var(--color-muted); }
 .jb-row { display: flex; align-items: center; gap: 12px; }
 .jb-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .jb-grid { display: grid; gap: 16px; }
-.jb-card { background: var(--jb-surface); border-radius: var(--jb-radius); box-shadow: var(--jb-shadow); padding: 16px 20px; }
+.jb-card { background: var(--color-cotton); border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-stock); padding: 16px 20px; }
 .jb-stack { display: flex; flex-direction: column; gap: 16px; }
 .jb-ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.jb-num { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
+/* 已完成 / 已支付：压进纸里的珊瑚字 */
+.jb-paid { color: var(--color-paid); font-weight: 600; text-shadow: 0 1px 0 oklch(100% 0 0 / 0.6); }
+/* 说明行：用间距分隔，不用「·」拼接 */
+.jb-meta { display: inline-flex; flex-wrap: wrap; column-gap: 14px; row-gap: 2px; color: var(--color-muted); font-size: var(--text-sm); }

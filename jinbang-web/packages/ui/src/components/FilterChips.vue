@@ -25,13 +25,14 @@ function pick(key: string, value: string | number | undefined) {
 </template>
 
 <style scoped>
-.jb-fc { display: flex; flex-direction: column; gap: 8px; padding: 14px 18px; background: var(--jb-surface); border-radius: var(--jb-radius); border: 1px solid var(--jb-border); }
+.jb-fc { display: flex; flex-direction: column; gap: 10px; padding: 4px 0 14px; border-bottom: 1px solid var(--color-rule); }
 .jb-fc__row { display: flex; gap: 12px; align-items: flex-start; }
-.jb-fc__label { width: 56px; flex-shrink: 0; padding-top: 4px; color: var(--jb-text-secondary); font-size: 13px; }
-.jb-fc__opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.jb-fc__label { width: 56px; flex-shrink: 0; padding-top: 6px; color: var(--color-muted); font-size: var(--text-sm); }
+.jb-fc__opts { display: flex; flex-wrap: wrap; gap: 4px; }
 .jb-fc__opts button {
-  border: 1px solid transparent; background: none; padding: 4px 12px; border-radius: 14px; cursor: pointer; color: var(--jb-text); font-size: 13px;
+  border: none; background: none; min-height: 30px; padding: 0 12px; border-radius: var(--radius-input); cursor: pointer; color: var(--color-ink-2);
+  font: inherit; font-size: var(--text-sm); transition: background-color var(--dur-micro), box-shadow var(--dur-micro);
 }
-.jb-fc__opts button:hover { color: var(--jb-brand); }
-.jb-fc__opts button.on { background: var(--jb-brand-light); color: var(--jb-brand-dark); border-color: var(--el-color-primary-light-7); font-weight: 600; }
+.jb-fc__opts button:hover { background: var(--color-paper-2); }
+.jb-fc__opts button.on { background: var(--color-cotton); color: var(--color-ink); font-weight: 600; box-shadow: var(--edge-stock), var(--cast-stock); }
 </style>
