@@ -1,0 +1,45 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1955441771920609282",
+      "dictSort": 0,
+      "dictLabel": "全一册",
+      "dictValue": "0",
+      "dictType": "sys_semester",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:30:23"
+    },
+    {
+      "id": null,
+      "dictCode": "1955441823971921922",
+      "dictSort": 1,
+      "dictLabel": "上学期",
+      "dictValue": "1",
+      "dictType": "sys_semester",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:30:35"
+    },
+    {
+      "id": null,
+      "dictCode": "1955441867592683522",
+      "dictSort": 2,
+      "dictLabel": "下学期",
+      "dictValue": "2",
+      "dictType": "sys_semester",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:30:46"
+    }
+  ]
+}

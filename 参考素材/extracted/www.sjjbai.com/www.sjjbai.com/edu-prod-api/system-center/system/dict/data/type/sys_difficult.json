@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1959910688025489409",
+      "dictSort": 1,
+      "dictLabel": "容易",
+      "dictValue": "1",
+      "dictType": "sys_difficult",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-25 17:28:16"
+    },
+    {
+      "id": null,
+      "dictCode": "1959910726885715970",
+      "dictSort": 2,
+      "dictLabel": "较易",
+      "dictValue": "2",
+      "dictType": "sys_difficult",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-25 17:28:25"
+    },
+    {
+      "id": null,
+      "dictCode": "1959910759769059329",
+      "dictSort": 3,
+      "dictLabel": "中等",
+      "dictValue": "3",
+      "dictType": "sys_difficult",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-25 17:28:33"
+    },
+    {
+      "id": null,
+      "dictCode": "1959911085985247234",
+      "dictSort": 4,
+      "dictLabel": "较难",
+      "dictValue": "4",
+      "dictType": "sys_difficult",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-25 17:29:50"
+    },
+    {
+      "id": null,
+      "dictCode": "1959911219003404290",
+      "dictSort": 5,
+      "dictLabel": "困难",
+      "dictValue": "5",
+      "dictType": "sys_difficult",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-25 17:30:22"
+    }
+  ]
+}

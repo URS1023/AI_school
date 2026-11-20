@@ -1,0 +1,1 @@
+import{i as t}from"./index-ClxgKZHX.js";function o(o){return t({method:"get",url:"/ai/coinFlow/list",params:o})}function r(){return t({method:"get",url:"/edu/coin/balance"})}function n(o){return t({method:"post",url:`/ai/coinFlow/${o}/retry`})}export{r as a,o as g,n as s};

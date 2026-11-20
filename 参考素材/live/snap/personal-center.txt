@@ -1,0 +1,68 @@
+URL: https://www.sjjbai.com/edu-web/personal-center
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e29]
+        - link "资源中心" [ref=e30]
+        - link "教学中心" [ref=e31]
+        - link "教育资讯" [ref=e32]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e33]
+            - generic [ref=e34] clickable [cursor:pointer]
+    - generic [ref=e21] clickable [cursor:pointer]
+    - StaticText "匿名用户"
+    - image [ref=e1] clickable [cursor:pointer]
+    - StaticText "访客学校（默认）"
+    - StaticText "已签到"
+    - StaticText "游客"
+    - image
+    - StaticText "青铜助教"
+    - image
+    - StaticText "40"
+    - StaticText "经验值"
+    - image
+    - StaticText "522"
+    - StaticText "金币"
+    - generic [ref=e2] clickable [cursor:pointer]
+    - generic [ref=e3] clickable [cursor:pointer]
+    - generic [ref=e4] clickable [cursor:pointer]
+    - generic [ref=e5] clickable [cursor:pointer]
+    - generic [ref=e6] clickable [cursor:pointer]
+    - generic [ref=e7] clickable [cursor:pointer]
+    - generic [ref=e8] clickable [cursor:pointer]
+    - generic [ref=e9] clickable [cursor:pointer]
+    - generic [ref=e10] clickable [cursor:pointer]
+    - generic [ref=e11] clickable [cursor:pointer]
+    - generic [ref=e12] clickable [cursor:pointer]
+    - generic [ref=e13] clickable [cursor:pointer]
+    - StaticText "成长等级"
+    - generic [ref=e14] clickable [cursor:pointer]
+    - StaticText "青铜助教"
+    - StaticText "白银学者"
+    - StaticText "黄金专家"
+    - StaticText "铂金宗师"
+    - StaticText "钻石圣贤"
+    - StaticText "星耀泰斗"
+    - StaticText "王者至尊"
+    - generic
+      - progressbar: 0
+    - image "等级图标" [ref=e22] clickable [cursor:pointer]
+    - image "等级图标" [ref=e23] clickable [cursor:pointer]
+    - image "等级图标" [ref=e24] clickable [cursor:pointer]
+    - image "等级图标" [ref=e25] clickable [cursor:pointer]
+    - image "等级图标" [ref=e26] clickable [cursor:pointer]
+    - image "等级图标" [ref=e27] clickable [cursor:pointer]
+    - image "等级图标" [ref=e28] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e15] clickable [cursor:pointer]
+      - generic [ref=e16] clickable [cursor:pointer]
+      - generic [ref=e17] clickable [cursor:pointer]
+      - generic [ref=e18] clickable [cursor:pointer]
+      - generic [ref=e19] clickable [cursor:pointer]
+      - generic [ref=e20] clickable [cursor:pointer]

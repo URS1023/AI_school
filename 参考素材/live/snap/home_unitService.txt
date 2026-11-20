@@ -1,0 +1,59 @@
+URL: https://www.sjjbai.com/edu-web/home/unitService
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e8]
+        - link "资源中心" [ref=e9]
+        - link "教学中心" [ref=e10]
+        - link "教育资讯" [ref=e11]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e14]
+            - generic [ref=e17] clickable [cursor:pointer]
+    - image "单位服务"
+    - heading "单位服务" [level=2, ref=e1]
+    - StaticText "备课系统包含资源管理、智能备课、协作编辑三大模块，支持多媒体素材管理、AI教案生成、多教师协同编辑等功能，通过微服务架构提升备课效率"
+    - generic
+      - StaticText "基本信息如果您有单位服务的需求，请填写以下信息，以便于我们联系到您获取详细的需求信息。"
+    - form
+      - LabelText
+        - StaticText "*"
+        - StaticText "单位名称"
+      - textbox "* 单位名称" [ref=e18]
+      - LabelText
+        - StaticText "*"
+        - StaticText "联系人姓名"
+      - textbox "* 联系人姓名" [ref=e19]
+      - LabelText
+        - StaticText "*"
+        - StaticText "联系人手机号"
+      - textbox "* 联系人手机号" [ref=e20]
+      - LabelText
+        - StaticText "*"
+        - StaticText "联系人邮箱"
+      - textbox "* 联系人邮箱" [ref=e21]
+      - LabelText
+        - StaticText "*"
+        - StaticText "所在地区"
+      - generic [ref=e15] clickable [cursor:pointer]
+        - generic
+          - textbox "* 所在地区" [ref=e23]
+      - LabelText
+      - textbox "* 详细地址" [ref=e22]
+      - LabelText
+      - textbox "* 需求简述" [ref=e16]
+      - generic
+        - button "提交" [ref=e12]
+        - button "重置" [ref=e13]
+    - generic
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]
+      - generic [ref=e7] clickable [cursor:pointer]

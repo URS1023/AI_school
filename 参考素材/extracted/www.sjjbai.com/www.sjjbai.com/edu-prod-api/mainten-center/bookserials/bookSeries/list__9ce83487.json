@@ -1,0 +1,42 @@
+{
+  "total": 5,
+  "rows": [
+    {
+      "id": "1955827928767954946",
+      "periodId": 1,
+      "seriesName": "一轮复习",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "1968916422013714433",
+      "periodId": 1,
+      "seriesName": "二轮复习",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "1968916455572340737",
+      "periodId": 1,
+      "seriesName": "三轮突破",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "2008424079485333505",
+      "periodId": 1,
+      "seriesName": "同步练习",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "2008424116722364418",
+      "periodId": 1,
+      "seriesName": "高中专项",
+      "status": 1,
+      "remark": null
+    }
+  ],
+  "code": 200,
+  "msg": "查询成功"
+}

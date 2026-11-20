@@ -1,0 +1,177 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "name": "Resource-center2001188871546621953",
+      "path": "/resource-center",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "资源中心",
+        "icon": "",
+        "noCache": false,
+        "link": null
+      },
+      "children": [
+        {
+          "name": "PlatformResources2001189076694224898",
+          "path": "platformResources",
+          "hidden": false,
+          "component": "resource-center/views/platformResources/index",
+          "meta": {
+            "title": "平台资源",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "AquestionBankResources2001189628660436993",
+          "path": "aquestionBankResources",
+          "hidden": false,
+          "component": "questionBank/views/questionBankResources/index",
+          "meta": {
+            "title": "题库资源",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "SubjectNetResources2115682274376777730",
+          "path": "subjectNetResources",
+          "hidden": false,
+          "component": "resource-center/view/subjectNetResources/index",
+          "meta": {
+            "title": "学科网资源",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "SubjectNet2114914105450041345",
+          "path": "subjectNet",
+          "hidden": false,
+          "component": "resource-center/view/subjectNet/index",
+          "meta": {
+            "title": "学科网题库",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "DigitalLibrary2001189887973281794",
+          "path": "digitalLibrary",
+          "hidden": false,
+          "component": "resource-center/views/digitalLibrary/index",
+          "meta": {
+            "title": "数字图书",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "ResourceCollection2001189765231169538",
+          "path": "resourceCollection",
+          "hidden": false,
+          "component": "resource-center/views/resourceCollection/index",
+          "meta": {
+            "title": "资源征集",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "LiteracyCourse2001941566909853697",
+          "path": "literacyCourse",
+          "hidden": false,
+          "component": "resource-center/views/literacyCourse/index",
+          "meta": {
+            "title": "素养课程",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teaching-center2000858085463162881",
+      "path": "/teaching-center",
+      "hidden": false,
+      "redirect": "noRedirect",
+      "component": "Layout",
+      "alwaysShow": true,
+      "meta": {
+        "title": "教学中心",
+        "icon": "",
+        "noCache": false,
+        "link": null
+      },
+      "children": [
+        {
+          "name": "IndependentLessonPreparation2000866573836890114",
+          "path": "independentLessonPreparation",
+          "hidden": false,
+          "component": "teaching-center/views/independentLessonPreparation/index",
+          "meta": {
+            "title": "独立备课",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "GiveLessonsResources2000869336440385537",
+          "path": "giveLessonsResources",
+          "hidden": false,
+          "component": "teaching-center/views/giveLessonsResources/index",
+          "meta": {
+            "title": "互动授课",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        },
+        {
+          "name": "PreparationCircle2000869484784529410",
+          "path": "preparationCircle",
+          "hidden": false,
+          "component": "teaching-center/views/preparationCircle/index",
+          "meta": {
+            "title": "金榜杏坛",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "2026900079823106050",
+      "path": "/",
+      "hidden": false,
+      "component": "Layout",
+      "children": [
+        {
+          "name": "News-consultation/index2026900079823106050",
+          "path": "news-consultation/index",
+          "component": "news-consultation/views/consultation/index",
+          "meta": {
+            "title": "教育资讯",
+            "icon": "",
+            "noCache": false,
+            "link": null
+          }
+        }
+      ]
+    }
+  ]
+}

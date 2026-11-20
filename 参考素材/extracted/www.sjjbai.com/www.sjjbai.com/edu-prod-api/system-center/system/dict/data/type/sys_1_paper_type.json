@@ -1,0 +1,84 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1960876559876214785",
+      "dictSort": 1,
+      "dictLabel": "高考真题",
+      "dictValue": "1",
+      "dictType": "sys_1_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:26:17"
+    },
+    {
+      "id": null,
+      "dictCode": "1960876599919235073",
+      "dictSort": 2,
+      "dictLabel": "高考模拟",
+      "dictValue": "2",
+      "dictType": "sys_1_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:26:27"
+    },
+    {
+      "id": null,
+      "dictCode": "1960876750817710082",
+      "dictSort": 5,
+      "dictLabel": "检测练习",
+      "dictValue": "5",
+      "dictType": "sys_1_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:27:03"
+    },
+    {
+      "id": null,
+      "dictCode": "1960877406936879105",
+      "dictSort": 8,
+      "dictLabel": "学业考试",
+      "dictValue": "8",
+      "dictType": "sys_1_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:29:39"
+    },
+    {
+      "id": null,
+      "dictCode": "1960877495373778945",
+      "dictSort": 9,
+      "dictLabel": "期中试题",
+      "dictValue": "9",
+      "dictType": "sys_1_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:30:00"
+    },
+    {
+      "id": null,
+      "dictCode": "1960877560167387137",
+      "dictSort": 10,
+      "dictLabel": "期末试题",
+      "dictValue": "10",
+      "dictType": "sys_1_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:30:16"
+    }
+  ]
+}

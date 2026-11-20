@@ -1,0 +1,105 @@
+URL: https://www.sjjbai.com/edu-web/teaching-center/preparationCircle
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e71]
+        - link "资源中心" [ref=e72]
+        - link "教学中心" [ref=e73]
+        - link "教育资讯" [ref=e74]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e89]
+            - generic [ref=e90] clickable [cursor:pointer]
+    - link "独立备课" [ref=e1]
+    - link "互动授课" [ref=e2]
+    - link "金榜杏坛" [ref=e3]
+    - generic
+      - generic
+        - image "error"
+        - StaticText "金榜杏坛"
+        - StaticText "汇聚优质教学案例、名师讲座及教研干货，为教师搭建专业成长与经验交流专属平台"
+      - StaticText "选择时间"
+      - button "近一周" [ref=e10]
+        - StaticText "近一周"
+      - button "近一个月" [ref=e11]
+        - StaticText "近一个月"
+      - button "近三个月" [ref=e12]
+        - StaticText "近三个月"
+      - button "近半年" [ref=e13]
+        - StaticText "近半年"
+      - StaticText "选择学段"
+      - button "高中" [ref=e14]
+        - StaticText "高中"
+      - button "初中" [ref=e15]
+        - StaticText "初中"
+      - button "小学" [ref=e16]
+        - StaticText "小学"
+      - StaticText "选择学科"
+      - button "语文" [ref=e17]
+        - StaticText "语文"
+      - button "数学" [ref=e18]
+        - StaticText "数学"
+      - button "英语" [ref=e19]
+        - StaticText "英语"
+      - button "物理" [ref=e20]
+        - StaticText "物理"
+      - button "化学" [ref=e21]
+        - StaticText "化学"
+      - button "生物" [ref=e22]
+        - StaticText "生物"
+      - button "政治" [ref=e23]
+        - StaticText "政治"
+      - button "历史" [ref=e24]
+        - StaticText "历史"
+      - button "地理" [ref=e25]
+        - StaticText "地理"
+      - button "日语" [ref=e26]
+        - StaticText "日语"
+      - button "俄语" [ref=e27]
+        - StaticText "俄语"
+      - button "西班牙语" [ref=e28]
+        - StaticText "西班牙语"
+      - button "德语" [ref=e29]
+        - StaticText "德语"
+      - button "法语" [ref=e30]
+        - StaticText "法语"
+      - button "阿拉伯语" [ref=e31]
+        - StaticText "阿拉伯语"
+      - button "韩语" [ref=e32]
+        - StaticText "韩语"
+      - button "道德与法治" [ref=e33]
+        - StaticText "道德与法治"
+      - button "信息技术" [ref=e34]
+        - StaticText "信息技术"
+      - button "通用技术" [ref=e35]
+        - StaticText "通用技术"
+      - StaticText "发布动态"
+      - generic
+        - textbox "请发表关于学习的动态" [ref=e75]
+        - StaticText "0 / 200"
+      - button "表情 添加表情" [ref=e36]
+        - image "表情"
+        - StaticText "添加表情"
+      - button "图片 上传图片" [ref=e37]
+        - image "图片"
+        - StaticText "上传图片"
+      - button "文件 上传文件" [ref=e38]
+        - image "文件"
+        - StaticText "上传文件"
+      - button "确认" [ref=e76]
+        - StaticText "确认"
+      - generic [ref=e39] clickable [cursor:pointer]
+        - StaticText "金榜杏坛"
+      - generic [ref=e40] clickable [cursor:pointer]
+        - StaticText "我的信息"
+      - generic [ref=e77] clickable [cursor:pointer]
+        - generic
+          - combobox [expanded=false, ref=e91]
+      - button "筛选概括题：打靶要打靶心（金榜微课堂 知识点微课）" [ref=e78]
+    - [含人员或用户内容的记录已脱敏]
+      - generic [ref=e9] clickable [cursor:pointer]

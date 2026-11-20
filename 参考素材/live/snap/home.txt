@@ -1,0 +1,580 @@
+URL: https://www.sjjbai.com/edu-web/home
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e113]
+        - link "资源中心" [ref=e114]
+        - link "教学中心" [ref=e115]
+        - link "教育资讯" [ref=e116]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e166]
+            - generic [ref=e172] clickable [cursor:pointer]
+    - generic
+      - generic
+        - generic
+          - generic
+            - image
+            - image
+            - image
+            - image
+            - image
+          - list
+            - listitem [level=1, ref=e167] clickable [cursor:pointer]
+              - button "幻灯片切换至索引 1" [ref=e173]
+            - listitem [level=1, ref=e168] clickable [cursor:pointer]
+              - button "幻灯片切换至索引 2" [ref=e174]
+            - listitem [level=1, ref=e169] clickable [cursor:pointer]
+              - button "幻灯片切换至索引 3" [ref=e175]
+            - listitem [level=1, ref=e170] clickable [cursor:pointer]
+              - button "幻灯片切换至索引 4" [ref=e176]
+            - listitem [level=1, ref=e171] clickable [cursor:pointer]
+              - button "幻灯片切换至索引 5" [ref=e177]
+        - generic
+          - generic [ref=e117] clickable [cursor:pointer]
+          - generic [ref=e118] clickable [cursor:pointer]
+          - generic [ref=e119] clickable [cursor:pointer]
+          - generic [ref=e120] clickable [cursor:pointer]
+          - generic [ref=e121] clickable [cursor:pointer]
+          - generic [ref=e122] clickable [cursor:pointer]
+          - generic [ref=e123] clickable [cursor:pointer]
+        - generic
+          - button "资源 arrow" [expanded=false, ref=e204]
+          - textbox "请输入标题关键字，多个关键请以空格隔开" [ref=e178]
+          - image "search" [ref=e179] clickable [cursor:pointer]
+      - image
+      - StaticText "最新资源"
+      - generic [ref=e1] clickable [cursor:pointer]
+        - StaticText "高中"
+      - generic [ref=e2] clickable [cursor:pointer]
+        - StaticText "初中"
+      - generic [ref=e3] clickable [cursor:pointer]
+        - StaticText "小学"
+      - StaticText "最近一周更新"
+      - StaticText "17936"
+      - StaticText "条"
+      - generic [ref=e4] clickable [cursor:pointer]
+        - StaticText "更多"
+      - generic [ref=e5] clickable [cursor:pointer]
+        - StaticText "语文"
+      - generic [ref=e6] clickable [cursor:pointer]
+        - StaticText "数学"
+      - generic [ref=e7] clickable [cursor:pointer]
+        - StaticText "英语"
+      - generic [ref=e8] clickable [cursor:pointer]
+        - StaticText "物理"
+      - generic [ref=e9] clickable [cursor:pointer]
+        - StaticText "化学"
+      - generic [ref=e10] clickable [cursor:pointer]
+        - StaticText "生物"
+      - generic [ref=e11] clickable [cursor:pointer]
+        - StaticText "思想政治"
+      - generic [ref=e12] clickable [cursor:pointer]
+        - StaticText "历史"
+      - generic [ref=e13] clickable [cursor:pointer]
+        - StaticText "地理"
+      - generic [ref=e76] clickable [cursor:pointer]
+        - StaticText "全部"
+      - generic [ref=e77] clickable [cursor:pointer]
+        - StaticText "课件"
+      - generic [ref=e78] clickable [cursor:pointer]
+        - StaticText "教案"
+      - generic [ref=e79] clickable [cursor:pointer]
+        - StaticText "学案"
+      - generic [ref=e80] clickable [cursor:pointer]
+        - StaticText "作业"
+      - generic [ref=e81] clickable [cursor:pointer]
+        - StaticText "试卷"
+      - generic [ref=e82] clickable [cursor:pointer]
+        - StaticText "微课"
+      - generic [ref=e83] clickable [cursor:pointer]
+        - StaticText "素材"
+      - generic [ref=e84] clickable [cursor:pointer]
+        - StaticText "其他"
+      - generic
+        - StaticText "教案"
+        - StaticText "写作 谋划好结构 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "写作 构思好核心段 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "写作 运用好素材 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic [ref=e14] clickable [cursor:pointer]
+        - StaticText "教案"
+        - StaticText "写作 斟酌好立意 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "写作 雕琢好语言 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "写作 打磨好首尾 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "语用命题“阅读化”趋向探析 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "语言文字运用 连贯 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "语言文字运用 补写语句 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "教案"
+        - StaticText "语言文字运用 标点 2027届 高考语文一轮复习"
+        - StaticText "11月18日"
+      - generic [ref=e15] clickable [cursor:pointer]
+        - generic
+      - StaticText "最新动态"
+      - generic
+        - sectionheader
+          - heading "教育资讯" [level=3, ref=e124]
+          - generic [ref=e125] clickable [cursor:pointer]
+        - list
+          - listitem [level=1, ref=e126] clickable [cursor:pointer]
+          - listitem [level=1, ref=e127] clickable [cursor:pointer]
+          - listitem [level=1, ref=e128] clickable [cursor:pointer]
+          - listitem [level=1, ref=e129] clickable [cursor:pointer]
+          - listitem [level=1, ref=e130] clickable [cursor:pointer]
+          - listitem [level=1, ref=e131] clickable [cursor:pointer]
+          - listitem [level=1, ref=e132] clickable [cursor:pointer]
+          - listitem [level=1, ref=e133] clickable [cursor:pointer]
+          - listitem [level=1, ref=e134] clickable [cursor:pointer]
+          - listitem [level=1, ref=e135] clickable [cursor:pointer]
+      - generic
+        - sectionheader
+          - heading "素养课程" [level=3, ref=e136]
+          - generic [ref=e137] clickable [cursor:pointer]
+        - list
+          - listitem [level=1, ref=e138] clickable [cursor:pointer]
+          - listitem [level=1, ref=e139] clickable [cursor:pointer]
+          - listitem [level=1, ref=e140] clickable [cursor:pointer]
+          - listitem [level=1, ref=e141] clickable [cursor:pointer]
+          - listitem [level=1, ref=e142] clickable [cursor:pointer]
+          - listitem [level=1, ref=e143] clickable [cursor:pointer]
+          - listitem [level=1, ref=e144] clickable [cursor:pointer]
+          - listitem [level=1, ref=e145] clickable [cursor:pointer]
+          - listitem [level=1, ref=e146] clickable [cursor:pointer]
+          - listitem [level=1, ref=e147] clickable [cursor:pointer]
+      - image
+      - StaticText "金榜图书"
+      - generic [ref=e16] clickable [cursor:pointer]
+        - StaticText "高中"
+      - generic [ref=e17] clickable [cursor:pointer]
+        - StaticText "初中"
+      - generic [ref=e18] clickable [cursor:pointer]
+        - StaticText "小学"
+      - generic [ref=e19] clickable [cursor:pointer]
+        - StaticText "更多"
+      - generic [ref=e20] clickable [cursor:pointer]
+        - StaticText "一轮复习"
+      - generic [ref=e21] clickable [cursor:pointer]
+        - StaticText "二轮复习"
+      - generic [ref=e22] clickable [cursor:pointer]
+        - StaticText "三轮突破"
+      - generic [ref=e23] clickable [cursor:pointer]
+        - StaticText "同步练习"
+      - generic [ref=e24] clickable [cursor:pointer]
+        - StaticText "高中专项"
+      - generic
+        - generic [ref=e85] clickable [cursor:pointer]
+        - generic
+          - generic [ref=e180] clickable [cursor:pointer]
+          - generic [ref=e181] clickable [cursor:pointer]
+          - generic [ref=e182] clickable [cursor:pointer]
+          - generic [ref=e183] clickable [cursor:pointer]
+          - generic [ref=e184] clickable [cursor:pointer]
+          - generic [ref=e185] clickable [cursor:pointer]
+          - generic [ref=e186] clickable [cursor:pointer]
+          - generic [ref=e187] clickable [cursor:pointer]
+          - generic [ref=e188] clickable [cursor:pointer]
+          - generic [ref=e189] clickable [cursor:pointer]
+          - generic [ref=e190] clickable [cursor:pointer]
+          - generic [ref=e191] clickable [cursor:pointer]
+          - generic [ref=e192] clickable [cursor:pointer]
+          - generic [ref=e193] clickable [cursor:pointer]
+          - generic [ref=e194] clickable [cursor:pointer]
+          - generic [ref=e195] clickable [cursor:pointer]
+          - generic [ref=e196] clickable [cursor:pointer]
+          - generic [ref=e197] clickable [cursor:pointer]
+          - generic [ref=e198] clickable [cursor:pointer]
+          - generic [ref=e199] clickable [cursor:pointer]
+          - generic [ref=e200] clickable [cursor:pointer]
+          - generic [ref=e201] clickable [cursor:pointer]
+          - generic [ref=e202] clickable [cursor:pointer]
+          - generic [ref=e203] clickable [cursor:pointer]
+        - generic [ref=e86] clickable [cursor:pointer]
+      - image
+      - StaticText "名校试卷"
+      - generic [ref=e25] clickable [cursor:pointer]
+        - StaticText "高中"
+      - generic [ref=e26] clickable [cursor:pointer]
+        - StaticText "初中"
+      - generic [ref=e27] clickable [cursor:pointer]
+        - StaticText "小学"
+      - generic [ref=e28] clickable [cursor:pointer]
+        - StaticText "更多"
+      - generic [ref=e29] clickable [cursor:pointer]
+        - StaticText "语文"
+      - generic [ref=e30] clickable [cursor:pointer]
+        - StaticText "数学"
+      - generic [ref=e31] clickable [cursor:pointer]
+        - StaticText "英语"
+      - generic [ref=e32] clickable [cursor:pointer]
+        - StaticText "物理"
+      - generic [ref=e33] clickable [cursor:pointer]
+        - StaticText "化学"
+      - generic [ref=e34] clickable [cursor:pointer]
+        - StaticText "生物"
+      - generic [ref=e35] clickable [cursor:pointer]
+        - StaticText "思想政治"
+      - generic [ref=e36] clickable [cursor:pointer]
+        - StaticText "历史"
+      - generic [ref=e37] clickable [cursor:pointer]
+        - StaticText "地理"
+      - generic [ref=e87] clickable [cursor:pointer]
+        - StaticText "全部"
+      - generic [ref=e88] clickable [cursor:pointer]
+        - StaticText "开学"
+      - generic [ref=e89] clickable [cursor:pointer]
+        - StaticText "月考"
+      - generic [ref=e90] clickable [cursor:pointer]
+        - StaticText "期中"
+      - generic [ref=e91] clickable [cursor:pointer]
+        - StaticText "期末"
+      - generic [ref=e92] clickable [cursor:pointer]
+        - StaticText "联考"
+      - generic [ref=e93] clickable [cursor:pointer]
+        - StaticText "模拟"
+      - generic [ref=e94] clickable [cursor:pointer]
+        - StaticText "竞赛"
+      - generic [ref=e95] clickable [cursor:pointer]
+        - StaticText "真题"
+      - generic [ref=e96] clickable [cursor:pointer]
+        - StaticText "学业考试"
+      - generic [ref=e97] clickable [cursor:pointer]
+        - StaticText "自主招生"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北秦皇岛市部分校2026-2027学年高二上学期11月期中语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北石家庄市第二中学2026-2027学年高二上学期期中考试语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "月考"
+        - StaticText "河北衡水市第十四中学2026-2027学年高一上学期二调考试语文试卷"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北唐山市2026-2027学年高二上学期11月期中语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北石家庄市第二中学2026-2027学年高一上学期11月期中语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "陕西汉中市部分校2026-2027学年高二上学期11月期中语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北唐山市2026-2027学年高三上学期期中考试语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北武强中学2026-2027学年高二上学期期中考试语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "河北雄安新区部分高中2026-2027学年高三上学期11月期中语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "期中"
+        - StaticText "陕西汉中市西乡县第一中学2026-2027学年高二上学期11月期中语文试题"
+        - StaticText "11月19日"
+      - generic
+        - StaticText "月考"
+        - StaticText "湖北咸宁市部分校2026-2027学年高三上学期11月质量检测语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "江苏镇江市扬中市第二高级中学2026-2027学年高一上学期期中语文试卷"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "江苏常州市2026-2027学年高三上学期11月期中语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "福建省厦门双十中学2026-2027学年高二上学期11月期中语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "陕西西安交通大学附属中学2026-2027学年第一学期期中考试高一语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "江苏扬州中学教育集团树人学校2026-2027学年高一上学期11月期中语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "江苏省如东县2026-2027学年高三上学期期中考试语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "江苏泰州市靖江市第一高级中学2026-2027学年高一上学期11月期中语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "期中"
+        - StaticText "江苏省江阴高级中学2026-2027学年高一上学期11月期中语文试题"
+        - StaticText "11月18日"
+      - generic
+        - StaticText "月考"
+        - StaticText "河北2026-2027学年高一上学期10月质量检测语文试卷（原卷）"
+        - StaticText "11月18日"
+      - generic [ref=e98] clickable [cursor:pointer]
+        - StaticText "上传资源赚金币"
+      - generic [ref=e99] clickable [cursor:pointer]
+        - StaticText "单位用户服务"
+      - generic [ref=e100] clickable [cursor:pointer]
+        - StaticText "意见反馈"
+      - image
+      - StaticText "在线备课"
+      - generic [ref=e38] clickable [cursor:pointer]
+        - StaticText "备课"
+      - generic [ref=e39] clickable [cursor:pointer]
+        - generic
+      - generic [ref=e40] clickable [cursor:pointer]
+        - generic
+      - generic [ref=e41] clickable [cursor:pointer]
+        - generic
+      - generic [ref=e42] clickable [cursor:pointer]
+        - generic
+      - image
+      - StaticText "互动游戏"
+      - generic [ref=e43] clickable [cursor:pointer]
+        - StaticText "更多"
+      - generic
+        - generic [ref=e101] clickable [cursor:pointer]
+        - generic
+          - generic [ref=e205] clickable [cursor:pointer]
+          - generic [ref=e206] clickable [cursor:pointer]
+          - generic [ref=e207] clickable [cursor:pointer]
+          - generic [ref=e208] clickable [cursor:pointer]
+          - generic [ref=e209] clickable [cursor:pointer]
+          - generic [ref=e210] clickable [cursor:pointer]
+          - generic [ref=e211] clickable [cursor:pointer]
+          - generic [ref=e212] clickable [cursor:pointer]
+          - generic [ref=e213] clickable [cursor:pointer]
+          - generic [ref=e214] clickable [cursor:pointer]
+          - generic [ref=e215] clickable [cursor:pointer]
+          - generic [ref=e216] clickable [cursor:pointer]
+          - generic [ref=e217] clickable [cursor:pointer]
+          - generic [ref=e218] clickable [cursor:pointer]
+          - generic [ref=e219] clickable [cursor:pointer]
+          - generic [ref=e220] clickable [cursor:pointer]
+          - generic [ref=e221] clickable [cursor:pointer]
+          - generic [ref=e222] clickable [cursor:pointer]
+          - generic [ref=e223] clickable [cursor:pointer]
+          - generic [ref=e224] clickable [cursor:pointer]
+          - generic [ref=e225] clickable [cursor:pointer]
+          - generic [ref=e226] clickable [cursor:pointer]
+          - generic [ref=e227] clickable [cursor:pointer]
+          - generic [ref=e228] clickable [cursor:pointer]
+          - generic [ref=e229] clickable [cursor:pointer]
+          - generic [ref=e230] clickable [cursor:pointer]
+          - generic [ref=e231] clickable [cursor:pointer]
+          - generic [ref=e232] clickable [cursor:pointer]
+          - generic [ref=e233] clickable [cursor:pointer]
+          - generic [ref=e234] clickable [cursor:pointer]
+          - generic [ref=e235] clickable [cursor:pointer]
+          - generic [ref=e236] clickable [cursor:pointer]
+          - generic [ref=e237] clickable [cursor:pointer]
+          - generic [ref=e238] clickable [cursor:pointer]
+          - generic [ref=e239] clickable [cursor:pointer]
+          - generic [ref=e240] clickable [cursor:pointer]
+          - generic [ref=e241] clickable [cursor:pointer]
+          - generic [ref=e242] clickable [cursor:pointer]
+          - generic [ref=e243] clickable [cursor:pointer]
+          - generic [ref=e244] clickable [cursor:pointer]
+          - generic [ref=e245] clickable [cursor:pointer]
+          - generic [ref=e246] clickable [cursor:pointer]
+        - generic [ref=e102] clickable [cursor:pointer]
+      - image
+      - StaticText "考试阅卷"
+      - generic [ref=e44] clickable [cursor:pointer]
+        - StaticText "更多"
+      - generic [ref=e45] clickable [cursor:pointer]
+        - image "待出卷"
+        - StaticText "待出卷"
+      - generic [ref=e46] clickable [cursor:pointer]
+        - image "发布考试"
+        - StaticText "发布考试"
+      - generic [ref=e47] clickable [cursor:pointer]
+        - image "扫描答卷"
+        - StaticText "扫描答卷"
+      - generic [ref=e48] clickable [cursor:pointer]
+        - image "分配批阅任务"
+        - StaticText "分配批阅任务"
+      - generic [ref=e49] clickable [cursor:pointer]
+        - image "开启批阅"
+        - StaticText "开启批阅"
+      - generic [ref=e50] clickable [cursor:pointer]
+        - image "发布学情"
+        - StaticText "发布学情"
+      - list
+        - listitem [level=1]
+        - listitem [level=1]
+        - listitem [level=1]
+        - listitem [level=1]
+        - listitem [level=1]
+        - listitem [level=1]
+      - image
+      - StaticText "角色升级"
+      - generic [ref=e51] clickable [cursor:pointer]
+        - StaticText "教师角色"
+      - generic [ref=e52] clickable [cursor:pointer]
+        - StaticText "学生角色"
+      - generic [ref=e103] clickable [cursor:pointer]
+        - image "青铜助教"
+        - StaticText "青铜助教"
+        - StaticText "可正常使用平台基础功能。"
+      - generic [ref=e104] clickable [cursor:pointer]
+        - image "白银学者"
+        - StaticText "白银学者"
+        - StaticText "享有基础功能，可优先参与平台发起的部分小型活动。"
+      - generic [ref=e105] clickable [cursor:pointer]
+        - image "黄金专家"
+        - StaticText "黄金专家"
+        - StaticText "在白银达人特权基础上，每月享有10次免费预览收费资源的机会。"
+      - generic [ref=e106] clickable [cursor:pointer]
+        - image "铂金宗师"
+        - StaticText "铂金宗师"
+        - StaticText "拥有黄金达人特权，每日可额外获得 1 次免费下载收费资源的机会。"
+      - generic [ref=e107] clickable [cursor:pointer]
+        - image "钻石圣贤"
+        - StaticText "钻石圣贤"
+        - StaticText "具备铂金达人特权，可参与平台举办的线下交流活动。"
+      - generic [ref=e108] clickable [cursor:pointer]
+        - image "星耀泰斗"
+        - StaticText "星耀泰斗"
+        - StaticText "享有钻石达人特权，上传资源时可获得平台推荐，优先获得新功能体验资格。"
+      - generic [ref=e109] clickable [cursor:pointer]
+        - image "王者至尊"
+        - StaticText "王者至尊"
+        - StaticText "拥有星耀达人特权，可获得平台专属荣誉证书，在平台首页展示个人优秀资源，参与平台重要决策讨论。"
+      - Video
+      - Video
+      - image
+      - StaticText "操作指南"
+      - generic [ref=e53] clickable [cursor:pointer]
+        - StaticText "更多"
+      - generic
+        - generic [ref=e110] clickable [cursor:pointer]
+        - generic [ref=e111] clickable [cursor:pointer]
+        - generic [ref=e112] clickable [cursor:pointer]
+      - image "图标"
+      - StaticText "部分合作学校"
+      - image
+      - StaticText "河北衡水中学"
+      - image
+      - StaticText "甘肃省临夏中学"
+      - image
+      - StaticText "石家庄卓越中学"
+      - image
+      - StaticText "深圳中学"
+      - image
+      - StaticText "济南市历城第二中学"
+      - image
+      - StaticText "山东省济南第一中学"
+      - image
+      - StaticText "山东省泰安第一中学"
+      - image
+      - StaticText "山东省济南第九中学"
+      - image
+      - StaticText "广西柳州高级中学"
+      - image
+      - StaticText "邯郸市第一中学"
+      - image
+      - StaticText "吉林市第一中学"
+      - image
+      - StaticText "华中师范大学第一附属中学"
+      - heading "新手帮助" [level=3, ref=e54]
+      - list
+        - listitem [level=1]
+          - link "备课流程" [ref=e148]
+        - listitem [level=1]
+          - link "扫描流程" [ref=e149]
+        - listitem [level=1]
+          - link "组卷流程" [ref=e150]
+        - listitem [level=1]
+          - link "考试流程" [ref=e151]
+        - listitem [level=1]
+          - link "视频帮助" [ref=e152]
+      - heading "常见问题" [level=3, ref=e55]
+      - list
+        - listitem [level=1]
+          - link "扫描异常" [ref=e153]
+        - listitem [level=1]
+          - link "组卷异常" [ref=e154]
+        - listitem [level=1]
+          - link "下载异常" [ref=e155]
+        - listitem [level=1]
+          - link "上传失败" [ref=e156]
+      - heading "驱动下载" [level=3, ref=e56]
+      - list
+        - listitem [level=1]
+          - link "华高驱动" [ref=e157]
+        - listitem [level=1]
+          - link "松下驱动" [ref=e158]
+      - heading "成长体系" [level=3, ref=e57]
+      - list
+        - listitem [level=1]
+          - link "等级体系" [ref=e159]
+        - listitem [level=1]
+          - link "勋章体系" [ref=e160]
+        - listitem [level=1]
+          - link "积分体系" [ref=e161]
+      - heading "产品服务" [level=3, ref=e58]
+      - list
+        - listitem [level=1]
+          - link "教师端App" [ref=e162]
+        - listitem [level=1]
+          - link "学生端App" [ref=e163]
+        - listitem [level=1]
+          - link "家长端App" [ref=e164]
+        - listitem [level=1]
+          - link "阅卷客户端" [ref=e165]
+      - heading "客服热线" [level=3, ref=e59]
+      - heading "紧急热线" [level=3, ref=e60]
+      - link "企业官网" [ref=e61]
+      - link "网站导航" [ref=e62]
+      - link "服务条款" [ref=e63]
+      - link "隐私协议" [ref=e64]
+      - link "帮助中心" [ref=e65]
+      - link "意见反馈" [ref=e66]
+      - link "sjjbai.com" [ref=e67]
+      - link "鲁ICP备09011184号-12" [ref=e68]
+      - link "鲁公网安备37010402441453号" [ref=e69]
+    - generic
+      - generic [ref=e70] clickable [cursor:pointer]
+      - generic [ref=e71] clickable [cursor:pointer]
+      - generic [ref=e72] clickable [cursor:pointer]
+      - generic [ref=e73] clickable [cursor:pointer]
+      - generic [ref=e74] clickable [cursor:pointer]
+      - generic [ref=e75] clickable [cursor:pointer]

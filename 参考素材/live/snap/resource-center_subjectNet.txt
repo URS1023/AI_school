@@ -1,0 +1,29 @@
+URL: ✗ Failed to read: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 (os error 10060)
+- generic
+  - generic
+    - link [ref=e2]
+    - link "logo" [ref=e1]
+    - generic
+      - link [ref=e3]
+  - generic
+    - StaticText "扫码关联"
+    - generic
+    - separator
+    - StaticText "■本界面您将建立学科网账号和第三方账号的关联"
+    - LineBreak "\n"
+    - StaticText "■建立关联后，您可以通过第三方网站一键登录学科网"
+    - LineBreak "\n"
+    - StaticText "■您也可以单独使用此账号访问学科网"
+    - LineBreak "\n"
+  - generic
+    - paragraph
+      - link "关于我们" [ref=e4]
+      - link "联系我们" [ref=e5]
+      - link "网站地图" [ref=e6]
+      - link "招聘信息" [ref=e7]
+      - link "帮助中心" [ref=e8]
+      - link "在线客服" [ref=e9]
+    - paragraph
+      - link "京ICP备12013499号" [ref=e10]
+      - link "京ICP证080135号" [ref=e11]
+      - link "京公网安备11011102001241号" [ref=e12]

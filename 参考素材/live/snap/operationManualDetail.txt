@@ -1,0 +1,35 @@
+URL: https://www.sjjbai.com/edu-web/operationManualDetail
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e8]
+        - link "资源中心" [ref=e9]
+        - link "教学中心" [ref=e10]
+        - link "教育资讯" [ref=e11]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e15]
+            - generic [ref=e16] clickable [cursor:pointer]
+    - generic
+      - image "fail"
+      - StaticText "操作指南"
+      - StaticText "备课系统包含资源管理、智能备课、协作编辑三大模块，支持多媒体素材管理、AI教案生成、多教师协同编辑等功能，通过微服务架构提升备课效率。"
+    - complementary
+      - tree
+        - treeitem "使用指南" [level=1, checked=false, expanded=false, ref=e12]
+        - treeitem "常见问题" [level=1, checked=false, expanded=false, ref=e13]
+        - treeitem "视频教程" [level=1, checked=false, expanded=false, ref=e14]
+    - main
+      - button "返回" [ref=e7]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

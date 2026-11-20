@@ -1,0 +1,685 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": "2092880639107891201",
+      "original": {
+        "title": "PPT模板1",
+        "width": "960",
+        "height": "540",
+        "theme": {
+          "shadow": {
+            "h": 3,
+            "v": 3,
+            "blur": 2,
+            "color": "#808080"
+          },
+          "outline": {
+            "color": "#525252",
+            "style": "solid",
+            "width": 2
+          },
+          "fontName": "",
+          "fontColor": "#333",
+          "themeColors": [
+            "#5b9bd5",
+            "#ed7d31",
+            "#a5a5a5",
+            "#ffc000",
+            "#4472c4",
+            "#70ad47"
+          ],
+          "backgroundColor": "rgb(193, 137, 96)"
+        },
+        "slides": [
+          {
+            "id": null,
+            "elements": [
+              {
+                "id": "tIxJwnT0jQ",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/53999dea53a647f8ac2812fa73b8f48b.png",
+                "top": 2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 534.4,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "0sT1dzjPzh",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/7c6a1b2e28694cbf8d4046117cad3858.png",
+                "top": 386.79245283018867,
+                "left": 730.2710622710622,
+                "type": "image",
+                "width": 224,
+                "height": 153.2075471698113,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "bvOX-ERpUV",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/61885f3695b548318209be61b5809e9f.png",
+                "top": 0,
+                "left": 0,
+                "type": "image",
+                "width": 121,
+                "height": 74.1,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "W3HqtBN5Fg",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/53999dea53a647f8ac2812fa73b8f48b.png",
+                "top": 12.8,
+                "left": 10,
+                "type": "image",
+                "width": 960,
+                "height": 534.4,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "sExRr4fqkJ",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "41-qu4gGk8",
+                "top": 100.14705657958986,
+                "left": 389.9264616124771,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 74,
+                "rotate": 0,
+                "content": "<p style=\"text-align: center;\"><strong><span style=\"font-size: 36px;\">标题</span></strong></p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              },
+              {
+                "id": "vYR8FFMrRw",
+                "top": 274.4117624619428,
+                "left": 187.72057925953587,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">授课人：</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              },
+              {
+                "id": "VF2EQMJlW9",
+                "top": 280,
+                "left": 628.1617557301241,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">授课时间：</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "gradient",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "cover",
+            "remark": null
+          },
+          {
+            "id": "nHqnZUbKAw",
+            "elements": [
+              {
+                "id": "qew8wFJfZX",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "SK8iXHgQmL",
+                "top": 76.95970919542697,
+                "fill": "#ffffff",
+                "left": 19.56043956043954,
+                "path": "M 0 0 L 200 0 L 200 200 L 0 200 Z",
+                "type": "shape",
+                "width": 920.8791208791208,
+                "height": 435.8974358974359,
+                "rotate": 0,
+                "viewBox": [
+                  200,
+                  200
+                ],
+                "fixedRatio": false
+              },
+              {
+                "id": "QhHT_a3S65",
+                "top": 25.147056579589844,
+                "left": 26.69116749482996,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">标题</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "solid",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "content",
+            "remark": null
+          },
+          {
+            "id": "3JPX96acHT",
+            "elements": [
+              {
+                "id": "ftIHFP05wg",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "GhLnHi3gIH",
+                "top": 76.95970919542697,
+                "fill": "#ffffff",
+                "left": 19.56043956043954,
+                "path": "M 0 0 L 200 0 L 200 200 L 0 200 Z",
+                "type": "shape",
+                "width": 920.8791208791208,
+                "height": 435.8974358974359,
+                "rotate": 0,
+                "viewBox": [
+                  200,
+                  200
+                ],
+                "fixedRatio": false
+              },
+              {
+                "id": "mrumuXLVqi",
+                "top": 15.58823305017808,
+                "left": 23.014696906594672,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">标题</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "solid",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "content",
+            "remark": null
+          },
+          {
+            "id": "l0g--fvQcV",
+            "elements": [
+              {
+                "id": "CfrkimIzka",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "2he5oCJob-",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/106ceb49869e41c2a1d8dd7ab3e2f9db.png",
+                "top": 333.6,
+                "left": 185.99999999999997,
+                "type": "image",
+                "width": 504.5,
+                "height": 175.6,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "oZipImMbbS",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/023b5146d87e4f218f745b41a52ac639.png",
+                "top": 75.9,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 534.4,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "E-EZX0MRh7",
+                "top": 156.02940952076634,
+                "fill": "rgba(161,105,105,1)",
+                "left": 389.19116749483,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 111.1875,
+                "rotate": 0,
+                "vAlign": "top",
+                "content": "<blockquote><p style=\"text-align: center;\"><em><strong><span style=\"font-size: 40px;\">结束</span></strong></em></p></blockquote>",
+                "outline": {
+                  "color": "rgb(213, 183, 182)",
+                  "style": "solid",
+                  "width": 2
+                },
+                "vertical": false,
+                "wordSpace": 2,
+                "lineHeight": 1.8,
+                "fixedHeight": true,
+                "defaultColor": "#333",
+                "paragraphSpace": 10,
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "gradient",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "end",
+            "remark": null
+          }
+        ]
+      },
+      "content": {
+        "title": "PPT模板1",
+        "width": "960",
+        "height": "540",
+        "theme": {
+          "shadow": {
+            "h": 3,
+            "v": 3,
+            "blur": 2,
+            "color": "#808080"
+          },
+          "outline": {
+            "color": "#525252",
+            "style": "solid",
+            "width": 2
+          },
+          "fontName": "",
+          "fontColor": "#333",
+          "themeColors": [
+            "#5b9bd5",
+            "#ed7d31",
+            "#a5a5a5",
+            "#ffc000",
+            "#4472c4",
+            "#70ad47"
+          ],
+          "backgroundColor": "rgb(193, 137, 96)"
+        },
+        "slides": [
+          {
+            "id": null,
+            "elements": [
+              {
+                "id": "tIxJwnT0jQ",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/53999dea53a647f8ac2812fa73b8f48b.png",
+                "top": 2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 534.4,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "0sT1dzjPzh",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/7c6a1b2e28694cbf8d4046117cad3858.png",
+                "top": 386.79245283018867,
+                "left": 730.2710622710622,
+                "type": "image",
+                "width": 224,
+                "height": 153.2075471698113,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "bvOX-ERpUV",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/61885f3695b548318209be61b5809e9f.png",
+                "top": 0,
+                "left": 0,
+                "type": "image",
+                "width": 121,
+                "height": 74.1,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "W3HqtBN5Fg",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/53999dea53a647f8ac2812fa73b8f48b.png",
+                "top": 12.8,
+                "left": 10,
+                "type": "image",
+                "width": 960,
+                "height": 534.4,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "sExRr4fqkJ",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "41-qu4gGk8",
+                "top": 100.14705657958986,
+                "left": 389.9264616124771,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 74,
+                "rotate": 0,
+                "content": "<p style=\"text-align: center;\"><strong><span style=\"font-size: 36px;\">标题</span></strong></p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              },
+              {
+                "id": "vYR8FFMrRw",
+                "top": 274.4117624619428,
+                "left": 187.72057925953587,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">授课人：</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              },
+              {
+                "id": "VF2EQMJlW9",
+                "top": 280,
+                "left": 628.1617557301241,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">授课时间：</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "gradient",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "cover",
+            "remark": null
+          },
+          {
+            "id": "nHqnZUbKAw",
+            "elements": [
+              {
+                "id": "qew8wFJfZX",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "SK8iXHgQmL",
+                "top": 76.95970919542697,
+                "fill": "#ffffff",
+                "left": 19.56043956043954,
+                "path": "M 0 0 L 200 0 L 200 200 L 0 200 Z",
+                "type": "shape",
+                "width": 920.8791208791208,
+                "height": 435.8974358974359,
+                "rotate": 0,
+                "viewBox": [
+                  200,
+                  200
+                ],
+                "fixedRatio": false
+              },
+              {
+                "id": "QhHT_a3S65",
+                "top": 25.147056579589844,
+                "left": 26.69116749482996,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">标题</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "solid",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "content",
+            "remark": null
+          },
+          {
+            "id": "3JPX96acHT",
+            "elements": [
+              {
+                "id": "ftIHFP05wg",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "GhLnHi3gIH",
+                "top": 76.95970919542697,
+                "fill": "#ffffff",
+                "left": 19.56043956043954,
+                "path": "M 0 0 L 200 0 L 200 200 L 0 200 Z",
+                "type": "shape",
+                "width": 920.8791208791208,
+                "height": 435.8974358974359,
+                "rotate": 0,
+                "viewBox": [
+                  200,
+                  200
+                ],
+                "fixedRatio": false
+              },
+              {
+                "id": "mrumuXLVqi",
+                "top": 15.58823305017808,
+                "left": 23.014696906594672,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 44,
+                "rotate": 0,
+                "content": "<p style=\"\">标题</p>",
+                "vertical": false,
+                "defaultColor": "#333",
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "solid",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "content",
+            "remark": null
+          },
+          {
+            "id": "l0g--fvQcV",
+            "elements": [
+              {
+                "id": "CfrkimIzka",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/f4da505e14fd489b98352c212c40762a.png",
+                "top": -2.8,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 540,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "2he5oCJob-",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/106ceb49869e41c2a1d8dd7ab3e2f9db.png",
+                "top": 333.6,
+                "left": 185.99999999999997,
+                "type": "image",
+                "width": 504.5,
+                "height": 175.6,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "oZipImMbbS",
+                "src": "https://sandbox.sjjbai.com/sjjb-agt-files/public/2026/08/08/023b5146d87e4f218f745b41a52ac639.png",
+                "top": 75.9,
+                "left": 0,
+                "type": "image",
+                "width": 960,
+                "height": 534.4,
+                "rotate": 0,
+                "fixedRatio": true
+              },
+              {
+                "id": "E-EZX0MRh7",
+                "top": 156.02940952076634,
+                "fill": "rgba(161,105,105,1)",
+                "left": 389.19116749483,
+                "type": "text",
+                "width": 147.05882352941177,
+                "height": 111.1875,
+                "rotate": 0,
+                "vAlign": "top",
+                "content": "<blockquote><p style=\"text-align: center;\"><em><strong><span style=\"font-size: 40px;\">结束</span></strong></em></p></blockquote>",
+                "outline": {
+                  "color": "rgb(213, 183, 182)",
+                  "style": "solid",
+                  "width": 2
+                },
+                "vertical": false,
+                "wordSpace": 2,
+                "lineHeight": 1.8,
+                "fixedHeight": true,
+                "defaultColor": "#333",
+                "paragraphSpace": 10,
+                "defaultFontName": ""
+              }
+            ],
+            "background": {
+              "type": "gradient",
+              "color": "#fff",
+              "image": null
+            },
+            "type": "end",
+            "remark": null
+          }
+        ]
+      },
+      "coverImage": "2092880808868622338",
+      "coverImageInfo": {
+        "ossId": "2092880808868622338",
+        "fileName": "public/2026/08/27/bcadc89c3a9f48fc95e9b44a5ad1cabb.png",
+        "originalName": "template-slide-1-1787816644369.png",
+        "fileSuffix": ".png",
+        "url": "https://agent.sjjbai.com/sjjb-agt-files/public/2026/08/27/bcadc89c3a9f48fc95e9b44a5ad1cabb.png",
+        "ext1": "{\"bizType\":null,\"fileSize\":2229199,\"contentType\":\"image/png\",\"source\":null,\"uploadIp\":null,\"remark\":null,\"tags\":null,\"refId\":null,\"refType\":null,\"isTemp\":null,\"md5\":null}",
+        "createTime": null,
+        "createBy": null,
+        "createByName": null,
+        "service": "aliyun",
+        "createdAt": "2026-08-27 15:44:03"
+      },
+      "catalogImage": "2092880810281631746",
+      "catalogImageInfo": {
+        "ossId": "2092880810281631746",
+        "fileName": "public/2026/08/27/7b87661e285e4a5d8d8caddd776b004b.png",
+        "originalName": "template-slide-2-1787816644874.png",
+        "fileSuffix": ".png",
+        "url": "https://agent.sjjbai.com/sjjb-agt-files/public/2026/08/27/7b87661e285e4a5d8d8caddd776b004b.png",
+        "ext1": "{\"bizType\":null,\"fileSize\":518618,\"contentType\":\"image/png\",\"source\":null,\"uploadIp\":null,\"remark\":null,\"tags\":null,\"refId\":null,\"refType\":null,\"isTemp\":null,\"md5\":null}",
+        "createTime": null,
+        "createBy": null,
+        "createByName": null,
+        "service": "aliyun",
+        "createdAt": "2026-08-27 15:44:04"
+      },
+      "contentImage": "2092880811674611714",
+      "contentImageInfo": {
+        "ossId": "2092880811674611714",
+        "fileName": "public/2026/08/27/e7510c385d374528b10309899271fd70.png",
+        "originalName": "template-slide-3-1787816645221.png",
+        "fileSuffix": ".png",
+        "url": "https://agent.sjjbai.com/sjjb-agt-files/public/2026/08/27/e7510c385d374528b10309899271fd70.png",
+        "ext1": "{\"bizType\":null,\"fileSize\":518144,\"contentType\":\"image/png\",\"source\":null,\"uploadIp\":null,\"remark\":null,\"tags\":null,\"refId\":null,\"refType\":null,\"isTemp\":null,\"md5\":null}",
+        "createTime": null,
+        "createBy": null,
+        "createByName": null,
+        "service": "aliyun",
+        "createdAt": "2026-08-27 15:44:04"
+      },
+      "endImage": "2092880814719205378",
+      "endImageInfo": {
+        "ossId": "2092880814719205378",
+        "fileName": "public/2026/08/27/bd6ac59f0eb14b95b9a9d6bdc18eb45f.png",
+        "originalName": "template-slide-4-1787816645787.png",
+        "fileSuffix": ".png",
+        "url": "https://agent.sjjbai.com/sjjb-agt-files/public/2026/08/27/bd6ac59f0eb14b95b9a9d6bdc18eb45f.png",
+        "ext1": "{\"bizType\":null,\"fileSize\":2140367,\"contentType\":\"image/png\",\"source\":null,\"uploadIp\":null,\"remark\":null,\"tags\":null,\"refId\":null,\"refType\":null,\"isTemp\":null,\"md5\":null}",
+        "createTime": null,
+        "createBy": null,
+        "createByName": null,
+        "service": "aliyun",
+        "createdAt": "2026-08-27 15:44:05"
+      }
+    }
+  ]
+}

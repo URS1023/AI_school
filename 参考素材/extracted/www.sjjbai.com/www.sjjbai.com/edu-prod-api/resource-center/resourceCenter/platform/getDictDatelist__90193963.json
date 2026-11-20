@@ -1,0 +1,110 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1960156111675867138",
+      "dictSort": 1,
+      "dictLabel": "课件",
+      "dictValue": "1",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-26 09:43:29"
+    },
+    {
+      "id": null,
+      "dictCode": "1980872895423094785",
+      "dictSort": 2,
+      "dictLabel": "教案",
+      "dictValue": "2",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-22 13:44:35"
+    },
+    {
+      "id": null,
+      "dictCode": "1960156160061358081",
+      "dictSort": 3,
+      "dictLabel": "学案",
+      "dictValue": "3",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-26 09:43:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1960156210661441538",
+      "dictSort": 4,
+      "dictLabel": "作业",
+      "dictValue": "4",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-26 09:43:53"
+    },
+    {
+      "id": null,
+      "dictCode": "1960156281817808897",
+      "dictSort": 5,
+      "dictLabel": "试卷",
+      "dictValue": "5",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-26 09:44:10"
+    },
+    {
+      "id": null,
+      "dictCode": "1980873020946030594",
+      "dictSort": 6,
+      "dictLabel": "微课",
+      "dictValue": "6",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-22 13:45:05"
+    },
+    {
+      "id": null,
+      "dictCode": "1960156329276358658",
+      "dictSort": 7,
+      "dictLabel": "素材",
+      "dictValue": "7",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-26 09:44:21"
+    },
+    {
+      "id": null,
+      "dictCode": "1980873074821865473",
+      "dictSort": 8,
+      "dictLabel": "其他",
+      "dictValue": "8",
+      "dictType": "res_platform_resource_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-22 13:45:18"
+    }
+  ]
+}

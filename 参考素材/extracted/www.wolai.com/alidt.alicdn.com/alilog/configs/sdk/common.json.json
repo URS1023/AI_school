@@ -1,0 +1,10 @@
+{
+  "autoTrackDisabledScope": [
+    "login.alibaba-inc.com",
+    "mozi-login.alibaba-inc.com"
+  ],
+  "autoTrackEnableScope": [
+    ".alibaba-inc.com",
+    "www.ihuiwa.com"
+  ]
+}

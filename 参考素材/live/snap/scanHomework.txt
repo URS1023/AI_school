@@ -1,0 +1,89 @@
+URL: https://www.sjjbai.com/edu-web/scanHomework
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e17]
+        - link "资源中心" [ref=e18]
+        - link "教学中心" [ref=e19]
+        - link "教育资讯" [ref=e20]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e22]
+            - generic [ref=e25] clickable [cursor:pointer]
+              - StaticText "匿名用户"
+              - image "等级"
+              - StaticText "青铜助教"
+              - image
+    - generic
+      - image
+      - StaticText "返回上一步"
+    - StaticText "扫描作业"
+    - button "开始扫描" [ref=e10]
+      - StaticText "开始扫描"
+    - menubar
+      - menuitem "应交（0）" [ref=e11]
+        - StaticText "应交（0）"
+      - menuitem "实交（0）" [ref=e12]
+        - StaticText "实交（0）"
+      - menuitem "异常作业（0）" [expanded=false, ref=e13]
+        - generic [ref=e21] clickable [cursor:pointer]
+          - StaticText "异常作业（0）"
+          - image
+      - menuitem "重复扫描（0）" [ref=e14]
+        - StaticText "重复扫描（0）"
+    - generic
+      - StaticText "0"
+      - StaticText "张"
+      - paragraph
+        - StaticText "已扫描"
+    - generic
+      - StaticText "0个"
+      - paragraph
+        - StaticText "已识别"
+    - generic
+      - StaticText "0个"
+      - paragraph
+        - StaticText "异常作业"
+    - StaticText "应交"
+    - generic [ref=e1] clickable [cursor:pointer]
+      - StaticText "导出"
+    - generic
+      - textbox "请输入姓名" [ref=e23]
+      - button [ref=e24]
+        - image
+    - generic
+      - table
+        - rowgroup
+          - row
+            - columnheader "姓名" [ref=e27]
+              - StaticText "姓名"
+            - columnheader "学号" [ref=e28] clickable [cursor:pointer]
+              - generic
+            - columnheader "学校" [ref=e29]
+              - StaticText "学校"
+            - columnheader "班级" [ref=e30]
+              - generic
+                - generic [ref=e31] clickable [cursor:pointer]
+      - generic
+    - StaticText "共 0 条"
+    - button "上一页" [disabled, ref=e2]
+      - image
+    - list
+      - listitem "第 1 页" [level=1, ref=e15] focusable [tabindex]
+    - button "下一页" [disabled, ref=e3]
+      - image
+    - generic [ref=e16] clickable [cursor:pointer]
+      - generic
+        - combobox [expanded=false, ref=e26]
+    - generic
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]
+      - generic [ref=e7] clickable [cursor:pointer]
+      - generic [ref=e8] clickable [cursor:pointer]
+      - generic [ref=e9] clickable [cursor:pointer]

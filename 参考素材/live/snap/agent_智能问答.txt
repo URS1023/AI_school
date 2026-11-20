@@ -1,0 +1,46 @@
+- generic
+  - complementary
+    - image "logo"
+    - StaticText "访客学校（默认）"
+    - generic
+      - generic [ref=e20] clickable [cursor:pointer]
+    - StaticText "匿名用户"
+    - StaticText "(游客)"
+    - image
+    - StaticText "532"
+    - generic [ref=e21] clickable [cursor:pointer]
+    - generic [ref=e22] clickable [cursor:pointer]
+    - generic [ref=e23] clickable [cursor:pointer]
+    - generic [ref=e24] clickable [cursor:pointer]
+    - generic [ref=e25] clickable [cursor:pointer]
+    - generic [ref=e26] clickable [cursor:pointer]
+    - generic [ref=e27] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e28] clickable [cursor:pointer]
+      - generic [ref=e29] clickable [cursor:pointer]
+    - button "message 开启新对话" [ref=e11]
+    - generic
+      - textbox "搜索历史记录" [ref=e30]
+    - image [ref=e12] clickable [cursor:pointer]
+  - button "caret-left" [ref=e13]
+- main
+  - generic
+  - sectionheader
+  - generic
+    - generic [ref=e14] clickable [cursor:pointer]
+  - generic [ref=e1] clickable [cursor:pointer]
+  - generic [ref=e2] clickable [cursor:pointer]
+  - generic [ref=e3] clickable [cursor:pointer]
+  - generic [ref=e4] clickable [cursor:pointer]
+  - generic [ref=e5] clickable [cursor:pointer]
+  - generic [ref=e6] clickable [cursor:pointer]
+  - generic
+    - button "选择文件" [ref=e15]: 未选择任何文件
+    - textbox "输入消息..." [ref=e16]
+    - button "paper-clip 上传文件" [ref=e17]
+    - button "audio 语音输入" [ref=e18]
+    - button [disabled, ref=e19]
+  - generic [ref=e7] clickable [cursor:pointer]
+  - generic [ref=e8] clickable [cursor:pointer]
+  - generic [ref=e9] clickable [cursor:pointer]
+  - generic [ref=e10] clickable [cursor:pointer]

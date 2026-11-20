@@ -1,0 +1,8 @@
+https://www.sjjbai.com/edu-web/home
+https://www.sjjbai.com/edu-web/home
+https://sso.zxxk.com/oauth2/authorize?client_id=REDACTED&extra=&open_id=&redirect_uri=REDACTED&service=REDACTED&signature=REDACTED&state=REDACTED
+https://www.sjjbai.com/edu-web/resource-center/subjectNetResources
+https://sso.zxxk.com/oauth2/authorize?client_id=REDACTED&extra=&open_id=&redirect_uri=REDACTED&service=REDACTED&signature=REDACTED&state=REDACTED
+https://www.sjjbai.com/edu-web/resource-center/subjectNet
+https://www.sjjbai.com/edu-web/operationManualDetail?tab=REDACTED
+https://www.sjjbai.com/edu-web/personal-center/detail?name=REDACTED

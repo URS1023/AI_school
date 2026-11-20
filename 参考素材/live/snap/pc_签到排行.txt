@@ -1,0 +1,54 @@
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e10]
+        - link "资源中心" [ref=e11]
+        - link "教学中心" [ref=e12]
+        - link "教育资讯" [ref=e13]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e40]
+            - generic [ref=e41] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e14] clickable [cursor:pointer]
+      - generic [ref=e15] clickable [cursor:pointer]
+      - generic [ref=e16] clickable [cursor:pointer]
+      - generic [ref=e17] clickable [cursor:pointer]
+      - generic [ref=e18] clickable [cursor:pointer]
+      - generic [ref=e19] clickable [cursor:pointer]
+      - generic [ref=e20] clickable [cursor:pointer]
+      - generic [ref=e21] clickable [cursor:pointer]
+      - generic [ref=e22] clickable [cursor:pointer]
+      - generic [ref=e23] clickable [cursor:pointer]
+      - generic [ref=e24] clickable [cursor:pointer]
+      - generic [ref=e25] clickable [cursor:pointer]
+      - generic [ref=e26] clickable [cursor:pointer]
+      - generic [ref=e27] clickable [cursor:pointer]
+      - generic [ref=e28] clickable [cursor:pointer]
+      - generic [ref=e29] clickable [cursor:pointer]
+      - generic [ref=e30] clickable [cursor:pointer]
+      - generic [ref=e31] clickable [cursor:pointer]
+      - generic [ref=e32] clickable [cursor:pointer]
+      - generic [ref=e33] clickable [cursor:pointer]
+      - generic [ref=e34] clickable [cursor:pointer]
+      - generic [ref=e35] clickable [cursor:pointer]
+      - generic [ref=e36] clickable [cursor:pointer]
+      - generic [ref=e37] clickable [cursor:pointer]
+      - generic [ref=e38] clickable [cursor:pointer]
+      - generic [ref=e39] clickable [cursor:pointer]
+    - generic [ref=e7] clickable [cursor:pointer]
+    - generic [ref=e8] clickable [cursor:pointer]
+    - generic [ref=e9] clickable [cursor:pointer]
+    - StaticText "规则介绍"
+    - [含人员或用户内容的记录已脱敏]
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

@@ -1,0 +1,66 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": "2059994112594034689",
+      "menuId": "2059968697536192514",
+      "title": "K12出版级资源介绍",
+      "describe": "K12出版级资源介绍",
+      "details": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/28/78c1e7a924344cf6845034608114ca0b.mp4",
+      "ico": null,
+      "detailsSort": null,
+      "top": null,
+      "type": 1,
+      "createTime": "2026-05-28 21:44:03"
+    },
+    {
+      "id": "2059983723814825985",
+      "menuId": "2059968697536192514",
+      "title": "访客用户注册与登录",
+      "describe": "访客用户注册与登录",
+      "details": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/28/6c957a937a2c4873a2527b6d680ff19e.mp4",
+      "ico": null,
+      "detailsSort": null,
+      "top": null,
+      "type": 1,
+      "createTime": "2026-05-28 21:02:47"
+    },
+    {
+      "id": "2059969113808281601",
+      "menuId": "2059968697536192514",
+      "title": "核心功能导航介绍",
+      "describe": "核心功能导航介绍",
+      "details": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/28/4934846d82b74b0fa47d55dbd9180120.mp4",
+      "ico": null,
+      "detailsSort": null,
+      "top": null,
+      "type": 1,
+      "createTime": "2026-05-28 20:04:43"
+    },
+    {
+      "id": "2058705675383517185",
+      "menuId": "2058705401025703938",
+      "title": "智能组卷功能介绍",
+      "describe": "设置试卷考查知识点、难度、题型及题量，一键生成高质量试卷",
+      "details": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/25/86e914f2b72c4140abaa0503ae337e11.mp4",
+      "ico": null,
+      "detailsSort": null,
+      "top": null,
+      "type": 1,
+      "createTime": "2026-05-25 08:24:16"
+    },
+    {
+      "id": "2058432873938071554",
+      "menuId": "2058398318996873218",
+      "title": "班级师生信息管理",
+      "describe": "管理班级信息、老师信息、学生信息",
+      "details": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/24/5365b9e9f92a4060b3bcf9749d660a82.mp4",
+      "ico": null,
+      "detailsSort": null,
+      "top": null,
+      "type": 1,
+      "createTime": "2026-05-24 14:20:15"
+    }
+  ]
+}

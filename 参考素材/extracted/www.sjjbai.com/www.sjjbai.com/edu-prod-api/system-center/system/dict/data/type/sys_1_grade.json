@@ -1,0 +1,45 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1969293542599610370",
+      "dictSort": 0,
+      "dictLabel": "高一",
+      "dictValue": "10",
+      "dictType": "sys_1_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:52:22"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293568256167938",
+      "dictSort": 0,
+      "dictLabel": "高二",
+      "dictValue": "11",
+      "dictType": "sys_1_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:52:29"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512769",
+      "dictSort": 0,
+      "dictLabel": "高三",
+      "dictValue": "12",
+      "dictType": "sys_1_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:52:41"
+    }
+  ]
+}

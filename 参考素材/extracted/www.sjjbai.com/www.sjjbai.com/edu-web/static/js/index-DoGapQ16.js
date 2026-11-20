@@ -1,0 +1,1 @@
+import{s as o}from"./index-DmW9jU.js";const t=r=>o({url:"/resource-center/forum/forumInfo/list",method:"get",params:r}),u=r=>o({url:"/resource-center/forum/forumInfo/create",method:"post",data:r}),n=r=>o({url:"/resource-center/forum/forumInfo/delete/"+r,method:"delete"}),m=r=>o({url:"/resource-center/forum/forumInfo/download/"+r,method:"put"});export{u as a,n as b,m as d,t as l};

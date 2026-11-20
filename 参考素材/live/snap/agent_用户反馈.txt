@@ -1,0 +1,46 @@
+- complementary
+  - image "logo"
+  - StaticText "访客学校（默认）"
+  - generic
+    - generic [ref=e4] clickable [cursor:pointer]
+  - StaticText "匿名用户"
+  - StaticText "(游客)"
+  - image
+  - StaticText "532"
+  - generic [ref=e5] clickable [cursor:pointer]
+  - generic [ref=e6] clickable [cursor:pointer]
+  - generic [ref=e7] clickable [cursor:pointer]
+  - generic [ref=e8] clickable [cursor:pointer]
+  - generic [ref=e9] clickable [cursor:pointer]
+  - generic [ref=e10] clickable [cursor:pointer]
+  - generic [ref=e11] clickable [cursor:pointer]
+  - generic
+    - generic [ref=e12] clickable [cursor:pointer]
+    - generic [ref=e13] clickable [cursor:pointer]
+- main
+  - generic
+    - button "返回 世纪金榜AI平台-我的反馈" [ref=e1]
+      - image "返回"
+      - StaticText "世纪金榜AI平台-我的反馈"
+    - StaticText "欢迎您，匿名用户"
+    - button "用户" [ref=e2]
+      - image "用户"
+    - button "消息" [ref=e3]
+      - image "消息"
+    - StaticText "聆听师生家长心声，持续迭代优化 AI 教学服务~"
+    - StaticText "请描述您的问题，我们将及时跟进"
+    - image "问题反馈"
+    - form
+      - generic
+      - button "回答有误" [ref=e14]
+      - button "用户反馈1." [ref=e15]
+      - button "用户反馈2" [ref=e16]
+      - button "用户反馈3" [ref=e17]
+      - StaticText "问题描述："
+      - textbox "请描述您遇到的问题..." [ref=e18]
+      - generic
+      - generic
+        - button "选择文件" [ref=e21]: 未选择任何文件
+        - button "上传图片 上传图片" [ref=e22]
+      - textbox "请输入您的电话/邮箱" [ref=e19]
+      - button "确认提交" [ref=e20]

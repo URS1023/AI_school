@@ -1,0 +1,19 @@
+- generic
+  - generic
+    - banner
+      - image "Logo"
+      - StaticText "世纪金榜AI平台"
+      - StaticText "Century Golden List AI Platform"
+      - generic
+        - button "退出登录" [ref=e2]
+    - main
+      - region "功能入口" [ref=e1]
+        - button "智能问答 教学资源查询 学情分析 错题分析" [ref=e3]
+        - button "智能生成题目 AI智能出题 分层组卷 按需命题" [ref=e4]
+        - button "智能生成PPT AI 一键生成 PPT 助力教师高效备课 ‎" [ref=e5]
+        - button "智能批改试卷 数学物理全题型训练 逐题批改 错题留痕" [ref=e6]
+        - button "智能批改作文 AI 智能作文批改 高效评阅 精准提分" [ref=e7]
+        - button "个人知识库 海量资源汇聚 知识快速检索 素材便捷调用" [ref=e8]
+        - button "智能客服 AI 智能客服 全天候在线 快速解答咨询" [ref=e9]
+        - button "用户反馈 归集用户反馈 持续优化体验 ‎" [ref=e10]
+        - button "更多智能体 点击查看更多智能体 > ‎ ‎" [ref=e11]

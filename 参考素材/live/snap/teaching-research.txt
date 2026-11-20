@@ -1,0 +1,24 @@
+URL: https://www.sjjbai.com/edu-web/teaching-research
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e7]
+        - link "资源中心" [ref=e8]
+        - link "教学中心" [ref=e9]
+        - link "教育资讯" [ref=e10]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e11]
+            - generic [ref=e12] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

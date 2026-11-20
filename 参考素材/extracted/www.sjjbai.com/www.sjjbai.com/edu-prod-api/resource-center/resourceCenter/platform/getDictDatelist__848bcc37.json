@@ -1,0 +1,45 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1983795096441688066",
+      "dictSort": 1,
+      "dictLabel": "同步",
+      "dictValue": "1",
+      "dictType": "sys_1_resource_child_column",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-30 15:16:22"
+    },
+    {
+      "id": null,
+      "dictCode": "1983795194038947842",
+      "dictSort": 2,
+      "dictLabel": "高考复习",
+      "dictValue": "2",
+      "dictType": "sys_1_resource_child_column",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-30 15:16:46"
+    },
+    {
+      "id": null,
+      "dictCode": "2117549370614317058",
+      "dictSort": 3,
+      "dictLabel": "区域地理",
+      "dictValue": "3",
+      "dictType": "sys_1_resource_child_column",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-11-03 17:28:06"
+    }
+  ]
+}

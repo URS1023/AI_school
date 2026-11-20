@@ -1,0 +1,86 @@
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e17]
+        - link "资源中心" [ref=e18]
+        - link "教学中心" [ref=e19]
+        - link "教育资讯" [ref=e20]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e47]
+            - generic [ref=e48] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e21] clickable [cursor:pointer]
+      - generic [ref=e22] clickable [cursor:pointer]
+      - generic [ref=e23] clickable [cursor:pointer]
+      - generic [ref=e24] clickable [cursor:pointer]
+      - generic [ref=e25] clickable [cursor:pointer]
+      - generic [ref=e26] clickable [cursor:pointer]
+      - generic [ref=e27] clickable [cursor:pointer]
+      - generic [ref=e28] clickable [cursor:pointer]
+      - generic [ref=e29] clickable [cursor:pointer]
+      - generic [ref=e30] clickable [cursor:pointer]
+      - generic [ref=e31] clickable [cursor:pointer]
+      - generic [ref=e32] clickable [cursor:pointer]
+      - generic [ref=e33] clickable [cursor:pointer]
+      - generic [ref=e34] clickable [cursor:pointer]
+      - generic [ref=e35] clickable [cursor:pointer]
+      - generic [ref=e36] clickable [cursor:pointer]
+      - generic [ref=e37] clickable [cursor:pointer]
+      - generic [ref=e38] clickable [cursor:pointer]
+      - generic [ref=e39] clickable [cursor:pointer]
+      - generic [ref=e40] clickable [cursor:pointer]
+      - generic [ref=e41] clickable [cursor:pointer]
+      - generic [ref=e42] clickable [cursor:pointer]
+      - generic [ref=e43] clickable [cursor:pointer]
+      - generic [ref=e44] clickable [cursor:pointer]
+      - generic [ref=e45] clickable [cursor:pointer]
+      - generic [ref=e46] clickable [cursor:pointer]
+    - StaticText "Hi，匿名用户"
+    - StaticText "迎来到我的任务"
+    - generic [ref=e1] clickable [cursor:pointer]
+    - generic [ref=e2] clickable [cursor:pointer]
+    - image "金币"
+    - StaticText "15"
+    - StaticText "查看操作手册"
+    - button "前往" [ref=e3]
+    - image "金币"
+    - StaticText "10"
+    - StaticText "下载一份适配自身科目/年级的教案"
+    - button "前往" [ref=e4]
+    - image "金币"
+    - StaticText "20"
+    - StaticText "有效评论一份资源（含优点或改进建议）"
+    - button "前往" [ref=e5]
+    - image "金币"
+    - StaticText "25"
+    - StaticText "在独立备课中新建一个目录"
+    - button "前往" [ref=e6]
+    - image "金币"
+    - StaticText "15"
+    - StaticText "使用AI助手提问一个问题"
+    - button "前往" [ref=e7]
+    - image "金币"
+    - StaticText "10"
+    - StaticText "在金榜杏坛中发布一条信息"
+    - button "前往" [ref=e8]
+    - image "金币"
+    - StaticText "50"
+    - StaticText "金榜杏坛中分享一条优质资源"
+    - button "前往" [ref=e9]
+    - image "金币"
+    - StaticText "50"
+    - StaticText "为世纪金榜AI提完善建议"
+    - button "前往" [ref=e10]
+    - generic
+      - generic [ref=e11] clickable [cursor:pointer]
+      - generic [ref=e12] clickable [cursor:pointer]
+      - generic [ref=e13] clickable [cursor:pointer]
+      - generic [ref=e14] clickable [cursor:pointer]
+      - generic [ref=e15] clickable [cursor:pointer]
+      - generic [ref=e16] clickable [cursor:pointer]

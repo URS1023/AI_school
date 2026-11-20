@@ -1,0 +1,97 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "2001094953070084098",
+      "dictSort": 1,
+      "dictLabel": "2027版",
+      "dictValue": "2027",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-12-17 08:59:50"
+    },
+    {
+      "id": null,
+      "dictCode": "2001094910506287105",
+      "dictSort": 2,
+      "dictLabel": "2026版",
+      "dictValue": "2026",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-12-17 08:59:39"
+    },
+    {
+      "id": null,
+      "dictCode": "2001094753874198529",
+      "dictSort": 3,
+      "dictLabel": "2025版",
+      "dictValue": "2025",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-12-17 08:59:02"
+    },
+    {
+      "id": null,
+      "dictCode": "1955448656564441089",
+      "dictSort": 4,
+      "dictLabel": "2024版",
+      "dictValue": "2024",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:57:44"
+    },
+    {
+      "id": null,
+      "dictCode": "1955448547386707970",
+      "dictSort": 5,
+      "dictLabel": "2023版",
+      "dictValue": "2023",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:57:18"
+    },
+    {
+      "id": null,
+      "dictCode": "1955448436187320321",
+      "dictSort": 6,
+      "dictLabel": "2022版",
+      "dictValue": "2022",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:56:52"
+    },
+    {
+      "id": null,
+      "dictCode": "2101464934420344834",
+      "dictSort": 7,
+      "dictLabel": "2028版",
+      "dictValue": "2028",
+      "dictType": "sys_edition",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-09-20 08:14:18"
+    }
+  ]
+}

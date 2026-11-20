@@ -1,0 +1,40 @@
+- generic
+  - complementary
+    - image "logo"
+    - StaticText "访客学校（默认）"
+    - generic
+      - generic [ref=e14] clickable [cursor:pointer]
+    - StaticText "匿名用户"
+    - StaticText "(游客)"
+    - image
+    - StaticText "532"
+    - generic [ref=e15] clickable [cursor:pointer]
+    - generic [ref=e16] clickable [cursor:pointer]
+    - generic [ref=e17] clickable [cursor:pointer]
+    - generic [ref=e18] clickable [cursor:pointer]
+    - generic [ref=e19] clickable [cursor:pointer]
+    - generic [ref=e20] clickable [cursor:pointer]
+    - generic [ref=e21] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e22] clickable [cursor:pointer]
+      - generic [ref=e23] clickable [cursor:pointer]
+    - button "message 开启新对话" [ref=e6]
+    - generic
+      - textbox "搜索历史记录" [ref=e24]
+    - image [ref=e7] clickable [cursor:pointer]
+  - button "caret-left" [ref=e8]
+- main
+  - generic
+  - sectionheader
+  - generic
+    - generic [ref=e9] clickable [cursor:pointer]
+  - generic [ref=e1] clickable [cursor:pointer]
+  - generic
+    - button "选择文件" [ref=e10]: 未选择任何文件
+    - textbox "输入消息..." [ref=e11]
+    - button "audio 语音输入" [ref=e12]
+    - button [disabled, ref=e13]
+  - generic [ref=e2] clickable [cursor:pointer]
+  - generic [ref=e3] clickable [cursor:pointer]
+  - generic [ref=e4] clickable [cursor:pointer]
+  - generic [ref=e5] clickable [cursor:pointer]

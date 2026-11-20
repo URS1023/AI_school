@@ -1,0 +1,1 @@
+import{i as o}from"./index-ClxgKZHX.js";function t(t,r=!0,e,s=5e4){const a=new FormData;return a.append("file",t),o.post("/system/oss/upload?isPrivate="+r,a,{headers:{"Content-Type":"multipart/form-data"},onUploadProgress:e,timeout:s})}function r(t){return o({url:"/monitor/operlog/list",params:t})}export{r as g,t as u};

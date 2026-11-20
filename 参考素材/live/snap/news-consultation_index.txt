@@ -1,0 +1,95 @@
+URL: https://www.sjjbai.com/edu-web/news-consultation/index
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e7]
+        - link "资源中心" [ref=e8]
+        - link "教学中心" [ref=e9]
+        - link "教育资讯" [ref=e10]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e23]
+            - generic [ref=e37] clickable [cursor:pointer]
+    - generic
+      - generic
+        - generic
+          - generic
+          - generic
+            - generic [ref=e42] clickable [cursor:pointer]
+            - image "筛选" [ref=e43] clickable [cursor:pointer]
+        - StaticText "涵盖了多种信息源"
+      - tree
+        - treeitem "教育要闻" [level=1, checked=false, expanded=false, ref=e39]
+        - treeitem "备考技巧" [level=1, checked=false, expanded=false, ref=e40]
+      - generic [ref=e11] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部提醒广大考生做好考前准备" [level=3, ref=e24]
+        - image "浏览"
+        - StaticText "1"
+      - generic [ref=e12] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "完善办学条件底线要求，促进基础教育扩优提质 ——教育部基础教育司负责人就《中小学基本办学条件底线要求》答记者问" [level=3, ref=e25]
+        - image "浏览"
+        - StaticText "2"
+      - generic [ref=e13] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部语言文字应用管理司负责人就第八届中华经典诵写讲大赛答记者问" [level=3, ref=e26]
+        - image "浏览"
+        - StaticText "4"
+      - generic [ref=e14] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "2026年高考十问十答" [level=3, ref=e27]
+        - image "浏览"
+        - StaticText "5"
+      - generic [ref=e15] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "多措并举加强中小学生心理健康工作" [level=3, ref=e28]
+        - image "浏览"
+        - StaticText "22"
+      - generic [ref=e16] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部科学技术与信息化司负责人就《“人工智能+教育”行动计划》答记者问" [level=3, ref=e29]
+        - image "浏览"
+        - StaticText "41"
+      - generic [ref=e17] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部等五部门关于印发《“人工智能+教育”行动计划》的通知" [level=3, ref=e30]
+        - image "浏览"
+        - StaticText "50"
+      - generic [ref=e18] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部教师工作司负责人就《关于进一步减轻中小学教师非教育教学负担若干措施的通知》答记者问" [level=3, ref=e31]
+        - image "浏览"
+        - StaticText "33"
+      - generic [ref=e19] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部教师工作司负责人就《关于组织实施数字化赋能教师发展行动的通知》答记者问" [level=3, ref=e32]
+        - image "浏览"
+        - StaticText "26"
+      - generic [ref=e20] clickable [cursor:pointer]
+        - image "平台Logo"
+        - heading "教育部基础教育司负责人就《关于加强中小学科技教育的意见》答记者问" [level=3, ref=e33]
+        - image "浏览"
+        - StaticText "39"
+      - StaticText "共 12 条"
+      - generic [ref=e34] clickable [cursor:pointer]
+        - generic
+          - combobox [expanded=false, ref=e41]
+      - button "上一页" [disabled, ref=e21]
+      - list
+        - listitem "第 1 页" [level=1, ref=e35] focusable [tabindex]
+        - listitem "第 2 页" [level=1, ref=e36] clickable [cursor:pointer, tabindex]
+      - button "下一页" [ref=e22]
+      - spinbutton "页" [ref=e38]: 1
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

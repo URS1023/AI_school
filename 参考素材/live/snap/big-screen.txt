@@ -1,0 +1,21 @@
+URL: https://www.sjjbai.com/edu-web/big-screen
+- generic
+  - StaticText "访客学校（默认）可视化大屏"
+  - generic
+    - generic
+      - generic
+        - StaticText "数据概览"
+        - generic
+          - generic
+            - generic [ref=e3] clickable [cursor:pointer]
+            - generic [ref=e4] clickable [cursor:pointer]
+        - StaticText "科目扫描率对比"
+        - StaticText "科目得分率对比"
+      - generic
+        - generic
+        - image "..."
+      - generic
+        - StaticText "主观题批阅率"
+        - generic
+          - generic [ref=e1] clickable [cursor:pointer]
+          - generic [ref=e2] clickable [cursor:pointer]

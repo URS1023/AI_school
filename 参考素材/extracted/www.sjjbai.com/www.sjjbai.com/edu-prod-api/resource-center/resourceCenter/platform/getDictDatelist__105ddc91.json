@@ -1,0 +1,32 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1976478548792623105",
+      "dictSort": 4,
+      "dictLabel": "教材",
+      "dictValue": "4",
+      "dictType": "lesson_preparation_catalog_source",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-10 02:43:01"
+    },
+    {
+      "id": null,
+      "dictCode": "1976478548809400321",
+      "dictSort": 5,
+      "dictLabel": "新建",
+      "dictValue": "0",
+      "dictType": "lesson_preparation_catalog_source",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-10-10 02:43:01"
+    }
+  ]
+}

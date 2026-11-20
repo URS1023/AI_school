@@ -1,0 +1,101 @@
+URL: https://www.sjjbai.com/edu-web/teaching-center/independentLessonPreparation?versionId=1985311283860312065&modelId=1985312940090298369
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e10]
+        - link "资源中心" [ref=e11]
+        - link "教学中心" [ref=e12]
+        - link "教育资讯" [ref=e13]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e14]
+            - generic [ref=e15] clickable [cursor:pointer]
+              - StaticText "匿名用户"
+              - image "等级"
+              - StaticText "青铜助教"
+              - image
+    - link "独立备课" [ref=e1]
+    - link "互动授课" [ref=e2]
+    - link "金榜杏坛" [ref=e3]
+    - generic
+      - generic
+        - generic
+          - generic
+            - StaticText "我的备课"
+          - generic
+            - generic [ref=e28] clickable [cursor:pointer]
+              - StaticText "高中 语文"
+            - image "筛选" [ref=e29] clickable [cursor:pointer]
+        - StaticText "支持智能备课、平台资源调用、本地文件上传及在线新建文件，全面满足教师多样化备课需求"
+      - generic
+        - generic
+          - tree
+            - treeitem "我的备课目录" [level=1, checked=false, expanded=true, ref=e23]
+              - image
+              - StaticText "我的备课目录"
+              - link [ref=e27]
+                - image
+              - group
+                - treeitem "语文(统编版·必修上... 操作" [level=2, checked=false, expanded=true, ref=e30]
+                  - image
+                  - StaticText "语文(统编版·必修上..."
+                  - button "操作" [expanded=false, ref=e41]
+                    - image "操作"
+                  - group
+                    - treeitem "第1课 沁园春·长沙 操作" [level=3, checked=false, expanded=false, ref=e40]
+                      - button "操作" [expanded=false, ref=e42]
+          - generic
+            - image
+            - StaticText " 我的回收站"
+        - generic
+          - generic [ref=e16] clickable [cursor:pointer]
+            - StaticText "智能备课"
+          - generic [ref=e17] clickable [cursor:pointer]
+            - StaticText "找资源"
+          - generic [ref=e18] clickable [cursor:pointer]
+            - StaticText "上传文件"
+          - generic [ref=e19] clickable [cursor:pointer]
+            - StaticText "新建文件"
+          - StaticText "我的备课资料"
+          - image "功能筛选"
+          - StaticText "功能筛选"
+          - generic [ref=e20] clickable [cursor:pointer]
+            - button "批量操作 批量操作" [expanded=false, ref=e24]
+          - generic
+            - image "PPT"
+            - generic
+              - generic [ref=e36] clickable [cursor:pointer]
+            - generic [ref=e31] clickable [cursor:pointer]
+            - StaticText "/"
+            - generic [ref=e32] clickable [cursor:pointer]
+            - StaticText "/"
+            - generic [ref=e33] clickable [cursor:pointer]
+            - StaticText "/"
+            - generic [ref=e34] clickable [cursor:pointer]
+              - button "分享" [expanded=false, ref=e37]
+            - StaticText "/"
+            - generic [ref=e35] clickable [cursor:pointer]
+              - button "更多" [expanded=false, ref=e38]
+          - separator
+          - StaticText "共 1 条"
+          - button "上一页" [disabled, ref=e21]
+            - image
+          - list
+            - listitem "第 1 页" [level=1, ref=e25] focusable [tabindex]
+          - button "下一页" [disabled, ref=e22]
+            - image
+          - generic [ref=e26] clickable [cursor:pointer]
+            - generic
+              - combobox [expanded=false, ref=e39]
+    - generic
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]
+      - generic [ref=e7] clickable [cursor:pointer]
+      - generic [ref=e8] clickable [cursor:pointer]
+      - generic [ref=e9] clickable [cursor:pointer]

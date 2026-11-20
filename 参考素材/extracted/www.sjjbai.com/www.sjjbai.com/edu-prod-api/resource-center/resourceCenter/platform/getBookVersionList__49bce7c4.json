@@ -1,0 +1,14 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": "1985311283860312065",
+      "periodId": 1,
+      "subjectId": 1,
+      "versionName": "统编版",
+      "status": 1,
+      "remark": null
+    }
+  ]
+}

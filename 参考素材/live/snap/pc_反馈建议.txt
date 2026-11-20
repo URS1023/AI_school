@@ -1,0 +1,93 @@
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e8]
+        - link "资源中心" [ref=e9]
+        - link "教学中心" [ref=e10]
+        - link "教育资讯" [ref=e11]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e38]
+            - generic [ref=e40] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e12] clickable [cursor:pointer]
+        - StaticText "个人账户"
+      - generic [ref=e13] clickable [cursor:pointer]
+        - StaticText "修改密码"
+      - generic [ref=e14] clickable [cursor:pointer]
+        - StaticText "反馈建议"
+      - generic [ref=e15] clickable [cursor:pointer]
+        - StaticText "第三方登录"
+      - generic [ref=e16] clickable [cursor:pointer]
+        - StaticText "排行榜单"
+      - generic [ref=e17] clickable [cursor:pointer]
+        - StaticText "签到排行"
+      - generic [ref=e18] clickable [cursor:pointer]
+        - StaticText "任务排行"
+      - generic [ref=e19] clickable [cursor:pointer]
+        - StaticText "下载排行"
+      - generic [ref=e20] clickable [cursor:pointer]
+        - StaticText "上传排行"
+      - generic [ref=e21] clickable [cursor:pointer]
+        - StaticText "我的任务"
+      - generic [ref=e22] clickable [cursor:pointer]
+        - StaticText "我的任务"
+      - generic [ref=e23] clickable [cursor:pointer]
+        - StaticText "我的勋章"
+      - generic [ref=e24] clickable [cursor:pointer]
+        - StaticText "我的勋章"
+      - generic [ref=e25] clickable [cursor:pointer]
+        - StaticText "成长体系"
+      - generic [ref=e26] clickable [cursor:pointer]
+        - StaticText "成长体系"
+      - generic [ref=e27] clickable [cursor:pointer]
+        - StaticText "订单兑换"
+      - generic [ref=e28] clickable [cursor:pointer]
+        - StaticText "我的订单"
+      - generic [ref=e29] clickable [cursor:pointer]
+        - StaticText "资源兑换"
+      - generic [ref=e30] clickable [cursor:pointer]
+        - StaticText "支付中心"
+      - generic [ref=e31] clickable [cursor:pointer]
+        - StaticText "充值记录"
+      - generic [ref=e32] clickable [cursor:pointer]
+        - StaticText "我的互动"
+      - generic [ref=e33] clickable [cursor:pointer]
+        - StaticText "我的通知"
+      - generic [ref=e34] clickable [cursor:pointer]
+        - StaticText "我的点赞"
+      - generic [ref=e35] clickable [cursor:pointer]
+        - StaticText "我的评论"
+      - generic [ref=e36] clickable [cursor:pointer]
+        - StaticText "我的举报"
+      - generic [ref=e37] clickable [cursor:pointer]
+        - StaticText "我的关注"
+    - StaticText "Hi，匿名用户"
+    - StaticText "欢迎来到反馈建议"
+    - form
+      - LabelText
+        - StaticText "*"
+        - StaticText "联系方式"
+      - textbox "* 联系方式" [ref=e41]
+      - LabelText
+        - StaticText "*"
+        - StaticText "反馈内容"
+      - textbox "* 反馈内容" [ref=e39]
+      - group "图片"
+        - StaticText "图片"
+        - list
+          - generic [ref=e43] clickable [cursor:pointer, tabindex]
+      - textbox "备注" [ref=e42]
+    - button "确 定" [ref=e7]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

@@ -1,0 +1,84 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1969293192907902978",
+      "dictSort": 1,
+      "dictLabel": "一年级",
+      "dictValue": "1",
+      "dictType": "sys_3_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:50:59"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293230904102914",
+      "dictSort": 2,
+      "dictLabel": "二年级",
+      "dictValue": "2",
+      "dictType": "sys_3_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:51:08"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293249832996865",
+      "dictSort": 3,
+      "dictLabel": "三年级",
+      "dictValue": "3",
+      "dictType": "sys_3_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:51:13"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293281218973697",
+      "dictSort": 4,
+      "dictLabel": "四年级",
+      "dictValue": "4",
+      "dictType": "sys_3_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:51:20"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293321857585153",
+      "dictSort": 5,
+      "dictLabel": "五年级",
+      "dictValue": "5",
+      "dictType": "sys_3_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:51:30"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293345408602113",
+      "dictSort": 6,
+      "dictLabel": "六年级",
+      "dictValue": "6",
+      "dictType": "sys_3_grade",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-20 06:51:35"
+    }
+  ]
+}

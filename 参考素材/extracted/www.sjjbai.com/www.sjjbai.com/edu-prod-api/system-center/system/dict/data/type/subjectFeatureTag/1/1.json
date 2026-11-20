@@ -1,0 +1,97 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "2110992447639232513",
+      "dictSort": 0,
+      "dictLabel": "同步检测题",
+      "dictValue": "1",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:13:14"
+    },
+    {
+      "id": null,
+      "dictCode": "2111000536790704130",
+      "dictSort": 1,
+      "dictLabel": "跨学科融合题",
+      "dictValue": "28",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:45:23"
+    },
+    {
+      "id": null,
+      "dictCode": "2111000628813709314",
+      "dictSort": 2,
+      "dictLabel": "开放题",
+      "dictValue": "21",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:45:45"
+    },
+    {
+      "id": null,
+      "dictCode": "2111000687529771009",
+      "dictSort": 3,
+      "dictLabel": "教考融合题",
+      "dictValue": "29",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:45:59"
+    },
+    {
+      "id": null,
+      "dictCode": "2111000815577677826",
+      "dictSort": 4,
+      "dictLabel": "跨模块融合题",
+      "dictValue": "30",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:46:29"
+    },
+    {
+      "id": null,
+      "dictCode": "2111000937791307778",
+      "dictSort": 5,
+      "dictLabel": "项目式试题",
+      "dictValue": "31",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:46:58"
+    },
+    {
+      "id": null,
+      "dictCode": "2111001001959989249",
+      "dictSort": 6,
+      "dictLabel": "探究式试题",
+      "dictValue": "32",
+      "dictType": "subject_feature_tag_1_1",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-10-16 15:47:14"
+    }
+  ]
+}

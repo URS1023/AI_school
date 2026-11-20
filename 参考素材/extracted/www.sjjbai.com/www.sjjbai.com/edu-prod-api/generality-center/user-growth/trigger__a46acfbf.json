@@ -1,0 +1,65 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": {
+    "success": false,
+    "messageType": null,
+    "showCoinPointPopup": null,
+    "showLevelUpPopup": null,
+    "point": null,
+    "totalPoint": 40,
+    "coin": null,
+    "totalCoin": 522,
+    "level": 1,
+    "levelName": "青铜助教",
+    "resources": [
+      {
+        "id": "2000906510054576129",
+        "configId": 1,
+        "platformType": "web",
+        "maleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/male/1%E9%9D%92%E9%93%9C.png",
+        "maleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/male/1%E9%9D%92%E9%93%9C%E5%8A%A9%E6%95%99%E7%94%B7.mp4",
+        "femaleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/female/1%E9%9D%92%E9%93%9C%E5%8A%A9%E6%95%99.png",
+        "femaleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/female/1%E9%9D%92%E9%93%9C%E5%8A%A9%E6%95%99%E5%A5%B3.mp4",
+        "levelIcon": ""
+      },
+      {
+        "id": "2084552226857144321",
+        "configId": 1,
+        "platformType": "app",
+        "maleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/male/1%E9%9D%92%E9%93%9C.png",
+        "maleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/male/1%E9%9D%92%E9%93%9C%E5%8A%A9%E6%95%99%E7%94%B7.mp4",
+        "femaleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/female/1%E9%9D%92%E9%93%9C%E5%8A%A9%E6%95%99.png",
+        "femaleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/female/1%E9%9D%92%E9%93%9C%E5%8A%A9%E6%95%99%E5%A5%B3.mp4",
+        "levelIcon": ""
+      }
+    ],
+    "nextLevel": 2,
+    "nextLevelName": "白银学者",
+    "nextLevelExp": 960,
+    "nextLevelResources": [
+      {
+        "id": "2000906971373490178",
+        "configId": 2,
+        "platformType": "web",
+        "maleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/male/2%E7%99%BD%E9%93%B6.png",
+        "maleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/male/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85%E7%94%B7.mp4",
+        "femaleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/female/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85.jpg",
+        "femaleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/female/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85%E5%A5%B3.mp4",
+        "levelIcon": ""
+      },
+      {
+        "id": "2084552973199949825",
+        "configId": 2,
+        "platformType": "app",
+        "maleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/male/2%E7%99%BD%E9%93%B6.png",
+        "maleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/male/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85%E7%94%B7.mp4",
+        "femaleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/female/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85.jpg",
+        "femaleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/female/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85%E5%A5%B3.mp4",
+        "levelIcon": ""
+      }
+    ],
+    "medalName": null,
+    "medalIcon": null
+  }
+}

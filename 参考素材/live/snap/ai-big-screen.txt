@@ -1,0 +1,7 @@
+URL: https://www.sjjbai.com/edu-web/ai-big-screen
+- generic
+  - generic [ref=e1] clickable [cursor:pointer]
+  - generic [ref=e2] clickable [cursor:pointer]
+  - generic [ref=e3] clickable [cursor:pointer]
+  - generic [ref=e4] clickable [cursor:pointer]
+  - generic [ref=e5] clickable [cursor:pointer]

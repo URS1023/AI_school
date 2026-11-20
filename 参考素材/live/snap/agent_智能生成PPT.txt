@@ -1,0 +1,70 @@
+- generic
+  - complementary
+    - image "logo"
+    - StaticText "访客学校（默认）"
+    - generic
+      - image
+      - generic [ref=e12] clickable [cursor:pointer]
+        - image "swap"
+    - StaticText "匿名用户"
+    - StaticText "(游客)"
+    - image
+    - StaticText "532"
+    - generic [ref=e13] clickable [cursor:pointer]
+      - StaticText "智能问答"
+    - generic [ref=e14] clickable [cursor:pointer]
+      - StaticText "题目生成"
+    - generic [ref=e15] clickable [cursor:pointer]
+      - StaticText "PPT生成"
+    - generic [ref=e16] clickable [cursor:pointer]
+      - StaticText "试卷批改"
+    - generic [ref=e17] clickable [cursor:pointer]
+      - StaticText "作文批改"
+    - generic [ref=e18] clickable [cursor:pointer]
+      - StaticText "智能客服"
+    - generic [ref=e19] clickable [cursor:pointer]
+      - StaticText "用户反馈"
+    - generic
+      - generic [ref=e20] clickable [cursor:pointer]
+        - StaticText "知识库"
+      - generic [ref=e21] clickable [cursor:pointer]
+        - StaticText "关闭"
+    - generic
+      - button "message 开启新对话" [ref=e22]
+        - image "message"
+        - StaticText "开启新对话"
+      - generic
+        - textbox "搜索历史记录" [ref=e27]
+      - image [ref=e23] clickable [cursor:pointer]
+  - generic
+    - generic
+    - generic
+      - StaticText "!"
+      - StaticText "教案定制开启！填写下方资料，细节越丰富，教案越贴合授课需求。"
+      - StaticText "学科/学段"
+      - generic [ref=e1] clickable [cursor:pointer]
+        - generic
+          - combobox [ref=e28]
+      - StaticText "版本/模块"
+      - generic [ref=e2] clickable [cursor:pointer]
+        - generic
+          - combobox [ref=e29]
+      - StaticText "教学课程"
+      - generic [ref=e3] clickable [cursor:pointer]
+        - generic
+          - combobox [ref=e30]
+      - generic
+        - image "question-circle" [ref=e24] clickable [cursor:pointer]
+      - button "本地文件" [ref=e4]
+      - button "知识库文件" [ref=e5]
+      - button "选择文件" [ref=e6]: 未选择任何文件
+      - StaticText "上传文档 0/10"
+      - StaticText "其他说明"
+      - textbox "具体描述您的需求，如：课件页数不得少于8页、内容难度..." [ref=e7]
+      - generic
+        - button "生成课件" [ref=e25]
+        - link "我的课件" [ref=e26]
+      - generic [ref=e8] clickable [cursor:pointer]
+      - generic [ref=e9] clickable [cursor:pointer]
+      - generic [ref=e10] clickable [cursor:pointer]
+      - generic [ref=e11] clickable [cursor:pointer]

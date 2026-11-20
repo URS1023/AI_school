@@ -1,0 +1,25 @@
+"use strict";(self.bingHomepageWebpackChunks=self.bingHomepageWebpackChunks||[]).push([["social-bar-tooltip-positioning"],{76748:function(o,t,e){let r,i,n,l,a;e.d(t,{loadSocialBarTooltipPortal:function(){return C}});var d=e(56911),c=e(60815),s=e(89757),p=e(60402),u=e(41263),m=e(32257),g=e(59669),f=e(69809),b=e(47810);let h=(0,g.A)` .social-bar-tooltip-portal{display:flex;flex-direction:column;align-items:stretch;height:auto;max-width:none;padding-block-end:12px;position:fixed;width:max-content;z-index:10000;font-family:${u.xB};font-weight:400;white-space:normal;zoom:1}.social-bar-tooltip-portal[hidden]{display:none}.social-bar-tooltip-portal > .social-bar-tooltip-text{${(0,u.fs)()} background:var(--ruby-ntp-tooltip-background,var(--social-bar-tooltip-bg,${f.m_}));color:var(--ruby-ntp-tooltip-foreground,${b.l});box-sizing:content-box;display:block;margin:0;font-family:${u.xB};font-weight:400}.social-bar-tooltip-portal > .social-bar-tooltip-text[data-comments]{${(0,u.qn)()} max-width:120px;inline-size:min-content;min-inline-size:min(4em,120px);overflow-wrap:break-word}@media (forced-colors:active){.social-bar-tooltip-portal > .social-bar-tooltip-text{background:AccentColor;border:1px solid ButtonText;color:var(--foreground-on-accent-rest)}}`;class v{constructor(){this.text="",this.visible=!1,this.anchor=null,this.comments=!1,this.background=u.d$,this.foreground=m.jdh}}(0,d.Cg)([c.sH],v.prototype,"text",void 0),(0,d.Cg)([c.sH],v.prototype,"visible",void 0),(0,d.Cg)([c.sH],v.prototype,"anchor",void 0),(0,d.Cg)([c.sH],v.prototype,"comments",void 0),(0,d.Cg)([c.sH],v.prototype,"background",void 0),(0,d.Cg)([c.sH],v.prototype,"foreground",void 0);let w=!1,y=[],k=()=>{let o=a;a=void 0,o?.stop()},x=()=>l?.(),E=(0,s.qy)`
+    <fluent-anchored-region
+        class="social-bar-tooltip-portal"
+        role="tooltip"
+        fixed-placement
+        auto-update-mode="auto"
+        horizontal-positioning-mode="locktodefault"
+        horizontal-default-position="center"
+        horizontal-scaling="content"
+        horizontal-viewport-lock
+        vertical-positioning-mode="locktodefault"
+        vertical-default-position="top"
+        vertical-scaling="content"
+        vertical-viewport-lock
+        :anchorElement=${o=>o.anchor}
+        ?hidden=${o=>!o.visible}
+        @mouseenter=${()=>{w=!0,n?.(!0)}}
+        @mouseleave=${()=>{w=!1,n?.(!1)}}
+        ${(0,p.K)("tooltip")}
+    ><div
+        class="social-bar-tooltip-text"
+        style="--ruby-ntp-tooltip-background: ${o=>o.background}; --ruby-ntp-tooltip-foreground: ${o=>o.foreground}"
+        ?data-comments=${o=>o.comments}
+    >${o=>o.text}</div></fluent-anchored-region>
+`,$={get hovered(){return w},show(o,t,e,d,c){let s;n=d,l=c;let p=(()=>{if(r?.tooltip?.isConnected)return r;h.isAttachedTo(document)||h.addStylesTo(document),k(),i?.dispose();let o=new v;if(i=E.render(o,document.body),!o.tooltip)throw Error("Social bar tooltip failed to render");return o.tooltip.viewportElement=document.documentElement,r=o,o})(),g={background:(s=getComputedStyle(o)).getPropertyValue("--ruby-ntp-tooltip-background").trim()||s.getPropertyValue("--ruby-gem-flyout-background").trim()||s.getPropertyValue("--cstm-background-flyout-linear-gradient").trim()||u.d$,foreground:s.getPropertyValue("--ruby-ntp-tooltip-foreground").trim()||s.getPropertyValue("--smtc-foreground-ctrl-on-subtle-hover").trim()||s.getPropertyValue("--smtc-foreground-ctrl-neutral-primary-hover").trim()||s.getPropertyValue("--smtc-foreground-ctrl-neutral-primary-rest").trim()||m.jdh};if(p.background=g.background,p.foreground=g.foreground,p.text=t,p.comments=e,p.anchor=o,p.visible=!0,((o,t)=>{if(!t)throw Error("Social bar tooltip positioning element was not rendered");if(a?.anchor===o&&a.tooltip===t)return;k();let e=o.getBoundingClientRect(),r=0,i=!1,n=!1,l=()=>{n=!0},d=()=>{t.anchorElement=null,t.anchorElement=o},c=()=>{if(i)return;if(!o.isConnected||!t.isConnected)return void $.hide();let l=o.getBoundingClientRect();n||l.left===e.left&&l.top===e.top||d(),e=l,n=!1,r=window.requestAnimationFrame(c)};a={anchor:o,tooltip:t,stop(){i=!0,window.cancelAnimationFrame(r),window.removeEventListener("resize",l),window.removeEventListener("scroll",l,!0)}},window.addEventListener("resize",l,{passive:!0}),window.addEventListener("scroll",l,{passive:!0,capture:!0}),d(),r=window.requestAnimationFrame(c)})(o,p.tooltip),!y.length)for(let o of y=["(prefers-color-scheme: dark)","(forced-colors: active)"].map(o=>window.matchMedia(o)))o.addEventListener?o.addEventListener("change",x):o.addListener(x)},hide(){for(let o of(k(),y))o.removeEventListener?o.removeEventListener("change",x):o.removeListener(x);y=[],w=!1,n=void 0,l=void 0,r&&(r.visible=!1,r.anchor=null)}},C=async()=>{if(await Promise.resolve().then(e.bind(e,91544)),!customElements.get("fluent-anchored-region"))throw Error("Social bar tooltip positioning was not registered");return $}},91544:function(o,t,e){e.r(t);var r=e(37180);e(85626).m.define(r.c.registry)}}]);

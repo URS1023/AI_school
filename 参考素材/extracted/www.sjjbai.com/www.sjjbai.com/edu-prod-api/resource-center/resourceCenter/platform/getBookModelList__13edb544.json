@@ -1,0 +1,41 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": "1985312940090298369",
+      "versionId": "1985311283860312065",
+      "modelName": "必修上册",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "1985313086031106050",
+      "versionId": "1985311283860312065",
+      "modelName": "必修下册",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "1985315724676141057",
+      "versionId": "1985311283860312065",
+      "modelName": "选择性必修上册",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "1985316616116736002",
+      "versionId": "1985311283860312065",
+      "modelName": "选择性必修中册",
+      "status": 1,
+      "remark": null
+    },
+    {
+      "id": "1985316673117327362",
+      "versionId": "1985311283860312065",
+      "modelName": "选择性必修下册",
+      "status": 1,
+      "remark": null
+    }
+  ]
+}

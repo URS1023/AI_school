@@ -1,0 +1,82 @@
+{
+  "$type": "list",
+  "title": "backfill list第四篇请放文章不然会出现Edge NTP页面混乱",
+  "_isPublishingLocked": false,
+  "_id": "BBPRWnl",
+  "_name": "Backfill List",
+  "_expirationDateTime": "2099-03-12T08:29:00Z",
+  "_lastEditedDateTime": "2026-09-01T21:45:01Z",
+  "_links": {
+    "self": [
+      {
+        "href": "cms/api/amp/list/BBPRWnl"
+      }
+    ],
+    "parent": [
+      {
+        "href": "cms/api/amp/section/BBk8rEJ"
+      }
+    ],
+    "children": [],
+    "feed": [],
+    "provider": [],
+    "references": [
+      {
+        "href": "cms/api/amp/image/AA1y925C"
+      },
+      {
+        "href": "cms/api/amp/image/BB1mTYJ8"
+      },
+      {
+        "href": "cms/api/amp/image/BBKSmuo"
+      }
+    ],
+    "section": []
+  },
+  "labels": {
+    "category": []
+  },
+  "_lastPublishedSequence": 1986,
+  "_locale": "zh-cn",
+  "_systemTags": [],
+  "list": [
+    {
+      "link": {
+        "href": "https://booking.com/dealspage.html?campaign_id=&aid=1970012&lang=zh&label=zhcn-native-backfill",
+        "title": "精选住宿，享至少八五折优惠",
+        "kicker": "Booking.com",
+        "image": {
+          "href": "cms/api/amp/image/BB1mTYJ8"
+        }
+      }
+    },
+    {
+      "link": {
+        "href": "https://booking.com/dealspage.html?campaign_id=&aid=1970012&lang=zh&label=zhcn-native-backfill",
+        "title": "更低价格预订梦想之旅。享年中大促，省钱预定。",
+        "kicker": "Booking.com",
+        "image": {
+          "href": "cms/api/amp/image/AA1y925C"
+        }
+      }
+    },
+    {
+      "link": {
+        "href": "https://booking.com/dealspage.html?campaign_id=&aid=1624937&lang=zh&label=zhcn-native-backfill",
+        "title": "现在就省",
+        "kicker": "Booking.com",
+        "image": {
+          "href": "cms/api/amp/image/BBKSmuo"
+        }
+      }
+    }
+  ],
+  "sourceId": "BBMuB2n",
+  "updatedDateTime": "2020-01-19T11:54:56Z",
+  "subtype": "programmable",
+  "_lastPublishedDateTime": "2026-09-01T21:45:01Z",
+  "_createdDateTime": "2018-11-19T11:54:57Z",
+  "_sourceMetering": {
+    "isMetered": false
+  }
+}

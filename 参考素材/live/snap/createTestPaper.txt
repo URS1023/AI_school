@@ -1,0 +1,67 @@
+URL: https://www.sjjbai.com/edu-web/createTestPaper
+- generic
+  - generic [ref=e1] clickable [cursor:pointer]
+    - image "返回"
+    - StaticText "返回上一步"
+  - generic
+    - generic
+      - generic
+        - textbox "2026年11月20日高中语文作业" [ref=e6]
+          - StaticText "2026年11月20日高中语文作业"
+        - textbox [ref=e7]: 学校：___________姓名：___________班级：___________考号：___________
+          - StaticText "学校：___________姓名：___________班级：___________考号：___________"
+    - generic
+      - generic
+        - generic [ref=e2] clickable [cursor:pointer]
+          - StaticText "设置操作"
+          - image "toggle"
+        - generic
+          - generic
+            - generic [ref=e8] clickable [cursor:pointer]
+            - generic [ref=e9] clickable [cursor:pointer]
+            - generic [ref=e10] clickable [cursor:pointer]
+            - generic [ref=e11] clickable [cursor:pointer]
+              - button "分享试卷 分享试卷" [expanded=false, ref=e16]
+            - generic [ref=e12] clickable [cursor:pointer]
+          - generic
+            - generic [ref=e13] clickable [cursor:pointer]
+            - generic [ref=e14] clickable [cursor:pointer]
+      - generic
+        - generic [ref=e3] clickable [cursor:pointer]
+          - StaticText "分值设置"
+          - image "toggle"
+        - generic
+          - generic
+            - generic [ref=e17] clickable [cursor:pointer]
+          - generic
+            - generic [ref=e18] clickable [cursor:pointer]
+      - generic
+        - generic [ref=e4] clickable [cursor:pointer]
+          - StaticText "试卷模版"
+          - image "toggle"
+        - generic
+          - generic
+            - generic [ref=e19] clickable [cursor:pointer]
+            - generic [ref=e20] clickable [cursor:pointer]
+            - generic [ref=e21] clickable [cursor:pointer]
+          - generic
+            - generic [ref=e22] clickable [cursor:pointer]
+            - generic [ref=e23] clickable [cursor:pointer]
+            - generic [ref=e24] clickable [cursor:pointer]
+            - generic [ref=e25] clickable [cursor:pointer]
+            - generic [ref=e26] clickable [cursor:pointer]
+            - generic [ref=e27] clickable [cursor:pointer]
+            - generic [ref=e28] clickable [cursor:pointer]
+            - generic [ref=e29] clickable [cursor:pointer]
+          - generic
+            - generic [ref=e30] clickable [cursor:pointer]
+            - generic [ref=e31] clickable [cursor:pointer]
+            - generic [ref=e32] clickable [cursor:pointer]
+      - generic
+        - generic [ref=e5] clickable [cursor:pointer]
+          - StaticText "试卷结构"
+          - image "toggle"
+        - generic
+          - generic
+            - generic [ref=e33] clickable [cursor:pointer]
+          - generic [ref=e15] clickable [cursor:pointer]

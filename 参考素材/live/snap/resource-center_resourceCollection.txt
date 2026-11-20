@@ -1,0 +1,51 @@
+URL: https://www.sjjbai.com/edu-web/resource-center/resourceCollection
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e20]
+        - link "资源中心" [ref=e21]
+        - link "教学中心" [ref=e22]
+        - link "教育资讯" [ref=e23]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e24]
+            - generic [ref=e25] clickable [cursor:pointer]
+    - link "平台资源" [ref=e1]
+    - link "题库资源" [ref=e2]
+    - link "学科网资源" [ref=e3]
+    - link "学科网题库" [ref=e4]
+    - link "数字图书" [ref=e5]
+    - link "资源征集" [ref=e6]
+    - link "素养课程" [ref=e7]
+    - generic
+      - image "error"
+      - StaticText "资源征集"
+      - StaticText "资源分享，功德无量！面向教师征集优质原创教学资源，经审核后纳入平台，赋能教学资源共建共享"
+    - image "资源征集横幅"
+    - button "活动列表" [ref=e8]
+      - StaticText "活动列表"
+    - generic [ref=e9] clickable [cursor:pointer]
+      - generic
+      - StaticText "备课资源征集活动"
+    - StaticText "共 1 条"
+    - button "上一页" [disabled, ref=e10]
+      - image
+    - list
+      - listitem "第 1 页" [level=1, ref=e18] focusable [tabindex]
+    - button "下一页" [disabled, ref=e11]
+      - image
+    - generic [ref=e19] clickable [cursor:pointer]
+      - generic
+        - combobox [expanded=false, ref=e26]
+    - generic
+      - generic [ref=e12] clickable [cursor:pointer]
+      - generic [ref=e13] clickable [cursor:pointer]
+      - generic [ref=e14] clickable [cursor:pointer]
+      - generic [ref=e15] clickable [cursor:pointer]
+      - generic [ref=e16] clickable [cursor:pointer]
+      - generic [ref=e17] clickable [cursor:pointer]

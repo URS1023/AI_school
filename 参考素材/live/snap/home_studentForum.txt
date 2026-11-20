@@ -1,0 +1,78 @@
+URL: https://www.sjjbai.com/edu-web/home/studentForum
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e17]
+        - link "资源中心" [ref=e18]
+        - link "教学中心" [ref=e19]
+        - link "教育资讯" [ref=e20]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e21]
+            - generic [ref=e24] clickable [cursor:pointer]
+    - button "返回上一步" [ref=e9]
+      - StaticText "返回上一步"
+    - heading "学海共渡" [level=2, ref=e10]
+    - form
+      - group "时间"
+        - StaticText "时间"
+        - generic
+          - image
+          - combobox "开始时间" [expanded=false, ref=e25]
+          - StaticText "-"
+          - combobox "结束时间" [expanded=false, ref=e26]
+      - generic
+        - LabelText
+          - StaticText "学科"
+        - generic [ref=e27] clickable [cursor:pointer]
+          - generic
+            - combobox "学科" [expanded=false, ref=e36]
+          - image
+      - generic
+        - LabelText
+          - StaticText "类别"
+        - generic [ref=e28] clickable [cursor:pointer]
+          - generic
+            - combobox "类别" [expanded=false, ref=e37]
+          - image
+      - generic
+        - button "搜索" [ref=e22]
+          - StaticText "搜索"
+        - button "重置" [ref=e23]
+          - StaticText "重置"
+    - generic
+      - table
+        - rowgroup
+          - row
+            - columnheader "序号" [ref=e30]
+            - columnheader "发帖人" [ref=e31]
+            - columnheader "发帖时间" [ref=e32]
+            - columnheader "标题" [ref=e33]
+            - columnheader "内容" [ref=e34]
+            - columnheader "图片" [ref=e35]
+      - table
+    - [含人员或用户内容的记录已脱敏]
+    - StaticText "共 45 条"
+    - generic [ref=e11] clickable [cursor:pointer]
+      - generic
+        - combobox [expanded=false, ref=e29]
+    - button "上一页" [disabled, ref=e1]
+    - list
+      - listitem "第 1 页" [level=1, ref=e12] focusable [tabindex]
+      - listitem "第 2 页" [level=1, ref=e13] clickable [cursor:pointer, tabindex]
+      - listitem "第 3 页" [level=1, ref=e14] clickable [cursor:pointer, tabindex]
+      - listitem "第 4 页" [level=1, ref=e15] clickable [cursor:pointer, tabindex]
+      - listitem "第 5 页" [level=1, ref=e16] clickable [cursor:pointer, tabindex]
+    - button "下一页" [ref=e2]
+    - generic
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]
+      - generic [ref=e7] clickable [cursor:pointer]
+      - generic [ref=e8] clickable [cursor:pointer]

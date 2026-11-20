@@ -1,0 +1,163 @@
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e9]
+        - link "资源中心" [ref=e10]
+        - link "教学中心" [ref=e11]
+        - link "教育资讯" [ref=e12]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e41]
+            - generic [ref=e42] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e13] clickable [cursor:pointer]
+        - StaticText "个人账户"
+      - generic [ref=e14] clickable [cursor:pointer]
+        - StaticText "修改密码"
+      - generic [ref=e15] clickable [cursor:pointer]
+        - StaticText "反馈建议"
+      - generic [ref=e16] clickable [cursor:pointer]
+        - StaticText "第三方登录"
+      - generic [ref=e17] clickable [cursor:pointer]
+        - StaticText "排行榜单"
+      - generic [ref=e18] clickable [cursor:pointer]
+        - StaticText "签到排行"
+      - generic [ref=e19] clickable [cursor:pointer]
+        - StaticText "任务排行"
+      - generic [ref=e20] clickable [cursor:pointer]
+        - StaticText "下载排行"
+      - generic [ref=e21] clickable [cursor:pointer]
+        - StaticText "上传排行"
+      - generic [ref=e22] clickable [cursor:pointer]
+        - StaticText "我的任务"
+      - generic [ref=e23] clickable [cursor:pointer]
+        - StaticText "我的任务"
+      - generic [ref=e24] clickable [cursor:pointer]
+        - StaticText "我的勋章"
+      - generic [ref=e25] clickable [cursor:pointer]
+        - StaticText "我的勋章"
+      - generic [ref=e26] clickable [cursor:pointer]
+        - StaticText "成长体系"
+      - generic [ref=e27] clickable [cursor:pointer]
+        - StaticText "成长体系"
+      - generic [ref=e28] clickable [cursor:pointer]
+        - StaticText "订单兑换"
+      - generic [ref=e29] clickable [cursor:pointer]
+        - StaticText "我的订单"
+      - generic [ref=e30] clickable [cursor:pointer]
+        - StaticText "资源兑换"
+      - generic [ref=e31] clickable [cursor:pointer]
+        - StaticText "支付中心"
+      - generic [ref=e32] clickable [cursor:pointer]
+        - StaticText "充值记录"
+      - generic [ref=e33] clickable [cursor:pointer]
+        - StaticText "我的互动"
+      - generic [ref=e34] clickable [cursor:pointer]
+        - StaticText "我的通知"
+      - generic [ref=e35] clickable [cursor:pointer]
+        - StaticText "我的点赞"
+      - generic [ref=e36] clickable [cursor:pointer]
+        - StaticText "我的评论"
+      - generic [ref=e37] clickable [cursor:pointer]
+        - StaticText "我的举报"
+      - generic [ref=e38] clickable [cursor:pointer]
+        - StaticText "我的关注"
+    - StaticText "Hi，匿名用户"
+    - StaticText "欢迎来到成长体系，这里可以查看成长等级，加油赚取积分快速升级哦~"
+    - generic
+      - image "..."
+      - StaticText "成长特权"
+      - generic
+        - image
+        - StaticText "青铜助教"
+        - StaticText "100-999"
+        - StaticText "可正常使用平台基础功能。"
+      - generic
+        - image
+        - StaticText "白银学者"
+        - StaticText "1000-4999"
+        - StaticText "享有基础功能，可优先参与平台发起的部分小型活动。"
+      - generic
+        - image
+        - StaticText "黄金专家"
+        - StaticText "5000-29999"
+        - StaticText "在白银达人特权基础上，每月享有10次免费预览收费资源的机会。"
+      - generic
+        - image
+        - StaticText "铂金宗师"
+        - StaticText "30000-99999"
+        - StaticText "拥有黄金达人特权，每日可额外获得 1 次免费下载收费资源的机会。"
+      - generic
+        - image
+        - StaticText "钻石圣贤"
+        - StaticText "100000-299999"
+        - StaticText "具备铂金达人特权，可参与平台举办的线下交流活动。"
+      - generic
+        - image
+        - StaticText "星耀泰斗"
+        - StaticText "300000-999999"
+        - StaticText "享有钻石达人特权，上传资源时可获得平台推荐，优先获得新功能体验资格。"
+      - generic
+        - image
+        - StaticText "王者至尊"
+        - StaticText "1000000 以上"
+        - StaticText "拥有星耀达人特权，可获得平台专属荣誉证书，在平台首页展示个人优秀资源，参与平台重要决策讨论。"
+      - image "..."
+      - StaticText "成长体系"
+      - generic
+        - table
+          - rowgroup
+            - row
+              - columnheader "系统模块" [ref=e44]
+              - columnheader "功能模块" [ref=e45]
+              - columnheader "操作行为" [ref=e46]
+              - columnheader "有效频次" [ref=e47]
+              - columnheader "经验值" [ref=e48]
+              - columnheader "金榜币" [ref=e49]
+              - columnheader "操作时间" [ref=e50]
+        - table
+          - rowgroup
+            - row
+              - cell "教学中心" [ref=e51]
+              - cell "独立备课" [ref=e52]
+              - cell "完成智能备课" [ref=e53]
+              - cell "每次" [ref=e54]
+              - cell "+20" [ref=e55]
+              - cell "+10" [ref=e56]
+              - cell "2026-11-20 13:45:17" [ref=e57]
+            - row
+              - cell "在线任务" [ref=e58]
+              - cell "个人中心" [ref=e59]
+              - cell "每日首次登陆系统" [ref=e60]
+              - cell "每天首次" [ref=e61]
+              - cell "+10" [ref=e62]
+              - cell "+2" [ref=e63]
+              - cell "2026-11-20 13:07:42" [ref=e64]
+            - row
+              - cell "注册用户" [ref=e65]
+              - cell "注册用户" [ref=e66]
+              - cell "新注册用户" [ref=e67]
+              - cell "执行一次" [ref=e68]
+              - cell "0" [ref=e69]
+              - cell "+500" [ref=e70]
+              - cell "2026-11-20 13:07:20" [ref=e71]
+      - StaticText "共 3 条"
+      - generic [ref=e39] clickable [cursor:pointer]
+        - generic
+          - combobox [expanded=false, ref=e43]
+      - button "上一页" [disabled, ref=e7]
+      - list
+        - listitem "第 1 页" [level=1, ref=e40] focusable [tabindex]
+      - button "下一页" [disabled, ref=e8]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

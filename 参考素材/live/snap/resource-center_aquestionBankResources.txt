@@ -1,0 +1,347 @@
+URL: https://www.sjjbai.com/edu-web/resource-center/aquestionBankResources?periodId=1&subjectId=1
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e14]
+        - link "资源中心" [ref=e15]
+        - link "教学中心" [ref=e16]
+        - link "教育资讯" [ref=e17]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e26]
+            - generic [ref=e27] clickable [cursor:pointer]
+              - StaticText "匿名用户"
+              - image "等级"
+              - StaticText "青铜助教"
+              - image
+    - link "平台资源" [ref=e1]
+    - link "题库资源" [ref=e2]
+    - link "学科网资源" [ref=e3]
+    - link "学科网题库" [ref=e4]
+    - link "数字图书" [ref=e5]
+    - link "资源征集" [ref=e6]
+    - link "素养课程" [ref=e7]
+    - generic
+      - generic
+        - generic
+          - generic
+            - StaticText "题库资源"
+          - generic
+            - generic [ref=e34] clickable [cursor:pointer]
+              - StaticText "高中 语文"
+            - image "筛选" [ref=e35] clickable [cursor:pointer]
+        - StaticText "依托海量优质题库资源，支持多种选题模式智能组卷，全面满足作业、考试等教学需求"
+      - generic
+        - generic [ref=e28] clickable [cursor:pointer]
+          - StaticText "知识点"
+        - tree
+          - treeitem "阅读与鉴赏" [level=1, checked=false, expanded=true, ref=e29]
+            - image
+            - StaticText "阅读与鉴赏"
+            - group
+              - treeitem "现代文阅读" [level=2, checked=false, expanded=true, ref=e48]
+                - image
+                - StaticText "现代文阅读"
+                - group
+                  - treeitem "文学类文本" [level=3, checked=false, expanded=true, ref=e64]
+                    - image
+                    - StaticText "文学类文本"
+                    - group
+                      - treeitem "文学类文本体裁" [level=4, checked=false, expanded=true, ref=e108]
+                        - image
+                        - StaticText "文学类文本体裁"
+                        - group
+                          - treeitem "小说" [level=5, checked=false, expanded=true, ref=e115]
+                          - treeitem "散文" [level=5, checked=false, expanded=false, ref=e116]
+                          - treeitem "戏剧" [level=5, checked=false, expanded=false, ref=e117]
+                          - treeitem "诗歌" [level=5, checked=false, expanded=false, ref=e118]
+                      - treeitem "文学类文本考点" [level=4, checked=false, expanded=false, ref=e109]
+                      - treeitem "多文本" [level=4, checked=false, expanded=false, ref=e110]
+                  - treeitem "论述类文本" [level=3, checked=false, expanded=false, ref=e65]
+                    - image
+                    - StaticText "论述类文本"
+                  - treeitem "实用类文本" [level=3, checked=false, expanded=false, ref=e66]
+                    - image
+                    - StaticText "实用类文本"
+                  - treeitem "非连续性文本" [level=3, checked=false, expanded=false, ref=e67]
+                    - image
+                    - StaticText "非连续性文本"
+              - treeitem "古代诗文阅读" [level=2, checked=false, expanded=false, ref=e49]
+                - image
+                - StaticText "古代诗文阅读"
+              - treeitem "名著阅读" [level=2, checked=false, expanded=false, ref=e50]
+                - image
+                - StaticText "名著阅读"
+              - treeitem "课内阅读" [level=2, checked=false, expanded=false, ref=e51]
+                - StaticText "课内阅读"
+              - treeitem "名篇名句默写" [level=2, checked=false, expanded=false, ref=e52]
+                - StaticText "名篇名句默写"
+              - treeitem "文学文化常识" [level=2, checked=false, expanded=false, ref=e53]
+                - StaticText "文学文化常识"
+          - treeitem "语言文字运用" [level=1, checked=false, expanded=false, ref=e30]
+            - image
+            - StaticText "语言文字运用"
+          - treeitem "作家作品" [level=1, checked=false, expanded=false, ref=e31]
+            - image
+            - StaticText "作家作品"
+          - treeitem "写作" [level=1, checked=false, expanded=false, ref=e32]
+            - image
+            - StaticText "写作"
+      - generic
+        - generic [ref=e18] clickable [cursor:pointer]
+          - StaticText "选题组卷"
+        - generic [ref=e19] clickable [cursor:pointer]
+          - StaticText "智能组卷"
+        - generic [ref=e20] clickable [cursor:pointer]
+          - StaticText "错题组卷"
+        - generic [ref=e21] clickable [cursor:pointer]
+          - StaticText "作业组卷"
+        - generic [ref=e22] clickable [cursor:pointer]
+          - StaticText "试卷组卷"
+        - button "制作作业答题卡" [ref=e23]
+        - button "我的题库" [ref=e24]
+        - button "我的卷库" [ref=e25]
+        - generic
+          - generic
+            - generic
+              - generic
+                - StaticText "来源"
+                - generic
+                  - generic [ref=e69] clickable [cursor:pointer]
+                    - StaticText "全部"
+                  - generic [ref=e70] clickable [cursor:pointer]
+                    - StaticText "高考真题"
+                  - generic [ref=e71] clickable [cursor:pointer]
+                    - StaticText "高考模拟"
+                  - generic [ref=e72] clickable [cursor:pointer]
+                    - StaticText "检测练习"
+                  - generic [ref=e73] clickable [cursor:pointer]
+                    - StaticText "学业考试"
+                  - generic [ref=e74] clickable [cursor:pointer]
+                    - StaticText "期中试题"
+                  - generic [ref=e75] clickable [cursor:pointer]
+                    - StaticText "期末试题"
+              - generic
+                - StaticText "题型"
+                - generic
+                  - generic [ref=e76] clickable [cursor:pointer]
+                    - StaticText "全部"
+                  - generic [ref=e77] clickable [cursor:pointer]
+                    - StaticText "选择题"
+                  - generic [ref=e78] clickable [cursor:pointer]
+                    - StaticText "填空题"
+                  - generic [ref=e79] clickable [cursor:pointer]
+                    - StaticText "多选题"
+                  - generic [ref=e80] clickable [cursor:pointer]
+                    - StaticText "解答题"
+                  - generic [ref=e81] clickable [cursor:pointer]
+                    - StaticText "名著阅读"
+                  - generic [ref=e82] clickable [cursor:pointer]
+                    - StaticText "语言表达"
+                  - generic [ref=e83] clickable [cursor:pointer]
+                    - StaticText "现代文阅读"
+                  - generic [ref=e84] clickable [cursor:pointer]
+                    - StaticText "古代诗歌阅读"
+                  - generic [ref=e85] clickable [cursor:pointer]
+                    - StaticText "名句名篇默写"
+                  - generic [ref=e86] clickable [cursor:pointer]
+                    - StaticText "文言文阅读"
+                  - generic [ref=e87] clickable [cursor:pointer]
+                    - StaticText "语言文字运用"
+                  - generic [ref=e88] clickable [cursor:pointer]
+                    - StaticText "作文"
+                  - generic [ref=e89] clickable [cursor:pointer]
+                    - StaticText "判断题"
+                  - generic [ref=e90] clickable [cursor:pointer]
+                    - StaticText "整本书阅读"
+                  - generic [ref=e91] clickable [cursor:pointer]
+                    - StaticText "文言小题"
+                  - generic [ref=e92] clickable [cursor:pointer]
+                    - StaticText "非选择题"
+              - generic
+                - StaticText "分类"
+                - generic
+                  - generic [ref=e93] clickable [cursor:pointer]
+                    - StaticText "全部"
+                  - generic [ref=e94] clickable [cursor:pointer]
+                    - StaticText "同步检测题"
+                  - generic [ref=e95] clickable [cursor:pointer]
+                    - StaticText "跨学科融合题"
+                  - generic [ref=e96] clickable [cursor:pointer]
+                    - StaticText "开放题"
+                  - generic [ref=e97] clickable [cursor:pointer]
+                    - StaticText "教考融合题"
+                  - generic [ref=e98] clickable [cursor:pointer]
+                    - StaticText "跨模块融合题"
+                  - generic [ref=e99] clickable [cursor:pointer]
+                    - StaticText "项目式试题"
+                  - generic [ref=e100] clickable [cursor:pointer]
+                    - StaticText "探究式试题"
+              - generic
+                - StaticText "难度"
+                - generic
+                  - generic [ref=e101] clickable [cursor:pointer]
+                    - StaticText "全部"
+                  - generic [ref=e102] clickable [cursor:pointer]
+                    - StaticText "容易"
+                  - generic [ref=e103] clickable [cursor:pointer]
+                    - StaticText "较易"
+                  - generic [ref=e104] clickable [cursor:pointer]
+                    - StaticText "中等"
+                  - generic [ref=e105] clickable [cursor:pointer]
+                    - StaticText "较难"
+                  - generic [ref=e106] clickable [cursor:pointer]
+                    - StaticText "困难"
+              - generic
+                - StaticText "更多"
+                - generic
+                  - generic [ref=e111] clickable [cursor:pointer]
+                    - generic
+                      - combobox [expanded=false, ref=e120]
+                    - image
+                  - generic [ref=e112] clickable [cursor:pointer]
+                    - generic
+                      - combobox [expanded=false, ref=e121]
+                    - image
+                  - generic [ref=e113] clickable [cursor:pointer]
+                    - generic
+                      - combobox [expanded=false, ref=e122]
+                    - image
+                  - generic [ref=e114] clickable [cursor:pointer]
+                    - generic
+                      - textbox "全部地区" [ref=e119]
+                - generic [ref=e68] clickable [cursor:pointer]
+            - generic
+              - generic [ref=e36] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e37] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e38] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 2"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e39] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 2"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e40] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e41] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e42] clickable [cursor:pointer]
+              - StaticText "阅读下面的文字，完成各题。"
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - paragraph
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e43] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 2"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e44] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - generic
+              - generic [ref=e45] clickable [cursor:pointer]
+              - generic
+              - StaticText "组卷次数： 1"
+              - generic
+              - generic
+              - generic
+              - generic
+            - StaticText "共 23302 条"
+            - generic [ref=e54] clickable [cursor:pointer]
+              - generic
+                - combobox [expanded=false, ref=e107]
+            - button "上一页" [disabled, ref=e46]
+            - list
+              - listitem "第 1 页" [level=1, ref=e55] focusable [tabindex]
+              - listitem "第 2 页" [level=1, ref=e56] clickable [cursor:pointer, tabindex]
+              - listitem "第 3 页" [level=1, ref=e57] clickable [cursor:pointer, tabindex]
+              - listitem "第 4 页" [level=1, ref=e58] clickable [cursor:pointer, tabindex]
+              - listitem "第 5 页" [level=1, ref=e59] clickable [cursor:pointer, tabindex]
+              - listitem "第 6 页" [level=1, ref=e60] clickable [cursor:pointer, tabindex]
+              - listitem "向后 5 页" [level=1, ref=e61] clickable [cursor:pointer, tabindex]
+              - listitem "第 2331 页" [level=1, ref=e62] clickable [cursor:pointer, tabindex]
+            - button "下一页" [ref=e47]
+            - spinbutton "页" [ref=e63]: 1
+          - generic [ref=e33] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e8] clickable [cursor:pointer]
+      - generic [ref=e9] clickable [cursor:pointer]
+      - generic [ref=e10] clickable [cursor:pointer]
+      - generic [ref=e11] clickable [cursor:pointer]
+      - generic [ref=e12] clickable [cursor:pointer]
+      - generic [ref=e13] clickable [cursor:pointer]

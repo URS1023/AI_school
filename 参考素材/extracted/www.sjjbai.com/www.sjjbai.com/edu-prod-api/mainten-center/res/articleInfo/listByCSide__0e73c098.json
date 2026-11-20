@@ -1,0 +1,56 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "articleId": "2122177042447429633",
+      "articleName": "教育部高校学生司负责人就《关于实施服务乡村振兴高校招生专项计划的通知》答记者问",
+      "publishTime": "11月16日"
+    },
+    {
+      "articleId": "2122177969715761153",
+      "articleName": "首都高校新生同上“强国复兴有我”大思政课",
+      "publishTime": "11月16日"
+    },
+    {
+      "articleId": "2122201429858930689",
+      "articleName": "引导高校教师上好每一节课",
+      "publishTime": "11月16日"
+    },
+    {
+      "articleId": "2108507688660934657",
+      "articleName": "教育强国指数上升彰显中国教育跃升",
+      "publishTime": "11月05日"
+    },
+    {
+      "articleId": "2118263825543303169",
+      "articleName": "AI加速赋能高校招培就工作 兼顾效率与育人温度",
+      "publishTime": "11月05日"
+    },
+    {
+      "articleId": "2118262914049740801",
+      "articleName": "中国教育学如何走向世界",
+      "publishTime": "11月05日"
+    },
+    {
+      "articleId": "2116342336136953858",
+      "articleName": "“上好每一堂课”是师者本分",
+      "publishTime": "10月31日"
+    },
+    {
+      "articleId": "2116341433443127298",
+      "articleName": "AI时代，科普内容的准确性如何把关",
+      "publishTime": "10月31日"
+    },
+    {
+      "articleId": "2113924118957121538",
+      "articleName": "智能时代，拔尖创新人才如何培养？北大教授这样说——",
+      "publishTime": "10月24日"
+    },
+    {
+      "articleId": "2113924608864288769",
+      "articleName": "湖北优化教育资源配置 扎实推动基础教育高质量发展",
+      "publishTime": "10月24日"
+    }
+  ]
+}

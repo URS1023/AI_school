@@ -1,0 +1,110 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "2090416797400535042",
+      "dictSort": 0,
+      "dictLabel": "2027年",
+      "dictValue": "2027",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-08-20 20:32:57"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076337800097794",
+      "dictSort": 1,
+      "dictLabel": "2026年",
+      "dictValue": "2026",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:38:05"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076428049031170",
+      "dictSort": 2,
+      "dictLabel": "2025年",
+      "dictValue": "2025",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:38:26"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076467098001410",
+      "dictSort": 3,
+      "dictLabel": "2024年",
+      "dictValue": "2024",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:38:35"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076513675747329",
+      "dictSort": 4,
+      "dictLabel": "2023年",
+      "dictValue": "2023",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:38:47"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076631271354370",
+      "dictSort": 5,
+      "dictLabel": "2022年",
+      "dictValue": "2022",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:39:15"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076693955227650",
+      "dictSort": 6,
+      "dictLabel": "2021年",
+      "dictValue": "2021",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:39:30"
+    },
+    {
+      "id": null,
+      "dictCode": "2062076743242493953",
+      "dictSort": 7,
+      "dictLabel": "2020年",
+      "dictValue": "2020",
+      "dictType": "tk_year",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2026-06-03 15:39:41"
+    }
+  ]
+}

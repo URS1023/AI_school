@@ -1,0 +1,123 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1955446230549647361",
+      "dictSort": 1,
+      "dictLabel": "语文",
+      "dictValue": "1",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:48:06"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446266729713666",
+      "dictSort": 2,
+      "dictLabel": "数学",
+      "dictValue": "2",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:48:15"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446298749030401",
+      "dictSort": 3,
+      "dictLabel": "英语",
+      "dictValue": "3",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:48:22"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446390394572802",
+      "dictSort": 4,
+      "dictLabel": "物理",
+      "dictValue": "4",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:48:44"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446456823959554",
+      "dictSort": 5,
+      "dictLabel": "化学",
+      "dictValue": "5",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:49:00"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446555117473793",
+      "dictSort": 6,
+      "dictLabel": "生物",
+      "dictValue": "6",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:49:23"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446603943366658",
+      "dictSort": 7,
+      "dictLabel": "思想政治",
+      "dictValue": "7",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:49:35"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446636373725186",
+      "dictSort": 8,
+      "dictLabel": "历史",
+      "dictValue": "8",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:49:43"
+    },
+    {
+      "id": null,
+      "dictCode": "1955446678685863937",
+      "dictSort": 9,
+      "dictLabel": "地理",
+      "dictValue": "9",
+      "dictType": "sys_1_subject",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-13 09:49:53"
+    }
+  ]
+}

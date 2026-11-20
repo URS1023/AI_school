@@ -1,0 +1,71 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1960883154198712322",
+      "dictSort": 5,
+      "dictLabel": "检测练习",
+      "dictValue": "5",
+      "dictType": "sys_3_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:52:30"
+    },
+    {
+      "id": null,
+      "dictCode": "1960883001861591042",
+      "dictSort": 6,
+      "dictLabel": "小升初真题",
+      "dictValue": "6",
+      "dictType": "sys_3_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:51:53"
+    },
+    {
+      "id": null,
+      "dictCode": "1960883109697146882",
+      "dictSort": 7,
+      "dictLabel": "小升初模拟",
+      "dictValue": "7",
+      "dictType": "sys_3_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:52:19"
+    },
+    {
+      "id": null,
+      "dictCode": "1960883189573472257",
+      "dictSort": 9,
+      "dictLabel": "期中试题",
+      "dictValue": "9",
+      "dictType": "sys_3_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:52:38"
+    },
+    {
+      "id": null,
+      "dictCode": "1960883224780460034",
+      "dictSort": 10,
+      "dictLabel": "期末试题",
+      "dictValue": "10",
+      "dictType": "sys_3_paper_type",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-08-28 09:52:46"
+    }
+  ]
+}

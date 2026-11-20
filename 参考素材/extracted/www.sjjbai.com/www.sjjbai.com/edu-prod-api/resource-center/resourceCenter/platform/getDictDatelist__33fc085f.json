@@ -1,0 +1,84 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1970674265266503681",
+      "dictSort": 0,
+      "dictLabel": "标题有误",
+      "dictValue": "1",
+      "dictType": "resource_error_correction_type",
+      "cssClass": "",
+      "listClass": "default",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-24 02:18:52"
+    },
+    {
+      "id": null,
+      "dictCode": "1970674318639022082",
+      "dictSort": 1,
+      "dictLabel": "标题与内容不符",
+      "dictValue": "2",
+      "dictType": "resource_error_correction_type",
+      "cssClass": "",
+      "listClass": "default",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-24 02:19:05"
+    },
+    {
+      "id": null,
+      "dictCode": "1970674375715110913",
+      "dictSort": 2,
+      "dictLabel": "归类错误",
+      "dictValue": "3",
+      "dictType": "resource_error_correction_type",
+      "cssClass": "",
+      "listClass": "default",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-24 02:19:19"
+    },
+    {
+      "id": null,
+      "dictCode": "1970674433143521281",
+      "dictSort": 3,
+      "dictLabel": "解压乱码",
+      "dictValue": "4",
+      "dictType": "resource_error_correction_type",
+      "cssClass": "",
+      "listClass": "default",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-24 02:19:32"
+    },
+    {
+      "id": null,
+      "dictCode": "1970674479805153281",
+      "dictSort": 4,
+      "dictLabel": "无法下载",
+      "dictValue": "5",
+      "dictType": "resource_error_correction_type",
+      "cssClass": "",
+      "listClass": "default",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-24 02:19:44"
+    },
+    {
+      "id": null,
+      "dictCode": "1970674516442398722",
+      "dictSort": 5,
+      "dictLabel": "其他",
+      "dictValue": "6",
+      "dictType": "resource_error_correction_type",
+      "cssClass": "",
+      "listClass": "default",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-24 02:19:52"
+    }
+  ]
+}

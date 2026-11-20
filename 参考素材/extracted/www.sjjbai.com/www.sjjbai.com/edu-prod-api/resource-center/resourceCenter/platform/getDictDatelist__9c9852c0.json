@@ -1,0 +1,45 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1963493219032240130",
+      "dictSort": 1,
+      "dictLabel": "高中",
+      "dictValue": "1",
+      "dictType": "sys_period",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-04 14:43:58"
+    },
+    {
+      "id": null,
+      "dictCode": "1963493238351204353",
+      "dictSort": 2,
+      "dictLabel": "初中",
+      "dictValue": "2",
+      "dictType": "sys_period",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-04 14:44:02"
+    },
+    {
+      "id": null,
+      "dictCode": "1963493258257371138",
+      "dictSort": 3,
+      "dictLabel": "小学",
+      "dictValue": "3",
+      "dictType": "sys_period",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-09-04 14:44:07"
+    }
+  ]
+}

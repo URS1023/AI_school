@@ -1,0 +1,114 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": "2059596794363498498",
+      "schoolName": "河北衡水中学",
+      "schoolDescribe": "河北衡水中学",
+      "ossId": "2059596790685089794",
+      "sort": 0,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/93b97811563d4e258cb4e3207e695cb2.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2059591195345068034",
+      "schoolName": "甘肃省临夏中学",
+      "schoolDescribe": "甘肃省临夏中学",
+      "ossId": "2059591170665869314",
+      "sort": 0,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/1439dec729f546da9617d8ce1b7500cd.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2059593418926051329",
+      "schoolName": "石家庄卓越中学",
+      "schoolDescribe": "石家庄卓越中学",
+      "ossId": "2059593410730389505",
+      "sort": 0,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/e97a8afd08cf45bc9b3cf7dcc929f4dd.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2059598222674931713",
+      "schoolName": "深圳中学",
+      "schoolDescribe": "深圳中学",
+      "ossId": "2059598216962371585",
+      "sort": 0,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/e9c8630b25bb4c25acb6da35b67bb7d3.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055968455958462466",
+      "schoolName": "济南市历城第二中学",
+      "schoolDescribe": "济南市历城第二中学",
+      "ossId": "2059595360406466562",
+      "sort": 1,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/29fdb0e16d67465d979fb0144db88a2e.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055965458339725314",
+      "schoolName": "山东省济南第一中学",
+      "schoolDescribe": "山东省济南第一中学",
+      "ossId": "2059595665391075329",
+      "sort": 2,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/776ceac305d14800bf6ecfd101696c46.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055968624204578817",
+      "schoolName": "山东省泰安第一中学",
+      "schoolDescribe": "山东省泰安第一中学",
+      "ossId": "2059595840880766978",
+      "sort": 3,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/45058af98ecb4c07909416db88812b82.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055945858705260546",
+      "schoolName": "山东省济南第九中学",
+      "schoolDescribe": "山东省济南第九中学",
+      "ossId": "2059595958363222017",
+      "sort": 4,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/39d0716298964e138e50c6aa4aa6fd6e.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055971487962103810",
+      "schoolName": "广西柳州高级中学",
+      "schoolDescribe": "广西柳州高级中学",
+      "ossId": "2059596089523290113",
+      "sort": 5,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/22e354057a1e4a1c9ce8125c91350284.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055944905281241090",
+      "schoolName": "邯郸市第一中学",
+      "schoolDescribe": "邯郸市第一中学（河北名校）",
+      "ossId": "2055944877330464769",
+      "sort": 6,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/17/e8bbf661ec1d4cd6b57a94343e7aa16c.jpeg",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055971413894889473",
+      "schoolName": "吉林市第一中学",
+      "schoolDescribe": "吉林市第一中学",
+      "ossId": "2059596372844343297",
+      "sort": 7,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/2fbcd2a51d8247b9b24204fab6d9de18.png",
+      "service": "sjjbai-store"
+    },
+    {
+      "id": "2055968303675867138",
+      "schoolName": "华中师范大学第一附属中学",
+      "schoolDescribe": "华中师范大学第一附属中学",
+      "ossId": "2059596460262014977",
+      "sort": 8,
+      "url": "https://sjjb-ai-files.oss-cn-wulanchabu.aliyuncs.com/2026/05/27/6863edbe698b453ca71855d0a09f9ba8.png",
+      "service": "sjjbai-store"
+    }
+  ]
+}

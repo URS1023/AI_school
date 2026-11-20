@@ -1,0 +1,53 @@
+- generic
+  - complementary
+    - image "logo"
+    - StaticText "访客学校（默认）"
+    - generic
+      - generic [ref=e12] clickable [cursor:pointer]
+    - StaticText "匿名用户"
+    - StaticText "(游客)"
+    - image
+    - StaticText "532"
+    - generic [ref=e13] clickable [cursor:pointer]
+    - generic [ref=e14] clickable [cursor:pointer]
+    - generic [ref=e15] clickable [cursor:pointer]
+    - generic [ref=e16] clickable [cursor:pointer]
+    - generic [ref=e17] clickable [cursor:pointer]
+    - generic [ref=e18] clickable [cursor:pointer]
+    - generic [ref=e19] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e20] clickable [cursor:pointer]
+      - generic [ref=e21] clickable [cursor:pointer]
+    - button "提交新批改" [ref=e1]
+    - generic
+      - textbox "搜索历史记录" [ref=e22]
+    - image [ref=e2] clickable [cursor:pointer]
+    - generic [ref=e3] clickable [cursor:pointer]
+  - button "caret-left" [ref=e4]
+- generic
+  - generic
+  - banner
+  - generic [ref=e5] clickable [cursor:pointer]
+    - StaticText "语文"
+  - generic [ref=e6] clickable [cursor:pointer]
+    - StaticText "英语"
+  - generic [ref=e7] clickable [cursor:pointer]
+    - generic
+      - combobox [ref=e26]
+  - generic [ref=e8] clickable [cursor:pointer]
+    - generic
+      - combobox [ref=e27]
+  - generic [ref=e9] clickable [cursor:pointer]
+    - generic
+      - combobox [ref=e28]
+  - StaticText "作文题目与评分分值"
+  - StaticText "满分"
+  - spinbutton [ref=e23]: 60
+  - StaticText "分"
+  - generic
+    - textbox "输入消息..." [ref=e10]
+    - button "plus 添加图片" [ref=e24]
+  - StaticText "作文原图上传"
+  - generic
+    - button "plus 添加图片" [ref=e25]
+    - button "识别预览" [ref=e11]

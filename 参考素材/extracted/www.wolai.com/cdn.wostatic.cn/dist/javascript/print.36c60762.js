@@ -1,0 +1,1 @@
+'use strict';(self['webpackChunk_wolai_web']=self['webpackChunk_wolai_web']||[])['push']([[0x1a54],{'BZQC':(b,c,d)=>{d['r'](c),d['d'](c,{'default':()=>f});const f={};}}]);

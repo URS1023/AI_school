@@ -1,0 +1,54 @@
+URL: https://www.sjjbai.com/edu-web/exam-center
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e7]
+        - link "资源中心" [ref=e8]
+        - link "教学中心" [ref=e9]
+        - link "教育资讯" [ref=e10]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e14]
+            - generic [ref=e16] clickable [cursor:pointer]
+    - generic
+      - generic
+        - image "fail"
+        - StaticText "考试中心"
+        - StaticText "支持校内考试、区域联考，操作流程简单便捷，数据分析精准高效，为学校教学质量效果评价提供科学严谨的数据支撑。"
+      - form
+        - generic
+          - image
+          - textbox "请输入查找内容" [ref=e22]
+        - generic
+          - image
+          - combobox "开始日期" [expanded=false, ref=e17]
+          - StaticText "-"
+          - combobox "结束日期" [expanded=false, ref=e18]
+        - generic [ref=e19] clickable [cursor:pointer]
+          - generic
+            - combobox [expanded=false, ref=e23]
+          - image
+        - generic [ref=e20] clickable [cursor:pointer]
+          - generic
+            - combobox [expanded=false, ref=e24]
+          - image
+        - generic [ref=e21] clickable [cursor:pointer]
+          - generic
+            - combobox [expanded=false, ref=e25]
+        - button "搜索" [ref=e15]
+      - generic
+        - button "考试答题卡" [ref=e11]
+        - button "创建考试" [ref=e12]
+        - button "设置" [ref=e13]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

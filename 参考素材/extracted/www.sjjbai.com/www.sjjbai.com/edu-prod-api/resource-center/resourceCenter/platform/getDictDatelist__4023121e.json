@@ -1,0 +1,110 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "1969293618516512771",
+      "dictSort": 0,
+      "dictLabel": "WORD",
+      "dictValue": "2",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512772",
+      "dictSort": 0,
+      "dictLabel": "PPT",
+      "dictValue": "3",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512773",
+      "dictSort": 0,
+      "dictLabel": "音频",
+      "dictValue": "4",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512774",
+      "dictSort": 0,
+      "dictLabel": "视频",
+      "dictValue": "5",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512775",
+      "dictSort": 0,
+      "dictLabel": "图片",
+      "dictValue": "6",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512776",
+      "dictSort": 0,
+      "dictLabel": "压缩包",
+      "dictValue": "7",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512777",
+      "dictSort": 0,
+      "dictLabel": "其他",
+      "dictValue": "8",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    },
+    {
+      "id": null,
+      "dictCode": "1969293618516512770",
+      "dictSort": 0,
+      "dictLabel": "PDF",
+      "dictValue": "1",
+      "dictType": "resource_format",
+      "cssClass": null,
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": null,
+      "createTime": "2025-09-20 06:52:41"
+    }
+  ]
+}

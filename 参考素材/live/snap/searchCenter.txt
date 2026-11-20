@@ -1,0 +1,217 @@
+URL: https://www.sjjbai.com/edu-web/searchCenter
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e60]
+        - link "资源中心" [ref=e61]
+        - link "教学中心" [ref=e62]
+        - link "教育资讯" [ref=e63]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e67]
+            - generic [ref=e68] clickable [cursor:pointer]
+    - generic
+      - image "fail"
+      - StaticText "搜索中心"
+      - StaticText "备课系统包含资源管理、智能备课、协作编辑三大模块，支持多媒体素材管理、AI教案生成、多教师协同编辑等功能，通过微服务架构提升备课效率。"
+    - generic [ref=e1] clickable [cursor:pointer]
+      - StaticText "资源列表"
+    - generic [ref=e2] clickable [cursor:pointer]
+      - StaticText "试卷列表"
+    - image "search"
+    - textbox "请输入资源名称、关键词等" [ref=e3]
+    - StaticText "学段"
+    - generic [ref=e4] clickable [cursor:pointer]
+      - StaticText "全部"
+    - generic [ref=e5] clickable [cursor:pointer]
+      - StaticText "高中"
+    - generic [ref=e6] clickable [cursor:pointer]
+      - StaticText "初中"
+    - generic [ref=e7] clickable [cursor:pointer]
+      - StaticText "小学"
+    - StaticText "学科"
+    - generic [ref=e8] clickable [cursor:pointer]
+      - StaticText "全部"
+    - generic [ref=e9] clickable [cursor:pointer]
+      - StaticText "语文"
+    - generic [ref=e10] clickable [cursor:pointer]
+      - StaticText "数学"
+    - generic [ref=e11] clickable [cursor:pointer]
+      - StaticText "英语"
+    - generic [ref=e12] clickable [cursor:pointer]
+      - StaticText "物理"
+    - generic [ref=e13] clickable [cursor:pointer]
+      - StaticText "化学"
+    - generic [ref=e14] clickable [cursor:pointer]
+      - StaticText "生物"
+    - generic [ref=e15] clickable [cursor:pointer]
+      - StaticText "政治"
+    - generic [ref=e16] clickable [cursor:pointer]
+      - StaticText "历史"
+    - generic [ref=e17] clickable [cursor:pointer]
+      - StaticText "地理"
+    - generic [ref=e18] clickable [cursor:pointer]
+      - StaticText "日语"
+    - generic [ref=e19] clickable [cursor:pointer]
+      - StaticText "俄语"
+    - generic [ref=e20] clickable [cursor:pointer]
+      - StaticText "西班牙语"
+    - generic [ref=e21] clickable [cursor:pointer]
+      - StaticText "德语"
+    - generic [ref=e22] clickable [cursor:pointer]
+      - StaticText "法语"
+    - generic [ref=e23] clickable [cursor:pointer]
+      - StaticText "阿拉伯语"
+    - generic [ref=e24] clickable [cursor:pointer]
+      - StaticText "韩语"
+    - generic [ref=e25] clickable [cursor:pointer]
+      - StaticText "道德与法治"
+    - generic [ref=e26] clickable [cursor:pointer]
+      - StaticText "信息技术"
+    - generic [ref=e27] clickable [cursor:pointer]
+      - StaticText "通用技术"
+    - StaticText "类型"
+    - generic [ref=e28] clickable [cursor:pointer]
+      - StaticText "全部"
+    - generic [ref=e29] clickable [cursor:pointer]
+      - StaticText "课件"
+    - generic [ref=e30] clickable [cursor:pointer]
+      - StaticText "教案"
+    - generic [ref=e31] clickable [cursor:pointer]
+      - StaticText "学案"
+    - generic [ref=e32] clickable [cursor:pointer]
+      - StaticText "作业"
+    - generic [ref=e33] clickable [cursor:pointer]
+      - StaticText "试卷"
+    - generic [ref=e34] clickable [cursor:pointer]
+      - StaticText "微课"
+    - generic [ref=e35] clickable [cursor:pointer]
+      - StaticText "素材"
+    - generic [ref=e36] clickable [cursor:pointer]
+      - StaticText "其他"
+    - button "搜索" [ref=e37]
+      - StaticText "搜索"
+    - button "重置" [ref=e38]
+      - StaticText "重置"
+    - generic [ref=e47] clickable [cursor:pointer]
+      - generic
+        - combobox [expanded=false, ref=e69]
+        - StaticText "周下载"
+      - image
+    - generic
+      - generic [ref=e48] clickable [cursor:pointer]
+        - button "功能筛选 全部类型" [expanded=false, ref=e64]
+      - generic [ref=e49] clickable [cursor:pointer]
+        - button "批量操作 批量操作" [expanded=false, ref=e65]
+    - generic
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e70] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e81]
+          - button "加入资源篮" [ref=e82]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e71] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e83]
+          - button "加入资源篮" [ref=e84]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e72] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e85]
+          - button "加入资源篮" [ref=e86]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e73] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e87]
+          - button "加入资源篮" [ref=e88]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e74] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e89]
+          - button "加入资源篮" [ref=e90]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e75] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e91]
+          - button "加入资源篮" [ref=e92]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e76] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e93]
+          - button "加入资源篮" [ref=e94]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e77] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e95]
+          - button "加入资源篮" [ref=e96]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e78] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e97]
+          - button "加入资源篮" [ref=e98]
+      - separator
+      - generic
+        - image "其他"
+        - generic
+          - generic [ref=e79] clickable [cursor:pointer]
+        - generic
+          - button "下载资源" [ref=e99]
+          - button "加入资源篮" [ref=e100]
+      - separator
+    - StaticText "共 548647 条"
+    - generic [ref=e50] clickable [cursor:pointer]
+      - generic
+        - combobox [expanded=false, ref=e80]
+    - button "上一页" [disabled, ref=e39]
+    - list
+      - listitem "第 1 页" [level=1, ref=e51] focusable [tabindex]
+      - listitem "第 2 页" [level=1, ref=e52] clickable [cursor:pointer, tabindex]
+      - listitem "第 3 页" [level=1, ref=e53] clickable [cursor:pointer, tabindex]
+      - listitem "第 4 页" [level=1, ref=e54] clickable [cursor:pointer, tabindex]
+      - listitem "第 5 页" [level=1, ref=e55] clickable [cursor:pointer, tabindex]
+      - listitem "第 6 页" [level=1, ref=e56] clickable [cursor:pointer, tabindex]
+      - listitem "向后 5 页" [level=1, ref=e57] clickable [cursor:pointer, tabindex]
+      - listitem "第 54865 页" [level=1, ref=e58] clickable [cursor:pointer, tabindex]
+    - button "下一页" [ref=e40]
+    - StaticText "前往"
+    - spinbutton "页" [ref=e66]: 1
+    - StaticText "页"
+    - generic [ref=e59] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e41] clickable [cursor:pointer]
+      - generic [ref=e42] clickable [cursor:pointer]
+      - generic [ref=e43] clickable [cursor:pointer]
+      - generic [ref=e44] clickable [cursor:pointer]
+      - generic [ref=e45] clickable [cursor:pointer]
+      - generic [ref=e46] clickable [cursor:pointer]

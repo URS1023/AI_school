@@ -1,0 +1,45 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": null,
+      "dictCode": "2003358483588698114",
+      "dictSort": 0,
+      "dictLabel": "免费",
+      "dictValue": "1",
+      "dictType": "platform_level",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-12-23 14:54:17"
+    },
+    {
+      "id": null,
+      "dictCode": "2003358597426302977",
+      "dictSort": 1,
+      "dictLabel": "精品",
+      "dictValue": "2",
+      "dictType": "platform_level",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-12-23 14:54:44"
+    },
+    {
+      "id": null,
+      "dictCode": "2003358669132124162",
+      "dictSort": 2,
+      "dictLabel": "金榜特供",
+      "dictValue": "3",
+      "dictType": "platform_level",
+      "cssClass": "",
+      "listClass": "primary",
+      "isDefault": "N",
+      "remark": "",
+      "createTime": "2025-12-23 14:55:01"
+    }
+  ]
+}

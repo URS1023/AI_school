@@ -1,0 +1,14 @@
+{
+  "code": 200,
+  "msg": "操作成功",
+  "data": {
+    "id": "2000906971373490178",
+    "configId": 2,
+    "platformType": "web",
+    "maleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/male/2%E7%99%BD%E9%93%B6.png",
+    "maleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/male/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85%E7%94%B7.mp4",
+    "femaleRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/promotion-effect/teacher/female/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85.jpg",
+    "femaleUpgradeRes": "https://oss.jb1000.com/sjjbai-files/user-growth-system/point-level/animation/teacher/female/2%E7%99%BD%E9%93%B6%E5%AD%A6%E8%80%85%E5%A5%B3.mp4",
+    "levelIcon": ""
+  }
+}

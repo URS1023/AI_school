@@ -1,0 +1,67 @@
+URL: https://www.sjjbai.com/edu-web/giveLessonsResources
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e7]
+        - link "资源中心" [ref=e8]
+        - link "教学中心" [ref=e9]
+        - link "教育资讯" [ref=e10]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e11]
+            - generic [ref=e12] clickable [cursor:pointer]
+              - StaticText "匿名用户"
+              - image "等级"
+              - StaticText "青铜助教"
+              - image
+    - generic
+      - generic
+        - generic
+          - generic
+            - generic
+              - StaticText "我的授课"
+            - generic
+              - generic [ref=e18] clickable [cursor:pointer]
+                - StaticText "高中 语文"
+              - image "筛选" [ref=e19] clickable [cursor:pointer]
+          - StaticText "融合AI互动工具，支持备课内容灵活调用、随机提问、随讲随测，打造沉浸式高效互动教学场景"
+        - generic
+          - generic
+            - generic
+              - image "搜索"
+              - textbox "请输入查找内容" [ref=e20]
+            - tree
+              - treeitem "我的授课资源" [level=1, checked=false, expanded=true, ref=e15]
+                - image
+                - StaticText "我的授课资源"
+                - group
+                  - treeitem "独立备课资源" [level=2, checked=false, expanded=false, ref=e21]
+                  - treeitem "集体备课资源" [level=2, checked=false, expanded=false, ref=e22]
+                  - treeitem "待整理备课资料" [level=2, checked=false, expanded=false, ref=e23]
+          - generic
+            - image "我的授课资料"
+            - StaticText "我的授课资料"
+            - image "暂无数据"
+            - StaticText "暂无数据"
+            - StaticText "共 0 条"
+            - button "上一页" [disabled, ref=e13]
+              - image
+            - list
+              - listitem "第 1 页" [level=1, ref=e16] focusable [tabindex]
+            - button "下一页" [disabled, ref=e14]
+              - image
+            - generic [ref=e17] clickable [cursor:pointer]
+              - generic
+                - combobox [expanded=false, ref=e24]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

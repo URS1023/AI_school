@@ -1,0 +1,75 @@
+URL: https://www.sjjbai.com/edu-web/answerCardList
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e7]
+        - link "资源中心" [ref=e8]
+        - link "教学中心" [ref=e9]
+        - link "教育资讯" [ref=e10]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e15]
+            - generic [ref=e22] clickable [cursor:pointer]
+              - StaticText "匿名用户"
+              - image "等级"
+              - StaticText "青铜助教"
+              - image
+    - generic
+      - generic
+        - generic [ref=e11] clickable [cursor:pointer]
+          - image "..."
+          - StaticText "返回上一步"
+        - generic
+          - generic [ref=e16] clickable [cursor:pointer]
+            - StaticText "高中 语文"
+          - image "筛选" [ref=e17] clickable [cursor:pointer]
+      - StaticText "答题卡列表"
+      - StaticText "目录"
+      - image
+      - tree
+        - StaticText "暂无数据"
+      - generic
+        - StaticText "答题卡列表"
+        - generic
+          - image
+          - combobox "开始时间" [expanded=false, ref=e18]
+          - StaticText "—"
+          - combobox "结束时间" [expanded=false, ref=e19]
+        - generic
+          - image "search" [ref=e23] clickable [cursor:pointer]
+          - textbox "请输入答题卡名称查询" [ref=e24]
+        - button "创建新的答题卡" [ref=e12]
+        - generic
+          - generic
+            - table
+              - rowgroup
+                - row
+                  - columnheader "序号" [ref=e26]
+                  - columnheader "答题卡名称" [ref=e27]
+                  - columnheader "科目" [ref=e28]
+                  - columnheader "创建时间" [ref=e29]
+                  - columnheader "创建人" [ref=e30]
+                  - columnheader "是否识别" [ref=e31]
+                  - columnheader "操作" [ref=e32]
+        - StaticText "共 0 条"
+        - button "上一页" [disabled, ref=e13]
+          - image
+        - list
+          - listitem "第 1 页" [level=1, ref=e20] focusable [tabindex]
+        - button "下一页" [disabled, ref=e14]
+          - image
+        - generic [ref=e21] clickable [cursor:pointer]
+          - generic
+            - combobox [expanded=false, ref=e25]
+    - generic
+      - generic [ref=e1] clickable [cursor:pointer]
+      - generic [ref=e2] clickable [cursor:pointer]
+      - generic [ref=e3] clickable [cursor:pointer]
+      - generic [ref=e4] clickable [cursor:pointer]
+      - generic [ref=e5] clickable [cursor:pointer]
+      - generic [ref=e6] clickable [cursor:pointer]

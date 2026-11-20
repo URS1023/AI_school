@@ -1,0 +1,51 @@
+- generic
+  - complementary
+    - image "logo"
+    - StaticText "访客学校（默认）"
+    - generic
+      - generic [ref=e16] clickable [cursor:pointer]
+    - StaticText "匿名用户"
+    - StaticText "(游客)"
+    - image
+    - StaticText "532"
+    - generic [ref=e17] clickable [cursor:pointer]
+    - generic [ref=e18] clickable [cursor:pointer]
+    - generic [ref=e19] clickable [cursor:pointer]
+    - generic [ref=e20] clickable [cursor:pointer]
+    - generic [ref=e21] clickable [cursor:pointer]
+    - generic [ref=e22] clickable [cursor:pointer]
+    - generic [ref=e23] clickable [cursor:pointer]
+    - generic
+      - generic [ref=e24] clickable [cursor:pointer]
+      - generic [ref=e25] clickable [cursor:pointer]
+    - button "message 开启新对话" [ref=e5]
+    - generic
+      - textbox "搜索历史记录" [ref=e26]
+    - image [ref=e6] clickable [cursor:pointer]
+  - button "caret-left" [ref=e7]
+- main
+  - generic
+  - sectionheader
+  - generic
+    - image "exclamation-circle"
+    - StaticText "温馨提示：当前智能体为计费智能体，“先使用再扣费”，使用过程会扣除您账户的金榜币；金榜币不足时，请充值金榜币后继续使用。"
+    - generic [ref=e8] clickable [cursor:pointer]
+      - image "close"
+  - generic
+    - button "选择文件" [ref=e9]: 未选择任何文件
+    - textbox "输入消息..." [ref=e10]
+    - generic [ref=e11] clickable [cursor:pointer]
+      - generic
+        - combobox [ref=e27]
+    - generic [ref=e12] clickable [cursor:pointer]
+      - generic
+        - combobox [ref=e28]
+    - generic [ref=e13] clickable [cursor:pointer]
+      - generic
+        - combobox [ref=e29]
+    - button "audio 语音输入" [ref=e14]
+    - button [disabled, ref=e15]
+  - generic [ref=e1] clickable [cursor:pointer]
+  - generic [ref=e2] clickable [cursor:pointer]
+  - generic [ref=e3] clickable [cursor:pointer]
+  - generic [ref=e4] clickable [cursor:pointer]

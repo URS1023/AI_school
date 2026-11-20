@@ -1,0 +1,90 @@
+URL: https://www.sjjbai.com/edu-web/resource-center/digitalLibrary
+- generic
+  - generic
+    - generic
+      - generic
+        - image "Logo"
+        - StaticText "世纪金榜AI"
+      - generic
+        - link "首页" [ref=e14]
+        - link "资源中心" [ref=e15]
+        - link "教学中心" [ref=e16]
+        - link "教育资讯" [ref=e17]
+      - generic
+        - image "头像"
+        - menubar
+          - menuitem "匿名用户 等级 青铜助教" [expanded=false, ref=e18]
+            - generic [ref=e19] clickable [cursor:pointer]
+    - link "平台资源" [ref=e1]
+    - link "题库资源" [ref=e2]
+    - link "学科网资源" [ref=e3]
+    - link "学科网题库" [ref=e4]
+    - link "数字图书" [ref=e5]
+    - link "资源征集" [ref=e6]
+    - link "素养课程" [ref=e7]
+    - generic
+      - generic
+        - generic
+          - generic
+            - StaticText "数字图书"
+          - generic
+            - generic [ref=e39] clickable [cursor:pointer]
+            - image "筛选" [ref=e40] clickable [cursor:pointer]
+        - StaticText "收录世纪金榜权威图书资源，支持在线阅读、批量下载优质教辅，完美适配数字化教学场景"
+      - generic
+        - StaticText "数字图书"
+      - generic
+        - generic
+          - StaticText "所属系列"
+          - generic [ref=e36] clickable [cursor:pointer]
+            - generic
+              - combobox [expanded=false, ref=e42]
+            - image
+          - StaticText "选择版别"
+          - generic [ref=e37] clickable [cursor:pointer]
+            - generic
+              - combobox [expanded=false, ref=e43]
+            - image
+          - StaticText "省份"
+          - generic [ref=e38] clickable [cursor:pointer]
+            - generic
+              - combobox [expanded=false, ref=e44]
+        - generic [ref=e22] clickable [cursor:pointer]
+          - StaticText "26版高中考前冲刺抢分练语文"
+        - generic [ref=e23] clickable [cursor:pointer]
+          - StaticText "高中语文语法补习"
+        - generic [ref=e24] clickable [cursor:pointer]
+          - StaticText "作文热点素材及运用技巧"
+        - generic [ref=e25] clickable [cursor:pointer]
+          - StaticText "高考满分作文写作指导"
+        - generic [ref=e26] clickable [cursor:pointer]
+          - StaticText "晨读晚练"
+        - generic [ref=e27] clickable [cursor:pointer]
+          - StaticText "红楼梦阅读指导与训练"
+        - generic [ref=e28] clickable [cursor:pointer]
+          - StaticText "高中古诗文必背全解全练（60篇）"
+        - generic [ref=e29] clickable [cursor:pointer]
+          - StaticText "高中古诗文全解全练（高二）"
+        - generic [ref=e30] clickable [cursor:pointer]
+          - StaticText "高中古诗文全解全练（高一）"
+        - generic [ref=e31] clickable [cursor:pointer]
+          - StaticText "高中语文100练26版高中复习加练1刻钟"
+        - StaticText "共 21 条"
+        - button "上一页" [disabled, ref=e20]
+          - image
+        - list
+          - listitem "第 1 页" [level=1, ref=e32] focusable [tabindex]
+          - listitem "第 2 页" [level=1, ref=e33] clickable [cursor:pointer, tabindex]
+          - listitem "第 3 页" [level=1, ref=e34] clickable [cursor:pointer, tabindex]
+        - button "下一页" [ref=e21]
+          - image
+        - generic [ref=e35] clickable [cursor:pointer]
+          - generic
+            - combobox [expanded=false, ref=e41]
+    - generic
+      - generic [ref=e8] clickable [cursor:pointer]
+      - generic [ref=e9] clickable [cursor:pointer]
+      - generic [ref=e10] clickable [cursor:pointer]
+      - generic [ref=e11] clickable [cursor:pointer]
+      - generic [ref=e12] clickable [cursor:pointer]
+      - generic [ref=e13] clickable [cursor:pointer]
