@@ -26,7 +26,16 @@ public class AiApiImpl implements AiApi {
     }
 
     @Override
+    public AiResult runFree(Long userId, String agentCode, String prompt, Map<String, Object> params) {
+        return doRun(userId, agentCode, prompt, params, true);
+    }
+
+    @Override
     public AiResult run(Long userId, String agentCode, String prompt, Map<String, Object> params) {
+        return doRun(userId, agentCode, prompt, params, false);
+    }
+
+    private AiResult doRun(Long userId, String agentCode, String prompt, Map<String, Object> params, boolean free) {
         CurrentIdentity ci = LoginHelper.require();
         if (!ci.userId().equals(userId)) {
             throw new BizException(ErrorCode.FORBIDDEN);
@@ -35,7 +44,7 @@ public class AiApiImpl implements AiApi {
         // 预估数量：出题按题量，其余按 1 次（结算时按实际用量，不超过预估）
         int units = p == null ? 1 : Math.max(1, p.path("count").asInt(1));
         AgentRuntime.TaskResult r = runtime.run(ci, new AgentRuntime.RunRequest(agentCode, null, prompt, p,
-                java.util.List.of(new AgentRuntime.Item(null, prompt)), units, null, false, null, null));
+                java.util.List.of(new AgentRuntime.Item(null, prompt)), units, null, free, null, null));
         if (!"SUCCESS".equals(r.status())) {
             throw new BizException(ErrorCode.AI_FAILED, r.userMessage(), r.taskId());
         }

@@ -65,7 +65,8 @@ public class HomeworkService {
     @Transactional
     public ExHomework assign(CurrentIdentity ci, AssignReq req) {
         BizException.throwIf(req.classIds() == null || req.classIds().isEmpty(), ErrorCode.BAD_REQUEST, "请选择班级");
-        BizException.throwIf(req.sheetId() == null, ErrorCode.BAD_REQUEST, "请选择答题卡");
+        boolean workbook = "WORKBOOK".equals(req.scanType());
+        BizException.throwIf(req.sheetId() == null && !workbook, ErrorCode.BAD_REQUEST, "请选择答题卡（扫描教辅可不选）");
         SchoolApi.AcademicYearDTO year = schoolApi.currentYear(ci.tenantId());
         VisibleScope scope = dataScope.current();
         for (Long classId : req.classIds()) {
@@ -81,7 +82,8 @@ public class HomeworkService {
             req.classIds().forEach(c -> schoolApi.listStudentsByClass(c).forEach(s -> inClasses.add(s.id())));
             BizException.throwIf(!inClasses.containsAll(req.studentIds()), ErrorCode.BAD_REQUEST, "指定的学生不在所选班级中");
         }
-        ExSheetVersion v = sheetService.currentVersion(req.sheetId());
+        ExSheetVersion v = req.sheetId() == null ? null : sheetService.currentVersion(req.sheetId());
+        BizException.throwIf("ONLINE".equals(req.mode()) && v == null, ErrorCode.BAD_REQUEST, "线上作业必须选择答题卡");
         boolean online = "ONLINE".equals(req.mode());
         ExHomework h = new ExHomework();
         h.setYearId(year.id());
@@ -89,7 +91,7 @@ public class HomeworkService {
         h.setHwMode(online ? "ONLINE" : "OFFLINE");
         h.setScanType(req.scanType() == null ? "ANSWER_SHEET" : req.scanType());
         h.setSubject(req.subject());
-        h.setSheetVersionId(v.getId());
+        h.setSheetVersionId(v == null ? null : v.getId());
         h.setClassIds(req.classIds().stream().map(String::valueOf).collect(Collectors.joining(",")));
         h.setStudentIds(req.studentIds() == null ? null : req.studentIds().stream().map(String::valueOf).collect(Collectors.joining(",")));
         h.setDeadline(req.deadline());

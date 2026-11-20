@@ -42,6 +42,7 @@ public class ScanService {
     private final ExAnswerItemMapper itemMapper;
     private final SourceService sourceService;
     private final SheetService sheetService;
+    private final WorkbookService workbookService;
     private final ScoringService scoring;
     private final FlowService flowService;
     private final SchoolApi schoolApi;
@@ -67,7 +68,8 @@ public class ScanService {
     public ExScanBatch createBatch(CurrentIdentity ci, String sourceType, Long sourceId, String scanType) {
         SourceService.Source s = sourceService.load(sourceType, sourceId);
         sourceService.checkAccess(ci, s);
-        BizException.throwIf(s.sheetVersionId() == null, ErrorCode.BAD_REQUEST, "请先关联答题卡");
+        boolean workbook = s.raw() instanceof ExHomework h && "WORKBOOK".equals(h.getScanType());
+        BizException.throwIf(s.sheetVersionId() == null && !workbook, ErrorCode.BAD_REQUEST, "请先关联答题卡");
         ExScanBatch b = new ExScanBatch();
         b.setSourceType(sourceType);
         b.setSourceId(sourceId);
@@ -98,11 +100,19 @@ public class ScanService {
         List<String> conflicts = new ArrayList<>();
         for (RecognizedPage p : req.pages()) {
             images += p.images() == null ? 0 : p.images().size();
-            ExSheetVersion v = sheetService.versionByQr(p.qr());
-            if (v == null) {
-                v = sheetService.version(s.sheetVersionId());
+            // 教辅：按页面二维码取模板；答题卡：按二维码里的版本号（AC-04），没有二维码用作业绑定的版本
+            List<SheetService.Block> blocks = workbookService.blocksByQr(p.qr());
+            ExSheetVersion v = null;
+            if (blocks == null) {
+                v = sheetService.versionByQr(p.qr());
+                if (v == null) {
+                    BizException.throwIf(s.sheetVersionId() == null, ErrorCode.BAD_REQUEST,
+                            "第 " + p.pageRef() + " 页二维码无法识别，且该作业没有关联答题卡");
+                    v = sheetService.version(s.sheetVersionId());
+                }
+                sheetService.lock(v);
+                blocks = sheetService.blocks(v);
             }
-            sheetService.lock(v);
             if (req.reRecognize()) {
                 ExAnswer existing = answerMapper.selectOne(Wrappers.<ExAnswer>lambdaQuery()
                         .eq(ExAnswer::getBatchId, batch.getId()).eq(ExAnswer::getPageRef, p.pageRef())
@@ -116,7 +126,7 @@ public class ScanService {
             ExAnswer a = new ExAnswer();
             a.setSourceType(s.type());
             a.setSourceId(s.id());
-            a.setSheetVersionId(v.getId());
+            a.setSheetVersionId(v == null ? null : v.getId());
             a.setBatchId(batch.getId());
             a.setPageRef(p.pageRef());
             a.setImages(json(p.images()));
@@ -153,7 +163,7 @@ public class ScanService {
                 a.setClassId(targets.get(studentId));
             }
             answerMapper.insert(a);
-            createItems(a, v, p);
+            createItems(a, blocks, p);
             if ("EXCEPTION".equals(a.getAnswerStatus())) {
                 exceptions++;
                 scoring.recalc(a);
@@ -172,8 +182,8 @@ public class ScanService {
         return new IngestResult(recognized, exceptions, duplicates, conflicts);
     }
 
-    private void createItems(ExAnswer a, ExSheetVersion v, RecognizedPage p) {
-        for (SheetService.Block b : sheetService.blocks(v)) {
+    private void createItems(ExAnswer a, List<SheetService.Block> blocks, RecognizedPage p) {
+        for (SheetService.Block b : blocks) {
             ExAnswerItem it = new ExAnswerItem();
             it.setAnswerId(a.getId());
             it.setItemNo(b.no());
@@ -181,13 +191,13 @@ public class ScanService {
             it.setObjective(b.objective());
             it.setFullScore(b.fullScore());
             it.setStdAnswer(b.answer());
-            it.setStudentAnswer(p.answers() == null ? null : p.answers().get(b.no()));
+            it.setStudentAnswer(lookup(p.answers(), b.no()));
             it.setNeedsReview(false);
             if (b.objective()) {
                 it.setScore(ScoringService.autoScore(it));
                 it.setScoreSource("AUTO");
-            } else if (p.scores() != null && p.scores().containsKey(b.no())) {
-                scoring.applyRecognizedScore(it, p.scores().get(b.no()));
+            } else if (lookup(p.scores(), b.no()) != null) {
+                scoring.applyRecognizedScore(it, lookup(p.scores(), b.no()));
             }
             itemMapper.insert(it);
         }
@@ -198,9 +208,12 @@ public class ScanService {
      * 旧卷上人工批阅过的分数搬到新卷，不被识别结果覆盖。返回是否发生了重复。
      */
     private boolean attachToStudent(ExAnswer a) {
-        ExAnswer old = answerMapper.selectOne(Wrappers.<ExAnswer>lambdaQuery().eq(ExAnswer::getSourceType, a.getSourceType())
-                .eq(ExAnswer::getSourceId, a.getSourceId()).eq(ExAnswer::getStudentId, a.getStudentId())
-                .eq(ExAnswer::getIsCurrent, true).ne(ExAnswer::getId, a.getId()).ne(ExAnswer::getAnswerStatus, "EXCEPTION"));
+        // 教辅作业一个学生有多页，重复判断按「同一页」；答题卡按「同一份作业」
+        String page = pageOf(a);
+        ExAnswer old = answerMapper.selectList(Wrappers.<ExAnswer>lambdaQuery().eq(ExAnswer::getSourceType, a.getSourceType())
+                        .eq(ExAnswer::getSourceId, a.getSourceId()).eq(ExAnswer::getStudentId, a.getStudentId())
+                        .eq(ExAnswer::getIsCurrent, true).ne(ExAnswer::getId, a.getId()).ne(ExAnswer::getAnswerStatus, "EXCEPTION"))
+                .stream().filter(o -> Objects.equals(pageOf(o), page)).findFirst().orElse(null);
         if (old != null) {
             Map<String, ExAnswerItem> oldItems = new HashMap<>();
             scoring.items(old.getId()).forEach(i -> oldItems.put(i.getItemNo(), i));
@@ -229,8 +242,8 @@ public class ScanService {
     private List<String> reRecognize(ExAnswer a, RecognizedPage p) {
         List<String> conflicts = new ArrayList<>();
         for (ExAnswerItem it : scoring.items(a.getId())) {
-            String newAns = p.answers() == null ? null : p.answers().get(it.getItemNo());
-            BigDecimal newScore = p.scores() == null ? null : p.scores().get(it.getItemNo());
+            String newAns = lookup(p.answers(), it.getItemNo());
+            BigDecimal newScore = lookup(p.scores(), it.getItemNo());
             if (Boolean.TRUE.equals(it.getObjective())) {
                 if (newAns != null) {
                     it.setStudentAnswer(newAns);
@@ -336,10 +349,12 @@ public class ScanService {
                 .eq(ExAnswer::getSourceId, s.id()));
         List<ExAnswer> current = all.stream().filter(a -> Boolean.TRUE.equals(a.getIsCurrent())
                 && !"EXCEPTION".equals(a.getAnswerStatus()) && a.getStudentId() != null && targets.containsKey(a.getStudentId())).toList();
-        int marked = (int) current.stream().filter(a -> "MARKED".equals(a.getAnswerStatus())).count();
+        // 教辅作业一个学生可能有多页答卷：按学生去重；一个学生的所有页都阅完才算「已批阅」
+        Map<Long, List<ExAnswer>> byStudent = current.stream().collect(java.util.stream.Collectors.groupingBy(ExAnswer::getStudentId));
+        int marked = (int) byStudent.values().stream().filter(l -> l.stream().allMatch(a -> "MARKED".equals(a.getAnswerStatus()))).count();
         long images = batchMapper.selectList(Wrappers.<ExScanBatch>lambdaQuery().eq(ExScanBatch::getSourceType, s.type())
                 .eq(ExScanBatch::getSourceId, s.id())).stream().mapToLong(ExScanBatch::getImageCount).sum();
-        return new BatchStats(targets.size(), current.size(), marked, targets.size() - current.size(),
+        return new BatchStats(targets.size(), byStudent.size(), marked, targets.size() - byStudent.size(),
                 (int) all.stream().filter(a -> "EXCEPTION".equals(a.getAnswerStatus()) && Boolean.TRUE.equals(a.getIsCurrent())).count(),
                 (int) all.stream().filter(a -> "REPLACED".equals(a.getAnswerStatus())).count(),
                 (int) current.stream().filter(a -> Boolean.TRUE.equals(a.getLateFlag())).count(),
@@ -357,9 +372,25 @@ public class ScanService {
         return targets.keySet().stream().filter(sid -> !submitted.contains(sid)).toList();
     }
 
-    @SuppressWarnings("unused")
-    private boolean isHomework(SourceService.Source s) {
-        return s.raw() instanceof ExHomework;
+    /** 识别结果按题号取值：先按完整题号；教辅题号带页码前缀（12-3），识别服务回传的是页内题号（3）。 */
+    static <T> T lookup(Map<String, T> m, String no) {
+        if (m == null || no == null) {
+            return null;
+        }
+        T v = m.get(no);
+        if (v == null && no.contains("-")) {
+            v = m.get(no.substring(no.indexOf('-') + 1));
+        }
+        return v;
+    }
+
+    /** 教辅答卷的页码（题号形如 12-3）；答题卡答卷返回 null。 */
+    private String pageOf(ExAnswer a) {
+        if (a.getSheetVersionId() != null) {
+            return null;
+        }
+        return scoring.items(a.getId()).stream().map(ExAnswerItem::getItemNo).filter(n -> n.contains("-"))
+                .map(n -> n.substring(0, n.indexOf('-'))).findFirst().orElse(null);
     }
 
     private String json(Object o) {

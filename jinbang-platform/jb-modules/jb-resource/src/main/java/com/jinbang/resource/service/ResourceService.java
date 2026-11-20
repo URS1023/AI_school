@@ -46,7 +46,7 @@ import java.util.Set;
  */
 @Service
 @RequiredArgsConstructor
-public class ResourceService {
+public class ResourceService implements com.jinbang.api.resource.ResourceApi {
     public enum Status { DRAFT, PENDING, ONLINE, OFFLINE, REJECTED }
 
     public enum Event { SUBMIT, APPROVE, REJECT, TAKE_DOWN, PUT_ON, EDIT }
@@ -420,5 +420,14 @@ public class ResourceService {
 
     private static boolean notBlank(String s) {
         return s != null && !s.isBlank();
+    }
+
+    @Override
+    @Transactional
+    public ResourceFile takeForPrep(Long resourceId) {
+        CurrentIdentity ci = com.jinbang.common.security.LoginHelper.require();
+        DownloadResult d = download(ci, resourceId);
+        ResResource r = resourceMapper.selectById(resourceId);
+        return new ResourceFile(resourceId, r.getTitle(), r.getFileExt(), d.fileKey(), r.getFileSize(), d.paidCoins());
     }
 }

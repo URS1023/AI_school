@@ -15,6 +15,11 @@ public interface AiApi {
     /** 带结构化参数（例如作文批改的 fullScore、subject）。 */
     AiResult run(Long userId, String agentCode, String prompt, java.util.Map<String, Object> params);
 
+    /**
+     * 免费调用（主站智能备课本身不计费，完成后还发奖励，PRD 4.1.2）。照样记录任务、走内容审核，只是不冻结不扣费。
+     */
+    AiResult runFree(Long userId, String agentCode, String prompt, java.util.Map<String, Object> params);
+
     record AiResult(String taskId, String content, long charged) {
     }
 }

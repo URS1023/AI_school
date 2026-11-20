@@ -20,6 +20,7 @@
         <module>jb-ai</module>
         <module>jb-exam</module>
         <module>jb-learning</module>
+        <module>jb-teaching</module>
     </modules>
 
     <dependencies>

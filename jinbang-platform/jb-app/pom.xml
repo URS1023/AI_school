@@ -51,6 +51,11 @@
             <artifactId>jb-learning</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-teaching</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- MODULES -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

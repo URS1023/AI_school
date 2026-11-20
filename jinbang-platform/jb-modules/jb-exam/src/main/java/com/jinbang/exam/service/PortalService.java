@@ -76,9 +76,10 @@ public class PortalService {
     }
 
     private ResultView view(SourceService.Source s, Long sid, Long classId) {
-        ExAnswer a = answerMapper.selectOne(Wrappers.<ExAnswer>lambdaQuery().eq(ExAnswer::getSourceType, s.type())
+        List<ExAnswer> mine = answerMapper.selectList(Wrappers.<ExAnswer>lambdaQuery().eq(ExAnswer::getSourceType, s.type())
                 .eq(ExAnswer::getSourceId, s.id()).eq(ExAnswer::getStudentId, sid).eq(ExAnswer::getIsCurrent, true)
                 .ne(ExAnswer::getAnswerStatus, "EXCEPTION"));
+        ExAnswer a = mine.isEmpty() ? null : mine.getFirst();
         boolean visible = sourceService.publishedFor(s, classId);
         if (a == null) {
             return new ResultView(s.type(), s.id(), s.title(), s.subject(), s.time(), "未提交", null, null, null, List.of());
@@ -89,11 +90,17 @@ public class PortalService {
         }
         boolean showStd = !(s.raw() instanceof ExHomework h) || Boolean.TRUE.equals(h.getAnswerPublished())
                 || "MARKED".equals(h.getHwStatus());
-        List<ItemView> items = scoring.items(a.getId()).stream().map(it -> new ItemView(it.getItemNo(), it.getScore(),
-                it.getFullScore(), it.getStudentAnswer(), showStd ? it.getStdAnswer() : null)).toList();
+        List<ItemView> items = new ArrayList<>();
+        BigDecimal total = BigDecimal.ZERO;
+        BigDecimal full = BigDecimal.ZERO;
+        for (ExAnswer x : mine) {
+            scoring.items(x.getId()).forEach(it -> items.add(new ItemView(it.getItemNo(), it.getScore(), it.getFullScore(),
+                    it.getStudentAnswer(), showStd ? it.getStdAnswer() : null)));
+            total = total.add(x.getTotalScore() == null ? BigDecimal.ZERO : x.getTotalScore());
+            full = full.add(x.getFullScore() == null ? BigDecimal.ZERO : x.getFullScore());
+        }
         String state = s.raw() instanceof ExExam ? "已发布" : "已批阅";
-        return new ResultView(s.type(), s.id(), s.title(), s.subject(), s.time(), state, a.getTotalScore(), a.getFullScore(),
-                a.getLateFlag(), items);
+        return new ResultView(s.type(), s.id(), s.title(), s.subject(), s.time(), state, total, full, a.getLateFlag(), items);
     }
 
     public List<HomeworkTodo> homeworks(CurrentIdentity ci, Long studentId) {

@@ -48,6 +48,8 @@ public class ExamController {
     private final ScanService scanService;
     private final MarkingService markingService;
     private final PortalService portalService;
+    private final com.jinbang.exam.service.WorkbookService workbookService;
+    private final com.jinbang.exam.service.DataCenterService dataCenterService;
 
     @Value("${jb.recognition.callback-token:}")
     private String callbackToken;
@@ -355,5 +357,26 @@ public class ExamController {
     public R<ExAnswer> submitOnline(@PathVariable Long id, @RequestBody HomeworkService.OnlineSubmit req) {
         var ci = LoginHelper.require();
         return R.ok(homeworkService.submitOnline(ci, id, portalService.resolveStudent(ci, null), req));
+    }
+
+    // ---------------- 教辅页面模板库（运营后台）/ 数据中心 ----------------
+
+    @SaCheckPermission("op:resource")
+    @PostMapping("/api/admin/workbook/pages")
+    public R<com.jinbang.exam.domain.ExWorkbookPage> saveWorkbookPage(@RequestBody com.jinbang.exam.service.WorkbookService.PageReq req) {
+        return R.ok(workbookService.save(req));
+    }
+
+    @GetMapping("/api/exam/workbook/{bookCode}/pages")
+    public R<List<com.jinbang.exam.domain.ExWorkbookPage>> workbookPages(@PathVariable String bookCode) {
+        return R.ok(workbookService.pages(bookCode));
+    }
+
+    @SaCheckPermission("school:datacenter")
+    @GetMapping("/api/exam/datacenter/scan")
+    public R<com.jinbang.exam.service.DataCenterService.Report> dataCenter(
+            @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate from,
+            @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate to) {
+        return R.ok(dataCenterService.report(from, to));
     }
 }
