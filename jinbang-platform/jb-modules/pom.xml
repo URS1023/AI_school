@@ -16,6 +16,8 @@
         <module>jb-system</module>
         <module>jb-account</module>
         <module>jb-operation</module>
+        <module>jb-resource</module>
+        <module>jb-ai</module>
     </modules>
 
     <dependencies>

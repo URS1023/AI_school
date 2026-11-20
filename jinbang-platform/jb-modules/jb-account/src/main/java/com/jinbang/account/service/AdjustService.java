@@ -30,11 +30,12 @@ public class AdjustService {
     public record TaskFlow(CoinFreeze freeze, List<CoinLedger> ledgers) {
     }
 
-    /** 按任务 ID 查运营流水：冻结单 + 全部流水。 */
+    /** 按任务 ID 查运营流水：冻结单 + 全部流水（含该任务下子项重试产生的流水，业务 ID 形如 taskId#子项#次数）。 */
     public TaskFlow flowOfTask(String taskId) {
         return new TaskFlow(freezeMapper.selectOne(Wrappers.<CoinFreeze>lambdaQuery().eq(CoinFreeze::getTaskId, taskId)),
-                ledgerMapper.selectList(Wrappers.<CoinLedger>lambdaQuery().eq(CoinLedger::getBizId, taskId)
-                        .orderByAsc(CoinLedger::getCreatedAt)));
+                ledgerMapper.selectList(Wrappers.<CoinLedger>lambdaQuery()
+                        .and(w -> w.eq(CoinLedger::getBizId, taskId).or().likeRight(CoinLedger::getBizId, taskId + "#"))
+                        .orderByAsc(CoinLedger::getCreatedAt).orderByAsc(CoinLedger::getId)));
     }
 
     @Transactional
