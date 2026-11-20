@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.jinbang</groupId>
+        <artifactId>jb-modules</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>jb-exam</artifactId>
+    <description>考试阅卷：答题卡版本、作业与考试状态机、扫描识别入库、异常卷、重复扫描、阅卷、成绩审核发布与更正</description>
+
+    <dependencies>
+    </dependencies>
+</project>

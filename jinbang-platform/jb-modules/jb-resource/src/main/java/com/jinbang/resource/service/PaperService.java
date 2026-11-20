@@ -345,4 +345,18 @@ public class PaperService implements QuestionApi {
         }).toList();
         return new PaperDTO(p.getId(), p.getTitle(), p.getSubject(), p.getTotalScore(), out);
     }
+
+    @Override
+    public QuestionBrief getQuestion(Long questionId) {
+        if (questionId == null) {
+            return null;
+        }
+        QQuestion q = questionMapper.selectById(questionId);
+        CurrentIdentity ci = LoginHelper.current().orElse(null);
+        if (q == null || (ci != null && !questionService.canSee(ci, q) && !"PLATFORM".equals(q.getQScope()))) {
+            return null;
+        }
+        return new QuestionBrief(q.getId(), q.getSubject(), q.getQType(), q.getDifficulty(), q.getStem(), q.getOptions(),
+                q.getAnswer(), q.getAnalysis(), q.getKnowledge());
+    }
 }

@@ -11,6 +11,13 @@ public interface QuestionApi {
 
     PaperDTO getPaper(Long paperId);
 
+    /** 取单题（错题变式、讲评类题）。不可见时返回 null。 */
+    QuestionBrief getQuestion(Long questionId);
+
+    record QuestionBrief(Long id, String subject, String type, String difficulty, String stem, String options,
+                         String answer, String analysis, String knowledge) {
+    }
+
     record NewQuestion(String subject, String type, String difficulty, String stem, String options,
                        String answer, String analysis, String source) {
     }

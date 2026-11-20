@@ -50,6 +50,16 @@ public class SchoolApiImpl implements SchoolApi {
     }
 
     @Override
+    public List<ClassDTO> classesOfCurrentYear(Long tenantId) {
+        Long yearId = currentYear(tenantId).id();
+        return TenantContext.withTenant(tenantId, () -> {
+            List<EduClass> classes = classMapper.selectList(Wrappers.<EduClass>lambdaQuery().eq(EduClass::getYearId, yearId)
+                    .eq(EduClass::getClassStatus, "ACTIVE"));
+            return listClasses(classes.stream().map(EduClass::getId).collect(Collectors.toSet()));
+        });
+    }
+
+    @Override
     public List<ClassDTO> listClasses(Set<Long> classIds) {
         if (classIds == null || classIds.isEmpty()) {
             return List.of();

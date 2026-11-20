@@ -41,6 +41,16 @@
             <artifactId>jb-ai</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-exam</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jinbang</groupId>
+            <artifactId>jb-learning</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- MODULES -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

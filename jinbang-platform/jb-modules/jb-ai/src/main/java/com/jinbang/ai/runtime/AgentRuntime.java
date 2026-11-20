@@ -107,6 +107,7 @@ public class AgentRuntime {
     public TaskResult run(CurrentIdentity ci, RunRequest req) {
         AiAgent agent = agentService.require(req.agentCode(), ci);
         AgentSkill skill = skill(agent.getAgentCode());
+        JsonNode params = req.params() == null ? om.createObjectNode() : req.params();
         List<Item> items = req.items() == null || req.items().isEmpty()
                 ? List.of(new Item(null, req.displayText())) : req.items();
         if (items.size() > agent.getMaxUnits()) {
@@ -157,7 +158,7 @@ public class AgentRuntime {
                 sub.setInputText(item.input());
                 sub.setAttempts(1);
                 long remaining = req.free() ? 0 : Math.max(0, estimate - charged);
-                charged += execute(skill, ctx, req.params(), item.input(), agent, sub, remaining, req.free());
+                charged += execute(skill, ctx, params, item.input(), agent, sub, remaining, req.free());
                 subtaskMapper.insert(sub);
                 subs.add(sub);
                 task.setTokensIn(task.getTokensIn() + ctx.getTokensIn());

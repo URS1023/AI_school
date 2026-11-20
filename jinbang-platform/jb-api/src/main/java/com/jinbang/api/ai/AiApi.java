@@ -12,6 +12,9 @@ public interface AiApi {
      */
     AiResult run(Long userId, String agentCode, String prompt);
 
+    /** 带结构化参数（例如作文批改的 fullScore、subject）。 */
+    AiResult run(Long userId, String agentCode, String prompt, java.util.Map<String, Object> params);
+
     record AiResult(String taskId, String content, long charged) {
     }
 }

@@ -18,6 +18,8 @@
         <module>jb-operation</module>
         <module>jb-resource</module>
         <module>jb-ai</module>
+        <module>jb-exam</module>
+        <module>jb-learning</module>
     </modules>
 
     <dependencies>

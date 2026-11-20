@@ -12,6 +12,9 @@ public interface SchoolApi {
 
     ClassDTO getClass(Long classId);
 
+    /** 学校当前学年的全部班级（全校学情、大屏）。 */
+    List<ClassDTO> classesOfCurrentYear(Long tenantId);
+
     List<ClassDTO> listClasses(Set<Long> classIds);
 
     List<StudentDTO> listStudentsByClass(Long classId);
